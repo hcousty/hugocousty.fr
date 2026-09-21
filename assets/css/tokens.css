@@ -1,0 +1,284 @@
+/* ==========================================================================
+   TOKENS — hugocousty.fr
+   --------------------------------------------------------------------------
+   Toutes les valeurs visuelles du site sont définies ici, et uniquement ici.
+   base.css et sections.css ne contiennent aucune valeur en dur.
+
+   Deux parties :
+   A. DESIGN SYSTEM — copie des tokens du projet Claude Design
+      « Hugo Cousty Design System » (dossier tokens/). Mêmes noms, mêmes
+      valeurs. Pour mettre à jour : recopier le fichier correspondant.
+   B. SITE — quelques tokens propres au site (en-tête, slider, profondeur…),
+      toujours exprimés à partir des tokens du design system.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   A. DESIGN SYSTEM
+   ========================================================================== */
+
+/* --- A1. Police (tokens/fonts.css) ------------------------------------------
+   Geist, police unique du système (licence OFL, voir /assets/fonts/OFL.txt).
+   Hébergée sur le site (pas de Google Fonts) : 3 graisses utilisées. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: "Geist", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Geist", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-sans); /* les libellés changent de casse, pas de famille */
+}
+
+/* --- A2. Couleurs (tokens/colors.css) --------------------------------------- */
+:root {
+  /* Encre : gris très foncé, presque noir, avec une pointe de bleu */
+  --ink-900: #0D1017;
+  --ink-800: #171B25;
+  --ink-700: #333A47;
+  --ink-500: #656D7E;
+  --ink-400: #8C94A3;
+  --ink-300: #B9BFCA;
+
+  /* Blanc et gris froids : le fond dominant est le blanc pur */
+  --white: #FFFFFF;
+  --grey-050: #F6F7F9;
+  --grey-100: #EDEFF3;
+  --grey-200: #E1E4EA;
+  --grey-300: #CDD2DA;
+
+  /* Bleu : couleur unique du système */
+  --blue-700: #0A2A93;
+  --blue-600: #0E37C4;
+  --blue-500: #1440F0;
+  --blue-200: #C3CFFB;
+  --blue-100: #E9EEFE;
+
+  /* États de formulaire : jamais décoratifs */
+  --forest-600: #2C6A4C;
+  --forest-100: #DEEAE3;
+  --amber-600: #9E6510;
+  --amber-100: #F5E7D0;
+  --crimson-600: #A41F27;
+  --crimson-100: #F6DBDC;
+
+  /* Alias sémantiques — ce sont eux que le site utilise */
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+  --text-inverse: var(--white);
+  --text-accent: var(--blue-600);
+  --text-positive: var(--forest-600);
+  --text-warning: var(--amber-600);
+  --text-negative: var(--crimson-600);
+
+  --surface-page: var(--white);
+  --surface-card: var(--white);
+  --surface-sunken: var(--grey-050);
+  --surface-quiet: var(--grey-100);
+  --surface-inverse: var(--ink-900);
+  --surface-accent: var(--blue-500);
+  --surface-accent-quiet: var(--blue-100);
+
+  --border-hairline: var(--grey-200);
+  --border-mid: var(--grey-300);
+  --border-strong: var(--ink-900);
+  --border-accent: var(--blue-500);
+
+  --action-fg: var(--white);
+  --action-bg: var(--ink-900);
+  --action-bg-hover: var(--blue-500);
+  --action-bg-active: var(--blue-600);
+  --focus-ring: var(--blue-500);
+}
+
+/* Thème inverse : posé sur un bloc (data-theme="inverse"), il bascule tous
+   les alias à l'intérieur. Utilisé pour l'en-tête, le panneau du hero, le footer. */
+[data-theme="inverse"] {
+  --text-primary: var(--white);
+  --text-secondary: var(--grey-200);
+  --text-muted: var(--ink-300);
+  --text-faint: var(--ink-400);
+  --text-accent: #8DA6FF;
+  --surface-page: var(--ink-900);
+  --surface-card: var(--ink-800);
+  --surface-sunken: #101318;
+  --surface-quiet: var(--ink-800);
+  --surface-inverse: var(--ink-900);
+  --border-hairline: #262C38;
+  --border-mid: #3B4353;
+  --border-strong: var(--white);
+  --action-fg: var(--ink-900);
+  --action-bg: var(--white);
+  --action-bg-hover: #8DA6FF;
+  --action-bg-active: var(--blue-200);
+}
+
+/* --- A3. Typographie (tokens/typography.css) -------------------------------- */
+:root {
+  --text-display-1: clamp(44px, 6.4vw, 92px);
+  --text-display-2: clamp(34px, 4.4vw, 62px);
+  --text-h1: clamp(30px, 3.2vw, 44px);
+  --text-h2: 28px;
+  --text-h3: 20px;
+  --text-lead: 20px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 13px;
+  --text-label: 11px;
+
+  --leading-tight: 0.98;
+  --leading-snug: 1.12;
+  --leading-normal: 1.5;
+  --leading-loose: 1.65;
+
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-normal: -0.005em;
+  --tracking-label: 0.12em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --measure-prose: 64ch;
+  --measure-lead: 46ch;
+}
+
+/* --- A4. Espacements et grille (tokens/spacing.css) ------------------------- */
+:root {
+  --space-0: 0px;
+  --space-025: 2px;
+  --space-05: 4px;
+  --space-1: 8px;
+  --space-15: 12px;
+  --space-2: 16px;
+  --space-25: 20px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 56px;
+  --space-7: 72px;
+  --space-8: 96px;
+  --space-9: 128px;
+  --space-10: 176px;
+
+  --gutter: clamp(20px, 5vw, 64px);
+  --container-max: 1240px;
+  --container-prose: 720px;
+  --section-y: clamp(64px, 9vw, 136px);
+  --grid-columns: 12;
+  --grid-gap: 24px;
+}
+
+/* --- A5. Rayons, filets, ombre, voiles (tokens/surfaces.css) ---------------- */
+:root {
+  /* Rayons quasi nuls : la marque est angulaire */
+  --radius-0: 0px;
+  --radius-sm: 2px;    /* contrôles */
+  --radius-md: 6px;    /* cartes */
+  --radius-lg: 10px;   /* maximum */
+  --radius-pill: 999px; /* puces Tag, en-tête */
+
+  --border-width-hairline: 1px;
+  --border-width-strong: 1.5px;
+
+  /* Une seule ombre, réservée aux calques flottants (en-tête, modale) */
+  --shadow-none: none;
+  --shadow-pop: 0 1px 2px rgba(14, 14, 15, .05), 0 14px 36px -10px rgba(14, 14, 15, .20);
+  --shadow-inset-hairline: inset 0 -1px 0 var(--border-hairline);
+
+  --blur-veil: saturate(140%) blur(12px);
+  --veil-paper: rgba(255, 255, 255, .78);
+  --veil-ink: rgba(14, 14, 15, .66);
+}
+
+/* --- A6. Mouvement (tokens/motion.css) -------------------------------------- */
+:root {
+  --duration-instant: 90ms;  /* enfoncement d'un bouton */
+  --duration-fast: 140ms;    /* couleurs, survols */
+  --duration-base: 220ms;    /* apparition d'un calque */
+  --duration-slow: 420ms;    /* ouverture d'un accordéon */
+  --ease-out: cubic-bezier(.16, .84, .32, 1);
+  --ease-in-out: cubic-bezier(.5, 0, .5, 1);
+  --ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --transition-control:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
+/* --- A7. Grain (tokens/texture.css) -----------------------------------------
+   Tuile monochrome 256 px (assets/grain.png du design system) superposée
+   en fusion overlay. */
+:root {
+  --grain-image: url("../img/grain.png");
+  --grain-tile: 220px;
+  --grain-blend: overlay;
+
+  --grain-subtle: 0.16;  /* blanc et gris */
+  --grain-medium: 0.34;  /* bleu, photos */
+  --grain-strong: 0.58;  /* encre */
+}
+
+
+/* ==========================================================================
+   B. SITE — tokens propres au site, dérivés du design system
+   ========================================================================== */
+:root {
+  /* En-tête : pilule flottante de 56 px, à 20 px du haut */
+  --header-height: 56px;
+  --header-top: var(--space-25);
+  --header-offset: calc(var(--header-height) + var(--header-top)); /* espace réservé en haut de page */
+  --header-bg: linear-gradient(90deg, rgba(13, 16, 23, .78), rgba(13, 16, 23, .90));
+  --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
+  --header-link: rgba(255, 255, 255, .72); /* seule opacité de texte tolérée */
+
+  /* Barre "Réserver un appel" collée en bas d'écran (mobile) */
+  --sticky-cta-height: 72px;
+
+  /* Focus clavier */
+  --focus-width: 2px;
+  --focus-offset: 2px;
+
+  /* Taille de la flèche ↗ des boutons principaux */
+  --icon-size-button: 16px;
+
+  /* Profondeur */
+  --z-sticky-cta: 90;
+  --z-header: 100;
+  --z-skip-link: 200;
+
+  /* Points de rupture (référence — non utilisables dans les @media) :
+     mobile : base 375 px · tablette : 48em (768 px) · desktop : 64em (1024 px) */
+}

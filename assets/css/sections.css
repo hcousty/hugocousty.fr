@@ -1,0 +1,723 @@
+/* ==========================================================================
+   SECTIONS — hugocousty.fr
+   --------------------------------------------------------------------------
+   Styles propres à chaque section du one page, dans l'ordre de la page.
+   Mobile first : les styles de base visent 375 px, les @media (min-width)
+   enrichissent pour tablette (48em / 768 px) et desktop (64em / 1024 px).
+
+   Sommaire
+   0.  Composant partagé : carte
+   1.  Hero
+   2.  Logos
+   3.  Expertises
+   4.  Méthode + encart IA
+   5.  Chiffres clés
+   6.  Réalisations (projet à la une + slider)
+   7.  Témoignages
+   8.  À propos
+   9.  Travailler ensemble (offres)
+   10. FAQ
+   11. Contact
+   ========================================================================== */
+
+
+/* 0. Carte (Expertises, Travailler ensemble)
+   Filet 1 px, rayon 6 px, jamais d'ombre.
+   ========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+  padding: var(--space-3);
+  background: var(--surface-card);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: var(--radius-md);
+}
+
+.card__title {
+  font-size: var(--text-h3);
+}
+
+.card p {
+  color: var(--text-secondary);
+}
+
+.section-cta {
+  margin-top: var(--space-6);
+}
+
+/* Section compacte (bandeau logos) */
+.section--tight {
+  padding-block: var(--space-7);
+}
+
+
+/* 1. HERO
+   --------------------------------------------------------------------------
+   Mobile : photo pleine largeur, puis panneau encre pleine largeur.
+   Desktop : photo sur toute la hauteur d'écran, panneau encre superposé.
+   Le hero passe sous l'en-tête flottant (marge négative).
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  margin-top: calc(-1 * var(--header-offset));
+}
+
+.hero__photo {
+  aspect-ratio: 4 / 5;
+  border: 0;
+}
+
+.hero__panel {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--gutter);
+  background: var(--surface-page); /* encre, via data-theme="inverse" */
+}
+
+.hero__lead {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+  margin-top: var(--space-1);
+}
+
+.hero__proofs {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  padding: var(--space-3) 0 0;
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  list-style: none;
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.hero__proofs strong {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+@media (min-width: 48em) {
+  .hero__photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 64em) {
+  /* Photo et panneau superposés dans la même cellule de grille */
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero > * {
+    grid-area: 1 / 1;
+  }
+
+  .hero__photo {
+    aspect-ratio: auto;
+    height: 100%;
+    place-items: start end;   /* libellé du réservé hors du panneau */
+    padding: calc(var(--header-offset) + var(--space-3)) var(--gutter);
+  }
+
+  .hero__body {
+    align-self: end;
+    width: 100%;
+    max-width: calc(var(--container-max) + 2 * var(--gutter));
+    margin-inline: auto;
+    padding: 0 var(--gutter) var(--space-7);
+  }
+
+  .hero__panel {
+    max-width: 46rem;
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+}
+
+
+/* 2. LOGOS
+   ========================================================================== */
+
+.logos__title {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.logos__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-15);
+}
+
+.logos__item {
+  --ratio: 3 / 1;
+}
+
+@media (min-width: 48em) {
+  .logos__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .logos__list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+
+/* 3. EXPERTISES
+   ========================================================================== */
+
+.expertises {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 48em) {
+  .expertises {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .expertises {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* 4. MÉTHODE + ENCART IA
+   ========================================================================== */
+
+.steps {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.step {
+  display: grid;
+  align-content: start;
+  gap: var(--space-15);
+  padding-top: var(--space-3);
+  border-top: var(--border-width-hairline) solid var(--border-strong);
+}
+
+/* Numéros de section en bleu (texte : bleu 600 sur blanc) */
+.step__number {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--text-accent);
+}
+
+.step p {
+  color: var(--text-secondary);
+}
+
+@media (min-width: 48em) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--grid-gap);
+  }
+}
+
+@media (min-width: 64em) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --- Encart IA : pleine largeur, fond bleu très clair ---------------------- */
+
+.ai-box {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--section-y);
+  padding: var(--space-6) var(--space-3);
+  background: var(--surface-accent-quiet);
+  border-radius: var(--radius-md);
+}
+
+.ai-box__title {
+  font-size: var(--text-h1);
+  max-width: 14em;
+}
+
+.ai-box__body {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure-prose);
+  color: var(--text-secondary);
+}
+
+.ai-box__note {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+@media (min-width: 64em) {
+  .ai-box {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-8);
+    padding: var(--space-8);
+  }
+}
+
+
+/* 5. CHIFFRES CLÉS
+   ========================================================================== */
+
+.stats__title {
+  margin-bottom: var(--space-6);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--grid-gap);
+}
+
+.stat {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: var(--text-display-2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.stats__note {
+  margin-top: var(--space-5);
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+@media (min-width: 64em) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* 6. RÉALISATIONS
+   ========================================================================== */
+
+/* Secteur (au-dessus du nom du projet) : style libellé */
+.project__sector {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- 6a. Projet à la une (Harmony) ---------------------------------------- */
+
+.featured {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.featured__visual {
+  --ratio: 4 / 3;
+}
+
+.featured__body {
+  display: grid;
+  align-content: center;
+  gap: var(--space-2);
+}
+
+.featured__title {
+  font-size: var(--text-h1);
+}
+
+.featured__body > p:last-child {
+  max-width: var(--measure-prose);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 64em) {
+  .featured {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-7);
+  }
+}
+
+/* --- 6b. Slider (CSS scroll-snap) ------------------------------------------
+   Largeur d'une carte = (largeur visible − espaces) / nombre de cartes visibles
+   --slides-visible : 1.5 sur mobile, 2.3 sur tablette, 3.35 sur desktop
+   (la partie décimale fait apparaître la carte suivante coupée au bord).     */
+
+.slider {
+  --slides-visible: 1.5;
+  --slide-gap: var(--grid-gap);
+}
+
+.slider__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+/* IconButton du design system : contrôle carré, rayon 2 px */
+.slider__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: var(--border-width-strong) solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-page);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-control);
+}
+
+.slider__btn:hover:not(:disabled) {
+  background: var(--text-primary);
+  color: var(--surface-page);
+}
+
+.slider__btn:disabled {
+  border-color: var(--border-mid);
+  color: var(--text-faint);
+  cursor: default;
+}
+
+.slider__viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;             /* les flèches remplacent la barre */
+}
+
+.slider__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .slider__viewport {
+    scroll-behavior: smooth;
+  }
+}
+
+.slider__track {
+  display: flex;
+  gap: var(--slide-gap);
+}
+
+.project-card {
+  flex: 0 0 calc((100% - (var(--slides-visible) - 0.5) * var(--slide-gap)) / var(--slides-visible));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+  padding: var(--space-3);
+  background: var(--surface-card);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  scroll-snap-align: start;
+}
+
+.project-card__title {
+  font-size: var(--text-h3);
+}
+
+.project-card__context {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+.project-card p:last-child {
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 48em) {
+  .slider {
+    --slides-visible: 2.3;
+  }
+}
+
+@media (min-width: 64em) {
+  .slider {
+    --slides-visible: 3.35;
+  }
+}
+
+
+/* 7. TÉMOIGNAGES
+   ========================================================================== */
+
+.testimonials {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.testimonial {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.testimonial__quote {
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+}
+
+.testimonial__author {
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+/* Témoignage principal : en grand */
+.testimonial--main {
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.testimonial--main .testimonial__quote {
+  max-width: 24em;
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+
+.testimonial--main .testimonial__author {
+  display: grid;
+}
+
+.testimonial__name {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+@media (min-width: 48em) {
+  .testimonials {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-7);
+  }
+
+  .testimonial--main {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* 8. À PROPOS
+   ========================================================================== */
+
+.about {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Portrait en 4:5 */
+.about__photo {
+  --ratio: 4 / 5;
+  max-width: 28rem;
+}
+
+.about__body {
+  display: grid;
+  align-content: center;
+  gap: var(--space-3);
+}
+
+.about__body > p:not(.eyebrow) {
+  max-width: var(--measure-prose);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 64em) {
+  .about {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
+
+
+/* 9. TRAVAILLER ENSEMBLE (offres)
+   ========================================================================== */
+
+.offers {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.offer__pitch {
+  font-weight: var(--weight-medium);
+}
+
+.card .offer__pitch {
+  color: var(--text-primary);
+}
+
+.offer__format {
+  font-size: var(--text-body-sm);
+}
+
+.card .offer__format {
+  margin-bottom: var(--space-15);
+  color: var(--text-muted);
+}
+
+.offer__format strong {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+/* Le bouton se cale en bas de la carte, quelle que soit la longueur du texte */
+.offer__cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.offers__note {
+  max-width: var(--measure-lead);
+  margin-top: var(--space-5);
+  font-size: var(--text-lead);
+}
+
+@media (min-width: 64em) {
+  .offers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* 10. FAQ — accordéon <details>/<summary>
+   Le « + » pivote en « × » à l'ouverture.
+   ========================================================================== */
+
+.faq {
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.faq__item {
+  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.faq__question {
+  position: relative;
+  display: block;
+  padding: var(--space-3) var(--space-6) var(--space-3) 0;
+  font-size: var(--text-lead);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+  list-style: none;
+  cursor: pointer;
+  transition: var(--transition-control);
+}
+
+.faq__question:hover {
+  color: var(--text-accent);
+}
+
+/* Masque le triangle natif (Safari) */
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+/* Signe + dessiné en CSS */
+.faq__question::before,
+.faq__question::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: var(--space-1);
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.faq__question::after {
+  transform: rotate(90deg);
+}
+
+.faq__item[open] .faq__question::before {
+  transform: rotate(45deg);
+}
+
+.faq__item[open] .faq__question::after {
+  transform: rotate(135deg);
+}
+
+.faq__answer {
+  max-width: var(--measure-prose);
+  padding-bottom: var(--space-3);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+
+/* 11. CONTACT
+   ========================================================================== */
+
+.calendly {
+  width: 100%;
+  max-width: var(--container-prose);
+}
+
+/* Hauteur proche de l'iframe Calendly réelle, pour éviter un saut de mise en page */
+.calendly__placeholder {
+  aspect-ratio: auto;
+  min-height: 40rem;
+  background: var(--surface-card);
+  border-style: dashed;
+  border-color: var(--border-mid);
+}
+
+.contact__alt {
+  max-width: var(--measure-prose);
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+}

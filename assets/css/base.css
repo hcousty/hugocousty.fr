@@ -1,0 +1,698 @@
+/* ==========================================================================
+   BASE — hugocousty.fr
+   --------------------------------------------------------------------------
+   Reset, typographie, mise en page et composants partagés par toutes les
+   pages. Aucune valeur visuelle en dur : tout passe par tokens.css.
+   Les règles suivent le readme du design system (Claude Design).
+
+   Sommaire
+   1. Reset
+   2. Éléments de base
+   3. Accessibilité
+   4. Mise en page (container, section, section-head)
+   5. Composants : bouton, surtitre, tag, placeholder, grain
+   6. En-tête (pilule de verre) et navigation
+   7. Barre CTA mobile (bas d'écran)
+   8. Footer
+   ========================================================================== */
+
+
+/* 1. Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+
+/* 2. Éléments de base
+   ========================================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Réserve la place de la barre CTA collée en bas (mobile) */
+  padding-bottom: var(--sticky-cta-height);
+}
+
+@media (min-width: 48em) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Un bloc en thème inverse reprend les couleurs de texte du thème */
+[data-theme="inverse"] {
+  color: var(--text-primary);
+}
+
+/* L'en-tête flotte : les ancres ne doivent pas passer dessous */
+[id] {
+  scroll-margin-top: calc(var(--header-offset) + var(--space-3));
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-display-2);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+h2 { font-size: var(--text-h1); }
+h3 { font-size: var(--text-h3); }
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: var(--transition-control);
+}
+
+a:hover {
+  color: var(--text-primary);
+  text-decoration-thickness: 2px;
+}
+
+strong {
+  font-weight: var(--weight-semibold);
+}
+
+::selection {
+  background: var(--blue-100);
+  color: var(--ink-900);
+}
+
+
+/* 3. Accessibilité
+   ========================================================================== */
+
+/* Focus clavier : contour bleu, présent partout, jamais supprimé */
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Masqué visuellement, lu par les lecteurs d'écran */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Lien d'évitement "Aller au contenu" */
+.skip-link {
+  position: absolute;
+  top: var(--space-1);
+  left: var(--space-1);
+  z-index: var(--z-skip-link);
+  padding: var(--space-15) var(--space-2);
+  background: var(--action-bg);
+  color: var(--action-fg);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+
+/* 4. Mise en page
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: calc(var(--container-prose) + 2 * var(--gutter));
+}
+
+/* Le contenu démarre sous l'en-tête flottant */
+main {
+  padding-top: var(--header-offset);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Section calme : fond gris très clair, même registre */
+.section--sunken {
+  background: var(--surface-sunken);
+}
+
+/* En-tête de section : surtitre numéroté + titre + chapô */
+.section-head {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.section-head > h2 {
+  max-width: 18em;
+}
+
+.section-head__intro {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+/* Paragraphe de prose longue */
+.prose {
+  max-width: var(--measure-prose);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+
+/* 5. Composants
+   ========================================================================== */
+
+/* --- Bouton ----------------------------------------------------------------
+   primary   : aplat encre, bascule en bleu au survol, flèche ↗ intégrée
+   secondary : contour encre, se remplit au survol, texte inversé
+   Dans un bloc data-theme="inverse", les couleurs s'inversent seules.       */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 48px;
+  padding: var(--space-15) var(--space-25);
+  border: var(--border-width-strong) solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-control), transform var(--duration-instant) var(--ease-out);
+}
+
+.btn:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--action-bg);
+  border-color: var(--action-bg);
+  color: var(--action-fg);
+}
+
+.btn--primary:hover {
+  background: var(--action-bg-hover);
+  border-color: var(--action-bg-hover);
+  color: var(--action-fg);
+}
+
+.btn--primary:active {
+  background: var(--action-bg-active);
+  border-color: var(--action-bg-active);
+}
+
+/* Flèche ↗ (Lucide arrow-up-right), dessinée en masque pour prendre la
+   couleur du texte. Glisse de 2 px en diagonale au survol. */
+.btn--primary::after {
+  content: "";
+  flex: none;
+  width: var(--icon-size-button);
+  height: var(--icon-size-button);
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10'/%3E%3Cpath d='M7 17 17 7'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10'/%3E%3Cpath d='M7 17 17 7'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.btn--primary:hover::after {
+  transform: translate(2px, -2px);
+}
+
+.btn--secondary:hover {
+  background: var(--text-primary);
+  color: var(--surface-page);
+}
+
+.btn--small {
+  min-height: 40px;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-body-sm);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --- Surtitre (style « libellé ») -----------------------------------------
+   11 px, capitales, interlettrage 0.12em. Dans une section, il est numéroté
+   automatiquement (01, 02…) et suivi d'un filet jusqu'au bord du conteneur. */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-15);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-normal);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+main {
+  counter-reset: section;
+}
+
+.section .eyebrow {
+  counter-increment: section;
+}
+
+.section .eyebrow::before {
+  content: counter(section, decimal-leading-zero);
+  color: var(--text-accent);
+}
+
+.section .eyebrow::after {
+  content: "";
+  flex: 1;
+  height: var(--border-width-hairline);
+  background: var(--border-hairline);
+}
+
+/* --- Tag (Sites web, Social Ads…) ------------------------------------------ */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.tag {
+  display: inline-block;
+  padding: var(--space-025) var(--space-15);
+  border: var(--border-width-hairline) solid var(--border-mid);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* --- Placeholder d'image ----------------------------------------------------
+   Réservé qui nomme l'image attendue (MediaFrame du design system).
+   À remplacer par <img> ou <picture>. Ratio réglable avec --ratio.         */
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: var(--ratio, 16 / 9);
+  width: 100%;
+  padding: var(--space-2);
+  background: var(--surface-quiet);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* --- Grain (tokens/texture.css du design system) ----------------------------
+   Seule texture du système. Réservé aux surfaces isolées : footer, bloc
+   encre, photos. Jamais sous du texte de moins de 16 px.                    */
+
+.ds-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.ds-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: var(--grain-image);
+  background-size: var(--grain-tile) var(--grain-tile);
+  background-repeat: repeat;
+  mix-blend-mode: var(--grain-blend);
+  opacity: var(--grain-subtle);
+}
+
+.ds-grain--medium::after { opacity: var(--grain-medium); }
+.ds-grain--strong::after { opacity: var(--grain-strong); }
+
+@media (prefers-contrast: more) {
+  .ds-grain::after {
+    display: none;
+  }
+}
+
+
+/* 6. En-tête : pilule de verre flottante
+   --------------------------------------------------------------------------
+   Seule surface en verre du site. Hauteur 56 px, rayon plein, à 20 px du
+   haut. Dégradé d'encre translucide + flou. Thème inverse (texte blanc).
+   Mobile / tablette : logo + bouton + burger ; les liens s'ouvrent dans un
+   panneau sous la pilule.
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: var(--header-top);
+  left: 50%;
+  z-index: var(--z-header);
+  width: calc(100% - 2 * var(--gutter));
+  max-width: var(--container-max);
+  height: var(--header-height);
+  transform: translateX(-50%);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3);
+  background: var(--header-bg);
+  -webkit-backdrop-filter: var(--blur-veil);
+  backdrop-filter: var(--blur-veil);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--header-edge), var(--shadow-pop);
+}
+
+/* Signature typographique (Wordmark) : "Hugo Cousty" suivi d'un point */
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.wordmark__dot {
+  color: var(--text-accent);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-05);
+}
+
+/* Bouton "Réserver un appel" de l'en-tête : remplacé sur mobile par la barre
+   collée en bas d'écran, visible dès la tablette */
+.site-header__cta {
+  display: none;
+  border-radius: var(--radius-pill); /* suit la géométrie de la pilule */
+}
+
+@media (min-width: 48em) {
+  .site-header__cta {
+    display: inline-flex;
+  }
+}
+
+/* Pages secondaires : pas de barre en bas, le bouton reste dans l'en-tête */
+.site-header__cta--always {
+  display: inline-flex;
+}
+
+.page-simple {
+  padding-bottom: 0;
+}
+
+/* --- Burger ---------------------------------------------------------------- */
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--duration-base) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+
+.nav-toggle__bar {
+  position: relative;
+}
+
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bar::before { top: -6px; }
+.nav-toggle__bar::after  { top: 6px; }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --- Liens de navigation ----------------------------------------------------
+   Mobile / tablette : panneau encre sous la pilule, ouvert par le burger.
+   Desktop : liens en ligne dans la pilule, blanc à 72 %.                   */
+
+.site-nav {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  right: 0;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-page);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+}
+
+/* Sans JS, le panneau reste masqué : le contenu reste accessible au défilement */
+.site-nav:not(.is-open) {
+  display: none;
+}
+
+.site-nav__link {
+  display: block;
+  padding: var(--space-15) 0;
+  font-size: var(--text-lead);
+  color: var(--header-link);
+  text-decoration: none;
+}
+
+.site-nav__link:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-nav li + li {
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+/* Bloque le défilement de la page quand le menu mobile est ouvert */
+.has-menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 64em) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav,
+  .site-nav:not(.is-open) {
+    position: static;
+    display: block;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .site-nav li + li {
+    border: 0;
+  }
+
+  .site-nav__link {
+    padding: var(--space-05) 0;
+    font-size: var(--text-body-sm);
+  }
+}
+
+
+/* 7. Barre CTA mobile (bas d'écran)
+   ========================================================================== */
+
+.sticky-cta {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: var(--z-sticky-cta);
+  display: flex;
+  align-items: center;
+  height: var(--sticky-cta-height);
+  padding: var(--space-15) var(--gutter);
+  padding-bottom: max(var(--space-15), env(safe-area-inset-bottom));
+  background: var(--surface-page);
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    visibility var(--duration-base);
+}
+
+/* Masquée par main.js quand la section Contact ou le footer sont à l'écran */
+.sticky-cta.is-hidden {
+  transform: translateY(100%);
+  visibility: hidden;
+}
+
+@media (min-width: 48em) {
+  .sticky-cta {
+    display: none;
+  }
+}
+
+
+/* 8. Footer — le seul grand aplat encre de la page, avec grain fort
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--space-7);
+  background: var(--surface-page); /* encre, via data-theme="inverse" */
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.site-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+}
+
+.site-footer__list a {
+  color: var(--text-primary);
+}
+
+@media (min-width: 48em) {
+  .site-footer__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--space-3);
+  }
+}
