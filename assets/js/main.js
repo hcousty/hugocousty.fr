@@ -7,8 +7,8 @@
 
    Sommaire
    1. Menu burger (mobile / tablette)
-   2. Barre CTA mobile : masquée quand Contact ou le footer sont visibles
-   3. Slider des réalisations : flèches
+   2. Barre CTA mobile : masquée quand un bloc data-sticky-cta-hide ou le
+      footer sont visibles (boutons du hero, section Contact)
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -61,12 +61,13 @@
 
 
   /* 2. Barre CTA mobile
-     Inutile quand la section Contact (ou le footer) est déjà à l'écran.
+     Inutile quand un bouton « Réserver » est déjà à l'écran (hero, Contact)
+     ou quand le footer est visible.
      ======================================================================== */
 
   const stickyCta = document.querySelector('[data-sticky-cta]');
   const ctaTargets = [
-    document.getElementById('contact'),
+    ...document.querySelectorAll('[data-sticky-cta-hide]'),
     document.querySelector('[data-footer]'),
   ].filter(Boolean);
 
@@ -83,49 +84,5 @@
 
     ctaTargets.forEach((target) => ctaObserver.observe(target));
   }
-
-
-  /* 3. Slider des réalisations
-     Le défilement est natif (CSS scroll-snap, swipe, clavier).
-     Les flèches font avancer d'une carte et se désactivent aux extrémités.
-     ======================================================================== */
-
-  document.querySelectorAll('[data-slider]').forEach((slider) => {
-    const viewport = slider.querySelector('[data-slider-viewport]');
-    const prev = slider.querySelector('[data-slider-prev]');
-    const next = slider.querySelector('[data-slider-next]');
-    if (!viewport || !prev || !next) return;
-
-    const track = viewport.firstElementChild;
-
-    // Distance d'une carte + l'espace entre deux cartes
-    const step = () => {
-      const card = track.firstElementChild;
-      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-      return card ? card.getBoundingClientRect().width + gap : viewport.clientWidth;
-    };
-
-    const updateButtons = () => {
-      const max = viewport.scrollWidth - viewport.clientWidth;
-      prev.disabled = viewport.scrollLeft <= 1;
-      next.disabled = viewport.scrollLeft >= max - 1;
-    };
-
-    prev.addEventListener('click', () => viewport.scrollBy({ left: -step() }));
-    next.addEventListener('click', () => viewport.scrollBy({ left: step() }));
-
-    let ticking = false;
-    viewport.addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        updateButtons();
-        ticking = false;
-      });
-    }, { passive: true });
-
-    window.addEventListener('resize', updateButtons);
-    updateButtons();
-  });
 
 })();

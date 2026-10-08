@@ -10,11 +10,11 @@
    1.  Hero
    2.  Logos
    3.  Expertises
-   4.  Méthode + encart IA
+   4.  Méthode
    5.  Chiffres clés
-   6.  Réalisations (projet à la une + slider)
+   6.  Réalisations (projet à la une + grille)
    7.  Témoignages
-   8.  À propos
+   8.  À propos + encart IA
    9.  Travailler ensemble (offres)
    10. FAQ
    11. Contact
@@ -66,8 +66,9 @@
   margin-top: calc(-1 * var(--header-offset));
 }
 
+/* Mobile : photo carrée pour que le titre arrive dans le premier écran */
 .hero__photo {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   border: 0;
 }
 
@@ -135,12 +136,14 @@
     padding: calc(var(--header-offset) + var(--space-3)) var(--gutter);
   }
 
+  /* Marge haute : le panneau ne passe jamais sous l'en-tête flottant,
+     même quand le titre prend quatre lignes sur un écran peu haut */
   .hero__body {
     align-self: end;
     width: 100%;
     max-width: calc(var(--container-max) + 2 * var(--gutter));
     margin-inline: auto;
-    padding: 0 var(--gutter) var(--space-7);
+    padding: calc(var(--header-offset) + var(--space-3)) var(--gutter) var(--space-7);
   }
 
   .hero__panel {
@@ -210,7 +213,7 @@
 }
 
 
-/* 4. MÉTHODE + ENCART IA
+/* 4. MÉTHODE
    ========================================================================== */
 
 .steps {
@@ -238,6 +241,11 @@
   color: var(--text-secondary);
 }
 
+.step p strong {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
 @media (min-width: 48em) {
   .steps {
     grid-template-columns: repeat(2, 1fr);
@@ -251,42 +259,6 @@
   }
 }
 
-/* --- Encart IA : pleine largeur, fond bleu très clair ---------------------- */
-
-.ai-box {
-  display: grid;
-  gap: var(--space-3);
-  margin-top: var(--section-y);
-  padding: var(--space-6) var(--space-3);
-  background: var(--surface-accent-quiet);
-  border-radius: var(--radius-md);
-}
-
-.ai-box__title {
-  font-size: var(--text-h1);
-  max-width: 14em;
-}
-
-.ai-box__body {
-  display: grid;
-  gap: var(--space-2);
-  max-width: var(--measure-prose);
-  color: var(--text-secondary);
-}
-
-.ai-box__note {
-  font-weight: var(--weight-medium);
-  color: var(--text-primary);
-}
-
-@media (min-width: 64em) {
-  .ai-box {
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-8);
-    padding: var(--space-8);
-  }
-}
-
 
 /* 5. CHIFFRES CLÉS
    ========================================================================== */
@@ -295,9 +267,9 @@
   margin-bottom: var(--space-6);
 }
 
+/* 3 chiffres : 1 colonne sur mobile, 3 dès la tablette */
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-5) var(--grid-gap);
 }
 
@@ -329,9 +301,9 @@
   color: var(--text-muted);
 }
 
-@media (min-width: 64em) {
+@media (min-width: 48em) {
   .stats {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -383,74 +355,16 @@
   }
 }
 
-/* --- 6b. Slider (CSS scroll-snap) ------------------------------------------
-   Largeur d'une carte = (largeur visible − espaces) / nombre de cartes visibles
-   --slides-visible : 1.5 sur mobile, 2.3 sur tablette, 3.35 sur desktop
-   (la partie décimale fait apparaître la carte suivante coupée au bord).     */
+/* --- 6b. Grille de projets --------------------------------------------------
+   1 colonne sur mobile, 2 sur tablette, 3 sur desktop. Toutes les cartes sont
+   visibles d'un coup : pas de défilement horizontal.                        */
 
-.slider {
-  --slides-visible: 1.5;
-  --slide-gap: var(--grid-gap);
-}
-
-.slider__controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-1);
-  margin-bottom: var(--space-2);
-}
-
-/* IconButton du design system : contrôle carré, rayon 2 px */
-.slider__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: var(--border-width-strong) solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  background: var(--surface-page);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: var(--transition-control);
-}
-
-.slider__btn:hover:not(:disabled) {
-  background: var(--text-primary);
-  color: var(--surface-page);
-}
-
-.slider__btn:disabled {
-  border-color: var(--border-mid);
-  color: var(--text-faint);
-  cursor: default;
-}
-
-.slider__viewport {
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;             /* les flèches remplacent la barre */
-}
-
-.slider__viewport::-webkit-scrollbar {
-  display: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .slider__viewport {
-    scroll-behavior: smooth;
-  }
-}
-
-.slider__track {
-  display: flex;
-  gap: var(--slide-gap);
+.projects {
+  display: grid;
+  gap: var(--grid-gap);
 }
 
 .project-card {
-  flex: 0 0 calc((100% - (var(--slides-visible) - 0.5) * var(--slide-gap)) / var(--slides-visible));
   display: flex;
   flex-direction: column;
   gap: var(--space-15);
@@ -458,7 +372,6 @@
   background: var(--surface-card);
   border: var(--border-width-hairline) solid var(--border-hairline);
   border-radius: var(--radius-md);
-  scroll-snap-align: start;
 }
 
 .project-card__title {
@@ -476,14 +389,14 @@
 }
 
 @media (min-width: 48em) {
-  .slider {
-    --slides-visible: 2.3;
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 64em) {
-  .slider {
-    --slides-visible: 3.35;
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -494,6 +407,7 @@
 .testimonials {
   display: grid;
   gap: var(--space-5);
+  margin-top: var(--space-6);
 }
 
 .testimonial {
@@ -549,12 +463,27 @@
 }
 
 
-/* 8. À PROPOS
+/* 8. À PROPOS + ENCART IA
    ========================================================================== */
 
 .about {
   display: grid;
   gap: var(--space-5);
+}
+
+/* Trois faits pratiques (lieu, déplacements, facturation) */
+.about__facts {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) 0 0;
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.about__facts strong {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
 }
 
 /* Portrait en 4:5 */
@@ -580,6 +509,42 @@
     grid-template-columns: 5fr 7fr;
     gap: var(--space-8);
     align-items: center;
+  }
+}
+
+/* --- Encart IA : pleine largeur, fond bleu très clair, sous « À propos » ---- */
+
+.ai-box {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding: var(--space-6) var(--space-3);
+  background: var(--surface-accent-quiet);
+  border-radius: var(--radius-md);
+}
+
+.ai-box__title {
+  font-size: var(--text-h1);
+  max-width: 14em;
+}
+
+.ai-box__body {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure-prose);
+  color: var(--text-secondary);
+}
+
+.ai-box__note {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+@media (min-width: 64em) {
+  .ai-box {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-8);
+    padding: var(--space-8);
   }
 }
 
@@ -703,18 +668,21 @@
 /* 11. CONTACT
    ========================================================================== */
 
-.calendly {
-  width: 100%;
-  max-width: var(--container-prose);
+/* Deux chemins côte à côte dès la tablette : appel ou email */
+.contact__paths {
+  display: grid;
+  gap: var(--grid-gap);
 }
 
-/* Hauteur proche de l'iframe Calendly réelle, pour éviter un saut de mise en page */
-.calendly__placeholder {
-  aspect-ratio: auto;
-  min-height: 40rem;
-  background: var(--surface-card);
-  border-style: dashed;
-  border-color: var(--border-mid);
+.contact__cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media (min-width: 48em) {
+  .contact__paths {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .contact__alt {

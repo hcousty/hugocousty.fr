@@ -26,7 +26,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   ├── tokens.css          Toutes les valeurs visuelles (variables CSS)
 │   │   ├── base.css            Reset, typo, layout, composants communs, header, footer
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
-│   ├── js/main.js              Burger, slider, barre CTA mobile
+│   ├── js/main.js              Burger, barre CTA mobile
 │   ├── fonts/                  Police Geist (woff2 + licence OFL)
 │   └── img/                    grain.png, favicon.svg, apple-touch-icon.png, og-image.jpg
 └── README.md
@@ -60,29 +60,29 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 1 | Hero | `#top` |
 | 2 | Logos | – |
 | 3 | Expertises | `#expertises` (menu) |
-| 4 | Méthode + encart IA | `#methode` (menu) |
+| 4 | Méthode | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
-| 6 | Réalisations (Harmony à la une + slider) | `#realisations` (menu) |
+| 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
 | 7 | Témoignages (**placeholders**) | `#temoignages` |
-| 8 | À propos | `#a-propos` (menu) |
-| 9 | Travailler ensemble | `#travailler-ensemble` |
+| 8 | À propos + encart IA | `#a-propos` (menu) |
+| 9 | Travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 10 | FAQ | `#faq` (menu) |
-| 11 | Contact (emplacement Calendly) | `#contact` : cible de tous les boutons « Réserver un appel » et « En parler » |
+| 11 | Contact (appel Calendly en lien externe + email) | `#contact` : cible de tous les boutons « Réserver un appel de 20 min » et « Demander un devis » |
 | 12 | Footer | – |
 
 ### Conventions
 
 - **Mobile first** : les styles de base visent un écran de 375 px. Les `@media (min-width: 48em)` (768 px) et `@media (min-width: 64em)` (1024 px) enrichissent pour la tablette et le desktop.
 - **Nommage BEM léger** : `.bloc`, `.bloc__element`, `.bloc--variante`.
-- **Les `id` servent aux ancres**, jamais au style. Le JS cible des attributs `data-*` (`data-slider`, `data-nav-toggle`…) : on peut renommer une classe CSS sans rien casser.
+- **Les `id` servent aux ancres**, jamais au style. Le JS cible des attributs `data-*` (`data-nav-toggle`, `data-sticky-cta-hide`…) : on peut renommer une classe CSS sans rien casser.
 
 ### Tâches courantes
 
 - **Remplacer un placeholder par une image** : remplacer le `<div class="placeholder" role="img" aria-label="…">…</div>` par
   `<img src="/assets/img/photo-hugo.webp" alt="…" width="…" height="…" loading="lazy">`
   (sans `loading="lazy"` pour la photo du hero, qui doit s'afficher tout de suite).
-- **Ajouter un projet au slider** : dupliquer un `<li class="project-card">` dans `.slider__track`. Les flèches s'adaptent seules.
-- **Changer le nombre de cartes visibles** : modifier `--slides-visible` dans `sections.css`, section 6b (1.5 sur mobile, 2.3 sur tablette, 3.35 sur desktop).
+- **Ajouter un projet** : dupliquer un `<li class="project-card">` dans `.projects`. La grille (1, 2 puis 3 colonnes) s'adapte seule. Rester sur un multiple de 3 pour une dernière ligne complète sur desktop.
+- **Vérifier le lien Calendly** : section 11 de `index.html`, bouton « Réserver un créneau » (attribut `data-calendly-url`).
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item">`.
 - **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder.
 - **Compléter les mentions légales** : les champs à remplir sont dans des `<span class="todo">` (surlignés en jaune). Supprimer le `<span>` une fois le champ rempli. Idem pour les prestataires dans la politique de confidentialité.
@@ -180,7 +180,9 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
 - [ ] Renseigner les secrets FTP dans GitHub et activer SFTP chez OVH
-- [ ] Intégrer Calendly **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
+- [ ] Vérifier l'URL Calendly du bouton « Réserver un créneau » (section Contact)
+- [ ] Trouver un remplaçant au chiffre « +2 M€ gérés en 10 ans » retiré de la section Chiffres (ou rester à 3 chiffres)
+- [ ] Module Calendly intégré dans la page, seulement **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
 - [ ] Bandeau de consentement cookies, puis GA4 avec suivi des prises de RDV Calendly
 - [x] Image de partage `og:image` (1200 × 627 px)
 - [x] Favicon
