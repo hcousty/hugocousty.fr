@@ -536,16 +536,21 @@
           <p class="section-head__intro">Un premier échange, sans engagement, pour faire le point et vous apporter un premier regard. Je réponds sous 24 h ouvrées.</p>
         </header>
 
-        <!-- Deux chemins, qui fonctionnent sans cookie ni script tiers.
-             TODO : vérifier l'URL Calendly (data-calendly-url) avant mise en ligne.
-             Plus tard, si on veut le module Calendly intégré dans la page :
-             1. le charger UNIQUEMENT après accord de l'utilisateur (bandeau cookies),
-             2. garder ces deux cartes comme repli si refus des cookies. -->
+        <!-- Deux chemins : le calendrier Calendly intégré (gauche) et le formulaire (droite).
+             TODO : remplacer l'URL du src de l'iframe par celle de ton événement Calendly
+             (Calendly → l'événement → Partager → Ajouter à un site web → Intégration en ligne,
+             ou simplement l'URL publique de l'événement). Les paramètres après le « ? »
+             accordent les couleurs au site. Calendly affiche son propre bandeau cookies
+             dans le cadre ; pour le masquer, ajouter &hide_gdpr_banner=1, mais seulement
+             si le site a son propre bandeau de consentement. -->
         <ul class="contact__paths">
           <li class="card contact__path">
             <h3 class="card__title">Un appel de 20 min</h3>
-            <p>Choisissez un créneau, je vous appelle. On parle de votre contexte, de vos objectifs et de ce que je ferais en premier.</p>
-            <a class="btn btn--primary contact__cta" href="https://calendly.com/hugo-cousty" target="_blank" rel="noopener" data-calendly-url>Réserver un créneau<span class="visually-hidden"> (nouvel onglet)</span></a>
+            <p>Choisissez un créneau ci-dessous, je vous appelle. On parle de votre contexte, de vos objectifs et de ce que je ferais en premier.</p>
+            <div class="calendly">
+              <iframe class="calendly__frame" src="https://calendly.com/hugo-cousty/20min?hide_landing_page_details=1&amp;hide_event_type_details=1&amp;background_color=ffffff&amp;text_color=0d1017&amp;primary_color=1440f0" title="Calendrier de réservation d'un appel de 20 min avec Hugo Cousty" loading="lazy" data-calendly-url></iframe>
+            </div>
+            <p class="field__note">Le calendrier est fourni par Calendly. <a href="/confidentialite/">En savoir plus</a>.</p>
           </li>
           <li class="card contact__path">
             <h3 class="card__title">Un message</h3>

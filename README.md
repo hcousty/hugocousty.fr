@@ -18,7 +18,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ├── agences-suisse/index.html   Page agences Suisse romande (liée depuis /agences/)
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
-├── merci/index.html            Confirmation après envoi du formulaire (noindex)
+├── merci/index.html            Confirmation après envoi du formulaire (noindex, lien LinkedIn)
 ├── .htaccess                   HTTPS forcé, www → nu, cache, compression (déployé tel quel)
 ├── .github/workflows/deploy.yml  Déploiement SFTP vers OVH (manuel, pour la mise en ligne finale)
 ├── assets/
@@ -66,7 +66,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 8 | À propos + encart IA | `#a-propos` (menu) |
 | 9 | Travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 10 | FAQ | `#faq` (menu) |
-| 11 | Contact (appel Calendly en lien externe + formulaire) | `#contact` : cible de tous les boutons « Réserver un appel de 20 min » et « Demander un devis » |
+| 11 | Contact (calendrier Calendly intégré + formulaire) | `#contact` : cible de tous les boutons « Réserver un appel de 20 min » et « Demander un devis » |
 | 12 | Footer | – |
 
 ### Conventions
@@ -82,12 +82,12 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
   `<img src="/assets/img/photo-hugo.webp" alt="…" width="…" height="…" loading="lazy">`
   (sans `loading="lazy"` pour la photo du hero, qui doit s'afficher tout de suite). Pour le hero, garder la classe `hero__photo` sur l'`<img>` : elle remplit tout le cadre arrondi (`object-fit: cover`). Prévoir une image d'au moins 2000 px de large, cadrée pour laisser le bas gauche assez calme (le texte se pose dessus, avec un voile sombre).
 - **Ajouter un projet** : dupliquer un `<li class="project-card">` dans `.projects`. La grille (1, 2 puis 3 colonnes) s'adapte seule. Rester sur un multiple de 3 pour une dernière ligne complète sur desktop.
-- **Vérifier le lien Calendly** : section 11 de `index.html` et page `merci/`, boutons portant l'attribut `data-calendly-url`.
+- **Brancher Calendly** : section 11 de `index.html`, l'`<iframe>` portant l'attribut `data-calendly-url`. Remplacer le début du `src` par l'URL publique de l'événement (ex. `https://calendly.com/ton-compte/20min`) en gardant les paramètres après le `?` (couleurs du site). Hauteur réglable avec le token `--calendly-height`.
 - **Brancher le formulaire de contact** : le site est statique, l'envoi passe par un service de formulaire. Créer un formulaire chez [Formspree](https://formspree.io) (gratuit jusqu'à 50 envois par mois) ou [Web3Forms](https://web3forms.com), puis remplacer l'URL de l'attribut `action` du `<form>` dans `index.html` (section 11). Les champs `_subject` et `_next` (redirection vers `/merci/`) suivent la convention Formspree ; les adapter si un autre service est choisi. Le champ masqué `site-web` est un piège à robots. Tester un envoi avant de mettre en ligne.
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item">`.
 - **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder.
 - **Compléter les mentions légales** : les champs à remplir sont dans des `<span class="todo">` (surlignés en jaune). Supprimer le `<span>` une fois le champ rempli. Idem pour les prestataires dans la politique de confidentialité.
-- **Activer Calendly ou GA4** : la politique de confidentialité contient les paragraphes correspondants en commentaire HTML, à décommenter en même temps que le bandeau de consentement.
+- **Activer GA4** : la politique de confidentialité contient le paragraphe correspondant en commentaire HTML, à décommenter en même temps que le bandeau de consentement.
 
 ---
 
@@ -185,10 +185,9 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
 - [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
-- [ ] Vérifier l'URL Calendly du bouton « Réserver un créneau » (section Contact et page merci)
+- [ ] Renseigner l'URL de l'événement Calendly dans l'iframe de la section Contact
 - [ ] Brancher le formulaire de contact sur Formspree ou Web3Forms et tester un envoi
-- [ ] Module Calendly intégré dans la page, seulement **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
-- [ ] Bandeau de consentement cookies, puis GA4 avec suivi des prises de RDV Calendly
+- [ ] Bandeau de consentement cookies si GA4 est ajouté (le calendrier Calendly affiche son propre bandeau dans son cadre)
 - [x] Image de partage `og:image` (1200 × 627 px)
 - [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
 - [x] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
