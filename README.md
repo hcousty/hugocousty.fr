@@ -66,7 +66,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 8 | À propos + encart IA | `#a-propos` (menu) |
 | 9 | Travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 10 | FAQ | `#faq` (menu) |
-| 11 | Contact (calendrier Calendly intégré + formulaire) | `#contact` : cible de tous les boutons « Réserver un appel de 20 min » et « Demander un devis » |
+| 11 | Contact (calendrier Calendly intégré + formulaire) | `#contact` : cible de tous les boutons « Réserver un appel de 20 min », « Parlons de votre projet » et « Demander un devis » |
 | 12 | Footer | – |
 
 ### Conventions
