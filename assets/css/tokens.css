@@ -264,6 +264,10 @@
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
   --header-link: rgba(255, 255, 255, .72); /* seule opacité de texte tolérée */
 
+  /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
+  --hero-inset: var(--space-1);
+  --hero-radius: var(--radius-lg);
+
   /* Identité dans l'en-tête : photo ronde + point de disponibilité */
   --avatar-size: 36px;
   --status-dot-size: 8px;

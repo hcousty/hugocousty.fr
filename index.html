@@ -68,13 +68,19 @@
 
     <!-- ===================================================================
          1. HERO
-         Photo pleine largeur + panneau encre (thème inverse)
+         Photo plein écran (léger retrait, coins arrondis), texte posé dessus
+         sans fond. Un voile encre en bas de la photo assure la lisibilité.
+         Pour mettre la vraie photo : remplacer le <div class="placeholder">
+         par <img class="hero__photo" src="…" alt="" width="…" height="…">
+         (sans loading="lazy").
          =================================================================== -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
+    <section class="hero" id="top" aria-labelledby="hero-title" data-theme="inverse">
+      <div class="hero__media">
+        <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
+      </div>
 
       <div class="hero__body">
-        <div class="hero__panel ds-grain ds-grain--strong" data-theme="inverse">
+        <div class="hero__panel">
           <p class="eyebrow">Pour PME et e-commerçants, en France et en Suisse</p>
           <h1 id="hero-title">Je pilote votre acquisition en ligne, de la stratégie aux campagnes.</h1>
           <p class="hero__lead">Publicité en ligne, sites web, CRM : je conçois et pilote ce qui fait grandir votre activité, en France et en Suisse.</p>

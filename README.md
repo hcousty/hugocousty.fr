@@ -55,7 +55,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 
 | # | Section | Ancre |
 |---|---|---|
-| 1 | Hero | `#top` |
+| 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
 | 2 | Logos | – |
 | 3 | Expertises | `#expertises` (menu) |
 | 4 | Méthode | `#methode` |
@@ -79,7 +79,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 - **Mettre la photo dans l'en-tête** : remplacer `<span class="avatar avatar--placeholder">HC</span>` par `<img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">` (image carrée, 64 px suffisent) dans les 5 pages.
 - **Remplacer un placeholder par une image** : remplacer le `<div class="placeholder" role="img" aria-label="…">…</div>` par
   `<img src="/assets/img/photo-hugo.webp" alt="…" width="…" height="…" loading="lazy">`
-  (sans `loading="lazy"` pour la photo du hero, qui doit s'afficher tout de suite).
+  (sans `loading="lazy"` pour la photo du hero, qui doit s'afficher tout de suite). Pour le hero, garder la classe `hero__photo` sur l'`<img>` : elle remplit tout le cadre arrondi (`object-fit: cover`). Prévoir une image d'au moins 2000 px de large, cadrée pour laisser le bas gauche assez calme (le texte se pose dessus, avec un voile sombre).
 - **Ajouter un projet** : dupliquer un `<li class="project-card">` dans `.projects`. La grille (1, 2 puis 3 colonnes) s'adapte seule. Rester sur un multiple de 3 pour une dernière ligne complète sur desktop.
 - **Vérifier le lien Calendly** : section 11 de `index.html`, bouton « Réserver un créneau » (attribut `data-calendly-url`).
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item">`.
@@ -107,11 +107,11 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 ### Règles du design system appliquées dans le code
 
-- **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le panneau du hero et le footer.
+- **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le hero (texte sur la photo) et le footer.
 - **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre. À gauche, la photo ronde (réservé « HC » en attendant) et le statut « Disponible » avec un point vert ; pour passer en indisponible, ajouter la classe `status--off` au `<span class="status">` et changer le texte.
 - **Boutons** : `primary` en aplat encre qui passe au bleu au survol, avec la flèche ↗ intégrée (dessinée en CSS, aucune modification du HTML) ; `secondary` en contour qui se remplit au survol.
 - **Surtitres** numérotés automatiquement (01, 02…) par un compteur CSS, suivis d'un filet.
-- **Un seul grand aplat encre** : le footer, plus le panneau du hero comme bloc encre autorisé.
+- **Un seul grand aplat encre** : le footer. Le hero n'a plus de panneau encre : la photo remplit l'écran (léger retrait `--hero-inset`, rayon `--hero-radius`) et le texte est posé dessus, lisible grâce à un voile encre dégradé en bas de la photo.
 - **Pas d'animation d'entrée au défilement**, pas d'emoji, pas d'ombre sur les cartes.
 
 ### Fichiers du design system dans le repo
