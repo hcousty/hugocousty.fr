@@ -27,7 +27,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   ├── base.css            Reset, typo, layout, composants communs, header, footer
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
-│   ├── fonts/                  Police Geist (woff2 + licence OFL)
+│   ├── fonts/                  Police Inter (woff2 + licence OFL)
 │   └── img/                    grain.png, og-image.jpg
 └── README.md
 ```
@@ -118,7 +118,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 ### Fichiers du design system dans le repo
 
-- **Police Geist** (v1.7.2, licence OFL) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
+- **Police Inter** (v4.1, licence OFL, sous-ensemble latin) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
 - **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; ne jamais mettre de bleu sur l'encre.
 
@@ -179,7 +179,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 ## À faire (hors wireframe)
 
 - [x] Brancher le design system (`tokens.css`)
-- [x] Ajouter les fichiers de police Geist et la tuile `grain.png`
+- [x] Ajouter les fichiers de police Inter et la tuile `grain.png`
 - [ ] Remplacer les placeholders d'images (photo Hugo, logos clients, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
