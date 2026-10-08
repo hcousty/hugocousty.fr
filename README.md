@@ -14,7 +14,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ```
 /
 ├── index.html                  One page (toutes les sections)
-├── agences/index.html          Page agences (lien "Vous êtes une agence ?" du footer)
+├── agences/index.html          Landing page agences : hero photo, expertises, formats, témoignages, réalisations, contact
 ├── agences-suisse/index.html   Page agences Suisse romande (liée depuis /agences/)
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)

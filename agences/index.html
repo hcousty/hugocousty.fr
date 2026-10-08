@@ -23,41 +23,69 @@
   <link rel="stylesheet" href="/assets/css/sections.css">
   <script src="/assets/js/main.js" defer></script>
 </head>
-<body class="page-simple">
+<body>
 
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <!-- HEADER (version page secondaire : retour au one page + CTA) -->
+  <!-- HEADER (version page secondaire : retour à l'accueil + CTA vers le contact de cette page) -->
   <header class="site-header" data-theme="inverse" data-header>
     <div class="site-header__inner">
-      <!-- Identité : photo ronde + statut de disponibilité.
-           Remplacer le réservé par <img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">
-           Pour passer en indisponible : ajouter la classe status--off et changer le texte. -->
       <a class="site-id" href="/" aria-label="Hugo Cousty, retour à l'accueil">
         <span class="avatar avatar--placeholder" aria-hidden="true">HC</span>
         <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
       </a>
       <div class="site-header__actions">
-        <a class="btn btn--primary btn--small site-header__cta site-header__cta--always" href="/#contact">Réserver un appel</a>
+        <a class="btn btn--primary btn--small site-header__cta" href="#contact">Réserver un appel</a>
       </div>
     </div>
   </header>
 
   <main id="contenu">
 
-    <!-- 1. EN-TÊTE DE PAGE -->
-    <section class="section" aria-labelledby="page-title">
+    <!-- ===================================================================
+         1. HERO — même composant que l'accueil : photo plein écran, texte dessus
+         =================================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title" data-theme="inverse">
+      <div class="hero__media">
+        <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
+      </div>
+
+      <div class="hero__body">
+        <div class="hero__panel">
+          <p class="eyebrow">Pour les agences marketing et créatives</p>
+          <h1 id="hero-title">Un renfort senior pour vos clients, sans recruter.</h1>
+          <p class="hero__lead">J'ai travaillé plusieurs années en agence. Je connais vos contraintes : les délais, les marges, les reportings clients. Je mets cette expérience au service de vos équipes, en marque blanche ou en direct.</p>
+
+          <div class="hero__actions" data-sticky-cta-hide>
+            <a class="btn btn--primary" href="#contact">Réserver un appel de 20 min</a>
+            <a class="btn btn--secondary" href="#formats">Voir les formats</a>
+          </div>
+
+          <ul class="hero__proofs">
+            <li><strong>Senior :</strong> 10+ ans d'expérience, en agence, chez l'annonceur et en freelance</li>
+            <li><strong>Certifié Meta :</strong> Media Buying Professional</li>
+            <li><strong>Démarrage :</strong> sous 1 à 2 semaines</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         2. EXPERTISES
+         =================================================================== -->
+    <section class="section" id="expertises" aria-labelledby="expertises-title">
       <div class="container">
-        <header class="page-head">
-          <p class="eyebrow">Agences</p>
-          <h1 id="page-title">Un renfort senior pour vos clients, sans recruter</h1>
-          <p class="page-head__intro">J'ai travaillé plusieurs années en agence. Je connais vos contraintes : les délais, les marges, les reportings clients. Aujourd'hui, je mets cette expérience au service de vos équipes, en marque blanche ou en direct.</p>
+        <header class="section-head">
+          <p class="eyebrow">Ce que je prends en charge</p>
+          <h2 id="expertises-title">Les expertises que vos clients vous demandent</h2>
+          <p class="section-head__intro">Un seul interlocuteur pour les campagnes, le suivi des conversions, les sites et le CRM. Vous confiez tout, ou seulement ce qui vous manque.</p>
         </header>
 
         <ul class="expertises">
           <li class="card">
             <h3 class="card__title">Social Ads</h3>
-            <p>Stratégie, structure de compte, campagnes et revues créatives sur Meta, LinkedIn, TikTok, Snapchat et Pinterest. Certifié Meta Media Buying Professional.</p>
+            <p>Stratégie, structure de compte, campagnes et revues créatives sur Meta, LinkedIn, TikTok, Snapchat et Pinterest.</p>
           </li>
           <li class="card">
             <h3 class="card__title">Google Ads</h3>
@@ -75,8 +103,11 @@
       </div>
     </section>
 
-    <!-- 2. FORMATS DE COLLABORATION -->
-    <section class="section section--sunken" aria-labelledby="formats-title">
+
+    <!-- ===================================================================
+         3. FORMATS DE COLLABORATION (ancre #formats)
+         =================================================================== -->
+    <section class="section section--sunken" id="formats" aria-labelledby="formats-title">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Formats</p>
@@ -97,10 +128,139 @@
             <p>Pic d'activité, congé maternité ou départ d'un trafic manager, audit avant une réponse à appel d'offres : je prends le relais le temps qu'il faut, puis je transmets.</p>
           </li>
         </ul>
+
+        <div class="section-cta">
+          <a class="btn btn--primary" href="#contact">Parlons de votre besoin</a>
+        </div>
       </div>
     </section>
 
-    <!-- 3. CE QUE VOUS Y GAGNEZ -->
+
+    <!-- ===================================================================
+         4. TÉMOIGNAGES — PLACEHOLDERS, à remplacer par des retours d'agences
+         (chef de projet, directeur conseil, dirigeant d'agence)
+         =================================================================== -->
+    <section class="section" id="temoignages" aria-labelledby="temoignages-title">
+      <div class="container">
+        <p class="eyebrow">Ils m'ont confié leurs clients</p>
+        <h2 class="visually-hidden" id="temoignages-title">Témoignages d'agences</h2>
+
+        <div class="testimonials">
+          <figure class="testimonial testimonial--main">
+            <blockquote class="testimonial__quote">
+              <p>"Témoignage principal d'une agence, 35 mots max : un compte repris ou un renfort, et ce que ça a changé pour l'équipe ou pour le client."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Prénom Nom</span>
+              <span class="testimonial__role">Fonction, Agence</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte sur la fiabilité : délais tenus, livrables propres, zéro surprise côté client."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Agence</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte sur l'intégration à l'équipe : outils, process, autonomie."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Agence</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte sur la relation client : discrétion en marque blanche, ou aisance en rendez-vous."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Agence</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         5. RÉALISATIONS — comptes pilotés en agence, et quelques directs
+         =================================================================== -->
+    <section class="section section--sunken" id="realisations" aria-labelledby="realisations-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Réalisations</p>
+          <h2 id="realisations-title">Des comptes pilotés pour le compte d'agences</h2>
+          <p class="section-head__intro">E-commerce, génération de prospects, abonnement, cadre réglementé : des contextes variés, avec les mêmes exigences de reporting et de délais que les vôtres.</p>
+        </header>
+
+        <ul class="projects" aria-label="Réalisations">
+
+          <li class="project-card">
+            <p class="project__sector">Beauté &amp; Cosmétique</p>
+            <h3 class="project-card__title">Aroma-Zone</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Pilotage des campagnes e-commerce sur 4 régies (Meta, Snapchat, TikTok, Pinterest), revues créatives régulières et accompagnement sur la stratégie créative.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Banque &amp; Assurances</p>
+            <h3 class="project-card__title">Carrefour Banque</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Lancement de campagnes de génération de prospects dans un cadre réglementaire strict, en lien avec les équipes créatives internes.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Loisirs &amp; Hôtellerie</p>
+            <h3 class="project-card__title">Yelloh! Village</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Campagnes Social Ads pour booster les réservations d'un réseau de campings, avec un suivi des performances par établissement et par pays.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Sport &amp; Outdoor</p>
+            <h3 class="project-card__title">Glisshop</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Campagnes Social Ads e-commerce, optimisation des catalogues produits et coordination avec les équipes créatives internes.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Presse</p>
+            <h3 class="project-card__title">Les Jours</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p>Acquisition d'abonnés pour un média en ligne, avec des messages publicitaires qui respectent à la fois la ligne éditoriale et les règles de diffusion de Meta.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Aménagement d'espaces de travail</p>
+            <h3 class="project-card__title">Factory</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+              <li class="tag">Tracking</li>
+            </ul>
+            <p>Construction du dispositif Social Ads sur Meta et LinkedIn pour une cible B2B, briefs créatifs à partir des études de cas clients et mise en place du suivi (plan de taggage, bandeau cookies).</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         6. CE QUE VOUS Y GAGNEZ
+         =================================================================== -->
     <section class="section" aria-labelledby="gains-title">
       <div class="container">
         <header class="section-head">
@@ -133,36 +293,69 @@
       </div>
     </section>
 
-    <!-- 4. RÉFÉRENCES EN AGENCE -->
-    <section class="section section--sunken" aria-labelledby="refs-title">
+
+    <!-- ===================================================================
+         7. CONTACT (ancre #contact) — mêmes deux chemins que l'accueil
+         =================================================================== -->
+    <section class="section section--sunken" id="contact" aria-labelledby="contact-title" data-sticky-cta-hide>
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Références</p>
-          <h2 id="refs-title">Des comptes pilotés pour le compte d'agences</h2>
-          <p class="section-head__intro">Aroma-Zone, Yelloh! Village, Carrefour Banque, Les Jours, Glisshop : des campagnes e-commerce, de génération de prospects et d'abonnement, dans des secteurs et des cadres réglementaires variés.</p>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Parlons de votre besoin</h2>
+          <p class="section-head__intro">Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne. Au choix : réservez un créneau dans le calendrier, ou écrivez-moi, je réponds sous 24 h ouvrées.</p>
         </header>
-        <div>
-          <a class="btn btn--secondary" href="/#realisations">Voir les réalisations</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- 5. CTA FINAL -->
-    <section class="section" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="page-cta ds-grain ds-grain--strong" data-theme="inverse">
-          <h2 id="cta-title">Un besoin en cours ou à venir ? Parlons-en.</h2>
-          <p>Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne.</p>
-          <div class="page-cta__actions">
-            <a class="btn btn--primary" href="/#contact">Réserver un appel</a>
-            <a class="btn btn--secondary" href="mailto:hello@hugocousty.fr">Écrire un email</a>
-          </div>
-        </div>
-        <p class="contact__alt">Vous êtes une agence basée en Suisse ? <a href="/agences-suisse/">Voir la page dédiée</a>.</p>
+        <!-- TODO : même URL Calendly et même service de formulaire que l'accueil
+             (voir les commentaires de la section 11 de index.html). -->
+        <ul class="contact__paths">
+          <li class="card contact__path">
+            <h3 class="card__title">Un appel de 20 min</h3>
+            <p>Choisissez un créneau ci-dessous, je vous appelle.</p>
+            <div class="calendly">
+              <iframe class="calendly__frame" src="https://calendly.com/hugo-cousty/20min?hide_landing_page_details=1&amp;hide_event_type_details=1&amp;background_color=ffffff&amp;text_color=0d1017&amp;primary_color=1440f0" title="Calendrier de réservation d'un appel de 20 min avec Hugo Cousty" loading="lazy" data-calendly-url></iframe>
+            </div>
+            <p class="field__note">Le calendrier est fourni par Calendly. <a href="/confidentialite/">En savoir plus</a>.</p>
+          </li>
+          <li class="card contact__path">
+            <h3 class="card__title">Un message</h3>
+            <p>Le client, le besoin, le calendrier : quelques lignes suffisent, je reviens vers vous avec des questions ou une proposition.</p>
+
+            <form class="form" action="https://formspree.io/f/VOTRE_ID" method="post" data-contact-form>
+              <div class="field">
+                <label class="field__label" for="contact-nom">Nom</label>
+                <input class="field__input" id="contact-nom" name="nom" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-email">Email</label>
+                <input class="field__input" id="contact-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-agence">Agence</label>
+                <input class="field__input" id="contact-agence" name="agence" type="text" autocomplete="organization" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-message">Votre besoin</label>
+                <textarea class="field__input" id="contact-message" name="message" rows="5" required placeholder="Le type de client, les leviers concernés, le format envisagé et la date de démarrage souhaitée."></textarea>
+              </div>
+              <div class="field field--trap" aria-hidden="true">
+                <label for="contact-site">Site web</label>
+                <input id="contact-site" name="site-web" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="_subject" value="Nouveau message agence depuis hugocousty.fr">
+              <input type="hidden" name="_next" value="https://hugocousty.fr/merci/">
+
+              <button class="btn btn--primary contact__cta" type="submit">Envoyer le message</button>
+              <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
+            </form>
+          </li>
+        </ul>
+
+        <p class="contact__alt">Vous pouvez aussi m'écrire directement à <a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a>. Agence basée en Suisse ? <a href="/agences-suisse/">Voir la page dédiée</a>.</p>
       </div>
     </section>
 
   </main>
+
 
   <!-- FOOTER -->
   <footer class="site-footer ds-grain ds-grain--strong" data-theme="inverse" data-footer>
@@ -173,10 +366,16 @@
         <li><a href="/confidentialite/">Confidentialité</a></li>
         <li><a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a></li>
         <li><a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a></li>
-        <li><a href="/agences/">Vous êtes une agence ?</a></li>
+        <li><a href="/">Vous êtes une entreprise ?</a></li>
       </ul>
     </div>
   </footer>
+
+
+  <!-- BARRE CTA MOBILE — collée en bas d'écran (< 768 px) -->
+  <div class="sticky-cta" data-sticky-cta>
+    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel de 20 min</a>
+  </div>
 
 </body>
 </html>
