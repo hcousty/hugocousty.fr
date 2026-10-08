@@ -291,6 +291,21 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* « jusqu'à » : petit libellé sur la même ligne que le chiffre, pour que
+   les quatre chiffres restent alignés. Même style que les surtitres. */
+.stat__prefix {
+  display: inline-block;
+  margin-right: var(--space-05);
+  vertical-align: baseline;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-normal);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .stat__label {
   font-size: var(--text-body-sm);
   color: var(--text-muted);
