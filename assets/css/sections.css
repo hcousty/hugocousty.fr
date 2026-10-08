@@ -267,9 +267,10 @@
   margin-bottom: var(--space-6);
 }
 
-/* 3 chiffres : 1 colonne sur mobile, 3 dès la tablette */
+/* 4 chiffres : 2 colonnes sur mobile, 4 sur desktop */
 .stats {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-5) var(--grid-gap);
 }
 
@@ -301,9 +302,9 @@
   color: var(--text-muted);
 }
 
-@media (min-width: 48em) {
+@media (min-width: 64em) {
   .stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

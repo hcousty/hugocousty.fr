@@ -185,7 +185,6 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
 - [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
 - [ ] Vérifier l'URL Calendly du bouton « Réserver un créneau » (section Contact)
-- [ ] Trouver un remplaçant au chiffre « +2 M€ gérés en 10 ans » retiré de la section Chiffres (ou rester à 3 chiffres)
 - [ ] Module Calendly intégré dans la page, seulement **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
 - [ ] Bandeau de consentement cookies, puis GA4 avec suivi des prises de RDV Calendly
 - [x] Image de partage `og:image` (1200 × 627 px)
