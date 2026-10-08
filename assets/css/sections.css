@@ -228,6 +228,57 @@
   }
 }
 
+/* --- Régies pilotées : nom + formats, en grille sous les cartes ------------ */
+
+.networks {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+.networks__title {
+  font-size: var(--text-h3);
+}
+
+.networks__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--grid-gap);
+}
+
+.network {
+  display: grid;
+  gap: var(--space-05);
+}
+
+.network strong {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.network span {
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.networks__note {
+  max-width: var(--measure-prose);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+@media (min-width: 48em) {
+  .networks__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .networks__list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
 
 /* 4. MÉTHODE
    ========================================================================== */

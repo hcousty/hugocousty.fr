@@ -1,6 +1,6 @@
 # hugocousty.fr
 
-Site vitrine one page de Hugo Cousty, consultant marketing freelance.
+Site vitrine one page de Hugo Cousty, consultant Social Ads freelance.
 HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune étape de build.
 
 > **État actuel : structure, design system, sous-pages et déploiement en place.**
@@ -58,7 +58,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 |---|---|---|
 | 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
 | 2 | Logos | – |
-| 3 | Expertises | `#expertises` (menu) |
+| 3 | Expertises + régies | `#expertises` (menu) |
 | 4 | Méthode | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
 | 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
