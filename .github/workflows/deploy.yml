@@ -1,6 +1,11 @@
-# Déploiement automatique sur l'hébergement mutualisé OVH, en SFTP.
+# Déploiement sur l'hébergement mutualisé OVH, en SFTP.
 #
-# Déclenché à chaque push sur main (ou à la main depuis l'onglet Actions).
+# Déclenchement MANUEL uniquement (onglet Actions → Déployer sur OVH → Run workflow).
+# Tant que le site est en préprod sur Vercel, rien ne part chez OVH.
+# Pour automatiser à chaque push sur main le jour de la mise en ligne, ajouter :
+#   on:
+#     push:
+#       branches: [main]
 #
 # À configurer une fois dans GitHub : Settings → Secrets and variables → Actions
 #   Secrets :
@@ -17,8 +22,6 @@
 name: Déployer sur OVH
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:

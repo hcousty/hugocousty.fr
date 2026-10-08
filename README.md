@@ -20,7 +20,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
 ├── favicon.ico                 Favicon de repli (32 + 16 px)
 ├── .htaccess                   HTTPS forcé, www → nu, cache, compression (déployé tel quel)
-├── .github/workflows/deploy.yml  Déploiement SFTP vers OVH à chaque push sur main
+├── .github/workflows/deploy.yml  Déploiement SFTP vers OVH (manuel, pour la mise en ligne finale)
 ├── assets/
 │   ├── css/
 │   │   ├── tokens.css          Toutes les valeurs visuelles (variables CSS)
@@ -144,9 +144,13 @@ Le site est 100 % statique : il suffit de copier les fichiers dans le dossier `w
 1. Espace client OVH : **Web Cloud → Hébergements → votre hébergement → onglet FTP-SSH**. Noter le serveur (`ftp.cluster0XX.hosting.ovh.net`) et le login, définir un mot de passe, et **activer SFTP** (colonne SFTP / SSH selon l'offre). Le mutualisé OVH ne propose pas de FTPS : c'est SFTP (chiffré, port 22) ou FTP simple (port 21).
 2. Onglet **Multisite** : vérifier que `hugocousty.fr` et `www.hugocousty.fr` pointent sur le dossier `www/`, puis activer le **certificat SSL** Let's Encrypt. Le `.htaccess` ne force le HTTPS que si le certificat existe.
 
-### Option A : automatique depuis GitHub (recommandé)
+### Préprod : Vercel
 
-Le workflow `.github/workflows/deploy.yml` envoie le site en SFTP à chaque push sur `main` (ou à la main depuis l'onglet **Actions → Déployer sur OVH → Run workflow**).
+Le dépôt GitHub est connecté à Vercel. Chaque push sur `main` redéploie la préprod, et chaque autre branche reçoit une URL de prévisualisation. Aucun réglage dans le repo : site statique, pas de build.
+
+### Mise en ligne : OVH, depuis GitHub
+
+Le workflow `.github/workflows/deploy.yml` envoie le site en SFTP chez OVH. Il se déclenche **à la main** uniquement (onglet **Actions → Déployer sur OVH → Run workflow**), pour que rien ne parte chez OVH tant que le site vit sur Vercel. Le jour de la mise en ligne, on peut l'automatiser à chaque push sur `main` (voir le commentaire en tête du fichier).
 
 Dans GitHub : **Settings → Secrets and variables → Actions**, créer trois secrets :
 
@@ -160,7 +164,7 @@ Si SFTP n'est pas disponible sur l'offre, créer une **variable** (onglet Variab
 
 Le workflow n'envoie que les fichiers plus récents que ceux du serveur et ne supprime rien : un fichier retiré du repo reste en ligne tant qu'on ne l'efface pas à la main. `.git`, `.github` et les `.md` ne partent jamais.
 
-### Option B : FTP à la main
+### Variante : FTP à la main
 
 Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `favicon.ico`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
 
@@ -179,7 +183,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
-- [ ] Renseigner les secrets FTP dans GitHub et activer SFTP chez OVH
+- [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
 - [ ] Vérifier l'URL Calendly du bouton « Réserver un créneau » (section Contact)
 - [ ] Trouver un remplaçant au chiffre « +2 M€ gérés en 10 ans » retiré de la section Chiffres (ou rester à 3 chiffres)
 - [ ] Module Calendly intégré dans la page, seulement **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
