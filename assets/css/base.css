@@ -10,7 +10,7 @@
    2. Éléments de base
    3. Accessibilité
    4. Mise en page (container, section, section-head)
-   5. Composants : bouton, surtitre, tag, placeholder, grain
+   5. Composants : bouton, surtitre, tag, placeholder, formulaire, grain
    6. En-tête (pilule de verre) et navigation
    7. Barre CTA mobile (bas d'écran)
    8. Footer
@@ -374,6 +374,76 @@ main {
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   text-align: center;
+}
+
+/* --- Formulaire -------------------------------------------------------------
+   Champs à contour, rayon 2 px (contrôles), focus bleu. Les états d'erreur
+   natifs du navigateur suffisent pour un formulaire de contact.          */
+
+.form {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.field {
+  display: grid;
+  gap: var(--space-05);
+}
+
+.field__label {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.field__optional {
+  font-weight: var(--weight-regular);
+  color: var(--text-muted);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-15) var(--space-2);
+  border: var(--border-width-hairline) solid var(--border-mid);
+  border-radius: var(--radius-sm);
+  background: var(--surface-page);
+  color: var(--text-primary);
+  transition: var(--transition-control);
+}
+
+.field__input::placeholder {
+  color: var(--text-faint);
+}
+
+.field__input:hover {
+  border-color: var(--border-strong);
+}
+
+.field__input:focus-visible {
+  outline: var(--focus-width) solid var(--focus-ring);
+  outline-offset: 0;
+  border-color: var(--border-accent);
+}
+
+textarea.field__input {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+/* Piège à robots : hors écran, jamais affiché */
+.field--trap {
+  position: absolute !important;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field__note {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
 }
 
 /* --- Grain (tokens/texture.css du design system) ----------------------------

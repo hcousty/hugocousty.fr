@@ -696,15 +696,28 @@
 /* 11. CONTACT
    ========================================================================== */
 
-/* Deux chemins côte à côte dès la tablette : appel ou email */
+/* Deux chemins côte à côte dès la tablette : appel ou formulaire.
+   Chaque carte garde sa hauteur : celle de l'appel ne s'étire pas
+   jusqu'au bas du formulaire. */
 .contact__paths {
   display: grid;
   gap: var(--grid-gap);
+  align-items: start;
 }
 
 .contact__cta {
   margin-top: auto;
   align-self: flex-start;
+}
+
+/* Le formulaire remplit sa carte ; son bouton garde la largeur du texte */
+.contact__path .form {
+  margin-top: var(--space-1);
+}
+
+.contact__path .form .contact__cta {
+  margin-top: var(--space-1);
+  justify-self: start;
 }
 
 @media (min-width: 48em) {

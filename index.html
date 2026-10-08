@@ -547,13 +547,47 @@
             <a class="btn btn--primary contact__cta" href="https://calendly.com/hugo-cousty" target="_blank" rel="noopener" data-calendly-url>Réserver un créneau<span class="visually-hidden"> (nouvel onglet)</span></a>
           </li>
           <li class="card contact__path">
-            <h3 class="card__title">Un email</h3>
+            <h3 class="card__title">Un message</h3>
             <p>Décrivez votre projet en quelques lignes, même imprécises. Je reviens vers vous avec des questions ou une proposition.</p>
-            <a class="btn btn--secondary contact__cta" href="mailto:hello@hugocousty.fr?subject=Projet%20marketing">Écrire à hello@hugocousty.fr</a>
+
+            <!-- FORMULAIRE
+                 Site statique : l'envoi passe par un service de formulaire
+                 (Formspree, Web3Forms…), qui fonctionne sur Vercel comme sur OVH.
+                 TODO : créer le formulaire chez le service, puis remplacer
+                 l'URL de l'attribut action ci-dessous par celle fournie.
+                 Le champ « site-web » est un piège à robots : masqué, il doit
+                 rester vide ; les services de formulaire savent l'ignorer. -->
+            <form class="form" action="https://formspree.io/f/VOTRE_ID" method="post" data-contact-form>
+              <div class="field">
+                <label class="field__label" for="contact-nom">Nom</label>
+                <input class="field__input" id="contact-nom" name="nom" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-email">Email</label>
+                <input class="field__input" id="contact-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-entreprise">Entreprise <span class="field__optional">(facultatif)</span></label>
+                <input class="field__input" id="contact-entreprise" name="entreprise" type="text" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-message">Votre projet</label>
+                <textarea class="field__input" id="contact-message" name="message" rows="5" required placeholder="Votre activité, ce que vous cherchez à obtenir, et où vous en êtes aujourd'hui."></textarea>
+              </div>
+              <div class="field field--trap" aria-hidden="true">
+                <label for="contact-site">Site web</label>
+                <input id="contact-site" name="site-web" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="_subject" value="Nouveau message depuis hugocousty.fr">
+              <input type="hidden" name="_next" value="https://hugocousty.fr/merci/">
+
+              <button class="btn btn--primary contact__cta" type="submit">Envoyer le message</button>
+              <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
+            </form>
           </li>
         </ul>
 
-        <p class="contact__alt">Vous pouvez aussi me retrouver sur <a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a>.</p>
+        <p class="contact__alt">Vous pouvez aussi m'écrire directement à <a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a> ou me retrouver sur <a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a>.</p>
       </div>
     </section>
 
