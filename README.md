@@ -61,7 +61,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 4 | Méthode | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
 | 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
-| 7 | Témoignages (**placeholders**) | `#temoignages` |
+| 7 | Témoignages, 1 principal + 3 courts (**placeholders**) | `#temoignages` |
 | 8 | À propos + encart IA | `#a-propos` (menu) |
 | 9 | Travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 10 | FAQ | `#faq` (menu) |

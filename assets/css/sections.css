@@ -471,10 +471,11 @@
   color: var(--text-primary);
 }
 
+/* Tablette : 1 principal pleine largeur + 3 courts en colonnes */
 @media (min-width: 48em) {
   .testimonials {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--space-7);
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--space-5);
   }
 
   .testimonial--main {
