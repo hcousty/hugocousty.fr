@@ -132,9 +132,7 @@
 .hero__proofs {
   display: grid;
   gap: var(--space-1);
-  margin-top: var(--space-2);
-  padding: var(--space-3) 0 0;
-  border-top: var(--border-width-hairline) solid var(--border-mid);
+  margin-top: var(--space-3);
   list-style: none;
   font-size: var(--text-body-sm);
   color: var(--text-muted);
@@ -236,8 +234,6 @@
   display: grid;
   align-content: start;
   gap: var(--space-15);
-  padding-top: var(--space-3);
-  border-top: var(--border-width-hairline) solid var(--border-strong);
 }
 
 /* Numéros de section en bleu (texte : bleu 600 sur blanc) */
@@ -289,8 +285,6 @@
   display: grid;
   align-content: start;
   gap: var(--space-1);
-  padding-top: var(--space-2);
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
 }
 
 .stat__value {
@@ -455,8 +449,7 @@
 
 /* Témoignage principal : en grand */
 .testimonial--main {
-  padding-bottom: var(--space-5);
-  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+  padding-bottom: var(--space-3);
 }
 
 .testimonial--main .testimonial__quote {
@@ -502,8 +495,6 @@
 .about__facts {
   display: grid;
   gap: var(--space-1);
-  padding: var(--space-3) 0 0;
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
@@ -626,15 +617,24 @@
 
 
 /* 10. FAQ — accordéon <details>/<summary>
-   Le « + » pivote en « × » à l'ouverture.
+   Le « + » pivote en « × » à l'ouverture. Pas de filet : les questions sont
+   séparées par l'espace, et la question ouverte prend un fond gris clair.
    ========================================================================== */
 
 .faq {
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  display: grid;
+  gap: var(--space-05);
 }
 
 .faq__item {
-  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+  padding-inline: var(--space-2);
+  margin-inline: calc(-1 * var(--space-2));
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.faq__item[open] {
+  background: var(--surface-sunken);
 }
 
 .faq__question {
@@ -787,16 +787,15 @@
   font-weight: var(--weight-medium);
 }
 
-/* Liste de points (pages agences) : filet entre chaque entrée */
+/* Liste de points (pages agences) : séparés par l'espace, sans filet */
 .points {
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  display: grid;
+  gap: var(--space-5);
 }
 
 .points__item {
   display: grid;
   gap: var(--space-1);
-  padding-block: var(--space-3);
-  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
 }
 
 .points__item h3 {

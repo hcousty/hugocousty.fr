@@ -324,13 +324,10 @@ main {
 }
 
 /* --- Surtitre (style « libellé ») -----------------------------------------
-   11 px, capitales, interlettrage 0.12em. Dans une section, il est numéroté
-   automatiquement (01, 02…) et suivi d'un filet jusqu'au bord du conteneur. */
+   11 px, capitales, interlettrage 0.12em. Sans numéro ni filet. */
 
 .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: var(--space-15);
+  display: block;
   font-family: var(--font-mono);
   font-size: var(--text-label);
   font-weight: var(--weight-medium);
@@ -338,26 +335,6 @@ main {
   line-height: var(--leading-normal);
   text-transform: uppercase;
   color: var(--text-muted);
-}
-
-main {
-  counter-reset: section;
-}
-
-.section .eyebrow {
-  counter-increment: section;
-}
-
-.section .eyebrow::before {
-  content: counter(section, decimal-leading-zero);
-  color: var(--text-accent);
-}
-
-.section .eyebrow::after {
-  content: "";
-  flex: 1;
-  height: var(--border-width-hairline);
-  background: var(--border-hairline);
 }
 
 /* --- Tag (Sites web, Social Ads…) ------------------------------------------ */
@@ -633,10 +610,6 @@ main {
   text-decoration: none;
 }
 
-.site-nav li + li {
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
-}
-
 /* Bloque le défilement de la page quand le menu mobile est ouvert */
 .has-menu-open {
   overflow: hidden;
@@ -685,7 +658,7 @@ main {
   padding: var(--space-15) var(--gutter);
   padding-bottom: max(var(--space-15), env(safe-area-inset-bottom));
   background: var(--surface-page);
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  box-shadow: var(--shadow-pop); /* décolle la barre du contenu, sans filet */
   transition:
     transform var(--duration-base) var(--ease-out),
     visibility var(--duration-base);

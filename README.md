@@ -110,7 +110,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 - **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le hero (texte sur la photo) et le footer.
 - **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre. À gauche, la photo ronde (réservé « HC » en attendant) et le statut « Disponible » avec un point vert ; pour passer en indisponible, ajouter la classe `status--off` au `<span class="status">` et changer le texte.
 - **Boutons** : `primary` en aplat encre qui passe au bleu au survol, avec la flèche ↗ intégrée (dessinée en CSS, aucune modification du HTML) ; `secondary` en contour qui se remplit au survol.
-- **Surtitres** numérotés automatiquement (01, 02…) par un compteur CSS, suivis d'un filet.
+- **Surtitres** en capitales espacées, sans numéro ni filet. Aucun trait de séparation décoratif sur le site : les blocs sont séparés par l'espace, les cartes gardent leur contour.
 - **Un seul grand aplat encre** : le footer. Le hero n'a plus de panneau encre : la photo remplit l'écran (léger retrait `--hero-inset`, rayon `--hero-radius`) et le texte est posé dessus, lisible grâce à un voile encre dégradé en bas de la photo.
 - **Pas d'animation d'entrée au défilement**, pas d'emoji, pas d'ombre sur les cartes.
 
