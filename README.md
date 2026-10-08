@@ -15,7 +15,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 /
 ├── index.html                  One page (toutes les sections)
 ├── agences/index.html          Landing page agences : hero photo, expertises, formats, témoignages, réalisations, contact
-├── agences-suisse/index.html   Page agences Suisse romande (liée depuis /agences/)
+├── agences-suisse/index.html   Même landing page, angle Suisse romande, Harmony à la une
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
 ├── merci/index.html            Confirmation après envoi du formulaire (noindex, lien LinkedIn)
@@ -192,3 +192,37 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
 - [x] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
 - [x] Déploiement OVH (workflow SFTP + `.htaccess`)
+
+---
+
+## Inventaire des composants (pour la maquette Figma)
+
+Tout le site se construit avec ces composants. Chacun existe en version claire et, pour ceux marqués ★, en thème inverse (sur encre ou sur photo). Les tailles d'écran à maquetter : mobile 375 px et desktop 1280 px (la tablette dérive des deux).
+
+| Composant | Classe | Variantes et états |
+|---|---|---|
+| Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
+| Surtitre | `.eyebrow` | ★ |
+| Tag | `.tag` | un seul style |
+| Carte | `.card` | expertise, offre (`.offer` : pitch, format, bouton), contact (`.contact__path`) |
+| Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
+| Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |
+| Témoignage | `.testimonial` | principal (en grand) et court |
+| Étape | `.step` | numéro bleu, titre, texte avec « Livrable » |
+| Chiffre clé | `.stat` | avec ou sans préfixe « jusqu'à » |
+| Régie | `.network` | nom + formats |
+| Liste de points | `.points__item` | titre à gauche, texte à droite sur desktop |
+| Question FAQ | `.faq__item` | fermée, ouverte (fond gris clair), signe + qui pivote |
+| Champ de formulaire | `.field` | texte, email, zone de texte · repos, survol, focus, erreur native, note |
+| Faits | `.hero__proofs`, `.about__facts` | liste « Libellé : valeur » ★ |
+| Logo client | `.logos__item` | 6 par ligne (accueil), 5 par ligne (agences) |
+| Réservé d'image | `.placeholder` | à remplacer par les vraies images |
+| En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |
+| Hero | `.hero` ★ | photo plein écran avec retrait et rayon, voile encre, texte posé dessus |
+| Encart IA | `.ai-box` | fond bleu très clair, 2 colonnes sur desktop |
+| Mise en avant finale | `.page-cta` ★ | bloc encre avec titre, texte, boutons (pages secondaires) |
+| Barre CTA mobile | `.sticky-cta` | collée en bas, masquée quand un bouton « Réserver » est visible |
+| Pied de page | `.site-footer` ★ | liste de liens, grain |
+| Calendrier intégré | `.calendly__frame` | cadre Calendly, hauteur `--calendly-height` |
+
+Les valeurs (couleurs, typo, espacements, rayons) sont toutes dans `tokens.css`. Si Figma utilise des variables avec les mêmes noms, l'intégration des maquettes se fait en une passe.

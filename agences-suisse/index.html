@@ -23,70 +23,273 @@
   <link rel="stylesheet" href="/assets/css/sections.css">
   <script src="/assets/js/main.js" defer></script>
 </head>
-<body class="page-simple">
+<body>
 
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <!-- HEADER (version page secondaire : retour au one page + CTA) -->
+  <!-- HEADER (version page secondaire : retour à l'accueil + CTA vers le contact de cette page) -->
   <header class="site-header" data-theme="inverse" data-header>
     <div class="site-header__inner">
-      <!-- Identité : photo ronde + statut de disponibilité.
-           Remplacer le réservé par <img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">
-           Pour passer en indisponible : ajouter la classe status--off et changer le texte. -->
       <a class="site-id" href="/" aria-label="Hugo Cousty, retour à l'accueil">
         <span class="avatar avatar--placeholder" aria-hidden="true">HC</span>
         <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
       </a>
       <div class="site-header__actions">
-        <a class="btn btn--primary btn--small site-header__cta site-header__cta--always" href="/#contact">Réserver un appel</a>
+        <a class="btn btn--primary btn--small site-header__cta" href="#contact">Réserver un appel</a>
       </div>
     </div>
   </header>
 
   <main id="contenu">
 
-    <!-- 1. EN-TÊTE DE PAGE -->
-    <section class="section" aria-labelledby="page-title">
+    <!-- ===================================================================
+         1. HERO — même composant que l'accueil : photo plein écran, texte dessus
+         =================================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title" data-theme="inverse">
+      <div class="hero__media">
+        <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
+      </div>
+
+      <div class="hero__body">
+        <div class="hero__panel">
+          <p class="eyebrow">Pour les agences de Suisse romande</p>
+          <h1 id="hero-title">Un renfort Social Ads senior pour vos clients, à Genève, Lausanne et au-delà.</h1>
+          <p class="hero__lead">Délais, marges, reportings clients, rushs de fin d'année : je connais vos contraintes. Je prends le relais sur vos comptes, à distance ou sur place, en francs suisses ou en euros.</p>
+
+          <div class="hero__actions" data-sticky-cta-hide>
+            <a class="btn btn--primary" href="#contact">Réserver un appel de 20 min</a>
+            <a class="btn btn--secondary" href="#formats">Voir les formats</a>
+          </div>
+
+          <ul class="hero__proofs">
+            <li><strong>Senior :</strong> 10+ ans d'expérience, en agence, chez l'annonceur et en freelance</li>
+            <li><strong>Certifié Meta :</strong> Media Buying Professional</li>
+            <li><strong>Sur place :</strong> déplacements à Genève et Lausanne selon les projets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         2. EXPERTISES
+         =================================================================== -->
+    <section class="section" id="expertises" aria-labelledby="expertises-title">
       <div class="container">
-        <header class="page-head">
-          <p class="eyebrow">Agences · Suisse romande</p>
-          <h1 id="page-title">Un renfort Social Ads senior pour vos clients, à Genève, Lausanne et au-delà</h1>
-          <p class="page-head__intro">J'accompagne des entreprises et des agences en Suisse romande depuis plusieurs années, à distance et sur place. Même langue, même fuseau horaire, et un pied de chaque côté de la frontière.</p>
+        <header class="section-head">
+          <p class="eyebrow">Ce que je prends en charge</p>
+          <h2 id="expertises-title">Les expertises Social Ads que vos clients vous demandent</h2>
+          <p class="section-head__intro">Un seul interlocuteur, de la structure du compte au reporting, sur Meta, TikTok, LinkedIn, Pinterest et Snapchat. Vous confiez tout, ou seulement ce qui vous manque.</p>
         </header>
 
         <ul class="expertises">
           <li class="card">
+            <h3 class="card__title">Setup, mise en ligne et pilotage quotidien</h3>
+            <p>Paramétrage des campagnes, montage et mise en ligne des annonces, suivi au jour le jour et ajustements de budget, sur un Black Friday, des soldes ou un lancement.</p>
+          </li>
+          <li class="card">
             <h3 class="card__title">Stratégie et structure de compte</h3>
-            <p>Audit, objectifs, audiences, budget et architecture des campagnes sur Meta, TikTok, LinkedIn, Pinterest et Snapchat, plus Google Demand Gen et Performance Max en complément. Ciblage adapté au marché suisse (cantons, langues, frontaliers). Certifié Meta Media Buying Professional.</p>
+            <p>Audit, objectifs, audiences, budget et architecture des campagnes sur les cinq régies sociales, avec un ciblage adapté au marché suisse : cantons, langues, frontaliers.</p>
           </li>
           <li class="card">
             <h3 class="card__title">Création et tests créatifs</h3>
-            <p>Briefs, revues créatives, déclinaisons par audience et par langue, plan de tests, avec vos créatifs ou les miens.</p>
+            <p>Briefs, revues créatives, déclinaisons par audience, par format et par langue, plan de tests et lecture des résultats, avec vos créatifs ou les miens.</p>
           </li>
           <li class="card">
             <h3 class="card__title">Tracking et mesure</h3>
             <p>Plan de taggage, GTM, GA4, pixels et API de conversion, bandeau cookies conforme à la nLPD. Des données fiables pour piloter et rassurer vos clients.</p>
           </li>
-          <li class="card">
-            <h3 class="card__title">Setup, mise en ligne et pilotage quotidien</h3>
-            <p>Paramétrage des campagnes, montage et mise en ligne des annonces, suivi au jour le jour et ajustements de budget. Ce qu'il faut sur un Black Friday, des soldes ou un lancement, quand tout est prêt sauf les mains.</p>
-          </li>
         </ul>
       </div>
     </section>
 
-    <!-- 2. POURQUOI UN FREELANCE BASÉ EN FRANCE -->
-    <section class="section section--sunken" aria-labelledby="pourquoi-title">
+
+    <!-- ===================================================================
+         3. FORMATS DE COLLABORATION (ancre #formats)
+         =================================================================== -->
+    <section class="section section--sunken" id="formats" aria-labelledby="formats-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Pourquoi moi</p>
-          <h2 id="pourquoi-title">Ce qui change avec un freelance basé en France</h2>
+          <p class="eyebrow">Formats</p>
+          <h2 id="formats-title">3 façons de travailler ensemble</h2>
+        </header>
+
+        <ul class="points">
+          <li class="points__item">
+            <h3>En renfort sur les temps forts</h3>
+            <p>Black Friday, Noël, soldes, lancement produit : la stratégie et les créas sont prêtes, il vous manque des mains expertes. Setup des campagnes, mise en ligne des annonces, pilotage au jour le jour et ajustements de budget pendant toute la période. Même chose pour absorber un pic d'activité, un congé ou un départ dans l'équipe.</p>
+          </li>
+          <li class="points__item">
+            <h3>En marque blanche</h3>
+            <p>Je produis, vous présentez. Audits, campagnes, reportings et recommandations sont livrés à votre nom, dans vos gabarits. Vos clients gardent un seul interlocuteur : vous.</p>
+          </li>
+          <li class="points__item">
+            <h3>En direct avec vos clients</h3>
+            <p>Je participe aux points clients comme consultant partenaire de l'agence. Utile quand le client veut parler à la personne qui pilote ses campagnes, ou pour un sujet technique (tracking, attribution).</p>
+          </li>
+        </ul>
+
+        <div class="section-cta">
+          <a class="btn btn--primary" href="#contact">Parlons de votre besoin</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         4. TÉMOIGNAGES — les mêmes témoignages clients que l'accueil
+         (section 7 de index.html) : copier-coller les textes une fois
+         remplis. Pas de témoignage d'agence pour l'instant.
+         =================================================================== -->
+    <section class="section" id="temoignages" aria-labelledby="temoignages-title">
+      <div class="container">
+        <p class="eyebrow">Ce qu'en disent les annonceurs</p>
+        <h2 class="visually-hidden" id="temoignages-title">Témoignages de clients</h2>
+
+        <div class="testimonials">
+          <figure class="testimonial testimonial--main">
+            <blockquote class="testimonial__quote">
+              <p>"Témoignage principal, 35 mots max : un changement concret depuis le début de la collaboration, avec si possible un résultat chiffré."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Prénom Nom</span>
+              <span class="testimonial__role">Fonction, Entreprise</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte qui résume l'apport principal de la collaboration."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Entreprise</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte sur un autre aspect : réactivité, clarté, autonomie des équipes."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Entreprise</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>"Une phrase courte sur la relation : fiabilité, tenue des délais, qualité des livrables."</p>
+            </blockquote>
+            <figcaption class="testimonial__author">Prénom Nom, Fonction, Entreprise</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         5. RÉALISATIONS — les 10 comptes pilotés en agence (logos), puis
+         4 exemples détaillés. Pour détailler un autre compte : dupliquer
+         une <li class="project-card">, en gardant un nombre pair.
+         =================================================================== -->
+    <section class="section section--sunken" id="realisations" aria-labelledby="realisations-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Réalisations</p>
+          <h2 id="realisations-title">Un cas romand, et des comptes pilotés en agence</h2>
+          <p class="section-head__intro">Un compte piloté en Suisse romande, puis plusieurs années chez Ad's up Consulting et Enigma : du e-commerce à la génération de prospects, avec les mêmes exigences de reporting et de délais que les vôtres.</p>
+        </header>
+
+        <!-- Projet à la une : Harmony, le cas romand -->
+        <article class="featured" aria-labelledby="harmony-title">
+          <div class="placeholder featured__visual" role="img" aria-label="Visuel projet Harmony : écrans des campagnes et des offres">Visuel projet Harmony</div>
+
+          <div class="featured__body">
+            <p class="project__sector">Sport &amp; Bien-être · Suisse romande</p>
+            <h3 class="featured__title" id="harmony-title">Harmony</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+              <li class="tag">Google Ads</li>
+              <li class="tag">CRM</li>
+              <li class="tag">Tracking</li>
+            </ul>
+            <p>Pilotage des campagnes Meta d'un groupe de clubs de sport en Suisse romande (fitness, aquatique, arts martiaux), à la suite d'un audit webmarketing : les grandes offres promotionnelles de l'année (rentrée, été, opération Coupe du monde), de la mécanique de l'offre aux créas et aux emailings, en coordination avec Google Ads. En parallèle, fiabilisation du suivi des conversions et migration des outils emailing et CRM.</p>
+          </div>
+        </article>
+
+        <h3 class="projects__subtitle">Comptes pilotés en agence</h3>
+
+        <ul class="logos__list logos__list--ten" aria-label="Comptes pilotés en agence">
+          <li><div class="placeholder logos__item" role="img" aria-label="Aroma-Zone">Logo Aroma-Zone</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Yelloh! Village">Logo Yelloh! Village</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Groupe Barrière">Logo Groupe Barrière</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Le Pantalon">Logo Le Pantalon</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="IKKS">Logo IKKS</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Carrefour Banque">Logo Carrefour Banque</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Glisshop">Logo Glisshop</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="KeepCool">Logo KeepCool</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Rexel">Logo Rexel</div></li>
+          <li><div class="placeholder logos__item" role="img" aria-label="Bonhams">Logo Bonhams</div></li>
+        </ul>
+
+        <h3 class="projects__subtitle">Quatre exemples en détail</h3>
+
+        <ul class="projects projects--pair" aria-label="Exemples détaillés">
+
+          <li class="project-card">
+            <p class="project__sector">Beauté &amp; Cosmétique</p>
+            <h3 class="project-card__title">Aroma-Zone</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Pilotage des campagnes e-commerce sur 4 régies (Meta, Snapchat, TikTok, Pinterest), revues créatives régulières et accompagnement sur la stratégie créative.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Banque &amp; Assurances</p>
+            <h3 class="project-card__title">Carrefour Banque</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Lancement de campagnes de génération de prospects dans un cadre réglementaire strict, en lien avec les équipes créatives internes.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Loisirs &amp; Hôtellerie</p>
+            <h3 class="project-card__title">Yelloh! Village</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Campagnes Social Ads pour booster les réservations d'un réseau de campings, avec un suivi des performances par établissement et par pays.</p>
+          </li>
+
+          <li class="project-card">
+            <p class="project__sector">Sport &amp; Outdoor</p>
+            <h3 class="project-card__title">Glisshop</h3>
+            <ul class="tags" aria-label="Expertises mobilisées">
+              <li class="tag">Social Ads</li>
+            </ul>
+            <p class="project-card__context">En agence (Ad's up)</p>
+            <p>Campagnes Social Ads e-commerce, optimisation des catalogues produits et coordination avec les équipes créatives internes.</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         6. CE QUE VOUS Y GAGNEZ
+         =================================================================== -->
+    <section class="section" aria-labelledby="gains-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Ce que vous y gagnez</p>
+          <h2 id="gains-title">Ce qui change avec un freelance basé en France</h2>
         </header>
 
         <ul class="points">
           <li class="points__item">
             <h3>Je connais le marché romand</h3>
-            <p>J'ai piloté l'accompagnement global d'un groupe de clubs de sport en Suisse romande (campagnes Meta, offres promotionnelles, tracking) et travaillé avec des équipes à Genève et Lausanne. Je connais les réflexes locaux : le rapport au prix, le multilingue, la saisonnalité.</p>
+            <p>J'ai piloté les campagnes d'un groupe de clubs de sport en Suisse romande et travaillé avec des équipes à Genève et Lausanne. Je connais les réflexes locaux : le rapport au prix, le multilingue, la saisonnalité.</p>
           </li>
           <li class="points__item">
             <h3>Un coût journalier plus accessible</h3>
@@ -94,11 +297,11 @@
           </li>
           <li class="points__item">
             <h3>Présence sur place quand il faut</h3>
-            <p>Je me déplace à Genève pour les lancements, les ateliers et les rendez-vous clients qui comptent. Le reste se fait à distance, dans votre fuseau horaire.</p>
+            <p>Je me déplace à Genève ou Lausanne pour les lancements, les ateliers et les rendez-vous clients qui comptent. Le reste se fait à distance, dans votre fuseau horaire.</p>
           </li>
           <li class="points__item">
-            <h3>Marque blanche ou en direct</h3>
-            <p>Je livre à votre nom dans vos gabarits, ou je participe aux points clients comme consultant partenaire de l'agence. Vos clients restent vos clients : clause de non-sollicitation sur demande.</p>
+            <h3>Confidentialité</h3>
+            <p>Vos clients restent vos clients. Je ne démarche jamais un annonceur rencontré par votre intermédiaire, et je signe une clause de non-sollicitation si vous le souhaitez.</p>
           </li>
           <li class="points__item">
             <h3>Transmission</h3>
@@ -108,52 +311,69 @@
       </div>
     </section>
 
-    <!-- 3. FORMATS -->
-    <section class="section" aria-labelledby="formats-title">
+
+    <!-- ===================================================================
+         7. CONTACT (ancre #contact) — mêmes deux chemins que l'accueil
+         =================================================================== -->
+    <section class="section section--sunken" id="contact" aria-labelledby="contact-title" data-sticky-cta-hide>
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Formats</p>
-          <h2 id="formats-title">Des formats adaptés à votre agence</h2>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Parlons de votre besoin</h2>
+          <p class="section-head__intro">Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne. Au choix : réservez un créneau dans le calendrier, ou écrivez-moi, je réponds sous 24 h ouvrées.</p>
         </header>
 
-        <ul class="offers">
-          <li class="card offer">
-            <h3 class="card__title">Audit ou mission ponctuelle</h3>
-            <p class="offer__pitch">Pour un client précis, avec un début et une fin.</p>
-            <p>Audit de compte avant une réponse à appel d'offres, lancement de campagnes, mise en place du tracking, plan de tests créatifs.</p>
-            <p class="offer__format"><strong>Format :</strong> forfait.</p>
+        <!-- TODO : même URL Calendly et même service de formulaire que l'accueil
+             (voir les commentaires de la section 11 de index.html). -->
+        <ul class="contact__paths">
+          <li class="card contact__path">
+            <h3 class="card__title">Un appel de 20 min</h3>
+            <p>Choisissez un créneau ci-dessous, je vous appelle.</p>
+            <div class="calendly">
+              <iframe class="calendly__frame" src="https://calendly.com/hugo-cousty/20min?hide_landing_page_details=1&amp;hide_event_type_details=1&amp;background_color=ffffff&amp;text_color=0d1017&amp;primary_color=1440f0" title="Calendrier de réservation d'un appel de 20 min avec Hugo Cousty" loading="lazy" data-calendly-url></iframe>
+            </div>
+            <p class="field__note">Le calendrier est fourni par Calendly. <a href="/confidentialite/">En savoir plus</a>.</p>
           </li>
-          <li class="card offer">
-            <h3 class="card__title">Renfort sur les temps forts</h3>
-            <p class="offer__pitch">Pour les périodes clés, ou pour absorber un pic ou un départ.</p>
-            <p>Black Friday, Noël, soldes : setup, mise en ligne des annonces et pilotage au jour le jour, dans vos outils et vos process. Pas de stratégie ni de créa si vous les avez déjà, juste de l'exécution experte.</p>
-            <p class="offer__format"><strong>Format :</strong> jours par semaine, sur une durée définie.</p>
-          </li>
-          <li class="card offer">
-            <h3 class="card__title">Partenariat régulier</h3>
-            <p class="offer__pitch">Pour une expertise Social Ads senior dans la durée.</p>
-            <p>Pilotage de comptes clients, revues mensuelles, support aux chefs de projet et aux commerciaux en phase de vente.</p>
-            <p class="offer__format"><strong>Format :</strong> nombre de jours par mois, sans engagement long.</p>
+          <li class="card contact__path">
+            <h3 class="card__title">Un message</h3>
+            <p>Le client, le besoin, le calendrier : quelques lignes suffisent, je reviens vers vous avec des questions ou une proposition.</p>
+
+            <form class="form" action="https://formspree.io/f/VOTRE_ID" method="post" data-contact-form>
+              <div class="field">
+                <label class="field__label" for="contact-nom">Nom</label>
+                <input class="field__input" id="contact-nom" name="nom" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-email">Email</label>
+                <input class="field__input" id="contact-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-agence">Agence</label>
+                <input class="field__input" id="contact-agence" name="agence" type="text" autocomplete="organization" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-message">Votre besoin</label>
+                <textarea class="field__input" id="contact-message" name="message" rows="5" required placeholder="Le type de client, les leviers concernés, le format envisagé et la date de démarrage souhaitée."></textarea>
+              </div>
+              <div class="field field--trap" aria-hidden="true">
+                <label for="contact-site">Site web</label>
+                <input id="contact-site" name="site-web" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="_subject" value="Nouveau message agence Suisse depuis hugocousty.fr">
+              <input type="hidden" name="_next" value="https://hugocousty.fr/merci/">
+
+              <button class="btn btn--primary contact__cta" type="submit">Envoyer le message</button>
+              <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
+            </form>
           </li>
         </ul>
-      </div>
-    </section>
 
-    <!-- 4. CTA FINAL -->
-    <section class="section section--sunken" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="page-cta ds-grain ds-grain--strong" data-theme="inverse">
-          <h2 id="cta-title">Un besoin en cours ou à venir ? Parlons-en.</h2>
-          <p>Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne.</p>
-          <div class="page-cta__actions">
-            <a class="btn btn--primary" href="/#contact">Réserver un appel</a>
-            <a class="btn btn--secondary" href="mailto:hello@hugocousty.fr">Écrire un email</a>
-          </div>
-        </div>
+        <p class="contact__alt">Vous pouvez aussi m'écrire directement à <a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a>. Agence basée en France ? <a href="/agences/">Voir la page dédiée</a>.</p>
       </div>
     </section>
 
   </main>
+
 
   <!-- FOOTER -->
   <footer class="site-footer ds-grain ds-grain--strong" data-theme="inverse" data-footer>
@@ -164,10 +384,17 @@
         <li><a href="/confidentialite/">Confidentialité</a></li>
         <li><a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a></li>
         <li><a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a></li>
-        <li><a href="/agences/">Vous êtes une agence ?</a></li>
+        <li><a href="/agences/">Agences en France</a></li>
+        <li><a href="/">Vous êtes une entreprise ?</a></li>
       </ul>
     </div>
   </footer>
+
+
+  <!-- BARRE CTA MOBILE — collée en bas d'écran (< 768 px) -->
+  <div class="sticky-cta" data-sticky-cta>
+    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel de 20 min</a>
+  </div>
 
 </body>
 </html>
