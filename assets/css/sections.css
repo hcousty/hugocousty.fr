@@ -200,6 +200,13 @@
   }
 }
 
+/* Dix logos (page agences) : 2 colonnes sur mobile, 5 dès la tablette */
+@media (min-width: 48em) {
+  .logos__list--ten {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 
 /* 3. EXPERTISES
    ========================================================================== */
@@ -419,6 +426,17 @@
   .projects {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Variante à 2 colonnes (page agences : 4 exemples) */
+  .projects--pair {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Sous-titre entre les logos et les cartes (page agences) */
+.projects__subtitle {
+  margin: var(--space-7) 0 var(--space-4);
+  font-size: var(--text-h2);
 }
 
 
