@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Favicon hugocousty.fr : tuile encre, « H » blanc, point bleu (signature du wordmark) -->
+  <rect width="64" height="64" rx="10" fill="#0D1017"/>
+  <path d="M15 14h9v15h16V14h9v36h-9V37H24v13h-9z" fill="#FFFFFF"/>
+  <circle cx="52" cy="46" r="4.5" fill="#1440F0"/>
+</svg>

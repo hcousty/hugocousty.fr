@@ -1,0 +1,74 @@
+# Déploiement automatique sur l'hébergement mutualisé OVH, en SFTP.
+#
+# Déclenché à chaque push sur main (ou à la main depuis l'onglet Actions).
+#
+# À configurer une fois dans GitHub : Settings → Secrets and variables → Actions
+#   Secrets :
+#     FTP_SERVER    ex. ftp.cluster0XX.hosting.ovh.net   (onglet FTP-SSH de l'hébergement)
+#     FTP_USERNAME  ex. hugocoxxx                        (le login FTP principal)
+#     FTP_PASSWORD  le mot de passe FTP défini dans l'espace client
+#   Variable (facultative) :
+#     DEPLOY_PROTOCOL  "sftp" (par défaut, chiffré, nécessite SFTP activé dans
+#                      l'onglet FTP-SSH) ou "ftp" (en clair, si SFTP indisponible).
+#
+# OVH mutualisé ne propose pas de FTPS (FTP sur TLS) : c'est SFTP ou FTP simple.
+# lftp gère les deux avec les mêmes identifiants.
+
+name: Déployer sur OVH
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ovh
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Envoi vers www/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer lftp
+        run: sudo apt-get update -q && sudo apt-get install -y -q lftp
+
+      - name: Envoyer les fichiers
+        env:
+          SERVER: ${{ secrets.FTP_SERVER }}
+          USERNAME: ${{ secrets.FTP_USERNAME }}
+          PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          PROTOCOL: ${{ vars.DEPLOY_PROTOCOL || 'sftp' }}
+        run: |
+          set -eu
+          if [ -z "$SERVER" ] || [ -z "$USERNAME" ] || [ -z "$PASSWORD" ]; then
+            echo "Secrets FTP_SERVER, FTP_USERNAME et FTP_PASSWORD manquants." >&2
+            exit 1
+          fi
+          case "$PROTOCOL" in
+            sftp) PORT=22 ;;
+            ftp)  PORT=21 ;;
+            *) echo "DEPLOY_PROTOCOL doit valoir sftp ou ftp." >&2; exit 1 ;;
+          esac
+
+          # mirror -R : envoie le dossier local vers le serveur (miroir inverse).
+          # Pas de --delete : un fichier retiré du dépôt reste sur le serveur
+          # (à supprimer à la main). Ce qui ne doit jamais partir est exclu ci-dessous.
+          lftp -u "$USERNAME","$PASSWORD" -p "$PORT" "$PROTOCOL://$SERVER" <<'LFTP'
+            set net:timeout 30
+            set net:max-retries 3
+            set sftp:auto-confirm yes
+            set ftp:ssl-allow no
+            mirror -R --verbose --only-newer \
+              --exclude-glob .git \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob .gitignore \
+              --exclude-glob README.md \
+              --exclude-glob "*.md" \
+              ./ www/
+            bye
+          LFTP

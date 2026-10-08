@@ -3,9 +3,9 @@
 Site vitrine one page de Hugo Cousty, consultant marketing freelance.
 HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune étape de build.
 
-> **État actuel : design system branché, contenus visuels à venir.**
-> Les tokens du projet Claude Design « Hugo Cousty Design System » sont intégrés dans
-> `assets/css/tokens.css`. Les images sont encore des réservés gris qui nomment l'image attendue.
+> **État actuel : structure, design system, sous-pages et déploiement en place.**
+> Il reste les contenus visuels (photos, logos), les vrais témoignages, et les champs
+> surlignés en jaune dans les mentions légales et la politique de confidentialité.
 
 ---
 
@@ -14,22 +14,30 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ```
 /
 ├── index.html                  One page (toutes les sections)
-├── agences/index.html          Page vide (lien "Vous êtes une agence ?" du footer)
-├── agences-suisse/index.html   Page vide (non liée pour l'instant)
-├── mentions-legales/index.html Page vide
-├── confidentialite/index.html  Page vide
+├── agences/index.html          Page agences (lien "Vous êtes une agence ?" du footer)
+├── agences-suisse/index.html   Page agences Suisse romande (liée depuis /agences/)
+├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
+├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
+├── favicon.ico                 Favicon de repli (32 + 16 px)
+├── .htaccess                   HTTPS forcé, www → nu, cache, compression (déployé tel quel)
+├── .github/workflows/deploy.yml  Déploiement SFTP vers OVH à chaque push sur main
 ├── assets/
 │   ├── css/
 │   │   ├── tokens.css          Toutes les valeurs visuelles (variables CSS)
 │   │   ├── base.css            Reset, typo, layout, composants communs, header, footer
-│   │   └── sections.css        Styles propres à chaque section du one page
-│   ├── js/main.js              Burger, header au scroll, apparition, slider, barre CTA mobile
+│   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
+│   ├── js/main.js              Burger, slider, barre CTA mobile
 │   ├── fonts/                  Police Geist (woff2 + licence OFL)
-│   └── img/                    Images (grain.png du design system)
+│   └── img/                    grain.png, favicon.svg, apple-touch-icon.png, og-image.jpg
 └── README.md
 ```
 
-Les pages secondaires sont en `noindex` tant qu'elles n'ont pas de contenu. Il faudra retirer la balise `<meta name="robots" content="noindex">` quand elles seront rédigées.
+Les pages légales restent en `noindex` (pas d'intérêt SEO). Les pages agences sont indexables.
+
+### Favicon et image de partage
+
+- `assets/img/favicon.svg` est la source : tuile encre, « H » blanc, point bleu. `favicon.ico` et `apple-touch-icon.png` en sont dérivés.
+- `assets/img/og-image.jpg` (1200 × 627 px) est l'aperçu des liens partagés (LinkedIn, Slack, iMessage…). Elle reprend le titre et le chapô du hero. Pour la régénérer après un changement de texte : page HTML aux couleurs des tokens, capturée à 1200 × 627 avec un navigateur headless (Playwright). Pour tester l'aperçu : [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
 
 ### Les 3 fichiers CSS
 
@@ -77,7 +85,8 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 - **Changer le nombre de cartes visibles** : modifier `--slides-visible` dans `sections.css`, section 6b (1.5 sur mobile, 2.3 sur tablette, 3.35 sur desktop).
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item">`.
 - **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder.
-- **Image de partage LinkedIn** : décommenter la balise `og:image` dans le `<head>` et déposer une image de 1200 × 627 px dans `/assets/img/`.
+- **Compléter les mentions légales** : les champs à remplir sont dans des `<span class="todo">` (surlignés en jaune). Supprimer le `<span>` une fois le champ rempli. Idem pour les prestataires dans la politique de confidentialité.
+- **Activer Calendly ou GA4** : la politique de confidentialité contient les paragraphes correspondants en commentaire HTML, à décommenter en même temps que le bandeau de consentement.
 
 ---
 
@@ -128,41 +137,34 @@ Ouvrir ensuite http://localhost:8000.
 
 ## Déployer sur OVH (hébergement web mutualisé)
 
-Le site est 100 % statique : il suffit de copier les fichiers dans le dossier `www/` de l'hébergement.
+Le site est 100 % statique : il suffit de copier les fichiers dans le dossier `www/` de l'hébergement. Le `.htaccess` à la racine du repo part avec le reste (HTTPS forcé, `www.` redirigé vers le domaine nu, cache, compression).
 
-### Option A : FTP (le plus simple)
+### Préparer l'hébergement (une seule fois)
 
-1. Dans l'espace client OVH : **Web Cloud → Hébergements → votre hébergement → onglet FTP-SSH**. Noter le serveur FTP, le login, et définir un mot de passe.
-2. Se connecter avec un client FTP (FileZilla, Cyberduck, Transmit), en **SFTP** de préférence.
-3. Copier le contenu du repo dans `www/` : `index.html`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`.
-   **Ne pas envoyer** `.git/` ni `README.md`.
-4. Vérifier que le domaine `hugocousty.fr` pointe bien sur le dossier `www/` (onglet **Multisite**).
-5. Activer le **certificat SSL** gratuit (Let's Encrypt, onglet Multisite ou Informations générales), puis forcer le HTTPS (voir ci-dessous).
+1. Espace client OVH : **Web Cloud → Hébergements → votre hébergement → onglet FTP-SSH**. Noter le serveur (`ftp.cluster0XX.hosting.ovh.net`) et le login, définir un mot de passe, et **activer SFTP** (colonne SFTP / SSH selon l'offre). Le mutualisé OVH ne propose pas de FTPS : c'est SFTP (chiffré, port 22) ou FTP simple (port 21).
+2. Onglet **Multisite** : vérifier que `hugocousty.fr` et `www.hugocousty.fr` pointent sur le dossier `www/`, puis activer le **certificat SSL** Let's Encrypt. Le `.htaccess` ne force le HTTPS que si le certificat existe.
 
-### Option B : déploiement depuis GitHub
+### Option A : automatique depuis GitHub (recommandé)
 
-Dans l'onglet **Multisite**, OVH propose sur certaines offres de relier un domaine à un dépôt Git. Chaque push sur la branche choisie déploie le site automatiquement. Si l'option n'est pas disponible sur l'offre, on peut utiliser une GitHub Action (par exemple `SamKirkland/FTP-Deploy-Action`). Les identifiants FTP sont alors stockés dans les **Secrets** du repo, jamais dans le code.
+Le workflow `.github/workflows/deploy.yml` envoie le site en SFTP à chaque push sur `main` (ou à la main depuis l'onglet **Actions → Déployer sur OVH → Run workflow**).
 
-### Forcer le HTTPS et gérer le cache
+Dans GitHub : **Settings → Secrets and variables → Actions**, créer trois secrets :
 
-Créer un fichier `.htaccess` à la racine de `www/` :
+| Secret | Valeur |
+|---|---|
+| `FTP_SERVER` | le serveur de l'onglet FTP-SSH, ex. `ftp.cluster0XX.hosting.ovh.net` |
+| `FTP_USERNAME` | le login FTP principal |
+| `FTP_PASSWORD` | le mot de passe FTP |
 
-```apache
-# Redirection vers HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+Si SFTP n'est pas disponible sur l'offre, créer une **variable** (onglet Variables, pas Secrets) `DEPLOY_PROTOCOL` avec la valeur `ftp`.
 
-# Cache navigateur pour les fichiers statiques
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType font/woff2 "access plus 1 year"
-</IfModule>
-```
+Le workflow n'envoie que les fichiers plus récents que ceux du serveur et ne supprime rien : un fichier retiré du repo reste en ligne tant qu'on ne l'efface pas à la main. `.git`, `.github` et les `.md` ne partent jamais.
+
+### Option B : FTP à la main
+
+Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `favicon.ico`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
+
+### Cache
 
 Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du temps à s'afficher chez les visiteurs réguliers. Pour forcer la mise à jour, versionner les fichiers dans le HTML :
 `/assets/css/base.css?v=2`.
@@ -175,8 +177,12 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [x] Ajouter les fichiers de police Geist et la tuile `grain.png`
 - [ ] Remplacer les placeholders d'images (photo Hugo, logos clients, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
+- [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
+- [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
+- [ ] Renseigner les secrets FTP dans GitHub et activer SFTP chez OVH
 - [ ] Intégrer Calendly **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
 - [ ] Bandeau de consentement cookies, puis GA4 avec suivi des prises de RDV Calendly
-- [ ] Image de partage `og:image` (1200 × 627 px)
-- [ ] Favicon
-- [ ] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
+- [x] Image de partage `og:image` (1200 × 627 px)
+- [x] Favicon
+- [x] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
+- [x] Déploiement OVH (workflow SFTP + `.htaccess`)

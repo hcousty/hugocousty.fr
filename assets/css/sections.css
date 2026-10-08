@@ -18,6 +18,7 @@
    9.  Travailler ensemble (offres)
    10. FAQ
    11. Contact
+   12. Pages secondaires (agences, mentions légales, confidentialité)
    ========================================================================== */
 
 
@@ -720,4 +721,132 @@
   max-width: var(--measure-prose);
   margin-top: var(--space-4);
   color: var(--text-secondary);
+}
+
+
+/* 12. PAGES SECONDAIRES (agences, mentions légales, confidentialité)
+   --------------------------------------------------------------------------
+   En-tête de page (surtitre + h1 + chapô), blocs de prose pour les pages
+   légales, mise en avant finale « Parlons-en ».
+   ========================================================================== */
+
+.page-head {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.page-head__intro {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.page-head__meta {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+/* Prose longue des pages légales : h2 espacés, listes à puces conservées */
+.legal {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--measure-prose);
+}
+
+.legal section {
+  display: grid;
+  gap: var(--space-15);
+}
+
+.legal h2 {
+  font-size: var(--text-h2);
+}
+
+.legal h3 {
+  font-size: var(--text-h3);
+  margin-top: var(--space-1);
+}
+
+.legal p,
+.legal li,
+.legal address {
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+.legal address {
+  font-style: normal;
+}
+
+.legal ul {
+  padding-left: var(--space-3);
+}
+
+/* Information à compléter avant mise en ligne : visible en relecture */
+.todo {
+  padding: var(--space-025) var(--space-05);
+  background: var(--amber-100);
+  color: var(--amber-600);
+  font-weight: var(--weight-medium);
+}
+
+/* Liste de points (pages agences) : filet entre chaque entrée */
+.points {
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.points__item {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.points__item h3 {
+  font-size: var(--text-h3);
+}
+
+.points__item p {
+  max-width: var(--measure-prose);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 48em) {
+  .points__item {
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* Mise en avant finale : bloc encre, même registre que le panneau du hero */
+.page-cta {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  background: var(--surface-page); /* encre, via data-theme="inverse" */
+  border-radius: var(--radius-md);
+}
+
+.page-cta h2 {
+  max-width: 18em;
+}
+
+.page-cta p {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+}
+
+.page-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-15);
+}
+
+@media (min-width: 64em) {
+  .page-cta {
+    padding: var(--space-7) var(--space-6);
+  }
 }
