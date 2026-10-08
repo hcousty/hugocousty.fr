@@ -264,6 +264,11 @@
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
   --header-link: rgba(255, 255, 255, .72); /* seule opacité de texte tolérée */
 
+  /* Identité dans l'en-tête : photo ronde + point de disponibilité */
+  --avatar-size: 36px;
+  --status-dot-size: 8px;
+  --status-available: var(--forest-600);
+
   /* Barre "Réserver un appel" collée en bas d'écran (mobile) */
   --sticky-cta-height: 72px;
 
@@ -281,4 +286,9 @@
 
   /* Points de rupture (référence — non utilisables dans les @media) :
      mobile : base 375 px · tablette : 48em (768 px) · desktop : 64em (1024 px) */
+}
+
+/* Sur l'encre (en-tête), le vert forêt est trop sombre : vert plus clair */
+[data-theme="inverse"] {
+  --status-available: #4CC98A;
 }

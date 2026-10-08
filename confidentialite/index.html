@@ -9,10 +9,6 @@
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://hugocousty.fr/confidentialite/">
 
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-
   <link rel="preload" href="/assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
@@ -26,7 +22,13 @@
   <!-- HEADER (version page secondaire : retour au one page + CTA) -->
   <header class="site-header" data-theme="inverse" data-header>
     <div class="site-header__inner">
-      <a class="wordmark" href="/">Hugo Cousty<span class="wordmark__dot" aria-hidden="true">.</span></a>
+      <!-- Identité : photo ronde + statut de disponibilité.
+           Remplacer le réservé par <img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">
+           Pour passer en indisponible : ajouter la classe status--off et changer le texte. -->
+      <a class="site-id" href="/" aria-label="Hugo Cousty, retour à l'accueil">
+        <span class="avatar avatar--placeholder" aria-hidden="true">HC</span>
+        <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
+      </a>
       <div class="site-header__actions">
         <a class="btn btn--primary btn--small site-header__cta site-header__cta--always" href="/#contact">Réserver un appel</a>
       </div>

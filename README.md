@@ -18,7 +18,6 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ├── agences-suisse/index.html   Page agences Suisse romande (liée depuis /agences/)
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
-├── favicon.ico                 Favicon de repli (32 + 16 px)
 ├── .htaccess                   HTTPS forcé, www → nu, cache, compression (déployé tel quel)
 ├── .github/workflows/deploy.yml  Déploiement SFTP vers OVH (manuel, pour la mise en ligne finale)
 ├── assets/
@@ -28,15 +27,14 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
 │   ├── fonts/                  Police Geist (woff2 + licence OFL)
-│   └── img/                    grain.png, favicon.svg, apple-touch-icon.png, og-image.jpg
+│   └── img/                    grain.png, og-image.jpg
 └── README.md
 ```
 
 Les pages légales restent en `noindex` (pas d'intérêt SEO). Les pages agences sont indexables.
 
-### Favicon et image de partage
+### Image de partage
 
-- `assets/img/favicon.svg` est la source : tuile encre, « H » blanc, point bleu. `favicon.ico` et `apple-touch-icon.png` en sont dérivés.
 - `assets/img/og-image.jpg` (1200 × 627 px) est l'aperçu des liens partagés (LinkedIn, Slack, iMessage…). Elle reprend le titre et le chapô du hero. Pour la régénérer après un changement de texte : page HTML aux couleurs des tokens, capturée à 1200 × 627 avec un navigateur headless (Playwright). Pour tester l'aperçu : [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
 
 ### Les 3 fichiers CSS
@@ -78,6 +76,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 
 ### Tâches courantes
 
+- **Mettre la photo dans l'en-tête** : remplacer `<span class="avatar avatar--placeholder">HC</span>` par `<img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">` (image carrée, 64 px suffisent) dans les 5 pages.
 - **Remplacer un placeholder par une image** : remplacer le `<div class="placeholder" role="img" aria-label="…">…</div>` par
   `<img src="/assets/img/photo-hugo.webp" alt="…" width="…" height="…" loading="lazy">`
   (sans `loading="lazy"` pour la photo du hero, qui doit s'afficher tout de suite).
@@ -109,7 +108,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 ### Règles du design system appliquées dans le code
 
 - **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le panneau du hero et le footer.
-- **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre.
+- **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre. À gauche, la photo ronde (réservé « HC » en attendant) et le statut « Disponible » avec un point vert ; pour passer en indisponible, ajouter la classe `status--off` au `<span class="status">` et changer le texte.
 - **Boutons** : `primary` en aplat encre qui passe au bleu au survol, avec la flèche ↗ intégrée (dessinée en CSS, aucune modification du HTML) ; `secondary` en contour qui se remplit au survol.
 - **Surtitres** numérotés automatiquement (01, 02…) par un compteur CSS, suivis d'un filet.
 - **Un seul grand aplat encre** : le footer, plus le panneau du hero comme bloc encre autorisé.
@@ -166,7 +165,7 @@ Le workflow n'envoie que les fichiers plus récents que ceux du serveur et ne su
 
 ### Variante : FTP à la main
 
-Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `favicon.ico`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
+Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
 
 ### Cache
 
@@ -188,6 +187,6 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Module Calendly intégré dans la page, seulement **après consentement cookies** (voir le commentaire dans la section Contact de `index.html`)
 - [ ] Bandeau de consentement cookies, puis GA4 avec suivi des prises de RDV Calendly
 - [x] Image de partage `og:image` (1200 × 627 px)
-- [x] Favicon
+- [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
 - [x] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
 - [x] Déploiement OVH (workflow SFTP + `.htaccess`)
