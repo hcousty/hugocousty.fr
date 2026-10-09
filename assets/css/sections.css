@@ -22,8 +22,9 @@
    ========================================================================== */
 
 
-/* 0. Carte (Expertises, Travailler ensemble)
-   Filet 1 px, rayon 6 px, jamais d'ombre.
+/* 0. Carte (Expertises, Travailler ensemble, Contact)
+   Minimaliste : aucun filet, aucune ombre, angles arrondis. Blanche sur les
+   sections grises ; gris très léger sur les sections blanches.
    ========================================================================== */
 
 .card {
@@ -32,8 +33,11 @@
   gap: var(--space-15);
   padding: var(--space-3);
   background: var(--surface-card);
-  border: var(--border-width-hairline) solid var(--border-hairline);
-  border-radius: var(--radius-md);
+  border-radius: var(--card-radius);
+}
+
+.section:not(.section--sunken) .card {
+  background: var(--surface-sunken);
 }
 
 .card__title {
@@ -522,9 +526,12 @@
   flex-direction: column;
   gap: var(--space-15);
   padding: var(--space-3);
+  background: var(--surface-sunken); /* section Réalisations sur fond blanc */
+  border-radius: var(--card-radius);
+}
+
+.section--sunken .project-card {
   background: var(--surface-card);
-  border: var(--border-width-hairline) solid var(--border-hairline);
-  border-radius: var(--radius-md);
 }
 
 .project-card__title {

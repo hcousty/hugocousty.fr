@@ -67,12 +67,8 @@
   --grey-200: #E1E4EA;
   --grey-300: #CDD2DA;
 
-  /* Bleu : couleur unique du système */
-  --blue-700: #0A2A93;
-  --blue-600: #0E37C4;
-  --blue-500: #1440F0;
-  --blue-200: #C3CFFB;
-  --blue-100: #E9EEFE;
+  /* Pas de couleur de marque : le système est monochrome. La couleur vient
+     des photos (une teinte d'accent pourra être ajoutée plus tard ici). */
 
   /* États de formulaire : jamais décoratifs */
   --forest-600: #2C6A4C;
@@ -88,7 +84,7 @@
   --text-muted: var(--ink-500);
   --text-faint: var(--ink-400);
   --text-inverse: var(--white);
-  --text-accent: var(--blue-600);
+  --text-accent: var(--ink-900);
   --text-positive: var(--forest-600);
   --text-warning: var(--amber-600);
   --text-negative: var(--crimson-600);
@@ -98,19 +94,26 @@
   --surface-sunken: var(--grey-050);
   --surface-quiet: var(--grey-100);
   --surface-inverse: var(--ink-900);
-  --surface-accent: var(--blue-500);
-  --surface-accent-quiet: var(--blue-100);
+  --surface-accent: var(--ink-900);
+  --surface-accent-quiet: var(--grey-100);
 
   --border-hairline: var(--grey-200);
   --border-mid: var(--grey-300);
   --border-strong: var(--ink-900);
-  --border-accent: var(--blue-500);
+  --border-accent: var(--ink-900);
 
   --action-fg: var(--white);
   --action-bg: var(--ink-900);
-  --action-bg-hover: var(--blue-500);
-  --action-bg-active: var(--blue-600);
-  --focus-ring: var(--blue-500);
+  --action-bg-hover: var(--ink-700);
+  --action-bg-active: var(--ink-800);
+  --focus-ring: var(--ink-900);
+
+  /* Verre : surfaces translucides floutées (boutons secondaires, menus,
+     barres flottantes). Teinte encre sur fond clair, blanche sur fond sombre. */
+  --glass-bg: rgba(13, 16, 23, .06);
+  --glass-bg-hover: rgba(13, 16, 23, .11);
+  --glass-panel: rgba(255, 255, 255, .78);
+  --glass-blur: saturate(160%) blur(16px);
 }
 
 /* Thème inverse : posé sur un bloc (data-theme="inverse"), il bascule tous
@@ -120,7 +123,7 @@
   --text-secondary: var(--grey-200);
   --text-muted: var(--ink-300);
   --text-faint: var(--ink-400);
-  --text-accent: #8DA6FF;
+  --text-accent: var(--white);
   --surface-page: var(--ink-900);
   --surface-card: var(--ink-800);
   --surface-sunken: #101318;
@@ -131,8 +134,12 @@
   --border-strong: var(--white);
   --action-fg: var(--ink-900);
   --action-bg: var(--white);
-  --action-bg-hover: #8DA6FF;
-  --action-bg-active: var(--blue-200);
+  --action-bg-hover: var(--grey-200);
+  --action-bg-active: var(--grey-300);
+  --focus-ring: var(--white);
+  --glass-bg: rgba(255, 255, 255, .14);
+  --glass-bg-hover: rgba(255, 255, 255, .22);
+  --glass-panel: rgba(13, 16, 23, .82);
 }
 
 /* --- A3. Typographie (tokens/typography.css) -------------------------------- */
@@ -295,6 +302,9 @@
   /* Visages clients au-dessus des logos : taille et chevauchement */
   --face-size: 40px;
   --face-overlap: 10px;
+
+  /* Arrondi des cartes et des images (style minimaliste, sans filet) */
+  --card-radius: var(--radius-lg);
 
   /* Arrondi de tous les boutons (pilule) */
   --button-radius: var(--radius-pill);

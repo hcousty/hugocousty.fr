@@ -138,7 +138,7 @@ strong {
 }
 
 ::selection {
-  background: var(--blue-100);
+  background: var(--grey-200);
   color: var(--ink-900);
 }
 
@@ -146,7 +146,7 @@ strong {
 /* 3. Accessibilité
    ========================================================================== */
 
-/* Focus clavier : contour bleu, présent partout, jamais supprimé */
+/* Focus clavier : contour encre (blanc sur fond sombre), présent partout, jamais supprimé */
 :focus-visible {
   outline: var(--focus-width) solid var(--focus-ring);
   outline-offset: var(--focus-offset);
@@ -241,8 +241,9 @@ main {
    ========================================================================== */
 
 /* --- Bouton ----------------------------------------------------------------
-   primary   : aplat encre, bascule en bleu au survol, flèche ↗ intégrée
-   secondary : contour encre, se remplit au survol, texte inversé
+   primary   : aplat plein (encre, ou blanc sur fond sombre), s'éclaircit
+               légèrement au survol, flèche ↗ intégrée
+   secondary : verre translucide flouté, sans contour, se densifie au survol
    Dans un bloc data-theme="inverse", les couleurs s'inversent seules.       */
 
 .btn {
@@ -308,9 +309,16 @@ main {
   transform: translate(2px, -2px);
 }
 
+.btn--secondary {
+  border-color: transparent;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
 .btn--secondary:hover {
-  background: var(--text-primary);
-  color: var(--surface-page);
+  background: var(--glass-bg-hover);
+  color: var(--text-primary);
 }
 
 .btn--small {
@@ -366,7 +374,7 @@ main {
   width: 100%;
   padding: var(--space-2);
   background: var(--surface-quiet);
-  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: var(--card-radius);
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-label);
@@ -733,8 +741,10 @@ textarea.field__input {
   left: 0;
   right: 0;
   padding: var(--space-2) var(--space-3);
-  background: var(--surface-page);
-  border-radius: var(--radius-md);
+  background: var(--glass-panel); /* verre : clair en haut de page, sombre dans la pilule */
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop);
 }
 
@@ -803,8 +813,9 @@ textarea.field__input {
   height: var(--sticky-cta-height);
   padding: var(--space-15) var(--gutter);
   padding-bottom: max(var(--space-15), env(safe-area-inset-bottom));
-  background: var(--surface-page);
-  box-shadow: var(--shadow-pop); /* décolle la barre du contenu, sans filet */
+  background: var(--glass-panel); /* verre clair flouté */
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   transition:
     transform var(--duration-base) var(--ease-out),
     visibility var(--duration-base);

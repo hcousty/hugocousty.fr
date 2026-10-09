@@ -111,7 +111,8 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 - **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le hero (texte sur la photo) et le footer.
 - **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre. À gauche, la photo ronde (réservé « HC » en attendant) et le statut « Disponible » avec un point vert ; pour passer en indisponible, ajouter la classe `status--off` au `<span class="status">` et changer le texte.
-- **Boutons** : `primary` en aplat encre qui passe au bleu au survol, avec la flèche ↗ intégrée (dessinée en CSS, aucune modification du HTML) ; `secondary` en contour qui se remplit au survol.
+- **Boutons** : tous en pilule (`--button-radius`). `primary` en aplat plein (encre, ou blanc sur fond sombre) qui s'éclaircit au survol, avec la flèche ↗ intégrée (dessinée en CSS) ; `secondary` en verre translucide flouté, sans contour.
+- **Style** : monochrome (aucune couleur de marque, la couleur vient des photos), verre translucide pour les éléments flottants (en-tête réduit, menu mobile, barre CTA, boutons secondaires), cartes sans filet aux angles arrondis (`--card-radius`).
 - **Surtitres** en capitales espacées, sans numéro ni filet. Aucun trait de séparation décoratif sur le site : les blocs sont séparés par l'espace, les cartes gardent leur contour.
 - **Un seul grand aplat encre** : le footer. Le hero n'a plus de panneau encre : la photo remplit l'écran (léger retrait `--hero-inset`, rayon `--hero-radius`) et le texte est posé dessus, lisible grâce à un voile encre dégradé en bas de la photo.
 - **Pas d'animation d'entrée au défilement**, pas d'emoji, pas d'ombre sur les cartes.
@@ -120,7 +121,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 - **Police Inter** (v4.1, licence OFL, sous-ensemble latin) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
 - **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
-- **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; ne jamais mettre de bleu sur l'encre.
+- **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
 ---
 
@@ -208,7 +209,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
 | Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |
 | Témoignage | `.testimonial` | principal (en grand) et court |
-| Étape | `.step` | numéro bleu, titre, texte avec « Livrable » |
+| Étape | `.step` | numéro, titre, texte avec « Livrable » |
 | Chiffre clé | `.stat` | avec ou sans préfixe « jusqu'à » |
 | Régie | `.network` | nom + formats |
 | Liste de points | `.points__item` | titre à gauche, texte à droite sur desktop |
@@ -219,7 +220,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Réservé d'image | `.placeholder` | à remplacer par les vraies images |
 | En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |
 | Hero | `.hero` ★ | photo plein écran avec retrait et rayon, voile encre, texte posé dessus |
-| Encart IA | `.ai-box` | fond bleu très clair, 2 colonnes sur desktop |
+| Encart IA | `.ai-box` | fond gris clair, 2 colonnes sur desktop |
 | Mise en avant finale | `.page-cta` ★ | bloc encre avec titre, texte, boutons (pages secondaires) |
 | Barre CTA mobile | `.sticky-cta` | collée en bas, masquée quand un bouton « Réserver » est visible |
 | Pied de page | `.site-footer` ★ | liste de liens, grain |
