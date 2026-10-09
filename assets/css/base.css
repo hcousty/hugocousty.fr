@@ -805,28 +805,33 @@ textarea.field__input {
 
 
 /* 7. Barre CTA mobile (bas d'écran)
+   --------------------------------------------------------------------------
+   Pilule flottante de verre sombre, identique à l'en-tête réduit (thème
+   inverse : bouton blanc), à 20 px du bas et des bords de l'écran.
    ========================================================================== */
 
 .sticky-cta {
   position: fixed;
-  inset: auto 0 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: max(var(--header-top), env(safe-area-inset-bottom));
   z-index: var(--z-sticky-cta);
   display: flex;
-  align-items: center;
-  height: var(--sticky-cta-height);
-  padding: var(--space-15) var(--gutter);
-  padding-bottom: max(var(--space-15), env(safe-area-inset-bottom));
-  background: var(--glass-panel); /* verre clair flouté */
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
+  padding: var(--space-1);
+  background-color: var(--header-glass);
+  -webkit-backdrop-filter: var(--blur-veil);
+  backdrop-filter: var(--blur-veil);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--header-edge), var(--shadow-pop);
   transition:
     transform var(--duration-base) var(--ease-out),
     visibility var(--duration-base);
 }
 
-/* Masquée par main.js quand la section Contact ou le footer sont à l'écran */
+/* Masquée par main.js quand la section Contact ou le footer sont à l'écran :
+   elle glisse sous le bord de l'écran */
 .sticky-cta.is-hidden {
-  transform: translateY(100%);
+  transform: translateY(calc(100% + var(--header-top) + env(safe-area-inset-bottom)));
   visibility: hidden;
 }
 
