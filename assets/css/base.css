@@ -782,6 +782,9 @@ textarea.field__input {
     display: block;
     padding: 0;
     background: none;
+    -webkit-backdrop-filter: none; /* le verre ne sert qu'au panneau mobile */
+    backdrop-filter: none;
+    border-radius: 0;
     box-shadow: none;
   }
 
