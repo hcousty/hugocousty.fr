@@ -221,7 +221,9 @@
   --duration-fast: 140ms;    /* couleurs, survols */
   --duration-base: 220ms;    /* apparition d'un calque */
   --duration-slow: 420ms;    /* ouverture d'un accordéon */
+  --duration-morph: 700ms;   /* transformation de l'en-tête au défilement */
   --ease-out: cubic-bezier(.16, .84, .32, 1);
+  --ease-morph: cubic-bezier(.65, 0, .25, 1); /* départ et arrivée en douceur */
   --ease-in-out: cubic-bezier(.5, 0, .5, 1);
   --ease-standard: cubic-bezier(.2, .7, .2, 1);
   --transition-control:
@@ -236,6 +238,7 @@
     --duration-fast: 0ms;
     --duration-base: 0ms;
     --duration-slow: 0ms;
+    --duration-morph: 0ms;
   }
 }
 
@@ -265,6 +268,8 @@
   --header-top: var(--space-25);
   --header-offset: calc(var(--header-height) + var(--header-top)); /* marge des ancres sous la pilule */
   --header-glass: rgba(13, 16, 23, .82);
+  --header-width-compact: 880px; /* largeur max de la pilule sur desktop */
+  --header-morph: var(--duration-morph) var(--ease-morph); /* passage barre → pilule */
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
   --header-link: var(--text-secondary);
 

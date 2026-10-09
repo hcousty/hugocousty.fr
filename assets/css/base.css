@@ -499,10 +499,10 @@ textarea.field__input {
   height: var(--header-height-top);
   transform: translateX(-50%);
   transition:
-    top var(--duration-base) var(--ease-out),
-    width var(--duration-base) var(--ease-out),
-    max-width var(--duration-base) var(--ease-out),
-    height var(--duration-base) var(--ease-out);
+    top var(--header-morph),
+    width var(--header-morph),
+    max-width var(--header-morph),
+    height var(--header-morph);
 }
 
 .site-header__inner {
@@ -516,10 +516,10 @@ textarea.field__input {
   background-color: var(--surface-page);
   border-radius: 0;
   transition:
-    padding var(--duration-base) var(--ease-out),
-    border-radius var(--duration-base) var(--ease-out),
-    background-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+    padding var(--header-morph),
+    border-radius var(--header-morph),
+    background-color var(--header-morph),
+    box-shadow var(--header-morph);
 }
 
 /* État réduit : pilule de verre sombre */
@@ -542,7 +542,14 @@ textarea.field__input {
 .site-header .site-id,
 .site-header .site-nav__link,
 .site-header .nav-toggle {
-  transition: color var(--duration-base) var(--ease-out);
+  transition: color var(--header-morph);
+}
+
+/* Desktop : pilule plus étroite que le contenu */
+@media (min-width: 64em) {
+  .site-header.is-scrolled {
+    max-width: var(--header-width-compact);
+  }
 }
 
 /* Identité : photo ronde + statut de disponibilité (point vert) */

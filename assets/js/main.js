@@ -97,11 +97,16 @@
   const header = document.querySelector('[data-header]');
 
   if (header) {
-    const threshold = 8; // px défilés avant de basculer
+    // Desktop : on attend que le hero soit passé entièrement sous la barre
+    // blanche (défilement = hauteur de la barre). Mobile : dès les premiers px.
+    const barHeight = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-height-top')
+    ) || 72;
+    const threshold = () => (desktop.matches ? barHeight : 8);
     let ticking = false;
 
     const update = () => {
-      const scrolled = window.scrollY > threshold;
+      const scrolled = window.scrollY >= threshold();
       header.classList.toggle('is-scrolled', scrolled);
       if (scrolled) header.setAttribute('data-theme', 'inverse');
       else header.removeAttribute('data-theme');
