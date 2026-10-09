@@ -68,35 +68,48 @@
 
     <!-- ===================================================================
          1. HERO
-         Photo plein écran (léger retrait, coins arrondis), texte posé dessus
-         sans fond. Un voile encre en bas de la photo assure la lisibilité.
+         Photo plein écran sur desktop, hauteur fixe sur mobile (léger retrait,
+         coins arrondis). Seuls le nom et le rôle sont posés dessus, sans fond.
+         Un voile encre en bas de la photo assure la lisibilité.
          Pour mettre la vraie photo : remplacer le <div class="placeholder">
          par <img class="hero__photo" src="…" alt="" width="…" height="…">
          (sans loading="lazy").
          =================================================================== -->
-    <section class="hero" id="top" aria-labelledby="hero-title" data-theme="inverse">
+    <section class="hero hero--identity" id="top" aria-labelledby="hero-title" data-theme="inverse">
       <div class="hero__media">
         <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
       </div>
 
       <div class="hero__body">
-        <div class="hero__panel">
-          <p class="eyebrow">Pour PME et e-commerçants</p>
-          <h1 id="hero-title">Je pilote votre acquisition en ligne, de la stratégie aux campagnes.</h1>
-          <p class="hero__lead">Publicité en ligne, sites web, CRM : je conçois et pilote ce qui fait grandir votre activité, que vous vendiez aux particuliers ou aux entreprises.</p>
-
-          <!-- data-sticky-cta-hide : la barre CTA mobile se masque tant que ces boutons sont visibles -->
-          <div class="hero__actions" data-sticky-cta-hide>
-            <a class="btn btn--primary" href="#contact">Réserver un appel de 20 min</a>
-            <a class="btn btn--secondary" href="#realisations">Voir mes réalisations</a>
-          </div>
-
-          <ul class="hero__proofs">
-            <li><strong>Senior :</strong> 10+ ans d'expérience, en agence, chez l'annonceur et en freelance</li>
-            <li><strong>Certifié Meta :</strong> Media Buying Professional</li>
-            <li><strong>Équipe :</strong> développeurs et créatifs que je pilote pour vous</li>
-          </ul>
+        <div class="hero__panel hero__panel--identity">
+          <h1 class="hero__name" id="hero-title">Hugo Cousty</h1>
+          <p class="hero__role">Consultant marketing aguerri</p>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         1b. MANIFESTE
+         Juste sous le hero : la promesse en très grand, le chapô, puis les
+         deux boutons et les preuves. C'est ici que se joue la conversion.
+         =================================================================== -->
+    <section class="section manifesto" aria-labelledby="manifesto-title">
+      <div class="container">
+        <h2 class="manifesto__statement" id="manifesto-title">Je pilote votre acquisition en ligne, de la stratégie aux campagnes.</h2>
+        <p class="manifesto__lead">Publicité en ligne, sites web, CRM : je conçois et pilote ce qui fait grandir votre activité, que vous vendiez aux particuliers ou aux entreprises.</p>
+
+        <!-- data-sticky-cta-hide : la barre CTA mobile se masque tant que ces boutons sont visibles -->
+        <div class="manifesto__actions" data-sticky-cta-hide>
+          <a class="btn btn--primary" href="#contact">Réserver un appel de 20 min</a>
+          <a class="btn btn--secondary" href="#realisations">Voir mes réalisations</a>
+        </div>
+
+        <ul class="manifesto__proofs">
+          <li><strong>Senior :</strong> 10+ ans d'expérience, en agence, chez l'annonceur et en freelance</li>
+          <li><strong>Certifié Meta :</strong> Media Buying Professional</li>
+          <li><strong>Équipe :</strong> développeurs et créatifs que je pilote pour vous</li>
+        </ul>
       </div>
     </section>
 

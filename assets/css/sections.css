@@ -68,6 +68,20 @@
   padding: var(--hero-inset);
 }
 
+/* Accueil (nom + rôle seulement) : hauteur fixe sur mobile pour que le texte
+   ne monte pas sur le visage, plein écran à partir du desktop */
+.hero--identity {
+  min-height: 0;
+  height: var(--hero-height-mobile);
+}
+
+@media (min-width: 64em) {
+  .hero--identity {
+    height: auto;
+    min-height: 100svh;
+  }
+}
+
 /* Photo et texte dans la même cellule de grille */
 .hero > * {
   grid-area: 1 / 1;
@@ -116,6 +130,24 @@
   max-width: 46rem;
 }
 
+/* Variante identité (page d'accueil) : nom en très grand + rôle, rien d'autre */
+.hero__panel--identity {
+  gap: var(--space-15);
+  max-width: none;
+}
+
+.hero__name {
+  font-size: var(--text-display-1);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.hero__role {
+  font-size: var(--text-lead);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+}
+
 .hero__lead {
   max-width: var(--measure-lead);
   font-size: var(--text-lead);
@@ -159,6 +191,70 @@
 @media (min-width: 64em) {
   .hero__body {
     padding-bottom: var(--space-7);
+  }
+}
+
+
+/* 1b. MANIFESTE
+   --------------------------------------------------------------------------
+   Sous le hero : la promesse en très grand sur fond gris, le chapô, puis
+   boutons et preuves. Même composition que l'ancien panneau du hero, mais
+   posée sur la page, en pleine largeur.
+   ========================================================================== */
+
+.manifesto {
+  background: var(--surface-sunken);
+}
+
+.manifesto .container {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.manifesto__statement {
+  max-width: 26ch;
+  font-size: var(--text-display-2);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.manifesto__lead {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+}
+
+.manifesto__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+  margin-top: var(--space-1);
+}
+
+.manifesto__proofs {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  list-style: none;
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.manifesto__proofs strong {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+@media (min-width: 48em) {
+  .manifesto__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .manifesto__proofs {
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    column-gap: var(--space-4);
   }
 }
 
