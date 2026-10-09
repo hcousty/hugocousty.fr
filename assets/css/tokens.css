@@ -293,7 +293,7 @@
   --status-available: var(--forest-600);
 
   /* Barre "Réserver un appel" collée en bas d'écran (mobile) */
-  --sticky-cta-height: 88px; /* place réservée en bas de page : pilule de 64 px + 20 px du bord */
+  --sticky-cta-height: 72px;
 
   /* Focus clavier */
   --focus-width: 2px;
