@@ -221,7 +221,7 @@
   --duration-fast: 140ms;    /* couleurs, survols */
   --duration-base: 220ms;    /* apparition d'un calque */
   --duration-slow: 420ms;    /* ouverture d'un accordéon */
-  --duration-morph: 500ms;   /* transformation de l'en-tête au défilement */
+  --duration-morph: 400ms;   /* transformation de l'en-tête au défilement */
   --ease-out: cubic-bezier(.16, .84, .32, 1);
   --ease-morph: cubic-bezier(.65, 0, .25, 1); /* départ et arrivée en douceur */
   --ease-in-out: cubic-bezier(.5, 0, .5, 1);
