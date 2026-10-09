@@ -56,16 +56,16 @@
 
 /* 1. HERO
    --------------------------------------------------------------------------
-   La photo remplit l'écran (largeur et hauteur), avec un léger retrait
-   (--hero-inset) et des coins arrondis. Le texte est posé dessus, sans fond,
-   en bas à gauche. Le hero passe sous l'en-tête flottant (marge négative).
+   Le hero démarre sous la barre blanche de l'en-tête : barre + hero
+   remplissent exactement l'écran. La photo a un léger retrait sur les côtés
+   et en bas (--hero-inset) et des coins arrondis. Le texte est posé dessus,
+   sans fond, en bas à gauche.
    ========================================================================== */
 
 .hero {
   display: grid;
-  min-height: 100svh;
-  margin-top: calc(-1 * var(--header-offset));
-  padding: var(--hero-inset);
+  min-height: calc(100svh - var(--header-height-top));
+  padding: 0 var(--hero-inset) var(--hero-inset);
 }
 
 /* Accueil (nom + rôle seulement) : hauteur fixe sur mobile pour que le texte
@@ -78,7 +78,7 @@
 @media (min-width: 64em) {
   .hero--identity {
     height: auto;
-    min-height: 100svh;
+    min-height: calc(100svh - var(--header-height-top));
   }
 }
 
@@ -111,8 +111,8 @@
   background: transparent;
   color: var(--ink-300);
   object-fit: cover;
-  place-items: start end;   /* libellé du réservé juste sous l'en-tête, à droite, hors du texte */
-  padding: calc(var(--header-offset) + var(--space-05)) var(--gutter);
+  place-items: start end;   /* libellé du réservé en haut à droite, hors du texte */
+  padding: var(--space-3) var(--gutter);
 }
 
 .hero__body {
@@ -121,7 +121,7 @@
   width: 100%;
   max-width: calc(var(--container-max) + 2 * var(--gutter));
   margin-inline: auto;
-  padding: calc(var(--header-offset) + var(--space-3)) var(--gutter) var(--space-6);
+  padding: var(--space-8) var(--gutter) var(--space-6);
 }
 
 .hero__panel {

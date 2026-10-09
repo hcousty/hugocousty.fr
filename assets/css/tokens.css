@@ -257,13 +257,16 @@
    B. SITE — tokens propres au site, dérivés du design system
    ========================================================================== */
 :root {
-  /* En-tête : pilule flottante de 56 px, à 20 px du haut */
+  /* En-tête, deux états :
+     - haut de page : barre blanche pleine largeur de 72 px ;
+     - au défilement : pilule de verre sombre de 56 px, à 20 px du haut. */
+  --header-height-top: 72px;
   --header-height: 56px;
   --header-top: var(--space-25);
-  --header-offset: calc(var(--header-height) + var(--header-top)); /* espace réservé en haut de page */
-  --header-bg: linear-gradient(90deg, rgba(13, 16, 23, .78), rgba(13, 16, 23, .90));
+  --header-offset: calc(var(--header-height) + var(--header-top)); /* marge des ancres sous la pilule */
+  --header-glass: rgba(13, 16, 23, .82);
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
-  --header-link: rgba(255, 255, 255, .72); /* seule opacité de texte tolérée */
+  --header-link: var(--text-secondary);
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, son rayon,
      et sa hauteur fixe sur mobile (plein écran à partir du desktop) */
@@ -301,7 +304,9 @@
      mobile : base 375 px · tablette : 48em (768 px) · desktop : 64em (1024 px) */
 }
 
-/* Sur l'encre (en-tête), le vert forêt est trop sombre : vert plus clair */
+/* Sur l'encre (en-tête réduit, hero, footer) : vert plus clair, liens de
+   navigation en blanc à 72 % (seule opacité de texte tolérée) */
 [data-theme="inverse"] {
   --status-available: #4CC98A;
+  --header-link: rgba(255, 255, 255, .72);
 }

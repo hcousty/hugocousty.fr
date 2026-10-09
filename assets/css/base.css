@@ -197,9 +197,9 @@ strong {
   max-width: calc(var(--container-prose) + 2 * var(--gutter));
 }
 
-/* Le contenu démarre sous l'en-tête flottant */
+/* Le contenu démarre sous la barre d'en-tête (état haut de page) */
 main {
-  padding-top: var(--header-offset);
+  padding-top: var(--header-height-top);
 }
 
 .section {
@@ -479,23 +479,30 @@ textarea.field__input {
 }
 
 
-/* 6. En-tête : pilule de verre flottante
+/* 6. En-tête : deux états
    --------------------------------------------------------------------------
-   Seule surface en verre du site. Hauteur 56 px, rayon plein, à 20 px du
-   haut. Dégradé d'encre translucide + flou. Thème inverse (texte blanc).
-   Mobile / tablette : logo + bouton + burger ; les liens s'ouvrent dans un
-   panneau sous la pilule.
+   En haut de page : barre blanche pleine largeur, posée au-dessus du hero
+   (thème clair). Dès qu'on défile (classe is-scrolled + data-theme="inverse"
+   posés par main.js) : pilule de verre sombre réduite, flottante, centrée.
+   Seule surface en verre du site.
+   Mobile / tablette : identité + bouton + burger ; les liens s'ouvrent dans
+   un panneau sous l'en-tête.
    ========================================================================== */
 
 .site-header {
   position: fixed;
-  top: var(--header-top);
+  top: 0;
   left: 50%;
   z-index: var(--z-header);
-  width: calc(100% - 2 * var(--gutter));
-  max-width: var(--container-max);
-  height: var(--header-height);
+  width: 100%;
+  max-width: 100%;
+  height: var(--header-height-top);
   transform: translateX(-50%);
+  transition:
+    top var(--duration-base) var(--ease-out),
+    width var(--duration-base) var(--ease-out),
+    max-width var(--duration-base) var(--ease-out),
+    height var(--duration-base) var(--ease-out);
 }
 
 .site-header__inner {
@@ -504,12 +511,38 @@ textarea.field__input {
   justify-content: space-between;
   gap: var(--space-2);
   height: 100%;
+  /* aligné sur la grille du contenu, même sur très grand écran */
+  padding: 0 max(var(--gutter), (100% - var(--container-max)) / 2);
+  background-color: var(--surface-page);
+  border-radius: 0;
+  transition:
+    padding var(--duration-base) var(--ease-out),
+    border-radius var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+/* État réduit : pilule de verre sombre */
+.site-header.is-scrolled {
+  top: var(--header-top);
+  width: calc(100% - 2 * var(--gutter));
+  max-width: var(--container-max);
+  height: var(--header-height);
+}
+
+.site-header.is-scrolled .site-header__inner {
   padding: var(--space-1) var(--space-1) var(--space-1) var(--space-15);
-  background: var(--header-bg);
+  background-color: var(--header-glass);
   -webkit-backdrop-filter: var(--blur-veil);
   backdrop-filter: var(--blur-veil);
   border-radius: var(--radius-pill);
   box-shadow: var(--header-edge), var(--shadow-pop);
+}
+
+.site-header .site-id,
+.site-header .site-nav__link,
+.site-header .nav-toggle {
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 /* Identité : photo ronde + statut de disponibilité (point vert) */

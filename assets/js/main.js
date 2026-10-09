@@ -9,6 +9,8 @@
    1. Menu burger (mobile / tablette)
    2. Barre CTA mobile : masquée quand un bloc data-sticky-cta-hide ou le
       footer sont visibles (boutons du hero, section Contact)
+   3. En-tête : barre blanche en haut de page, pilule de verre sombre dès
+      qu'on défile
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -83,6 +85,37 @@
     });
 
     ctaTargets.forEach((target) => ctaObserver.observe(target));
+  }
+
+
+  /* 3. En-tête au défilement
+     En haut de page : barre blanche (thème clair). Dès qu'on défile : classe
+     is-scrolled + thème inverse, la barre devient une pilule de verre sombre.
+     Sans JS, la barre blanche reste en place.
+     ======================================================================== */
+
+  const header = document.querySelector('[data-header]');
+
+  if (header) {
+    const threshold = 8; // px défilés avant de basculer
+    let ticking = false;
+
+    const update = () => {
+      const scrolled = window.scrollY > threshold;
+      header.classList.toggle('is-scrolled', scrolled);
+      if (scrolled) header.setAttribute('data-theme', 'inverse');
+      else header.removeAttribute('data-theme');
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+
+    update(); // page rechargée en milieu de page ou ouverte sur une ancre
   }
 
 })();
