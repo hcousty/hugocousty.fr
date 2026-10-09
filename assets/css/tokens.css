@@ -273,14 +273,9 @@
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
   --header-link: var(--text-secondary);
 
-  /* Hero : retrait de la photo par rapport aux bords de l'écran, son rayon,
-     et sa hauteur fixe sur mobile (plein écran à partir du desktop) */
+  /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
   --hero-inset: var(--space-1);
   --hero-radius: var(--radius-lg);
-  --hero-height-mobile: 640px;
-
-  /* Manifeste sous le hero : un bloc de texte long, donc plus petit qu'un display */
-  --text-manifesto: clamp(26px, 3.4vw, 46px);
 
   /* Hauteur du calendrier Calendly intégré (section Contact) */
   --calendly-height: 660px;
