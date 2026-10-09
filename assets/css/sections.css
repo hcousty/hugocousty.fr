@@ -116,6 +116,17 @@
   max-width: 46rem;
 }
 
+/* Titre court (accueil) : le panneau s'élargit pour que le titre tienne sur
+   une ligne en desktop ; le chapô garde sa propre largeur de lecture */
+.hero__panel--wide {
+  max-width: none;
+}
+
+/* …mais les preuves restent à gauche, hors de la zone du visage */
+.hero__panel--wide .hero__proofs {
+  max-width: 46rem;
+}
+
 .hero__lead {
   max-width: var(--measure-lead);
   font-size: var(--text-lead);
