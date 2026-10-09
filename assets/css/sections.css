@@ -197,14 +197,10 @@
 
 /* 1b. MANIFESTE
    --------------------------------------------------------------------------
-   Sous le hero : la promesse en très grand sur fond gris, le chapô, puis
-   boutons et preuves. Même composition que l'ancien panneau du hero, mais
-   posée sur la page, en pleine largeur.
+   Sous le hero, sur fond blanc : la promesse en un seul bloc de texte en
+   grand, boutons et preuves, puis les logos clients (la preuve juste après
+   l'affirmation).
    ========================================================================== */
-
-.manifesto {
-  background: var(--surface-sunken);
-}
 
 .manifesto .container {
   display: grid;
@@ -212,16 +208,19 @@
 }
 
 .manifesto__statement {
-  max-width: 26ch;
-  font-size: var(--text-display-2);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  max-width: 40ch;
+  font-size: var(--text-manifesto);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-heading);
+  text-wrap: pretty;
 }
 
-.manifesto__lead {
-  max-width: var(--measure-lead);
-  font-size: var(--text-lead);
-  color: var(--text-secondary);
+.manifesto__logos {
+  margin-top: var(--space-7);
+}
+
+.manifesto__logos .logos__title {
+  text-align: left;
 }
 
 .manifesto__actions {

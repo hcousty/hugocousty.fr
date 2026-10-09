@@ -271,6 +271,9 @@
   --hero-radius: var(--radius-lg);
   --hero-height-mobile: 640px;
 
+  /* Manifeste sous le hero : un bloc de texte long, donc plus petit qu'un display */
+  --text-manifesto: clamp(26px, 3.4vw, 46px);
+
   /* Hauteur du calendrier Calendly intégré (section Contact) */
   --calendly-height: 660px;
 
