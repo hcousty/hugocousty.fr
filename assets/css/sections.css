@@ -194,6 +194,63 @@
   text-align: center;
 }
 
+/* Ligne de tête (accueil) : 3 visages qui se chevauchent + la phrase.
+   Mobile : visages au-dessus de la phrase ; dès la tablette : côte à côte. */
+.logos__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-15);
+  margin-bottom: var(--space-4);
+}
+
+.logos__head .logos__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-normal);
+  text-transform: none;
+  color: var(--text-primary);
+}
+
+.faces {
+  display: flex;
+}
+
+.faces__item {
+  flex: none;
+  width: var(--face-size);
+  height: var(--face-size);
+  border: var(--border-width-strong) solid var(--surface-page); /* liseré qui détache les visages */
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+}
+
+.faces__item + .faces__item {
+  margin-left: calc(-1 * var(--face-overlap));
+}
+
+/* Réservés en attendant les photos : trois gris différents */
+.faces__item--placeholder {
+  background: var(--grey-200);
+}
+
+.faces__item--placeholder:nth-child(2) {
+  background: var(--grey-300);
+}
+
+.faces__item--placeholder:nth-child(3) {
+  background: var(--ink-300);
+}
+
+@media (min-width: 48em) {
+  .logos__head {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 .logos__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

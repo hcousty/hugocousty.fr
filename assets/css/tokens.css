@@ -292,6 +292,10 @@
   --focus-width: 2px;
   --focus-offset: 2px;
 
+  /* Visages clients au-dessus des logos : taille et chevauchement */
+  --face-size: 40px;
+  --face-overlap: 10px;
+
   /* Arrondi de tous les boutons (pilule) */
   --button-radius: var(--radius-pill);
 
