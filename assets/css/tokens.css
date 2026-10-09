@@ -221,7 +221,7 @@
   --duration-fast: 140ms;    /* couleurs, survols */
   --duration-base: 220ms;    /* apparition d'un calque */
   --duration-slow: 420ms;    /* ouverture d'un accordéon */
-  --duration-morph: 700ms;   /* transformation de l'en-tête au défilement */
+  --duration-morph: 500ms;   /* transformation de l'en-tête au défilement */
   --ease-out: cubic-bezier(.16, .84, .32, 1);
   --ease-morph: cubic-bezier(.65, 0, .25, 1); /* départ et arrivée en douceur */
   --ease-in-out: cubic-bezier(.5, 0, .5, 1);
@@ -307,6 +307,13 @@
 
   /* Points de rupture (référence — non utilisables dans les @media) :
      mobile : base 375 px · tablette : 48em (768 px) · desktop : 64em (1024 px) */
+}
+
+/* Desktop : la barre blanche du haut de page respire davantage */
+@media (min-width: 64em) {
+  :root {
+    --header-height-top: 88px;
+  }
 }
 
 /* Sur l'encre (en-tête réduit, hero, footer) : vert plus clair, liens de

@@ -99,10 +99,10 @@
   if (header) {
     // Desktop : on attend que le hero soit passé entièrement sous la barre
     // blanche (défilement = hauteur de la barre). Mobile : dès les premiers px.
-    const barHeight = parseFloat(
+    const barHeight = () => parseFloat(
       getComputedStyle(document.documentElement).getPropertyValue('--header-height-top')
     ) || 72;
-    const threshold = () => (desktop.matches ? barHeight : 8);
+    const threshold = () => (desktop.matches ? barHeight() : 8);
     let ticking = false;
 
     const update = () => {
