@@ -19,7 +19,7 @@
 
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <!-- HEADER (version page secondaire : retour au one page + CTA) -->
+  <!-- HEADER : le même que l'accueil, liens vers les sections de l'accueil -->
   <header class="site-header" data-header>
     <div class="site-header__inner">
       <!-- Identité : en haut de page le nom, au défilement la photo ronde (pilule),
@@ -31,8 +31,23 @@
         <span class="avatar avatar--placeholder" aria-hidden="true">HC</span>
         <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
       </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale" data-nav>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/#expertises">Expertises</a></li>
+          <li><a class="site-nav__link" href="/#realisations">Réalisations</a></li>
+          <li><a class="site-nav__link" href="/#travailler-ensemble">Formats</a></li>
+          <li><a class="site-nav__link" href="/#a-propos">À propos</a></li>
+          <li><a class="site-nav__link" href="/#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
       <div class="site-header__actions">
-        <a class="btn btn--primary btn--small site-header__cta site-header__cta--always" href="/#contact">Réserver un appel</a>
+        <a class="btn btn--primary btn--small site-header__cta" href="/#contact">Réserver un appel</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="visually-hidden" data-nav-toggle-label>Ouvrir le menu</span>
+        </button>
       </div>
     </div>
   </header>
