@@ -37,10 +37,12 @@
        ===================================================================== -->
   <header class="site-header" data-header>
     <div class="site-header__inner">
-      <!-- Identité : photo ronde + statut de disponibilité.
+      <!-- Identité : en haut de page le nom, au défilement la photo ronde (pilule),
+           suivis du statut de disponibilité.
            Remplacer le réservé par <img class="avatar" src="/assets/img/avatar.webp" alt="" width="64" height="64">
            Pour passer en indisponible : ajouter la classe status--off et changer le texte. -->
       <a class="site-id" href="#top" aria-label="Hugo Cousty, retour en haut de page">
+        <span class="site-id__name" aria-hidden="true">Hugo Cousty</span>
         <span class="avatar avatar--placeholder" aria-hidden="true">HC</span>
         <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
       </a>

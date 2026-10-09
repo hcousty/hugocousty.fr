@@ -556,7 +556,6 @@ textarea.field__input {
 .site-id {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-15);
   color: var(--text-primary);
   text-decoration: none;
   white-space: nowrap;
@@ -565,6 +564,44 @@ textarea.field__input {
 .site-id:hover {
   color: var(--text-primary);
   text-decoration: none;
+}
+
+/* Nom (barre du haut de page) et photo (pilule) se remplacent en fondu.
+   L'élément masqué passe à largeur 0 : pas d'espace vide à côté du statut. */
+.site-id__name,
+.site-id .avatar {
+  overflow: hidden;
+  transition:
+    max-width var(--header-morph),
+    width var(--header-morph),
+    margin var(--header-morph),
+    opacity var(--header-morph);
+}
+
+.site-id__name {
+  max-width: 12em;
+  margin-right: var(--space-2);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+}
+
+.site-id .avatar {
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+}
+
+.site-header.is-scrolled .site-id__name {
+  max-width: 0;
+  margin-right: 0;
+  opacity: 0;
+}
+
+.site-header.is-scrolled .site-id .avatar {
+  width: var(--avatar-size);
+  margin-right: var(--space-15);
+  opacity: 1;
 }
 
 .avatar {
