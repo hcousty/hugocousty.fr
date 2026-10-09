@@ -116,15 +116,21 @@
   max-width: 46rem;
 }
 
-/* Titre court (accueil) : le panneau s'élargit pour que le titre tienne sur
-   une ligne en desktop ; le chapô garde sa propre largeur de lecture */
-.hero__panel--wide {
-  max-width: none;
+/* Accueil : texte resserré à gauche pour laisser la place à la photo */
+.hero__panel--narrow {
+  max-width: 38rem;
 }
 
-/* …mais les preuves restent à gauche, hors de la zone du visage */
-.hero__panel--wide .hero__proofs {
-  max-width: 46rem;
+/* Fin du titre renvoyée à la ligne dès la tablette ("aguerri" seul) ;
+   sur mobile, le titre se coupe naturellement */
+@media (min-width: 48em) {
+  .hero__title-start {
+    white-space: nowrap;
+  }
+
+  .hero__title-end {
+    display: block;
+  }
 }
 
 .hero__lead {
