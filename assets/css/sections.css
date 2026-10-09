@@ -406,10 +406,6 @@
 /* 5. CHIFFRES CLÉS
    ========================================================================== */
 
-.stats__title {
-  margin-bottom: var(--space-6);
-}
-
 /* 4 chiffres : 2 colonnes sur mobile, 4 sur desktop */
 .stats {
   display: grid;
@@ -578,7 +574,9 @@
 .testimonials {
   display: grid;
   gap: var(--space-5);
-  margin-top: var(--space-6);
+  /* le témoignage principal joue le rôle de titre : même écart sous le
+     surtitre que dans les têtes de section (.section-head) */
+  margin-top: var(--space-2);
 }
 
 .testimonial {
