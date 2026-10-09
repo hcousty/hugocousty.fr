@@ -292,6 +292,9 @@
   --focus-width: 2px;
   --focus-offset: 2px;
 
+  /* Arrondi de tous les boutons (pilule) */
+  --button-radius: var(--radius-pill);
+
   /* Taille de la flèche ↗ des boutons principaux */
   --icon-size-button: 16px;
 

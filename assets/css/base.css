@@ -253,7 +253,7 @@ main {
   min-height: 48px;
   padding: var(--space-15) var(--space-25);
   border: var(--border-width-strong) solid var(--border-strong);
-  border-radius: var(--radius-sm);
+  border-radius: var(--button-radius); /* même arrondi pour tous les boutons */
   background: transparent;
   color: var(--text-primary);
   font-size: var(--text-body);
@@ -654,7 +654,6 @@ textarea.field__input {
    collée en bas d'écran, visible dès la tablette */
 .site-header__cta {
   display: none;
-  border-radius: var(--radius-pill); /* suit la géométrie de la pilule */
 }
 
 @media (min-width: 48em) {
