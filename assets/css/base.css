@@ -806,8 +806,8 @@ textarea.field__input {
 
 /* 7. Barre CTA mobile (bas d'écran)
    --------------------------------------------------------------------------
-   Bande pleine largeur collée en bas, avec le même verre sombre que
-   l'en-tête réduit (thème inverse : bouton blanc).
+   La bande n'a aucun fond : seul le bouton est visible. Il reprend le verre
+   sombre translucide de l'en-tête réduit (texte blanc, thème inverse).
    ========================================================================== */
 
 .sticky-cta {
@@ -819,13 +819,27 @@ textarea.field__input {
   height: var(--sticky-cta-height);
   padding: var(--space-15) var(--gutter);
   padding-bottom: max(var(--space-15), env(safe-area-inset-bottom));
-  background-color: var(--header-glass);
-  -webkit-backdrop-filter: var(--blur-veil);
-  backdrop-filter: var(--blur-veil);
-  box-shadow: var(--header-edge); /* arête claire en haut, comme l'en-tête */
+  pointer-events: none; /* la zone transparente autour du bouton laisse passer les clics */
   transition:
     transform var(--duration-base) var(--ease-out),
     visibility var(--duration-base);
+}
+
+.sticky-cta .btn {
+  pointer-events: auto;
+  border-color: transparent;
+  background: var(--header-glass);
+  -webkit-backdrop-filter: var(--blur-veil);
+  backdrop-filter: var(--blur-veil);
+  box-shadow: var(--header-edge), var(--shadow-pop);
+  color: var(--text-primary); /* blanc (thème inverse) */
+}
+
+.sticky-cta .btn:hover,
+.sticky-cta .btn:active {
+  background: var(--ink-900);
+  border-color: transparent;
+  color: var(--text-primary);
 }
 
 /* Masquée par main.js quand la section Contact ou le footer sont à l'écran */
