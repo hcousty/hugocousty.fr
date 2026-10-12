@@ -764,6 +764,11 @@
   font-size: var(--text-lead);
 }
 
+/* Un seul bouton sous les trois formats */
+.offers__cta {
+  margin-top: var(--space-4);
+}
+
 @media (min-width: 64em) {
   .offers {
     grid-template-columns: repeat(3, 1fr);
@@ -892,6 +897,34 @@
   .contact__paths {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Accueil : le calendrier d'abord, en pleine largeur… */
+.contact__booking .calendly__frame {
+  height: var(--calendly-height);
+}
+
+/* …puis le formulaire, replié derrière « Vous préférez écrire ? »
+   (<details> natif : fonctionne sans JS, ouvrable au clavier) */
+.contact__write {
+  margin-top: var(--space-4);
+}
+
+.contact__write-toggle {
+  list-style: none;
+}
+
+.contact__write-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.contact__write[open] .contact__write-toggle {
+  background: var(--glass-bg-hover);
+}
+
+.contact__write .contact__path {
+  max-width: 44rem;
+  margin-top: var(--space-3);
 }
 
 .contact__alt {
