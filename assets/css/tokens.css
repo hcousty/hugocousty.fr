@@ -284,8 +284,8 @@
   --hero-inset: var(--space-1);
   --hero-radius: var(--radius-lg);
 
-  /* Hauteur du calendrier Calendly intégré (section Contact) */
-  --calendly-height: 660px;
+  /* Hauteur du calendrier de réservation Brevo intégré (section Contact) */
+  --booking-height: 720px;
 
   /* Identité dans l'en-tête : photo ronde + point de disponibilité */
   --avatar-size: 36px;

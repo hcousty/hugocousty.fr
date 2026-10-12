@@ -89,7 +89,7 @@
 
           <!-- data-sticky-cta-hide : la barre CTA mobile se masque tant que ces boutons sont visibles -->
           <div class="hero__actions" data-sticky-cta-hide>
-            <a class="btn btn--primary" href="#contact">Réserver un appel de 20 min</a>
+            <a class="btn btn--primary" href="#contact">Réserver un appel de 30 min</a>
             <a class="btn btn--secondary" href="#realisations">Voir mes réalisations</a>
           </div>
 
@@ -519,21 +519,17 @@
           <p class="section-head__intro">Un premier échange, sans engagement, pour faire le point et vous apporter un premier regard. Choisissez un créneau dans le calendrier, ou écrivez-moi : je réponds sous 24 h ouvrées.</p>
         </header>
 
-        <!-- Le calendrier Calendly intégré en premier ; le formulaire est replié
-             derrière « Vous préférez écrire ? » (accordéon natif, sans JS).
-             TODO : remplacer l'URL du src de l'iframe par celle de ton événement Calendly
-             (Calendly → l'événement → Partager → Ajouter à un site web → Intégration en ligne,
-             ou simplement l'URL publique de l'événement). Les paramètres après le « ? »
-             accordent les couleurs au site. Calendly affiche son propre bandeau cookies
-             dans le cadre ; pour le masquer, ajouter &hide_gdpr_banner=1, mais seulement
-             si le site a son propre bandeau de consentement. -->
+        <!-- Le calendrier de réservation Brevo (Meetings, page « premier-contact »)
+             en premier ; le formulaire est replié derrière « Vous préférez écrire ? »
+             (accordéon natif, sans JS). Pour changer de type de rendez-vous :
+             modifier le paramètre l= de l'URL de l'iframe (data-booking-url). -->
         <div class="card contact__booking">
-            <h3 class="card__title">Un appel de 20 min</h3>
+            <h3 class="card__title">Un appel de 30 min</h3>
             <p>Choisissez un créneau ci-dessous, je vous appelle. On parle de votre contexte, de vos objectifs et de ce que je ferais en premier.</p>
-            <div class="calendly">
-              <iframe class="calendly__frame" src="https://calendly.com/hugo-cousty/20min?hide_landing_page_details=1&amp;hide_event_type_details=1&amp;background_color=ffffff&amp;text_color=0d1017&amp;primary_color=0d1017" title="Calendrier de réservation d'un appel de 20 min avec Hugo Cousty" loading="lazy" data-calendly-url></iframe>
+            <div class="booking">
+              <iframe class="booking__frame" src="https://meet.brevo.com/hugo-cousty/borderless?l=premier-contact" title="Calendrier de réservation d'un appel de 30 min avec Hugo Cousty" loading="lazy" data-booking-url></iframe>
             </div>
-            <p class="field__note">Le calendrier est fourni par Calendly. <a href="/confidentialite/">En savoir plus</a>.</p>
+            <p class="field__note">Le calendrier est fourni par Brevo. <a href="/confidentialite/">En savoir plus</a>.</p>
         </div>
 
         <details class="contact__write">

@@ -851,16 +851,16 @@
   align-self: flex-start;
 }
 
-/* Calendrier Calendly intégré : pleine largeur de la carte, hauteur fixe
-   proche de celle du module (évite un saut de mise en page au chargement) */
-.calendly {
+/* Calendrier de réservation Brevo intégré : pleine largeur de la carte,
+   hauteur fixe proche de celle du module (évite un saut au chargement) */
+.booking {
   margin-top: var(--space-1);
 }
 
-.calendly__frame {
+.booking__frame {
   display: block;
   width: 100%;
-  height: var(--calendly-height);
+  height: var(--booking-height);
   border: 0;
   border-radius: var(--radius-sm);
 }
@@ -876,8 +876,8 @@
 }
 
 /* Accueil : le calendrier d'abord, en pleine largeur… */
-.contact__booking .calendly__frame {
-  height: var(--calendly-height);
+.contact__booking .booking__frame {
+  height: var(--booking-height);
 }
 
 /* …puis le formulaire, replié derrière « Vous préférez écrire ? »
