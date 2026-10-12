@@ -303,10 +303,11 @@
   --face-size: 40px;
   --face-overlap: 10px;
 
-  /* Expertises en « stories » : arrondi façon écran de téléphone, et largeur
-     d'une story sur mobile (la suivante dépasse du bord pour inviter à glisser) */
-  --story-radius: 16px;
-  --story-width-mobile: min(72vw, 300px);
+  /* Section sombre des Expertises : halos gris du fond, et voile des cartes
+     en verre posées dessus */
+  --dark-glow-a: rgba(101, 109, 126, .55);
+  --dark-glow-b: rgba(140, 148, 163, .28);
+  --glass-card-bg: rgba(255, 255, 255, .06);
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);

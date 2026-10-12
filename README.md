@@ -58,7 +58,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 |---|---|---|
 | 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
 | 2 | Logos | – |
-| 3 | Expertises (format « story ») | `#expertises` (menu) |
+| 3 | Expertises (section sombre, cartes en verre) | `#expertises` (menu) |
 | 4 | Méthode | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
 | 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
@@ -205,7 +205,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Surtitre | `.eyebrow` | ★ |
 | Tag | `.tag` | un seul style |
 | Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__path`, `.contact__booking`) |
-| Story | `.stories` > `.story` | expertises de l'accueil : carte 9:16 sombre, barre de progression, auteur, titre et texte en bas ; défilement horizontal sur mobile, 4 colonnes en desktop. Visuel de fond optionnel avec `.story__media` |
+| Carte en verre | `.glass-cards` > `.glass-card` | expertises de l'accueil, sur la section sombre `.section--dark` (halos gris en fond) |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
 | Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |
 | Témoignage | `.testimonial` | principal (en grand) et court |
