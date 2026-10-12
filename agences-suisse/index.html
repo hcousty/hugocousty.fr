@@ -78,7 +78,6 @@
     <section class="section" id="expertises" aria-labelledby="expertises-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Ce que je prends en charge</p>
           <h2 id="expertises-title">Les expertises Social Ads que vos clients vous demandent</h2>
           <p class="section-head__intro">Un seul interlocuteur, de la structure du compte au reporting, sur Meta, TikTok, LinkedIn, Pinterest et Snapchat. Vous confiez tout, ou seulement ce qui vous manque.</p>
         </header>
@@ -125,7 +124,6 @@
     <section class="section section--sunken" id="formats" aria-labelledby="formats-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Formats</p>
           <h2 id="formats-title">3 façons de travailler ensemble</h2>
         </header>
 
@@ -145,7 +143,7 @@
         </ul>
 
         <div class="section-cta">
-          <a class="btn btn--primary" href="#contact">Parlons de votre besoin</a>
+          <a class="btn btn--primary" href="#contact">Réserver un appel</a>
         </div>
       </div>
     </section>
@@ -158,7 +156,6 @@
          =================================================================== -->
     <section class="section" id="temoignages" aria-labelledby="temoignages-title">
       <div class="container">
-        <p class="eyebrow">Ce qu'en disent les annonceurs</p>
         <h2 class="visually-hidden" id="temoignages-title">Témoignages de clients</h2>
 
         <div class="testimonials">
@@ -205,7 +202,6 @@
     <section class="section section--sunken" id="realisations" aria-labelledby="realisations-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Réalisations</p>
           <h2 id="realisations-title">Un cas romand, et des comptes pilotés en agence</h2>
           <p class="section-head__intro">Un compte piloté en Suisse romande, puis plusieurs années chez Ad's up Consulting et Enigma : du e-commerce à la génération de prospects, avec les mêmes exigences de reporting et de délais que les vôtres.</p>
         </header>
@@ -285,7 +281,6 @@
     <section class="section" aria-labelledby="gains-title">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Ce que vous y gagnez</p>
           <h2 id="gains-title">Ce qui change avec un freelance basé en France</h2>
         </header>
 
@@ -321,23 +316,24 @@
     <section class="section section--sunken" id="contact" aria-labelledby="contact-title" data-sticky-cta-hide>
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Contact</p>
           <h2 id="contact-title">Parlons de votre besoin</h2>
-          <p class="section-head__intro">Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne. Au choix : réservez un créneau dans le calendrier, ou écrivez-moi, je réponds sous 24 h ouvrées.</p>
+          <p class="section-head__intro">Un premier échange de 20 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne. Choisissez un créneau dans le calendrier, ou écrivez-moi : je réponds sous 24 h ouvrées.</p>
         </header>
 
         <!-- TODO : même URL Calendly et même service de formulaire que l'accueil
              (voir les commentaires de la section 11 de index.html). -->
-        <ul class="contact__paths">
-          <li class="card contact__path">
+        <div class="card contact__booking">
             <h3 class="card__title">Un appel de 20 min</h3>
             <p>Choisissez un créneau ci-dessous, je vous appelle.</p>
             <div class="calendly">
               <iframe class="calendly__frame" src="https://calendly.com/hugo-cousty/20min?hide_landing_page_details=1&amp;hide_event_type_details=1&amp;background_color=ffffff&amp;text_color=0d1017&amp;primary_color=0d1017" title="Calendrier de réservation d'un appel de 20 min avec Hugo Cousty" loading="lazy" data-calendly-url></iframe>
             </div>
             <p class="field__note">Le calendrier est fourni par Calendly. <a href="/confidentialite/">En savoir plus</a>.</p>
-          </li>
-          <li class="card contact__path">
+        </div>
+
+        <details class="contact__write">
+          <summary class="btn btn--secondary contact__write-toggle">Vous préférez écrire ? Envoyer un message</summary>
+          <div class="card contact__path">
             <h3 class="card__title">Un message</h3>
             <p>Le client, le besoin, le calendrier : quelques lignes suffisent, je reviens vers vous avec des questions ou une proposition.</p>
 
@@ -368,8 +364,8 @@
               <button class="btn btn--primary contact__cta" type="submit">Envoyer le message</button>
               <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
             </form>
-          </li>
-        </ul>
+          </div>
+        </details>
 
         <p class="contact__alt">Vous pouvez aussi m'écrire directement à <a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a>. Agence basée en France ? <a href="/agences/">Voir la page dédiée</a>.</p>
       </div>
@@ -396,7 +392,7 @@
 
   <!-- BARRE CTA MOBILE — collée en bas d'écran (< 768 px) -->
   <div class="sticky-cta" data-theme="inverse" data-sticky-cta>
-    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel de 20 min</a>
+    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel</a>
   </div>
 
 </body>
