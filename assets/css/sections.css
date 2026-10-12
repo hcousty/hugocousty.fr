@@ -670,39 +670,45 @@
   }
 }
 
-/* --- Encart IA : pleine largeur, fond bleu très clair, sous « À propos » ---- */
+/* --- Encart IA : pleine largeur, fond gris clair, sous « À propos » ---------
+   Seul bloc centré de la page : il casse l'alignement à gauche du reste et
+   met le sujet en avant. Titre en grand, texte en colonne étroite.        */
 
 .ai-box {
   display: grid;
+  justify-items: center;
   gap: var(--space-3);
   margin-top: var(--space-8);
-  padding: var(--space-6) var(--space-3);
+  padding: var(--space-7) var(--space-3);
   background: var(--surface-accent-quiet);
-  border-radius: var(--radius-md);
+  border-radius: var(--card-radius);
+  text-align: center;
 }
 
 .ai-box__title {
-  font-size: var(--text-h1);
-  max-width: 14em;
+  max-width: 12em;
+  font-size: var(--text-display-2);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
 }
 
 .ai-box__body {
   display: grid;
   gap: var(--space-2);
-  max-width: var(--measure-prose);
+  max-width: 36rem;
+  line-height: var(--leading-loose);
   color: var(--text-secondary);
 }
 
 .ai-box__note {
+  margin-top: var(--space-1);
   font-weight: var(--weight-medium);
   color: var(--text-primary);
 }
 
 @media (min-width: 64em) {
   .ai-box {
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-8);
-    padding: var(--space-8);
+    padding: var(--space-9) var(--space-8);
   }
 }
 
