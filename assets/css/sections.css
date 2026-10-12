@@ -403,8 +403,14 @@
 }
 
 
-/* 5. CHIFFRES CLÉS
+/* 5. CHIFFRES CLÉS (placés en tête de la section Réalisations)
    ========================================================================== */
+
+/* Dans la section Réalisations : bandeau de chiffres entre le titre et les
+   projets, avec un grand écart avant le projet à la une */
+.realisations__stats {
+  margin-bottom: var(--space-8);
+}
 
 /* 4 chiffres : 2 colonnes sur mobile, 4 sur desktop */
 .stats {
