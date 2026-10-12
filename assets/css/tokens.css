@@ -303,6 +303,11 @@
   --face-size: 40px;
   --face-overlap: 10px;
 
+  /* Expertises en « stories » : arrondi façon écran de téléphone, et largeur
+     d'une story sur mobile (la suivante dépasse du bord pour inviter à glisser) */
+  --story-radius: 16px;
+  --story-width-mobile: min(72vw, 300px);
+
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);
 

@@ -140,22 +140,53 @@
           <p class="section-head__intro">Campagnes, site, CRM, données : je m'occupe de tout, ou seulement de ce qui vous manque. Et je forme vos équipes au fil de l'eau, pour qu'elles gagnent en autonomie.</p>
         </header>
 
-        <ul class="expertises">
-          <li class="card">
-            <h3 class="card__title">Social Ads et Google Ads</h3>
-            <p>Stratégie, campagnes et visuels publicitaires pour générer des ventes et des prospects qualifiés, sur Meta, LinkedIn, TikTok, Snapchat, Pinterest et Google.</p>
+        <!-- Expertises au format « story » : le format que je produis tous les
+             jours en Social Ads. Desktop : 4 stories 9:16 sur une ligne.
+             Mobile et tablette : défilement horizontal, comme sur Instagram.
+             La barre en haut avance d'une story à l'autre (1/4, 2/4…).
+             Pour mettre un visuel en fond (créa, capture de site…) : ajouter
+             <img class="story__media" src="…" alt="" loading="lazy"> en premier
+             enfant du <li> ; le voile sombre garde le texte lisible. -->
+        <ul class="stories" aria-label="Expertises" tabindex="0">
+          <li class="story" data-theme="inverse">
+            <div class="story__top" aria-hidden="true">
+              <span class="story__progress"><span class="is-seen"></span><span></span><span></span><span></span></span>
+              <span class="story__author"><span class="story__avatar">HC</span>Hugo Cousty</span>
+            </div>
+            <div class="story__body">
+              <h3 class="story__title">Social Ads et Google Ads</h3>
+              <p class="story__text">Stratégie, campagnes et visuels publicitaires pour générer des ventes et des prospects qualifiés, sur Meta, LinkedIn, TikTok, Snapchat, Pinterest et Google.</p>
+            </div>
           </li>
-          <li class="card">
-            <h3 class="card__title">Sites web</h3>
-            <p>Conception, refonte et maintenance de sites pensés pour convertir, sur WordPress, WooCommerce, Webflow ou l'outil que vous utilisez déjà.</p>
+          <li class="story" data-theme="inverse">
+            <div class="story__top" aria-hidden="true">
+              <span class="story__progress"><span class="is-seen"></span><span class="is-seen"></span><span></span><span></span></span>
+              <span class="story__author"><span class="story__avatar">HC</span>Hugo Cousty</span>
+            </div>
+            <div class="story__body">
+              <h3 class="story__title">Sites web</h3>
+              <p class="story__text">Conception, refonte et maintenance de sites pensés pour convertir, sur WordPress, WooCommerce, Webflow ou l'outil que vous utilisez déjà.</p>
+            </div>
           </li>
-          <li class="card">
-            <h3 class="card__title">CRM et automatisation</h3>
-            <p>Structuration de vos données clients, emailings et parcours de relance automatisés pour faire revenir vos clients et convertir vos prospects.</p>
+          <li class="story" data-theme="inverse">
+            <div class="story__top" aria-hidden="true">
+              <span class="story__progress"><span class="is-seen"></span><span class="is-seen"></span><span class="is-seen"></span><span></span></span>
+              <span class="story__author"><span class="story__avatar">HC</span>Hugo Cousty</span>
+            </div>
+            <div class="story__body">
+              <h3 class="story__title">CRM et automatisation</h3>
+              <p class="story__text">Structuration de vos données clients, emailings et parcours de relance automatisés pour faire revenir vos clients et convertir vos prospects.</p>
+            </div>
           </li>
-          <li class="card">
-            <h3 class="card__title">Suivi et data</h3>
-            <p>Mise en place du suivi des performances (GTM, GA4, Pixel) et tableaux de bord clairs pour savoir ce qui marche vraiment et piloter vos budgets.</p>
+          <li class="story" data-theme="inverse">
+            <div class="story__top" aria-hidden="true">
+              <span class="story__progress"><span class="is-seen"></span><span class="is-seen"></span><span class="is-seen"></span><span class="is-seen"></span></span>
+              <span class="story__author"><span class="story__avatar">HC</span>Hugo Cousty</span>
+            </div>
+            <div class="story__body">
+              <h3 class="story__title">Suivi et data</h3>
+              <p class="story__text">Mise en place du suivi des performances (GTM, GA4, Pixel) et tableaux de bord clairs pour savoir ce qui marche vraiment et piloter vos budgets.</p>
+            </div>
           </li>
         </ul>
       </div>

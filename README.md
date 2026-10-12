@@ -58,7 +58,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 |---|---|---|
 | 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
 | 2 | Logos | – |
-| 3 | Expertises | `#expertises` (menu) |
+| 3 | Expertises (format « story ») | `#expertises` (menu) |
 | 4 | Méthode | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
 | 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
@@ -204,7 +204,8 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
 | Surtitre | `.eyebrow` | ★ |
 | Tag | `.tag` | un seul style |
-| Carte | `.card` | expertise, offre (`.offer` : pitch, format, bouton), contact (`.contact__path`) |
+| Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__path`, `.contact__booking`) |
+| Story | `.stories` > `.story` | expertises de l'accueil : carte 9:16 sombre, barre de progression, auteur, titre et texte en bas ; défilement horizontal sur mobile, 4 colonnes en desktop. Visuel de fond optionnel avec `.story__media` |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
 | Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |
 | Témoignage | `.testimonial` | principal (en grand) et court |
