@@ -958,8 +958,15 @@ ul.expertise-cards {
 
 /* …puis le formulaire, replié derrière « Vous préférez écrire ? »
    (<details> natif : fonctionne sans JS, ouvrable au clavier) */
-.contact__write {
+/* « Vous préférez écrire ? » en phrase, le bouton juste dessous */
+.contact__write-question {
   margin-top: var(--space-4);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.contact__write {
+  margin-top: var(--space-15);
 }
 
 .contact__write-toggle {
