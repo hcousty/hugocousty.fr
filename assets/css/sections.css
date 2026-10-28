@@ -303,64 +303,41 @@
   }
 }
 
-/* --- Expertises (accueil) : section sombre, cartes en verre ----------------
-   Fond encre avec deux halos gris très doux : ils donnent au verre quelque
-   chose à flouter, sans photo. Cartes translucides floutées avec l'arête
-   claire de l'en-tête. 1 colonne en mobile, 2 en tablette, 4 en desktop. */
+/* --- Expertises (accueil) : quatre cartes gris clair sur fond blanc -------
+   1 colonne en mobile, 2 en tablette, 4 en desktop.                        */
 
-.section--dark {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: var(--surface-page); /* encre, via data-theme="inverse" */
-}
-
-.section--dark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(38% 55% at 18% 78%, var(--dark-glow-a), transparent 70%),
-    radial-gradient(34% 50% at 82% 30%, var(--dark-glow-b), transparent 70%);
-  pointer-events: none;
-}
-
-ul.glass-cards {
+ul.expertise-cards {
   display: grid;
   gap: var(--grid-gap);
 }
 
-.glass-card {
+.expertise-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-15);
   padding: var(--space-3);
   border-radius: var(--card-radius);
-  background: var(--glass-card-bg);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  box-shadow: var(--header-edge);
+  background: var(--surface-sunken);
   color: var(--text-secondary);
 }
 
-.glass-card__title {
+.expertise-card__title {
   font-size: var(--text-h3);
   color: var(--text-primary);
 }
 
 @media (min-width: 48em) {
-  ul.glass-cards {
+  ul.expertise-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 64em) {
-  ul.glass-cards {
+  ul.expertise-cards {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .glass-card {
+  .expertise-card {
     min-height: 16rem;
   }
 }
@@ -431,12 +408,14 @@ ul.glass-cards {
   gap: var(--space-15);
 }
 
-/* Numéros de section en bleu (texte : bleu 600 sur blanc) */
+/* Numéro d'étape : l'ordre compte, il se lit au premier coup d'œil */
 .step__number {
-  font-size: var(--text-label);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-label);
-  color: var(--text-accent);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--tracking-heading);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
 }
 
 .step p {
@@ -563,6 +542,7 @@ ul.glass-cards {
 
 .featured__facts dd {
   margin: 0;
+  text-wrap: pretty;
   color: var(--text-secondary);
 }
 
@@ -766,9 +746,9 @@ ul.glass-cards {
   }
 }
 
-/* --- Encart IA : pleine largeur, fond gris clair, sous « À propos » ---------
+/* --- Encart IA : fond gris clair, sous « À propos » -------------------------
    Seul bloc centré de la page : il casse l'alignement à gauche du reste et
-   met le sujet en avant. Titre en grand, texte en colonne étroite.        */
+   met le sujet en avant. Titre à la taille des titres de section.         */
 
 .ai-box {
   display: grid;
@@ -782,8 +762,8 @@ ul.glass-cards {
 }
 
 .ai-box__title {
-  max-width: 12em;
-  font-size: var(--text-display-2);
+  max-width: 16em;
+  font-size: var(--text-h1);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-display);
 }

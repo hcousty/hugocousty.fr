@@ -56,18 +56,19 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 
 | # | Section | Ancre |
 |---|---|---|
-| 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
+| 1 | Hero (photo dans un bloc arrondi, texte posé dessus) | `#top` |
 | 2 | Logos | – |
-| 3 | Expertises (section sombre, cartes en verre) | `#expertises` (menu) |
-| 4 | Méthode (fond gris clair) | `#methode` |
-| 5 | Chiffres clés | `#chiffres` |
-| 6 | Réalisations (Harmony à la une en 3 lignes Contexte / Campagnes / Outils + grille de 6 projets ; en mobile 3 cartes puis bouton « Voir les autres réalisations ») | `#realisations` (menu) |
-| 7 | Témoignages, 1 principal + 3 courts (**placeholders**) | `#temoignages` |
-| 8 | À propos + encart IA | `#a-propos` (menu) |
-| 9 | 3 formats pour travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
-| 10 | FAQ | `#faq` (menu) |
-| 11 | Contact (calendrier Brevo intégré + formulaire replié) | `#contact` : cible de tous les boutons « Réserver un appel » |
-| 12 | Footer | – |
+| 3 | Expertises (4 cartes gris clair sur fond blanc) | `#expertises` (menu) |
+| 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / En parallèle), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
+| 5 | Témoignages, 1 principal + 3 courts (**placeholders**), bloc gris | `#temoignages` |
+| 6 | À propos + encart IA | `#a-propos` (menu) |
+| 7 | Méthode | `#methode` |
+| 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
+| 9 | FAQ | `#faq` (menu) |
+| 10 | Contact, bloc gris (calendrier Brevo + lien de secours, formulaire replié) | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
+| 11 | Footer, bloc encre arrondi | – |
+
+**Fonds de section** : aucune section ne touche les bords de l'écran. Une section à fond (`.section--sunken`) devient un bloc gris clair arrondi, posé avec la même marge que le hero (`--hero-inset`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs, cartes, encart IA. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
 
 ### Conventions
 
@@ -112,7 +113,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 - **Thème inverse** : `data-theme="inverse"` sur un bloc bascule tous les alias de couleur (texte blanc, boutons blancs…). Utilisé sur l'en-tête, le hero (texte sur la photo) et le footer.
 - **En-tête** : pilule de verre flottante (56 px, à 20 px du haut, dégradé d'encre + flou), seule surface en verre. À gauche, la photo ronde (réservé « HC » en attendant) et le statut « Disponible » avec un point vert ; pour passer en indisponible, ajouter la classe `status--off` au `<span class="status">` et changer le texte.
 - **Boutons** : tous en pilule (`--button-radius`). `primary` en aplat plein (encre, ou blanc sur fond sombre) qui s'éclaircit au survol, avec la flèche ↗ intégrée (dessinée en CSS) ; `secondary` en verre translucide flouté, sans contour.
-- **Style** : monochrome (aucune couleur de marque, la couleur vient des photos), verre translucide pour les éléments flottants (en-tête réduit, menu mobile, barre CTA, boutons secondaires), cartes sans filet aux angles arrondis (`--card-radius`).
+- **Style** : monochrome (aucune couleur de marque, la couleur vient des photos), verre translucide pour les éléments flottants (en-tête réduit, barre CTA, boutons secondaires) ; le menu mobile est opaque pour rester lisible, cartes sans filet aux angles arrondis (`--card-radius`).
 - **Surtitres** en capitales espacées, sans numéro ni filet. Aucun trait de séparation décoratif sur le site : les blocs sont séparés par l'espace, les cartes gardent leur contour.
 - **Un seul grand aplat encre** : le footer. Le hero n'a plus de panneau encre : la photo remplit l'écran (léger retrait `--hero-inset`, rayon `--hero-radius`) et le texte est posé dessus, lisible grâce à un voile encre dégradé en bas de la photo.
 - **Pas d'animation d'entrée au défilement**, pas d'emoji, pas d'ombre sur les cartes.
@@ -205,7 +206,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Surtitre | `.eyebrow` | ★ |
 | Tag | `.tag` | un seul style |
 | Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__path`, `.contact__booking`) |
-| Carte en verre | `.glass-cards` > `.glass-card` | expertises de l'accueil, sur la section sombre `.section--dark` (halos gris en fond) |
+| Carte expertise | `.expertise-cards` > `.expertise-card` | expertises de l'accueil, gris clair sur fond blanc |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
 | Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |
 | Témoignage | `.testimonial` | principal (en grand) et court |
@@ -220,7 +221,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Réservé d'image | `.placeholder` | à remplacer par les vraies images |
 | En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |
 | Hero | `.hero` ★ | photo plein écran avec retrait et rayon, voile encre, texte posé dessus |
-| Encart IA | `.ai-box` | fond gris clair, 2 colonnes sur desktop |
+| Encart IA | `.ai-box` | fond gris clair, centré, titre à la taille des titres de section |
 | Mise en avant finale | `.page-cta` ★ | bloc encre avec titre, texte, boutons (pages secondaires) |
 | Barre CTA mobile | `.sticky-cta` | collée en bas, masquée quand un bouton « Réserver » est visible |
 | Pied de page | `.site-footer` ★ | liste de liens, grain |

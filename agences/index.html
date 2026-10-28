@@ -36,7 +36,7 @@
         <span class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</span>
       </a>
       <div class="site-header__actions">
-        <a class="btn btn--primary btn--small site-header__cta" href="#contact">Réserver un appel</a>
+        <a class="btn btn--primary btn--small site-header__cta" href="#reserver">Réserver un appel</a>
       </div>
     </div>
   </header>
@@ -58,7 +58,7 @@
           <p class="hero__lead">Délais, marges, reportings clients, rushs de fin d'année : je connais vos contraintes. Je prends le relais sur vos comptes, en marque blanche ou en direct.</p>
 
           <div class="hero__actions" data-sticky-cta-hide>
-            <a class="btn btn--primary" href="#contact">Réserver un appel de 30 min</a>
+            <a class="btn btn--primary" href="#reserver">Réserver un appel de 30 min</a>
             <a class="btn btn--secondary" href="#formats">Voir les formats</a>
           </div>
 
@@ -143,7 +143,7 @@
         </ul>
 
         <div class="section-cta">
-          <a class="btn btn--primary" href="#contact">Réserver un appel</a>
+          <a class="btn btn--primary" href="#reserver">Réserver un appel</a>
         </div>
       </div>
     </section>
@@ -303,17 +303,17 @@
 
         <!-- TODO : même service de formulaire que l'accueil ; calendrier Brevo identique
              (voir les commentaires de la section 11 de index.html). -->
-        <div class="card contact__booking">
+        <div class="card contact__booking" id="reserver">
             <h3 class="card__title">Un appel de 30 min</h3>
             <p>Choisissez un créneau ci-dessous, je vous appelle.</p>
             <div class="booking">
               <iframe class="booking__frame" src="https://meet.brevo.com/hugo-cousty/borderless?l=premier-contact" title="Calendrier de réservation d'un appel de 30 min avec Hugo Cousty" loading="lazy" data-booking-url></iframe>
             </div>
-            <p class="field__note">Le calendrier est fourni par Brevo. <a href="/confidentialite/">En savoir plus</a>.</p>
+            <p class="field__note booking__fallback">Le calendrier ne s'affiche pas&#8239;? <a href="https://meet.brevo.com/hugo-cousty" target="_blank" rel="noopener">Ouvrir le calendrier dans un nouvel onglet</a>. Il est fourni par Brevo (<a href="/confidentialite/">en savoir plus</a>).</p>
         </div>
 
         <details class="contact__write">
-          <summary class="btn btn--secondary contact__write-toggle">Vous préférez écrire ? Envoyer un message</summary>
+          <summary class="btn btn--secondary contact__write-toggle">Vous préférez écrire&#8239;? Envoyer un message</summary>
           <div class="card contact__path">
             <h3 class="card__title">Un message</h3>
             <p>Le client, le besoin, le calendrier : quelques lignes suffisent, je reviens vers vous avec des questions ou une proposition.</p>
@@ -348,7 +348,7 @@
           </div>
         </details>
 
-        <p class="contact__alt">Agence basée en Suisse ? <a href="/agences-suisse/">Voir la page dédiée</a>.</p>
+        <p class="contact__alt">Agence basée en Suisse&#8239;? <a href="/agences-suisse/">Voir la page dédiée</a>.</p>
       </div>
     </section>
 
@@ -364,7 +364,7 @@
         <li><a href="/confidentialite/">Confidentialité</a></li>
         <li><a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a></li>
         <li><a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a></li>
-        <li><a href="/">Vous êtes une entreprise ?</a></li>
+        <li><a href="/">Vous êtes une entreprise&#8239;?</a></li>
       </ul>
     </div>
   </footer>
@@ -372,7 +372,7 @@
 
   <!-- BARRE CTA MOBILE — collée en bas d'écran (< 768 px) -->
   <div class="sticky-cta" data-theme="inverse" data-sticky-cta>
-    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel</a>
+    <a class="btn btn--primary btn--block" href="#reserver">Réserver un appel</a>
   </div>
 
 </body>

@@ -91,7 +91,7 @@
 
   --surface-page: var(--white);
   --surface-card: var(--white);
-  --surface-sunken: var(--grey-050);
+  --surface-sunken: var(--grey-100); /* un seul gris clair : blocs de section, cartes, encart IA */
   --surface-quiet: var(--grey-100);
   --surface-inverse: var(--ink-900);
   --surface-accent: var(--ink-900);
@@ -112,7 +112,7 @@
      barres flottantes). Teinte encre sur fond clair, blanche sur fond sombre. */
   --glass-bg: rgba(13, 16, 23, .06);
   --glass-bg-hover: rgba(13, 16, 23, .11);
-  --glass-panel: rgba(255, 255, 255, .78);
+  --glass-panel: var(--white); /* menu mobile : opaque, le texte de la page ne doit pas transparaître */
   --glass-blur: saturate(160%) blur(16px);
 }
 
@@ -139,7 +139,7 @@
   --focus-ring: var(--white);
   --glass-bg: rgba(255, 255, 255, .14);
   --glass-bg-hover: rgba(255, 255, 255, .22);
-  --glass-panel: rgba(13, 16, 23, .82);
+  --glass-panel: var(--ink-900);
 }
 
 /* --- A3. Typographie (tokens/typography.css) -------------------------------- */
@@ -305,9 +305,6 @@
 
   /* Section sombre des Expertises : halos gris du fond, et voile des cartes
      en verre posées dessus */
-  --dark-glow-a: rgba(101, 109, 126, .55);
-  --dark-glow-b: rgba(140, 148, 163, .28);
-  --glass-card-bg: rgba(255, 255, 255, .06);
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);

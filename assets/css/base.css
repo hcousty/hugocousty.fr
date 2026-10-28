@@ -77,14 +77,8 @@ body {
   letter-spacing: var(--tracking-normal);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Réserve la place de la barre CTA collée en bas (mobile) */
-  padding-bottom: var(--sticky-cta-height);
-}
-
-@media (min-width: 48em) {
-  body {
-    padding-bottom: 0;
-  }
+  /* Pas de place réservée sous le footer pour la barre CTA mobile :
+     elle se masque d'elle-même sur la section Contact et le footer. */
 }
 
 /* Un bloc en thème inverse reprend les couleurs de texte du thème */
@@ -116,7 +110,9 @@ h1 {
 h2 { font-size: var(--text-h1); }
 h3 { font-size: var(--text-h3); }
 
-p {
+p,
+li,
+dd {
   text-wrap: pretty;
 }
 
@@ -206,9 +202,16 @@ main {
   padding-block: var(--section-y);
 }
 
-/* Section calme : fond gris très clair, même registre */
+/* Section à fond : bloc gris clair arrondi, posé avec la même marge que le
+   hero. Aucune section ne touche les bords de l'écran. */
 .section--sunken {
+  margin-inline: var(--hero-inset);
   background: var(--surface-sunken);
+  border-radius: var(--hero-radius);
+}
+
+.section--sunken + .section--sunken {
+  margin-top: var(--hero-inset);
 }
 
 /* En-tête de section : surtitre numéroté + titre + chapô */
@@ -858,7 +861,10 @@ textarea.field__input {
 /* 8. Footer — le seul grand aplat encre de la page, avec grain fort
    ========================================================================== */
 
+/* Footer : bloc encre arrondi, en écho au hero */
 .site-footer {
+  margin: var(--hero-inset);
+  border-radius: var(--hero-radius);
   padding-block: var(--space-7);
   background: var(--surface-page); /* encre, via data-theme="inverse" */
   font-size: var(--text-body-sm);

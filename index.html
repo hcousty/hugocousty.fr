@@ -58,7 +58,7 @@
       </nav>
 
       <div class="site-header__actions">
-        <a class="btn btn--primary btn--small site-header__cta" href="#contact">Réserver un appel</a>
+        <a class="btn btn--primary btn--small site-header__cta" href="#reserver">Réserver un appel</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
           <span class="nav-toggle__bar" aria-hidden="true"></span>
           <span class="visually-hidden" data-nav-toggle-label>Ouvrir le menu</span>
@@ -89,7 +89,7 @@
 
           <!-- data-sticky-cta-hide : la barre CTA mobile se masque tant que ces boutons sont visibles -->
           <div class="hero__actions" data-sticky-cta-hide>
-            <a class="btn btn--primary" href="#contact">Réserver un appel de 30 min</a>
+            <a class="btn btn--primary" href="#reserver">Réserver un appel de 30 min</a>
             <a class="btn btn--secondary" href="#realisations">Voir mes réalisations</a>
           </div>
 
@@ -133,31 +133,30 @@
     <!-- ===================================================================
          3. EXPERTISES (ancre #expertises)
          =================================================================== -->
-    <section class="section section--dark" id="expertises" aria-labelledby="expertises-title" data-theme="inverse">
+    <section class="section" id="expertises" aria-labelledby="expertises-title">
       <div class="container">
         <header class="section-head">
           <h2 id="expertises-title">Tout ce qu'il faut pour faire grandir votre activité en ligne</h2>
           <p class="section-head__intro">Campagnes, site, CRM, données : je m'occupe de tout, ou seulement de ce qui vous manque. Et je forme vos équipes au fil de l'eau, pour qu'elles gagnent en autonomie.</p>
         </header>
 
-        <!-- Expertises : section sombre, quatre cartes en verre translucide.
-             Les halos gris du fond (::before de .section--dark) donnent au
-             verre quelque chose à flouter, sans photo. -->
-        <ul class="glass-cards">
-          <li class="glass-card">
-            <h3 class="glass-card__title">Social Ads et Google Ads</h3>
+        <!-- Expertises : quatre cartes gris clair sur fond blanc,
+             une ligne en desktop. -->
+        <ul class="expertise-cards">
+          <li class="expertise-card">
+            <h3 class="expertise-card__title">Social Ads et Google Ads</h3>
             <p>Stratégie, campagnes et visuels publicitaires pour générer des ventes et des prospects qualifiés, sur Meta, LinkedIn, TikTok, Snapchat, Pinterest et Google.</p>
           </li>
-          <li class="glass-card">
-            <h3 class="glass-card__title">Sites web</h3>
+          <li class="expertise-card">
+            <h3 class="expertise-card__title">Sites web</h3>
             <p>Conception, refonte et maintenance de sites pensés pour convertir, sur WordPress, WooCommerce, Webflow ou l'outil que vous utilisez déjà.</p>
           </li>
-          <li class="glass-card">
-            <h3 class="glass-card__title">CRM et automatisation</h3>
+          <li class="expertise-card">
+            <h3 class="expertise-card__title">CRM et automatisation</h3>
             <p>Structuration de vos données clients, emailings et parcours de relance automatisés pour faire revenir vos clients et convertir vos prospects.</p>
           </li>
-          <li class="glass-card">
-            <h3 class="glass-card__title">Suivi et data</h3>
+          <li class="expertise-card">
+            <h3 class="expertise-card__title">Suivi et data</h3>
             <p>Mise en place du suivi des performances (GTM, GA4, Pixel) et tableaux de bord clairs pour savoir ce qui marche vraiment et piloter vos budgets.</p>
           </li>
         </ul>
@@ -166,47 +165,7 @@
 
 
     <!-- ===================================================================
-         4. MÉTHODE (ancre #methode)
-         =================================================================== -->
-    <section class="section section--sunken" id="methode" aria-labelledby="methode-title">
-      <div class="container">
-        <header class="section-head">
-          <h2 id="methode-title">Structurer, lancer, optimiser</h2>
-          <p class="section-head__intro">Chaque étape s'appuie sur vos données, et chaque étape produit quelque chose de concret.</p>
-        </header>
-
-        <ol class="steps">
-          <li class="step">
-            <span class="step__number" aria-hidden="true">01</span>
-            <h3 class="step__title"><span class="visually-hidden">Étape 1 : </span>Cadrage &amp; objectifs business</h3>
-            <p>On fixe ensemble les objectifs, le budget et les indicateurs à suivre. <strong>Livrable :</strong> un plan d'action priorisé.</p>
-          </li>
-          <li class="step">
-            <span class="step__number" aria-hidden="true">02</span>
-            <h3 class="step__title"><span class="visually-hidden">Étape 2 : </span>Conception &amp; mise en place</h3>
-            <p>Je conçois les campagnes, les pages et les parcours, et j'installe le suivi des conversions. <strong>Livrable :</strong> un dispositif prêt à lancer.</p>
-          </li>
-          <li class="step">
-            <span class="step__number" aria-hidden="true">03</span>
-            <h3 class="step__title"><span class="visually-hidden">Étape 3 : </span>Lancement &amp; pilotage</h3>
-            <p>Je lance, je surveille et j'ajuste chaque semaine. <strong>Livrable :</strong> un reporting clair, avec les décisions prises et pourquoi.</p>
-          </li>
-          <li class="step">
-            <span class="step__number" aria-hidden="true">04</span>
-            <h3 class="step__title"><span class="visually-hidden">Étape 4 : </span>Optimisation continue</h3>
-            <p>On teste, on garde ce qui marche, on coupe le reste. <strong>Livrable :</strong> un plan de tests et des résultats comparés mois après mois.</p>
-          </li>
-        </ol>
-
-        <div class="section-cta">
-          <a class="btn btn--primary" href="#contact">Réserver un appel</a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ===================================================================
-         6. RÉALISATIONS (ancre #realisations)
+         4. RÉALISATIONS (ancre #realisations)
          Projet à la une (Harmony) + grille de 6 projets
          =================================================================== -->
     <section class="section" id="realisations" aria-labelledby="realisations-title">
@@ -347,7 +306,7 @@
 
 
     <!-- ===================================================================
-         7. TÉMOIGNAGES
+         5. TÉMOIGNAGES
          1 principal + 3 courts — PLACEHOLDERS à remplacer par les vrais textes
          Principal : 35 mots max (il est affiché en taille titre).
          Courts : une phrase. Ajouter si possible un lien LinkedIn sur le nom,
@@ -395,7 +354,7 @@
 
 
     <!-- ===================================================================
-         8. À PROPOS (ancre #a-propos)
+         6. À PROPOS (ancre #a-propos)
          =================================================================== -->
     <section class="section" id="a-propos" aria-labelledby="a-propos-title">
       <div class="container about">
@@ -411,7 +370,7 @@
             <li><strong>Facturation</strong> en euros ou en francs suisses</li>
           </ul>
           <div>
-            <a class="btn btn--primary" href="#contact">Réserver un appel</a>
+            <a class="btn btn--primary" href="#reserver">Réserver un appel</a>
           </div>
         </div>
       </div>
@@ -431,7 +390,44 @@
 
 
     <!-- ===================================================================
-         9. TRAVAILLER ENSEMBLE
+         7. MÉTHODE (ancre #methode)
+         =================================================================== -->
+    <section class="section" id="methode" aria-labelledby="methode-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="methode-title">Structurer, lancer, optimiser</h2>
+          <p class="section-head__intro">Chaque étape s'appuie sur vos données, et chaque étape produit quelque chose de concret.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__number" aria-hidden="true">01</span>
+            <h3 class="step__title"><span class="visually-hidden">Étape 1 : </span>Cadrage &amp; objectifs business</h3>
+            <p>On fixe ensemble les objectifs, le budget et les indicateurs à suivre. <strong>Livrable :</strong> un plan d'action priorisé.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">02</span>
+            <h3 class="step__title"><span class="visually-hidden">Étape 2 : </span>Conception &amp; mise en place</h3>
+            <p>Je conçois les campagnes, les pages et les parcours, et j'installe le suivi des conversions. <strong>Livrable :</strong> un dispositif prêt à lancer.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">03</span>
+            <h3 class="step__title"><span class="visually-hidden">Étape 3 : </span>Lancement &amp; pilotage</h3>
+            <p>Je lance, je surveille et j'ajuste chaque semaine. <strong>Livrable :</strong> un reporting clair, avec les décisions prises et pourquoi.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">04</span>
+            <h3 class="step__title"><span class="visually-hidden">Étape 4 : </span>Optimisation continue</h3>
+            <p>On teste, on garde ce qui marche, on coupe le reste. <strong>Livrable :</strong> un plan de tests et des résultats comparés mois après mois.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         8. TRAVAILLER ENSEMBLE
          3 formats + ligne de conclusion
          =================================================================== -->
     <section class="section section--sunken" id="travailler-ensemble" aria-labelledby="offres-title">
@@ -465,13 +461,13 @@
         <p class="offers__note">Dans tous les cas, je transmets mes méthodes et forme vos équipes pour qu'elles gagnent en autonomie.</p>
 
         <!-- Un seul bouton pour les trois formats : l'appel vient avant le devis -->
-        <a class="btn btn--primary offers__cta" href="#contact">Réserver un appel</a>
+        <a class="btn btn--primary offers__cta" href="#reserver">Réserver un appel</a>
       </div>
     </section>
 
 
     <!-- ===================================================================
-         10. FAQ (ancre #faq)
+         9. FAQ (ancre #faq)
          Accordéon natif <details>/<summary> : aucun JS nécessaire
          =================================================================== -->
     <section class="section" id="faq" aria-labelledby="faq-title">
@@ -482,28 +478,28 @@
 
         <div class="faq">
           <details class="faq__item">
-            <summary class="faq__question">Travaillez-vous en B2B ou en B2C ?</summary>
+            <summary class="faq__question">Travaillez-vous en B2B ou en B2C&#8239;?</summary>
             <div class="faq__answer">
               <p>Les deux. Côté B2C, surtout de l'e-commerce et de la génération de prospects pour des services aux particuliers. Côté B2B, de la génération de prospects qualifiés, souvent sur LinkedIn et Google, avec des cycles de vente plus longs à suivre dans le CRM. Les outils sont proches, les messages et les indicateurs ne le sont pas, et c'est là que l'expérience des deux compte.</p>
             </div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__question">Combien coûte une mission ? Faut-il un budget pub minimum ?</summary>
+            <summary class="faq__question">Combien coûte une mission&#8239;? Faut-il un budget pub minimum&#8239;?</summary>
             <div class="faq__answer">
               <p>Après un premier échange, je vous envoie une proposition claire : au forfait pour un audit ou une mission ponctuelle, au forfait mensuel ou en jours par mois pour un accompagnement. Pas de budget publicitaire minimum imposé, mais je vous dis franchement si le vôtre permet d'atteindre vos objectifs.</p>
             </div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__question">En combien de temps voit-on des résultats ?</summary>
+            <summary class="faq__question">En combien de temps voit-on des résultats&#8239;?</summary>
             <div class="faq__answer">
               <p>Pour un site, cela dépend de son ampleur : quelques semaines pour une landing page, plusieurs mois pour une refonte complète. Pour les campagnes, les premiers signaux arrivent en 2 à 4 semaines et les résultats solides se mesurent sur 2 à 3 mois.</p>
             </div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__question">En combien de temps pouvez-vous démarrer ?</summary>
+            <summary class="faq__question">En combien de temps pouvez-vous démarrer&#8239;?</summary>
             <div class="faq__answer">
               <p>En général sous 1 à 2 semaines, selon mon planning et l'urgence du projet.</p>
             </div>
@@ -512,14 +508,14 @@
 
 
           <details class="faq__item">
-            <summary class="faq__question">Travaillez-vous avec nos équipes ou nos prestataires ?</summary>
+            <summary class="faq__question">Travaillez-vous avec nos équipes ou nos prestataires&#8239;?</summary>
             <div class="faq__answer">
               <p>Oui. Je m'intègre à votre équipe marketing, votre agence créative ou votre développeur, et je coordonne quand c'est utile.</p>
             </div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__question">Qui est propriétaire des comptes et des outils ?</summary>
+            <summary class="faq__question">Qui est propriétaire des comptes et des outils&#8239;?</summary>
             <div class="faq__answer">
               <p>Vous, toujours. Les comptes sont créés à votre nom et vous me donnez un accès. Si on arrête de travailler ensemble, vous gardez tout.</p>
             </div>
@@ -530,7 +526,7 @@
 
 
     <!-- ===================================================================
-         11. CONTACT (ancre #contact)
+         10. CONTACT (ancre #contact)
          Cible de tous les boutons "Réserver un appel"
          =================================================================== -->
     <section class="section section--sunken" id="contact" aria-labelledby="contact-title" data-sticky-cta-hide>
@@ -544,17 +540,17 @@
              en premier ; le formulaire est replié derrière « Vous préférez écrire ? »
              (accordéon natif, sans JS). Pour changer de type de rendez-vous :
              modifier le paramètre l= de l'URL de l'iframe (data-booking-url). -->
-        <div class="card contact__booking">
+        <div class="card contact__booking" id="reserver">
             <h3 class="card__title">Un appel de 30 min</h3>
             <p>Choisissez un créneau ci-dessous, je vous appelle. On parle de votre contexte, de vos objectifs et de ce que je ferais en premier.</p>
             <div class="booking">
               <iframe class="booking__frame" src="https://meet.brevo.com/hugo-cousty/borderless?l=premier-contact" title="Calendrier de réservation d'un appel de 30 min avec Hugo Cousty" loading="lazy" data-booking-url></iframe>
             </div>
-            <p class="field__note">Le calendrier est fourni par Brevo. <a href="/confidentialite/">En savoir plus</a>.</p>
+            <p class="field__note booking__fallback">Le calendrier ne s'affiche pas&#8239;? <a href="https://meet.brevo.com/hugo-cousty" target="_blank" rel="noopener">Ouvrir le calendrier dans un nouvel onglet</a>. Il est fourni par Brevo (<a href="/confidentialite/">en savoir plus</a>).</p>
         </div>
 
         <details class="contact__write">
-          <summary class="btn btn--secondary contact__write-toggle">Vous préférez écrire ? Envoyer un message</summary>
+          <summary class="btn btn--secondary contact__write-toggle">Vous préférez écrire&#8239;? Envoyer un message</summary>
           <div class="card contact__path">
             <h3 class="card__title">Un message</h3>
             <p>Décrivez votre projet en quelques lignes, même imprécises. Je reviens vers vous avec des questions ou une proposition.</p>
@@ -612,7 +608,7 @@
         <li><a href="/confidentialite/">Confidentialité</a></li>
         <li><a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a></li>
         <li><a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a></li>
-        <li><a href="/agences/">Vous êtes une agence ?</a></li>
+        <li><a href="/agences/">Vous êtes une agence&#8239;?</a></li>
       </ul>
     </div>
   </footer>
@@ -622,7 +618,7 @@
        BARRE CTA MOBILE — collée en bas d'écran (< 768 px)
        ===================================================================== -->
   <div class="sticky-cta" data-theme="inverse" data-sticky-cta>
-    <a class="btn btn--primary btn--block" href="#contact">Réserver un appel</a>
+    <a class="btn btn--primary btn--block" href="#reserver">Réserver un appel</a>
   </div>
 
 </body>

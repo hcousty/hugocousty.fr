@@ -48,6 +48,14 @@
       if (event.target.closest('a')) setMenu(false);
     });
 
+    // Fermeture au clic en dehors du menu et du bouton
+    document.addEventListener('click', (event) => {
+      if (toggle.getAttribute('aria-expanded') === 'true'
+        && !nav.contains(event.target) && !toggle.contains(event.target)) {
+        setMenu(false);
+      }
+    });
+
     // Fermeture avec Échap, focus rendu au bouton
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
