@@ -84,7 +84,7 @@
 
       <div class="hero__body">
         <div class="hero__panel hero__panel--narrow">
-          <h1 id="hero-title"><span class="hero__title-start">Consultant marketing</span> <span class="hero__title-end">aguerri</span></h1>
+          <h1 class="hero__title" id="hero-title"><span>Consultant</span> <span>marketing</span> <span>aguerri</span></h1>
           <p class="hero__lead">Publicité, sites web, CRM : je fais grandir les PME et e&#8209;commerçants, de la stratégie à la mise en place.</p>
 
           <!-- data-sticky-cta-hide : la barre CTA mobile se masque tant que ces boutons sont visibles -->
@@ -168,7 +168,7 @@
     <!-- ===================================================================
          4. MÉTHODE (ancre #methode)
          =================================================================== -->
-    <section class="section" id="methode" aria-labelledby="methode-title">
+    <section class="section section--sunken" id="methode" aria-labelledby="methode-title">
       <div class="container">
         <header class="section-head">
           <h2 id="methode-title">Structurer, lancer, optimiser</h2>
@@ -254,15 +254,30 @@
               <li class="tag">CRM</li>
               <li class="tag">Tracking</li>
             </ul>
-            <p>Accompagnement global d'un groupe de clubs de sport en Suisse romande (fitness, aquatique, arts martiaux), à la suite d'un audit webmarketing. Pilotage des grandes offres promotionnelles de l'année (rentrée, été, opération Coupe du monde), de la mécanique de l'offre aux campagnes Meta et aux emailings, en coordination avec Google Ads. Évolution de la plateforme de souscription en ligne, fiabilisation du suivi des conversions, migration des outils emailing et CRM, et cadrage de la refonte des 5 sites du groupe.</p>
+            <dl class="featured__facts">
+              <div>
+                <dt>Contexte</dt>
+                <dd>Groupe de clubs de sport en Suisse romande (fitness, aquatique, arts martiaux), accompagné après un audit webmarketing.</dd>
+              </div>
+              <div>
+                <dt>Campagnes</dt>
+                <dd>Les grandes offres de l'année (rentrée, été, Coupe du monde), de la mécanique de l'offre aux campagnes Meta, Google Ads et emailings.</dd>
+              </div>
+              <div>
+                <dt>Outils</dt>
+                <dd>Plateforme de souscription, suivi des conversions, migration emailing et CRM, cadrage de la refonte des 5 sites.</dd>
+              </div>
+            </dl>
           </div>
         </article>
 
         <!-- 6b. Grille de 6 projets choisis pour leur diversité (secteur, objectif,
              expertises). Les autres références (Yelloh! Village, Rubio Energie, Cloudland Coffee,
              Jecherche1forfait, Armonia) restent dans l'historique git.
-             Pour ajouter un projet : dupliquer un <li class="project-card">. -->
-        <ul class="projects" aria-label="Autres réalisations">
+             Pour ajouter un projet : dupliquer un <li class="project-card">.
+             En mobile, seules les 3 premières sont affichées : les suivantes portent
+             project-card--extra et apparaissent avec le bouton « Voir les autres réalisations ». -->
+        <ul class="projects" id="autres-projets" aria-label="Autres réalisations" data-projects>
 
           <li class="project-card">
             <p class="project__sector">Beauté &amp; Cosmétique</p>
@@ -294,7 +309,7 @@
             <p>Stratégie Social Ads pour générer des prospects qualifiés, conception des visuels, catalogue de formations sur Meta, suivi de l'attribution et optimisation des pages d'arrivée.</p>
           </li>
 
-          <li class="project-card">
+          <li class="project-card project-card--extra">
             <p class="project__sector">Banque &amp; Assurances</p>
             <h3 class="project-card__title">Carrefour Banque</h3>
             <ul class="tags" aria-label="Expertises mobilisées">
@@ -304,7 +319,7 @@
             <p>Lancement de campagnes de génération de prospects dans un cadre réglementaire strict, en lien avec les équipes créatives internes.</p>
           </li>
 
-          <li class="project-card">
+          <li class="project-card project-card--extra">
             <p class="project__sector">Sport &amp; Outdoor</p>
             <h3 class="project-card__title">Glisshop</h3>
             <ul class="tags" aria-label="Expertises mobilisées">
@@ -314,7 +329,7 @@
             <p>Campagnes Social Ads e-commerce, optimisation des catalogues produits et coordination avec les équipes créatives internes.</p>
           </li>
 
-          <li class="project-card">
+          <li class="project-card project-card--extra">
             <p class="project__sector">Presse</p>
             <h3 class="project-card__title">Les Jours</h3>
             <ul class="tags" aria-label="Expertises mobilisées">
@@ -324,6 +339,7 @@
           </li>
 
         </ul>
+        <button class="btn btn--secondary projects__more" type="button" aria-controls="autres-projets" aria-expanded="false" data-projects-more hidden>Voir les autres réalisations</button>
       </div>
     </section>
 
@@ -342,7 +358,7 @@
         <div class="testimonials">
           <figure class="testimonial testimonial--main">
             <blockquote class="testimonial__quote">
-              <p>"Témoignage principal, 35 mots max : un changement concret depuis le début de la collaboration, avec si possible un résultat chiffré."</p>
+              <p>«&nbsp;Témoignage principal, 35 mots max&nbsp;: un changement concret depuis le début de la collaboration, avec si possible un résultat chiffré.&nbsp;»</p>
             </blockquote>
             <figcaption class="testimonial__author">
               <!-- Ex. : <a class="testimonial__name" href="https://www.linkedin.com/in/…" target="_blank" rel="noopener">Prénom Nom</a> -->
@@ -353,21 +369,21 @@
 
           <figure class="testimonial">
             <blockquote class="testimonial__quote">
-              <p>"Une phrase courte qui résume l'apport principal de la collaboration."</p>
+              <p>«&nbsp;Une phrase courte qui résume l'apport principal de la collaboration.&nbsp;»</p>
             </blockquote>
             <figcaption class="testimonial__author">Prénom Nom, Fonction, Entreprise</figcaption>
           </figure>
 
           <figure class="testimonial">
             <blockquote class="testimonial__quote">
-              <p>"Une phrase courte sur un autre aspect : réactivité, clarté, autonomie des équipes."</p>
+              <p>«&nbsp;Une phrase courte sur un autre aspect&nbsp;: réactivité, clarté, autonomie des équipes.&nbsp;»</p>
             </blockquote>
             <figcaption class="testimonial__author">Prénom Nom, Fonction, Entreprise</figcaption>
           </figure>
 
           <figure class="testimonial">
             <blockquote class="testimonial__quote">
-              <p>"Une phrase courte sur la collaboration en agence ou en marque blanche : fiabilité, tenue des délais, qualité des livrables."</p>
+              <p>«&nbsp;Une phrase courte sur la collaboration en agence ou en marque blanche&nbsp;: fiabilité, tenue des délais, qualité des livrables.&nbsp;»</p>
             </blockquote>
             <figcaption class="testimonial__author">Prénom Nom, Fonction, Agence</figcaption>
           </figure>
@@ -419,7 +435,7 @@
     <section class="section section--sunken" id="travailler-ensemble" aria-labelledby="offres-title">
       <div class="container">
         <header class="section-head">
-          <h2 id="offres-title">3 façons de travailler ensemble</h2>
+          <h2 id="offres-title">3 formats pour travailler ensemble</h2>
           <p class="section-head__intro">Une mission ponctuelle ou un accompagnement dans la durée, on choisit ensemble. Devis sous 48 h après notre premier échange.</p>
         </header>
 

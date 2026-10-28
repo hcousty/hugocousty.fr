@@ -11,6 +11,7 @@
       footer sont visibles (boutons du hero, section Contact)
    3. En-tête : barre blanche en haut de page, pilule de verre sombre dès
       qu'on défile
+   4. Réalisations (mobile) : 3 cartes, les autres derrière un bouton
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -121,6 +122,29 @@
     }, { passive: true });
 
     update(); // page rechargée en milieu de page ou ouverte sur une ancre
+  }
+
+
+
+  /* 4. Réalisations : sur mobile, seules les 3 premières cartes sont visibles.
+     Le bouton affiche les autres puis disparaît. Sans JS, tout reste visible. */
+  const projects = document.querySelector('[data-projects]');
+  const projectsMore = document.querySelector('[data-projects-more]');
+
+  if (projects && projectsMore) {
+    projects.classList.add('is-collapsed');
+    projectsMore.hidden = false;
+
+    projectsMore.addEventListener('click', () => {
+      projects.classList.remove('is-collapsed');
+      projectsMore.setAttribute('aria-expanded', 'true');
+      projectsMore.hidden = true;
+      const first = projects.querySelector('.project-card--extra');
+      if (first) {
+        first.setAttribute('tabindex', '-1');
+        first.focus({ preventScroll: true });
+      }
+    });
   }
 
 })();

@@ -59,12 +59,12 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 1 | Hero (photo plein écran, texte posé dessus) | `#top` |
 | 2 | Logos | – |
 | 3 | Expertises (section sombre, cartes en verre) | `#expertises` (menu) |
-| 4 | Méthode | `#methode` |
+| 4 | Méthode (fond gris clair) | `#methode` |
 | 5 | Chiffres clés | `#chiffres` |
-| 6 | Réalisations (Harmony à la une + grille de 6 projets) | `#realisations` (menu) |
+| 6 | Réalisations (Harmony à la une en 3 lignes Contexte / Campagnes / Outils + grille de 6 projets ; en mobile 3 cartes puis bouton « Voir les autres réalisations ») | `#realisations` (menu) |
 | 7 | Témoignages, 1 principal + 3 courts (**placeholders**) | `#temoignages` |
 | 8 | À propos + encart IA | `#a-propos` (menu) |
-| 9 | Travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
+| 9 | 3 formats pour travailler ensemble | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 10 | FAQ | `#faq` (menu) |
 | 11 | Contact (calendrier Brevo intégré + formulaire replié) | `#contact` : cible de tous les boutons « Réserver un appel » |
 | 12 | Footer | – |
@@ -85,7 +85,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 - **Calendrier Brevo** : section Contact de `index.html` et des pages agences, l'`<iframe>` portant l'attribut `data-booking-url` (`https://meet.brevo.com/hugo-cousty/borderless?l=premier-contact`, appel découverte de 30 min). Pour un autre type de rendez-vous, changer le paramètre `l=`. Hauteur réglable avec le token `--booking-height`.
 - **Brancher le formulaire de contact** : le site est statique, l'envoi passe par un service de formulaire. Créer un formulaire chez [Formspree](https://formspree.io) (gratuit jusqu'à 50 envois par mois) ou [Web3Forms](https://web3forms.com), puis remplacer l'URL de l'attribut `action` du `<form>` dans `index.html` (section 11). Les champs `_subject` et `_next` (redirection vers `/merci/`) suivent la convention Formspree ; les adapter si un autre service est choisi. Le champ masqué `site-web` est un piège à robots. Tester un envoi avant de mettre en ligne.
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item">`.
-- **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder.
+- **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder. Garder les guillemets français avec espaces insécables : `«&nbsp;…&nbsp;»`, et `&nbsp;:` avant les deux-points.
 - **Compléter les mentions légales** : les champs à remplir sont dans des `<span class="todo">` (surlignés en jaune). Supprimer le `<span>` une fois le champ rempli. Idem pour les prestataires dans la politique de confidentialité.
 - **Activer GA4** : la politique de confidentialité contient le paragraphe correspondant en commentaire HTML, à décommenter en même temps que le bandeau de consentement.
 

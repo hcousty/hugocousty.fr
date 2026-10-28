@@ -125,16 +125,13 @@
   max-width: 38rem;
 }
 
-/* Fin du titre renvoyée à la ligne dès la tablette ("aguerri" seul) ;
-   sur mobile, le titre se coupe naturellement */
-@media (min-width: 48em) {
-  .hero__title-start {
-    white-space: nowrap;
-  }
+/* Accueil : le titre le plus grand de la page, un mot par ligne */
+.hero__title {
+  font-size: var(--text-display-1);
+}
 
-  .hero__title-end {
-    display: block;
-  }
+.hero__title span {
+  display: block;
 }
 
 .hero__lead {
@@ -517,12 +514,9 @@ ul.glass-cards {
 /* 6. RÉALISATIONS
    ========================================================================== */
 
-/* Secteur (au-dessus du nom du projet) : style libellé */
+/* Secteur (au-dessus du nom du projet) : petit texte gris, casse normale */
 .project__sector {
-  font-size: var(--text-label);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  font-size: var(--text-caption);
   color: var(--text-muted);
 }
 
@@ -551,6 +545,24 @@ ul.glass-cards {
 .featured__body > p:last-child {
   max-width: var(--measure-prose);
   line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+/* Projet à la une découpé en 3 lignes courtes (Contexte, Campagnes, Outils) */
+.featured__facts {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure-prose);
+  margin-top: var(--space-1);
+}
+
+.featured__facts dt {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+.featured__facts dd {
+  margin: 0;
   color: var(--text-secondary);
 }
 
@@ -597,9 +609,31 @@ ul.glass-cards {
   color: var(--text-secondary);
 }
 
+/* Mobile : 3 cartes, les suivantes derrière « Voir les autres réalisations ».
+   Sans JS, le bouton reste masqué et toutes les cartes sont visibles. */
+.projects__more {
+  margin-top: var(--space-4);
+}
+
+.projects__more[hidden] {
+  display: none;
+}
+
+.projects.is-collapsed .project-card--extra {
+  display: none;
+}
+
 @media (min-width: 48em) {
   .projects {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects.is-collapsed .project-card--extra {
+    display: flex;
+  }
+
+  .projects__more {
+    display: none;
   }
 }
 
