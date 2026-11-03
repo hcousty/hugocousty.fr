@@ -182,7 +182,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 
 - [x] Brancher le design system (`tokens.css`)
 - [x] Ajouter les fichiers de police Inter et la tuile `grain.png`
-- [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony, 3 logos de la page agences : KeepCool, Rexel, Bonhams)
+- [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)

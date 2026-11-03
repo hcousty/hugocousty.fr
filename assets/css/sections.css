@@ -258,10 +258,6 @@
   gap: var(--space-15);
 }
 
-.logos__item {
-  --ratio: 3 / 1;
-}
-
 /* Logo client : une seule teinte de gris, quelle que soit la couleur du SVG.
    Chaque logo est centré dans sa case, à une hauteur réglée à l'œil. */
 .logos__list li:has(.client-logo) {
