@@ -118,13 +118,17 @@
           </div>
           <h2 class="logos__title" id="logos-title">Aux côtés de responsables marketing et dirigeants</h2>
         </div>
+        <!-- Logos clients : SVG dans /assets/img/logos/, affichés en gris uni par
+             un masque CSS (la couleur d'origine du fichier ne compte pas).
+             --logo-ratio = largeur / hauteur du viewBox ; --logo-h règle le poids
+             visuel (un logo très large est moins haut qu'un logo carré). -->
         <ul class="logos__list">
-          <li><div class="placeholder logos__item" role="img" aria-label="Aroma-Zone">Logo Aroma-Zone</div></li>
-          <li><div class="placeholder logos__item" role="img" aria-label="Carrefour Banque">Logo Carrefour Banque</div></li>
-          <li><div class="placeholder logos__item" role="img" aria-label="Yelloh! Village">Logo Yelloh! Village</div></li>
-          <li><div class="placeholder logos__item" role="img" aria-label="Les Jours">Logo Les Jours</div></li>
-          <li><div class="placeholder logos__item" role="img" aria-label="Glisshop">Logo Glisshop</div></li>
-          <li><div class="placeholder logos__item" role="img" aria-label="Harmony">Logo Harmony</div></li>
+          <li><span class="client-logo" role="img" aria-label="Aroma-Zone" style="--logo: url(/assets/img/logos/aroma-zone.svg); --logo-ratio: 268 / 26; --logo-h: 15px"></span></li>
+          <li><span class="client-logo" role="img" aria-label="Carrefour Banque" style="--logo: url(/assets/img/logos/carrefour-banque.svg); --logo-ratio: 322.3 / 101.5; --logo-h: 40px"></span></li>
+          <li><span class="client-logo" role="img" aria-label="Yelloh! Village" style="--logo: url(/assets/img/logos/yelloh-village.svg); --logo-ratio: 45 / 21; --logo-h: 42px"></span></li>
+          <li><span class="client-logo" role="img" aria-label="Les Jours" style="--logo: url(/assets/img/logos/les-jours.svg); --logo-ratio: 160 / 122; --logo-h: 44px"></span></li>
+          <li><span class="client-logo" role="img" aria-label="Glisshop" style="--logo: url(/assets/img/logos/glisshop.svg); --logo-ratio: 222 / 50; --logo-h: 29px"></span></li>
+          <li><span class="client-logo" role="img" aria-label="Harmony" style="--logo: url(/assets/img/logos/harmony.svg); --logo-ratio: 176 / 40; --logo-h: 29px"></span></li>
         </ul>
       </div>
     </section>

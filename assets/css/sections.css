@@ -262,6 +262,23 @@
   --ratio: 3 / 1;
 }
 
+/* Logo client : une seule teinte de gris, quelle que soit la couleur du SVG.
+   Chaque logo est centré dans sa case, à une hauteur réglée à l'œil. */
+.logos__list li:has(.client-logo) {
+  display: grid;
+  place-items: center;
+  min-height: 4.5rem;
+}
+
+.client-logo {
+  display: block;
+  width: min(100%, calc(var(--logo-h) * var(--logo-ratio)));
+  aspect-ratio: var(--logo-ratio);
+  background-color: var(--text-muted);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+}
+
 @media (min-width: 48em) {
   .logos__list {
     grid-template-columns: repeat(3, 1fr);

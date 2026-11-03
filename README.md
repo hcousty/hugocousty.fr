@@ -182,7 +182,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 
 - [x] Brancher le design system (`tokens.css`)
 - [x] Ajouter les fichiers de police Inter et la tuile `grain.png`
-- [ ] Remplacer les placeholders d'images (photo Hugo, logos clients, visuel Harmony)
+- [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony, 6 logos de la page agences : Groupe Barrière, Le Pantalon, IKKS, KeepCool, Rexel, Bonhams)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
 - [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
@@ -217,7 +217,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Question FAQ | `.faq__item` | fermée, ouverte (fond gris clair), signe + qui pivote |
 | Champ de formulaire | `.field` | texte, email, zone de texte · repos, survol, focus, erreur native, note |
 | Faits | `.hero__proofs`, `.about__facts` | liste « Libellé : valeur » ★ |
-| Logo client | `.logos__item` | 6 par ligne (accueil), 5 par ligne (agences) |
+| Logo client | `.client-logo` | SVG dans `assets/img/logos/`, affiché en gris uni par un masque CSS ; `--logo-ratio` (largeur / hauteur du viewBox) et `--logo-h` (hauteur réglée à l'œil) en style inline. 6 par ligne (accueil), 5 par ligne (agences) |
 | Réservé d'image | `.placeholder` | à remplacer par les vraies images |
 | En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |
 | Hero | `.hero` ★ | photo plein écran avec retrait et rayon, voile encre, texte posé dessus |
