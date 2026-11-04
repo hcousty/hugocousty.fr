@@ -12,6 +12,7 @@
    3. En-tête : barre blanche en haut de page, pilule de verre sombre dès
       qu'on défile
    4. Réalisations (mobile) : 3 cartes, les autres derrière un bouton
+   5. Formulaire de contact (Brevo) : envoi en arrière-plan, puis /merci/
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -152,6 +153,54 @@
         first.setAttribute('tabindex', '-1');
         first.focus({ preventScroll: true });
       }
+    });
+  }
+
+
+
+  /* 5. Formulaire de contact (Brevo)
+     Envoi en arrière-plan vers le formulaire Brevo, puis redirection vers la
+     page /merci/. Si la réponse de Brevo ne peut pas être lue (réseau,
+     navigateur), on bascule sur l'envoi classique : Brevo affiche alors sa
+     propre page de confirmation. Sans JS, c'est ce même envoi classique. */
+  const contactForm = document.querySelector('[data-contact-form]');
+
+  if (contactForm && window.fetch && window.FormData) {
+    const status = contactForm.querySelector('[data-form-status]');
+    const button = contactForm.querySelector('[type="submit"]');
+    const setStatus = (text) => { if (status) status.textContent = text; };
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Brevo attend le numéro sans le 0 initial ni séparateurs (06 12… → 612…)
+      const phone = contactForm.elements.SMS;
+      if (phone) phone.value = phone.value.replace(/\D/g, '').replace(/^0+/, '');
+
+      button.disabled = true;
+      setStatus('Envoi en cours…');
+
+      let response;
+      try {
+        response = await fetch(contactForm.action + '?isAjax=1', {
+          method: 'POST',
+          body: new FormData(contactForm),
+        });
+      } catch (error) {
+        contactForm.submit();
+        return;
+      }
+
+      let result = {};
+      try { result = await response.json(); } catch (error) { /* réponse non JSON */ }
+
+      if (response.ok && result.success !== false) {
+        window.location.href = '/merci/';
+        return;
+      }
+
+      button.disabled = false;
+      setStatus("L'envoi n'a pas abouti. Vérifiez vos informations, le téléphone notamment, ou écrivez-moi à hello@hugocousty.fr.");
     });
   }
 

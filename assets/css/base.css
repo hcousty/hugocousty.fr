@@ -443,6 +443,64 @@ textarea.field__input {
   min-height: 8rem;
 }
 
+/* Prénom + Nom côte à côte dès la tablette */
+.form__row {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 48em) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Téléphone : indicatif du pays + numéro */
+.field__phone {
+  display: grid;
+  grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+  gap: var(--space-1);
+}
+
+@media (min-width: 48em) {
+  .field__phone {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  }
+}
+
+select.field__input {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: var(--space-5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23656D7E' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-15) center;
+  text-overflow: ellipsis;
+}
+
+/* Case de consentement */
+.field__check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.field__check input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--action-bg);
+}
+
+/* Message d'envoi (en cours, erreur) : masqué tant qu'il est vide */
+.form__status:empty {
+  display: none;
+}
+
 /* Piège à robots : hors écran, jamais affiché */
 .field--trap {
   position: absolute !important;
