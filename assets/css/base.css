@@ -940,14 +940,22 @@ select.field__input {
   color: var(--text-muted);
 }
 
+/* Footer centré : grand nom puis liens, sans soulignement */
 .site-footer__list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-15);
+  text-align: center;
 }
 
 .site-footer__list a {
   color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-footer__list a:hover {
+  color: var(--text-secondary);
 }
 
 /* Grand nom en signature, au-dessus des liens : toute la largeur du
@@ -959,6 +967,7 @@ select.field__input {
   font-weight: var(--weight-semibold);
   line-height: 1.1; /* laisse la place aux jambages du g et du y */
   letter-spacing: var(--tracking-display);
+  text-align: center;
   white-space: nowrap;
   color: var(--ink-700);
   user-select: none;
@@ -975,6 +984,7 @@ select.field__input {
   .site-footer__list {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     column-gap: var(--space-3);
   }
 }
