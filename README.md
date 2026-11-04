@@ -60,7 +60,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 2 | Logos | – |
 | 3 | Expertises (4 cartes gris clair sur fond blanc) | `#expertises` (menu) |
 | 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / Au quotidien), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
-| 5 | Témoignages, 1 principal + 3 courts (**placeholders**), bloc gris | `#temoignages` |
+| 5 | Témoignages, 1 principal + 2 courts (**placeholders**), bloc gris | `#temoignages` |
 | 6 | À propos + encart IA | `#a-propos` (menu) |
 | 7 | Méthode | `#methode` |
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
