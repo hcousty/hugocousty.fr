@@ -58,25 +58,38 @@
   --font-mono: var(--font-sans); /* les libellés changent de casse, pas de famille */
 }
 
-/* --- A2. Couleurs (tokens/colors.css) --------------------------------------- */
+/* --- A2. Couleurs (tokens/colors.css) ---------------------------------------
+   Palette chaude en trois couleurs : crème (fond), orange et bordeaux.
+   Les blocs alternent crème, orange (texte bordeaux) et bordeaux (texte
+   orange). Le texte courant reste presque noir, en brun très foncé. */
 :root {
-  /* Encre : gris très foncé, presque noir, avec une pointe de bleu */
-  --ink-900: #0D1017;
-  --ink-800: #171B25;
-  --ink-700: #333A47;
-  --ink-500: #656D7E;
-  --ink-400: #8C94A3;
-  --ink-300: #B9BFCA;
+  /* Orange et bordeaux : les deux couleurs de marque (contraste 7:1 entre elles) */
+  --orange-500: #FF9D33;
+  --orange-400: #FFB25E;
+  --orange-600: #F08A1C;
+  --maroon-950: #3E080C;
+  --maroon-900: #550C11;
+  --maroon-800: #681820;
+  --maroon-700: #7E2A30;
 
-  /* Blanc et gris froids : le fond dominant est le blanc pur */
+  /* Encre : brun presque noir, puis gris chauds */
+  --ink-900: #14100E;
+  --ink-800: #221B18;
+  --ink-700: #3D3531;
+  --ink-500: #6A615C;
+  --ink-400: #958C86;
+  --ink-300: #C3BBB5;
+
+  /* Crème : fond dominant et blocs */
   --white: #FFFFFF;
-  --grey-050: #F6F7F9;
-  --grey-100: #F6F5F4; /* gris chaud (comme Notion) : blocs, cartes, encart IA */
-  --grey-200: #E1E4EA;
-  --grey-300: #CDD2DA;
-
-  /* Pas de couleur de marque : le système est monochrome. La couleur vient
-     des photos (une teinte d'accent pourra être ajoutée plus tard ici). */
+  --cream-50: #FFFDF9;
+  --cream-100: #F5F2F0;
+  --cream-200: #E9E2DC;
+  --cream-300: #D9CFC7;
+  --grey-050: var(--cream-50);  /* anciens noms, gardés pour compatibilité */
+  --grey-100: var(--cream-100);
+  --grey-200: var(--cream-200);
+  --grey-300: var(--cream-300);
 
   /* États de formulaire : jamais décoratifs */
   --forest-600: #2C6A4C;
@@ -91,71 +104,101 @@
   --text-secondary: var(--ink-700);
   --text-muted: var(--ink-500);
   --text-faint: var(--ink-400);
-  --text-inverse: var(--white);
-  --text-accent: var(--ink-900);
+  --text-inverse: var(--cream-50);
+  --text-accent: var(--maroon-900);
   --text-positive: var(--forest-600);
   --text-warning: var(--amber-600);
   --text-negative: var(--crimson-600);
 
-  --surface-page: var(--white);
-  --surface-card: var(--white);
-  --surface-sunken: var(--grey-100); /* un seul gris clair : blocs de section, cartes, encart IA */
-  --surface-quiet: var(--grey-100);
-  --surface-inverse: var(--ink-900);
-  --surface-accent: var(--ink-900);
-  --surface-accent-quiet: var(--grey-100);
+  --surface-page: var(--cream-50);
+  --surface-card: var(--cream-50);
+  --surface-sunken: var(--cream-100);
+  --surface-quiet: var(--cream-100);
+  --surface-inverse: var(--maroon-900);
+  --surface-accent: var(--maroon-900);
+  --surface-accent-quiet: var(--cream-100);
 
-  --border-hairline: var(--grey-200);
-  --border-mid: var(--grey-300);
+  --border-hairline: var(--cream-200);
+  --border-mid: var(--cream-300);
   --border-strong: var(--ink-900);
-  --border-accent: var(--ink-900);
+  --border-accent: var(--maroon-900);
 
-  --action-fg: var(--white);
-  --action-bg: var(--ink-900);
-  --action-bg-hover: var(--ink-700);
-  --action-bg-active: var(--ink-800);
-  --focus-ring: var(--ink-900);
+  --action-fg: var(--orange-500);
+  --action-bg: var(--maroon-900);
+  --action-bg-hover: var(--maroon-800);
+  --action-bg-active: var(--maroon-950);
+  --focus-ring: var(--maroon-900);
 
-  /* Verre : surfaces translucides floutées (boutons secondaires, menus,
-     barres flottantes). Teinte encre sur fond clair, blanche sur fond sombre. */
-  --glass-bg: rgba(13, 16, 23, .06);
-  --glass-bg-hover: rgba(13, 16, 23, .11);
-  --glass-panel: var(--white); /* menu mobile : opaque, le texte de la page ne doit pas transparaître */
+  --selection-bg: var(--orange-500);
+  --selection-fg: var(--maroon-900);
+
+  /* Verre : surfaces translucides (boutons secondaires, menus) */
+  --glass-bg: rgba(85, 12, 17, .07);
+  --glass-bg-hover: rgba(85, 12, 17, .12);
+  --glass-panel: var(--cream-50); /* menu mobile : opaque */
   --glass-blur: saturate(160%) blur(16px);
 }
 
-/* Thème inverse : posé sur un bloc (data-theme="inverse"), il bascule tous
-   les alias à l'intérieur. Utilisé pour l'en-tête, le panneau du hero, le footer. */
+/* Thème bordeaux (data-theme="inverse") : titres orange, texte crème.
+   Utilisé pour l'en-tête, le hero, l'encart IA et la section Contact. */
 [data-theme="inverse"] {
-  --text-primary: var(--white);
-  --text-secondary: var(--grey-200);
-  --text-muted: var(--ink-300);
-  --text-faint: var(--ink-400);
-  --text-accent: var(--white);
-  --surface-page: var(--ink-900);
-  --surface-card: var(--ink-800);
-  --surface-sunken: #101318;
-  --surface-quiet: var(--ink-800);
-  --surface-inverse: var(--ink-900);
-  --border-hairline: #262C38;
-  --border-mid: #3B4353;
-  --border-strong: var(--white);
-  --action-fg: var(--ink-900);
-  --action-bg: var(--white);
-  --action-bg-hover: var(--grey-200);
-  --action-bg-active: var(--grey-300);
-  --focus-ring: var(--white);
-  --glass-bg: rgba(255, 255, 255, .14);
-  --glass-bg-hover: rgba(255, 255, 255, .22);
-  --glass-panel: var(--ink-900);
+  --text-primary: var(--orange-500);
+  --text-secondary: #F6E3D3;
+  --text-muted: #D9A98A;
+  --text-faint: #B98370;
+  --text-accent: var(--orange-500);
+  --surface-page: var(--maroon-900);
+  --surface-card: var(--maroon-800);
+  --surface-sunken: var(--maroon-950);
+  --surface-quiet: var(--maroon-800);
+  --surface-inverse: var(--maroon-900);
+  --border-hairline: #74262A;
+  --border-mid: #8E3A3A;
+  --border-strong: var(--orange-500);
+  --action-fg: var(--maroon-900);
+  --action-bg: var(--orange-500);
+  --action-bg-hover: var(--orange-400);
+  --action-bg-active: var(--orange-600);
+  --focus-ring: var(--orange-500);
+  --glass-bg: rgba(255, 157, 51, .14);
+  --glass-bg-hover: rgba(255, 157, 51, .22);
+  --glass-panel: var(--maroon-900);
+}
+
+/* Thème orange (data-theme="orange") : texte bordeaux.
+   Utilisé pour les témoignages et le footer. */
+[data-theme="orange"] {
+  --text-primary: var(--maroon-900);
+  --text-secondary: var(--maroon-900);
+  --text-muted: #6E2216;
+  --text-faint: #7E3A22;
+  --text-accent: var(--maroon-900);
+  --surface-page: var(--orange-500);
+  --surface-card: var(--orange-400);
+  --surface-sunken: var(--orange-600);
+  --surface-quiet: var(--orange-400);
+  --surface-inverse: var(--maroon-900);
+  --border-hairline: #D4792A;
+  --border-mid: #B5622A;
+  --border-strong: var(--maroon-900);
+  --action-fg: var(--orange-500);
+  --action-bg: var(--maroon-900);
+  --action-bg-hover: var(--maroon-800);
+  --action-bg-active: var(--maroon-950);
+  --focus-ring: var(--maroon-900);
+  --selection-bg: var(--maroon-900);
+  --selection-fg: var(--orange-500);
+  --glass-bg: rgba(85, 12, 17, .08);
+  --glass-bg-hover: rgba(85, 12, 17, .14);
+  --glass-panel: var(--orange-500);
 }
 
 /* --- A3. Typographie (tokens/typography.css) -------------------------------- */
 :root {
-  --text-display-1: clamp(48px, 6vw, 84px);
-  --text-display-2: clamp(32px, 3.8vw, 52px);
-  --text-h1: clamp(30px, 3.2vw, 44px);
-  --text-title: clamp(30px, 3.2vw, 44px); /* titres de section (h2) */
+  --text-display-1: clamp(52px, 8vw, 120px);  /* titre du hero */
+  --text-display-2: clamp(36px, 4.6vw, 64px);  /* chiffres clés */
+  --text-h1: clamp(36px, 4.6vw, 64px);
+  --text-title: clamp(36px, 5.4vw, 80px);      /* titres de section (h2), centrés */
   --text-h2: 28px;
   --text-h3: 20px;
   --text-lead: 20px;
@@ -165,13 +208,13 @@
   --text-label: 11px;
 
   --leading-tight: 1;
-  --leading-title: 1.05; /* titres de section : lignes serrées */
+  --leading-title: 1; /* titres de section : lignes collées */
   --leading-snug: 1.12;
   --leading-normal: 1.5;
   --leading-loose: 1.65;
 
-  --tracking-display: -0.03em;  /* titre du hero, chiffres clés : serré */
-  --tracking-title: -0.02em;    /* titres de section */
+  --tracking-display: -0.045em; /* titre du hero, chiffres clés : très serré */
+  --tracking-title: -0.04em;    /* titres de section */
   --tracking-heading: -0.005em; /* petits titres */
   --tracking-normal: -0.005em;
   --tracking-label: 0.12em;
@@ -229,8 +272,8 @@
   --shadow-inset-hairline: inset 0 -1px 0 var(--border-hairline);
 
   --blur-veil: saturate(140%) blur(12px);
-  --veil-paper: rgba(255, 255, 255, .78);
-  --veil-ink: rgba(14, 14, 15, .66);
+  --veil-paper: rgba(255, 253, 249, .78);
+  --veil-ink: rgba(42, 6, 9, .68); /* voile bordeaux sur la photo du hero */
 }
 
 /* --- A6. Mouvement (tokens/motion.css) -------------------------------------- */
@@ -269,9 +312,9 @@
   --grain-tile: 240px;
   --grain-blend: overlay;
 
-  --grain-subtle: 0.15;  /* réserve : le gris clair et le blanc restent lisses */
-  --grain-medium: 0.3;   /* photo du hero : discret, le texte passe devant */
-  --grain-strong: 1;     /* encre : contact et footer */
+  --grain-subtle: 0.15;  /* réserve : le crème reste lisse */
+  --grain-medium: 0.3;   /* photo du hero et aplats orange */
+  --grain-strong: 0.4;   /* bordeaux : IA et Contact (plus fort, il rougit le fond) */
 }
 
 
@@ -280,21 +323,25 @@
    ========================================================================== */
 :root {
   /* En-tête, deux états :
-     - haut de page : barre blanche pleine largeur de 72 px ;
-     - au défilement : pilule de verre sombre de 56 px, à 20 px du haut. */
+     - haut de page : barre bordeaux pleine largeur de 72 px ;
+     - au défilement : pilule bordeaux de 56 px, à 20 px du haut. */
   --header-height-top: 72px;
   --header-height: 56px;
   --header-top: var(--space-25);
   --header-offset: calc(var(--header-height) + var(--header-top)); /* marge des ancres sous la pilule */
-  --header-glass: rgba(13, 16, 23, .82);
+  --header-glass: rgba(85, 12, 17, .9);
   --header-width-compact: 880px; /* largeur max de la pilule sur desktop */
   --header-morph: var(--duration-morph) var(--ease-morph); /* passage barre → pilule */
-  --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
+  --header-edge: inset 0 1px 0 rgba(255, 157, 51, .18); /* arête orange intérieure */
   --header-link: var(--text-secondary);
 
-  /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
-  --hero-inset: var(--space-1);
-  --hero-radius: var(--radius-lg);
+  /* Blocs de couleur pleine largeur, sans arrondi */
+  --hero-inset: 0px;
+  --hero-radius: 0px;
+
+  /* Hero : photo en arche, posée dans le bloc bordeaux */
+  --hero-frame: var(--space-3);
+  --hero-arch: 50% 50% 0 0 / 18% 18% 0 0;
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
   --booking-height: 560px;
@@ -319,8 +366,8 @@
   --tag-radius: 4px;
 
 
-  /* Arrondi des cartes et des images (style minimaliste, sans filet) */
-  --card-radius: var(--radius-lg);
+  /* Cartes et images à angles droits (style éditorial) */
+  --card-radius: 0px;
 
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
   --field-radius: var(--radius-md);
@@ -347,9 +394,8 @@
   }
 }
 
-/* Sur l'encre (en-tête réduit, hero, footer) : vert plus clair, liens de
-   navigation en blanc à 72 % (seule opacité de texte tolérée) */
+/* Sur le bordeaux (en-tête, hero) : point jaune vif, liens en crème */
 [data-theme="inverse"] {
-  --status-available: #4CC98A;
-  --header-link: rgba(255, 255, 255, .72);
+  --status-available: #EFEF45;
+  --header-link: var(--text-secondary);
 }

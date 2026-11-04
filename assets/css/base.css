@@ -103,13 +103,15 @@ h3 {
 
 h1 {
   font-size: var(--text-display-2);
+  font-weight: var(--weight-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-display);
 }
 
-/* Titres en graisse moyenne (500) : présents sans être lourds */
+/* Titres de section : très grands, gras, serrés, centrés */
 h2 {
   font-size: var(--text-title);
+  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-title);
   line-height: var(--leading-title);
 }
@@ -143,8 +145,8 @@ strong {
 }
 
 ::selection {
-  background: var(--grey-200);
-  color: var(--ink-900);
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 
@@ -211,12 +213,17 @@ main {
   padding-block: var(--section-y);
 }
 
-/* Section à fond : bloc gris clair arrondi, posé avec la même marge que le
-   hero. Aucune section ne touche les bords de l'écran. */
+/* Section à fond : bloc crème foncé pleine largeur */
 .section--sunken {
   margin-inline: var(--hero-inset);
   background: var(--surface-sunken);
   border-radius: var(--hero-radius);
+}
+
+/* Bloc de couleur pleine largeur : orange (data-theme="orange") ou
+   bordeaux (data-theme="inverse"), le fond suit le thème */
+.section--band {
+  background: var(--surface-page);
 }
 
 .section--sunken + .section--sunken {
@@ -226,16 +233,19 @@ main {
 /* En-tête de section : surtitre numéroté + titre + chapô */
 .section-head {
   display: grid;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  justify-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+  text-align: center;
 }
 
 .section-head > h2 {
-  max-width: 18em;
+  max-width: 14em;
 }
 
 .section-head__intro {
   max-width: var(--measure-lead);
+  margin-inline: auto;
   font-size: var(--text-lead);
   line-height: var(--leading-normal);
   color: var(--text-secondary);
@@ -949,7 +959,7 @@ select.field__input {
   margin: var(--hero-inset);
   border-radius: var(--hero-radius);
   padding-block: var(--space-4);
-  background: var(--surface-card); /* encre plus claire, via data-theme="inverse" */
+  background: var(--surface-page); /* orange, via data-theme="orange" */
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
@@ -960,12 +970,12 @@ select.field__input {
   margin-top: var(--space-8);
   font-family: var(--font-display);
   font-size: min(14vw, 12rem); /* tient dans la largeur, du mobile au grand écran */
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-bold);
   line-height: 1.1; /* laisse la place aux jambages du g et du y */
   letter-spacing: var(--tracking-display);
   text-align: center;
   white-space: nowrap;
-  color: var(--ink-700);
+  color: var(--text-primary); /* orange sur le bordeaux */
   user-select: none;
 }
 

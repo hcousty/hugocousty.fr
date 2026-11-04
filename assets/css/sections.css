@@ -73,7 +73,8 @@
 .hero {
   display: grid;
   min-height: calc(100svh - var(--header-height-top));
-  padding: 0 var(--hero-inset) var(--hero-inset);
+  padding: 0 var(--hero-frame);
+  background: var(--surface-page); /* bordeaux, via data-theme="inverse" */
 }
 
 /* Photo et texte dans la même cellule de grille */
@@ -85,8 +86,8 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;        /* grain et voile restent sous le texte */
-  border-radius: var(--hero-radius);
-  background: var(--ink-500); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
+  border-radius: var(--hero-arch); /* photo en arche */
+  background: var(--surface-card); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
 }
 
 /* Voile encre du bas vers le haut : le texte reste lisible quelle que soit la photo */
@@ -912,6 +913,11 @@ img.about__photo {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--card-radius);
+}
+
+/* Titre dans une colonne : un cran sous les titres de section centrés */
+.about__body h2 {
+  font-size: var(--text-display-2);
 }
 
 .about__body {
