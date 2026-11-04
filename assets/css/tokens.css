@@ -44,22 +44,9 @@
   font-display: swap;
 }
 
-/* Milling Duplex 1mm (205TF), police des titres EN TEST.
-   Police payante : le fichier n'est PAS dans le dépôt tant que la licence
-   web n'est pas achetée (www.205.tf/licencing). Sans le fichier, les titres
-   restent en Inter. Après achat : déposer le .woff2 officiel sous ce nom.
-   Une seule graisse : la plage 400-700 évite le faux gras sur les titres. */
-@font-face {
-  font-family: "Milling";
-  src: url("../fonts/Milling-Duplex1mm.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --font-sans: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: "Milling", "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: var(--font-sans); /* les libellés changent de casse, pas de famille */
 }
 
