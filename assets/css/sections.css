@@ -257,7 +257,7 @@
   display: block;
   width: min(100%, calc(var(--logo-h) * var(--logo-ratio)));
   aspect-ratio: var(--logo-ratio);
-  background-color: var(--text-muted);
+  background-color: var(--text-faint); /* gris plus clair que le texte : les logos restent discrets */
   -webkit-mask: var(--logo) center / contain no-repeat;
   mask: var(--logo) center / contain no-repeat;
 }
