@@ -95,7 +95,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-heading);
   line-height: var(--leading-snug);
   text-wrap: balance;
@@ -107,17 +107,16 @@ h1 {
   letter-spacing: var(--tracking-display);
 }
 
-/* Titres façon Notion : gras, serrés, lignes collées (le h1 garde le semi-gras) */
+/* Titres en graisse moyenne (500) : présents sans être lourds */
 h2 {
   font-size: var(--text-title);
-  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-title);
   line-height: var(--leading-title);
 }
 
 h3 {
   font-size: var(--text-h3);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
 }
 
 p,
@@ -961,7 +960,7 @@ select.field__input {
   margin-top: var(--space-8);
   font-family: var(--font-display);
   font-size: min(14vw, 12rem); /* tient dans la largeur, du mobile au grand écran */
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   line-height: 1.1; /* laisse la place aux jambages du g et du y */
   letter-spacing: var(--tracking-display);
   text-align: center;
