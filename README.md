@@ -65,7 +65,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 7 | Méthode | `#methode` |
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 9 | FAQ | `#faq` (menu) |
-| 10 | Contact, bloc gris (calendrier Cal.com + lien de secours, formulaire replié) | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
+| 10 | Contact, bloc gris : « Réservez un appel de 30 min » (calendrier Cal.com + lien de secours) puis « Ou envoyez-moi un message » (formulaire Brevo), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
 | 11 | Footer, bloc encre arrondi | – |
 
 **Fonds de section** : aucune section ne touche les bords de l'écran. Une section à fond (`.section--sunken`) devient un bloc gris clair arrondi, posé avec la même marge que le hero (`--hero-inset`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs, cartes, encart IA. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
@@ -206,7 +206,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
 | Surtitre | `.eyebrow` | ★ |
 | Tag | `.tag` | un seul style |
-| Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__path`, `.contact__booking`) |
+| Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__block`, sans carte) |
 | Carte expertise | `.expertise-cards` > `.expertise-card` | expertises de l'accueil, gris clair sur fond blanc |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
 | Projet à la une | `.featured` | visuel 4:3 + texte, 2 colonnes sur desktop |

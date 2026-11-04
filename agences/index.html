@@ -290,97 +290,92 @@
          =================================================================== -->
     <section class="section section--sunken" id="contact" aria-labelledby="contact-title" data-sticky-cta-hide>
       <div class="container">
-        <header class="section-head">
-          <h2 id="contact-title">Parlons de votre besoin</h2>
-          <p class="section-head__intro">Un premier échange de 30 minutes pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne. Choisissez un créneau dans le calendrier, ou écrivez-moi : je réponds sous 24&nbsp;h ouvrées.</p>
-        </header>
-
-        <!-- TODO : même service de formulaire que l'accueil ; calendrier Brevo identique
-             (voir les commentaires de la section 11 de index.html). -->
-        <div class="card contact__booking" id="reserver">
-            <h3 class="card__title">Un appel de 30&nbsp;min</h3>
-            <p>Choisissez un créneau ci-dessous, je vous appelle.</p>
-            <!-- Calendrier Cal.com, chargé par main.js (module 6) à l'approche de la
-                 section. Pour changer de type de rendez-vous : modifier
-                 data-cal-link ici et le lien de secours juste dessous. -->
-            <div class="booking" id="cal-booking" data-cal-link="hugo-cousty-zfq5r8/secret" data-cal-namespace="secret"></div>
-            <p class="field__note booking__fallback">Le calendrier ne s’affiche pas&#8239;? <a href="https://cal.com/hugo-cousty-zfq5r8/secret" target="_blank" rel="noopener">Ouvrir le calendrier dans un nouvel onglet</a>.</p>
+        <!-- Deux façons de prendre contact, l'une sous l'autre et toutes deux
+             visibles : réserver un appel (calendrier Cal.com), ou écrire
+             (formulaire Brevo). #reserver est la cible des boutons « Réserver ». -->
+        <div class="contact__block" id="reserver">
+          <header class="section-head section-head--center">
+            <h2 id="contact-title">Réservez un appel de 30&nbsp;min</h2>
+            <p class="section-head__intro">Pour comprendre votre besoin, votre client et votre calendrier. Je vous dis franchement si je suis la bonne personne.</p>
+          </header>
+          <!-- Calendrier Cal.com, chargé par main.js (module 6) à l'approche de la
+               section. Pour changer de type de rendez-vous : modifier
+               data-cal-link ici et le lien de secours juste dessous. -->
+          <div class="booking" id="cal-booking" data-cal-link="hugo-cousty-zfq5r8/secret" data-cal-namespace="secret"></div>
+          <p class="field__note booking__fallback">Le calendrier ne s’affiche pas&#8239;? <a href="https://cal.com/hugo-cousty-zfq5r8/secret" target="_blank" rel="noopener">Ouvrir le calendrier dans un nouvel onglet</a>.</p>
         </div>
 
-        <p class="contact__write-question">Vous préférez écrire&#8239;?</p>
-        <details class="contact__write">
-          <summary class="btn btn--secondary contact__write-toggle">Envoyer un message</summary>
-          <div class="card contact__path">
-            <h3 class="card__title">Un message</h3>
-            <p>Le client, le besoin, le calendrier : quelques lignes suffisent, je reviens vers vous avec des questions ou une proposition.</p>
+        <div class="contact__block contact__block--form">
+          <header class="section-head section-head--center">
+            <h2 id="message-title">Ou envoyez&#8209;moi un message</h2>
+            <p class="section-head__intro">Le client, le besoin, le calendrier&nbsp;: quelques lignes suffisent. Je vous réponds sous 24&nbsp;h ouvrées.</p>
+          </header>
+          <!-- FORMULAIRE BREVO
+               Envoi vers le formulaire Brevo « contact » : chaque demande crée
+               ou met à jour un contact dans Brevo. Les noms de champs (PRENOM,
+               NOM, EMAIL, SMS, ENTREPRISE, DETAILS, OPT_IN) sont ceux des
+               attributs Brevo : ne pas les renommer.
+               main.js envoie le formulaire en arrière-plan puis redirige vers
+               /merci/ ; sans JS, l'envoi classique affiche la page de Brevo.
+               « email_address_check » est le piège à robots de Brevo. -->
+          <form class="form" action="https://69d584e9.sibforms.com/serve/MUIFAOrwsLKpqxNDzKh-BudMmTfIEijQmoxfqVlsXxhdE0MHe1u6HuxbJNPKfyTbhur6L_RyjD9fqBoy6JX6jMb8Gm0hxhWsItqpseh9jYAzOkwfzUFVg9Ijwq5pVw-OZKn03kd0nLfYe_xa_tnMTRygYdE1c9MMkv_hSoTf2AQnFVfkIQjR_la_rNNnGq9ZPOaHxAf8-cy0IIge" method="post" data-contact-form>
+            <div class="form__row">
+              <div class="field">
+                <label class="field__label" for="contact-prenom">Prénom</label>
+                <input class="field__input" id="contact-prenom" name="PRENOM" type="text" maxlength="200" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contact-nom">Nom</label>
+                <input class="field__input" id="contact-nom" name="NOM" type="text" maxlength="200" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-email">Email</label>
+              <input class="field__input" id="contact-email" name="EMAIL" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-tel">Téléphone <span class="field__optional">(facultatif)</span></label>
+              <div class="field__phone">
+                <select class="field__input" name="SMS__COUNTRY_CODE" aria-label="Indicatif du pays" autocomplete="tel-country-code">
+                  <option value="+33" selected>France (+33)</option>
+                  <option value="+41">Suisse (+41)</option>
+                  <option value="+32">Belgique (+32)</option>
+                  <option value="+352">Luxembourg (+352)</option>
+                  <option value="+377">Monaco (+377)</option>
+                  <option value="+1">Canada / États-Unis (+1)</option>
+                  <option value="+49">Allemagne (+49)</option>
+                  <option value="+34">Espagne (+34)</option>
+                  <option value="+39">Italie (+39)</option>
+                  <option value="+44">Royaume-Uni (+44)</option>
+                  <option value="+31">Pays-Bas (+31)</option>
+                  <option value="+351">Portugal (+351)</option>
+                </select>
+                <input class="field__input" id="contact-tel" name="SMS" type="tel" inputmode="tel" autocomplete="tel-national" pattern="[0-9 .()+\-]{6,22}" placeholder="06 12 34 56 78">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-entreprise">Agence</label>
+              <input class="field__input" id="contact-entreprise" name="ENTREPRISE" type="text" maxlength="200" autocomplete="organization" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-details">Votre besoin</label>
+              <textarea class="field__input" id="contact-details" name="DETAILS" rows="5" maxlength="500" required placeholder="Le type de client, les leviers concernés, le format envisagé et la date de démarrage souhaitée."></textarea>
+            </div>
+            <label class="field__check">
+              <input type="checkbox" name="OPT_IN" value="1" required>
+              <span>J’accepte d’être recontacté par téléphone ou par email.</span>
+            </label>
+            <div class="field field--trap" aria-hidden="true">
+              <label for="contact-check">Ne pas remplir</label>
+              <input id="contact-check" name="email_address_check" type="text" value="" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="locale" value="fr">
 
-            <!-- FORMULAIRE BREVO
-                 Envoi vers le formulaire Brevo « contact » : chaque demande crée
-                 ou met à jour un contact dans Brevo. Les noms de champs (PRENOM,
-                 NOM, EMAIL, SMS, ENTREPRISE, DETAILS, OPT_IN) sont ceux des
-                 attributs Brevo : ne pas les renommer.
-                 main.js envoie le formulaire en arrière-plan puis redirige vers
-                 /merci/ ; sans JS, l'envoi classique affiche la page de Brevo.
-                 « email_address_check » est le piège à robots de Brevo. -->
-            <form class="form" action="https://69d584e9.sibforms.com/serve/MUIFAOrwsLKpqxNDzKh-BudMmTfIEijQmoxfqVlsXxhdE0MHe1u6HuxbJNPKfyTbhur6L_RyjD9fqBoy6JX6jMb8Gm0hxhWsItqpseh9jYAzOkwfzUFVg9Ijwq5pVw-OZKn03kd0nLfYe_xa_tnMTRygYdE1c9MMkv_hSoTf2AQnFVfkIQjR_la_rNNnGq9ZPOaHxAf8-cy0IIge" method="post" data-contact-form>
-              <div class="form__row">
-                <div class="field">
-                  <label class="field__label" for="contact-prenom">Prénom</label>
-                  <input class="field__input" id="contact-prenom" name="PRENOM" type="text" maxlength="200" autocomplete="given-name" required>
-                </div>
-                <div class="field">
-                  <label class="field__label" for="contact-nom">Nom</label>
-                  <input class="field__input" id="contact-nom" name="NOM" type="text" maxlength="200" autocomplete="family-name" required>
-                </div>
-              </div>
-              <div class="field">
-                <label class="field__label" for="contact-email">Email</label>
-                <input class="field__input" id="contact-email" name="EMAIL" type="email" autocomplete="email" required>
-              </div>
-              <div class="field">
-                <label class="field__label" for="contact-tel">Téléphone <span class="field__optional">(facultatif)</span></label>
-                <div class="field__phone">
-                  <select class="field__input" name="SMS__COUNTRY_CODE" aria-label="Indicatif du pays" autocomplete="tel-country-code">
-                    <option value="+33" selected>France (+33)</option>
-                    <option value="+41">Suisse (+41)</option>
-                    <option value="+32">Belgique (+32)</option>
-                    <option value="+352">Luxembourg (+352)</option>
-                    <option value="+377">Monaco (+377)</option>
-                    <option value="+1">Canada / États-Unis (+1)</option>
-                    <option value="+49">Allemagne (+49)</option>
-                    <option value="+34">Espagne (+34)</option>
-                    <option value="+39">Italie (+39)</option>
-                    <option value="+44">Royaume-Uni (+44)</option>
-                    <option value="+31">Pays-Bas (+31)</option>
-                    <option value="+351">Portugal (+351)</option>
-                  </select>
-                  <input class="field__input" id="contact-tel" name="SMS" type="tel" inputmode="tel" autocomplete="tel-national" pattern="[0-9 .()+\-]{6,22}" placeholder="06 12 34 56 78">
-                </div>
-              </div>
-              <div class="field">
-                <label class="field__label" for="contact-entreprise">Agence</label>
-                <input class="field__input" id="contact-entreprise" name="ENTREPRISE" type="text" maxlength="200" autocomplete="organization" required>
-              </div>
-              <div class="field">
-                <label class="field__label" for="contact-details">Votre besoin</label>
-                <textarea class="field__input" id="contact-details" name="DETAILS" rows="5" maxlength="500" required placeholder="Le type de client, les leviers concernés, le format envisagé et la date de démarrage souhaitée."></textarea>
-              </div>
-              <label class="field__check">
-                <input type="checkbox" name="OPT_IN" value="1" required>
-                <span>J’accepte d’être recontacté par téléphone ou par email.</span>
-              </label>
-              <div class="field field--trap" aria-hidden="true">
-                <label for="contact-check">Ne pas remplir</label>
-                <input id="contact-check" name="email_address_check" type="text" value="" tabindex="-1" autocomplete="off">
-              </div>
-              <input type="hidden" name="locale" value="fr">
-
-              <button class="btn btn--primary contact__cta" type="submit">Envoyer le message</button>
-              <p class="field__note form__status" role="status" aria-live="polite" data-form-status></p>
-              <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
-            </form>
-          </div>
-        </details>
+            <button class="btn btn--primary btn--block contact__cta" type="submit">Envoyer le message</button>
+            <p class="field__note form__status" role="status" aria-live="polite" data-form-status></p>
+            <p class="field__note">Vos informations servent uniquement à vous répondre. <a href="/confidentialite/">En savoir plus</a>.</p>
+          </form>
+        </div>
 
         <p class="contact__alt">Agence basée en Suisse&#8239;? <a href="/agences-suisse/">Voir la page dédiée</a>.</p>
       </div>

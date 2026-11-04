@@ -966,7 +966,7 @@ ul.expertise-cards {
   place-items: center;
   min-height: var(--booking-height);
   border-radius: var(--field-radius);
-  background: var(--surface-sunken);
+  background: var(--surface-card); /* blanc : se détache du bloc gris */
 }
 
 .booking.is-loading::before {
@@ -980,55 +980,38 @@ ul.expertise-cards {
   content: none;
 }
 
-/* Le formulaire remplit sa carte ; son bouton garde la largeur du texte */
-.contact__path .form {
+/* Deux blocs centrés l'un sous l'autre : réserver, puis écrire */
+.contact__block + .contact__block {
+  margin-top: var(--space-7);
+  padding-top: var(--space-7);
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.contact__block .booking,
+.contact__block .booking__fallback {
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.contact__block .booking__fallback {
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+/* Formulaire : colonne centrée, bouton sur toute la largeur */
+.contact__block--form .form {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.contact__block--form .form .contact__cta {
   margin-top: var(--space-1);
-}
-
-.contact__path .form .contact__cta {
-  margin-top: var(--space-1);
-  justify-self: start;
-}
-
-/* Accueil : le calendrier d'abord, en pleine largeur… */
-/* Texte d'introduction du calendrier : longueur de ligne lisible */
-.contact__booking > p {
-  max-width: var(--measure-prose);
-}
-
-/* …puis le formulaire, replié derrière « Vous préférez écrire ? »
-   (<details> natif : fonctionne sans JS, ouvrable au clavier) */
-/* « Vous préférez écrire ? » en phrase, le bouton juste dessous */
-.contact__write-question {
-  margin-top: var(--space-4);
-  font-weight: var(--weight-medium);
-  color: var(--text-primary);
-}
-
-.contact__write {
-  margin-top: var(--space-15);
-}
-
-.contact__write-toggle {
-  list-style: none;
-}
-
-.contact__write-toggle::-webkit-details-marker {
-  display: none;
-}
-
-.contact__write[open] .contact__write-toggle {
-  background: var(--glass-bg-hover);
-}
-
-.contact__write .contact__path {
-  max-width: 44rem;
-  margin-top: var(--space-3);
 }
 
 .contact__alt {
   max-width: var(--measure-prose);
-  margin-top: var(--space-4);
+  margin: var(--space-6) auto 0;
+  text-align: center;
   color: var(--text-secondary);
 }
 
