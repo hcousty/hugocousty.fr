@@ -206,7 +206,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 |---|---|---|
 | Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
 | Surtitre | `.eyebrow` | ★ |
-| Tag | `.tag` | un seul style |
+| Étiquette | `.tag` + `.tag--social` (bleu), `--google` (violet), `--web` (orange), `--crm` (vert), `--data` (jaune) | couleurs des étiquettes de Notion (tokens `--tag-*`) ; une couleur par expertise, la même dans Expertises et Réalisations |
 | Carte | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__block`, sans carte) |
 | Carte expertise | `.expertise-cards` > `.expertise-card` | expertises de l'accueil, gris clair sur fond blanc |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |

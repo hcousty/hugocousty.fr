@@ -376,15 +376,23 @@ main {
   gap: var(--space-1);
 }
 
+/* Étiquette : sobre par défaut, colorée par expertise (façon Notion) */
 .tag {
   display: inline-block;
-  padding: var(--space-025) var(--space-15);
-  border: var(--border-width-hairline) solid var(--border-mid);
-  border-radius: var(--radius-pill);
+  padding: 1px var(--space-1);
+  border-radius: var(--tag-radius);
+  background: var(--surface-card);
   font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
   line-height: 1.5;
   color: var(--text-secondary);
 }
+
+.tag--social { background: var(--tag-blue-bg);   color: var(--tag-blue-fg); }
+.tag--google { background: var(--tag-purple-bg); color: var(--tag-purple-fg); }
+.tag--web    { background: var(--tag-orange-bg); color: var(--tag-orange-fg); }
+.tag--crm    { background: var(--tag-green-bg);  color: var(--tag-green-fg); }
+.tag--data   { background: var(--tag-yellow-bg); color: var(--tag-yellow-fg); }
 
 /* --- Placeholder d'image ----------------------------------------------------
    Réservé qui nomme l'image attendue (MediaFrame du design system).
