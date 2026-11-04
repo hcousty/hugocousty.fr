@@ -239,9 +239,11 @@
   }
 }
 
+/* Mobile : 2 lignes de 3 logos (accueil), un peu réduits pour tenir */
 .logos__list {
+  --logo-scale: .8;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-15);
 }
 
@@ -255,7 +257,7 @@
 
 .client-logo {
   display: block;
-  width: min(100%, calc(var(--logo-h) * var(--logo-ratio)));
+  width: min(100%, calc(var(--logo-h) * var(--logo-scale, 1) * var(--logo-ratio)));
   aspect-ratio: var(--logo-ratio);
   background-color: var(--text-faint); /* gris plus clair que le texte : les logos restent discrets */
   -webkit-mask: var(--logo) center / contain no-repeat;
@@ -264,7 +266,7 @@
 
 @media (min-width: 48em) {
   .logos__list {
-    grid-template-columns: repeat(3, 1fr);
+    --logo-scale: 1;
   }
 }
 
@@ -276,6 +278,11 @@
 }
 
 /* Dix logos (page agences) : 2 colonnes sur mobile, 5 dès la tablette */
+.logos__list--ten {
+  --logo-scale: 1;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (min-width: 48em) {
   .logos__list--ten {
     grid-template-columns: repeat(5, 1fr);
