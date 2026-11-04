@@ -682,6 +682,14 @@ ul.expertise-cards {
   --ratio: 4 / 3;
 }
 
+img.featured__visual {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+}
+
 .featured__body {
   display: grid;
   align-content: center;
