@@ -898,6 +898,14 @@ ul.expertise-cards {
   max-width: 28rem;
 }
 
+img.about__photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+}
+
 .about__body {
   display: grid;
   align-content: center;
