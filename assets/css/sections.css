@@ -73,8 +73,7 @@
 .hero {
   display: grid;
   min-height: calc(100svh - var(--header-height-top));
-  padding: 0 var(--hero-frame);
-  background: var(--surface-page); /* bordeaux, via data-theme="inverse" */
+  padding: 0 var(--hero-inset) var(--hero-inset);
 }
 
 /* Photo et texte dans la même cellule de grille */
@@ -86,8 +85,8 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;        /* grain et voile restent sous le texte */
-  border-radius: var(--hero-arch); /* photo en arche */
-  background: var(--surface-card); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
+  border-radius: var(--hero-radius);
+  background: var(--ink-500); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
 }
 
 /* Voile encre du bas vers le haut : le texte reste lisible quelle que soit la photo */
@@ -915,11 +914,6 @@ img.about__photo {
   border-radius: var(--card-radius);
 }
 
-/* Titre dans une colonne : un cran sous les titres de section centrés */
-.about__body h2 {
-  font-size: var(--text-display-2);
-}
-
 .about__body {
   display: grid;
   align-content: center;
@@ -1139,8 +1133,8 @@ img.about__photo {
   content: none;
 }
 
-/* Section Contact en noir (data-theme="inverse"), soudée au footer :
-   un seul bloc encre arrondi en haut, le footer arrondit le bas */
+/* Section Contact en bordeaux (data-theme="maroon"), suivie du footer
+   orange : arrondie en haut, le footer arrondit le bas */
 .section--contact {
   margin-inline: var(--hero-inset);
   padding-bottom: var(--space-5); /* le grand nom termine la section */
@@ -1148,7 +1142,7 @@ img.about__photo {
   background: var(--surface-page);
 }
 
-/* Champs sur fond noir : pleins, sans contour, le contour revient au survol */
+/* Champs sur fond bordeaux : pleins, sans contour, le contour revient au survol */
 .section--contact .field__input {
   border-color: transparent;
   background-color: var(--surface-card);

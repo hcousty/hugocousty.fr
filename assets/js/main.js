@@ -120,7 +120,8 @@
     const update = () => {
       const scrolled = window.scrollY >= threshold();
       header.classList.toggle('is-scrolled', scrolled);
-      header.setAttribute('data-theme', 'inverse'); /* bordeaux en permanence */
+      if (scrolled) header.setAttribute('data-theme', 'inverse');
+      else header.removeAttribute('data-theme');
       ticking = false;
     };
 
