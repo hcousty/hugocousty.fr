@@ -996,20 +996,12 @@ ul.expertise-cards {
 
 /* Deux blocs centrés l'un sous l'autre : réserver, puis écrire */
 .contact__block + .contact__block {
-  margin-top: var(--space-7);
-  padding-top: var(--space-7);
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  margin-top: var(--space-8);
 }
 
-.contact__block .booking,
-.contact__block .booking__fallback {
+.contact__block .booking {
   max-width: 64rem;
   margin-inline: auto;
-}
-
-.contact__block .booking__fallback {
-  margin-top: var(--space-2);
-  text-align: center;
 }
 
 /* Formulaire : colonne centrée, bouton sur toute la largeur */
