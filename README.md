@@ -121,6 +121,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 ### Fichiers du design system dans le repo
 
 - **Police Inter** (v4.1, licence OFL, sous-ensemble latin) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
+- **Police des titres en test : Milling Duplex 1mm** (205TF, payante). Déclarée dans `tokens.css` sous le nom `Milling-Duplex1mm.woff2`, mais le fichier n'est pas dans le dépôt tant que la licence web n'est pas achetée : en attendant, les titres restent en Inter. Après achat sur www.205.tf, déposer le `.woff2` officiel dans `/assets/fonts/` sous ce nom. Pour abandonner le test : retirer le bloc `@font-face` « Milling » et `"Milling",` de `--font-display`.
 - **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
