@@ -207,6 +207,7 @@
 
 .logos__head .logos__title {
   margin: 0;
+  line-height: var(--leading-normal);
   font-family: var(--font-sans);
   font-size: var(--text-body);
   font-weight: var(--weight-medium);
@@ -471,10 +472,10 @@ ul.expertise-cards {
 }
 
 .stat__value {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: var(--text-display-2);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-serif);
   line-height: var(--leading-tight);
   font-variant-numeric: tabular-nums;
 }
@@ -525,7 +526,10 @@ ul.expertise-cards {
 }
 
 .featured__title {
-  font-size: var(--text-h1);
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-serif);
 }
 
 .featured__body > p:last-child {
@@ -676,11 +680,11 @@ ul.expertise-cards {
 
 .testimonial--main .testimonial__quote {
   max-width: 24em;
-  font-family: var(--font-display);
-  font-size: var(--text-h1);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-heading);
-  line-height: var(--leading-snug);
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-serif);
+  line-height: 1.15;
   color: var(--text-primary);
 }
 
@@ -770,9 +774,11 @@ ul.expertise-cards {
 
 .ai-box__title {
   max-width: 16em;
-  font-size: var(--text-h1);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  font-weight: var(--weight-regular);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-serif);
 }
 
 .ai-box__body {
