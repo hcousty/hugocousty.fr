@@ -27,7 +27,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   ├── base.css            Reset, typo, layout, composants communs, header, footer
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
-│   ├── fonts/                  Police Inter (woff2 + licence OFL)
+│   ├── fonts/                  Police Switzer (woff2 + note de licence)
 │   └── img/                    grain.png, og-image.jpg
 └── README.md
 ```
@@ -87,7 +87,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 - **Calendrier Cal.com** : section Contact de `index.html` et des pages agences, bloc `.booking` avec `data-cal-link="hugo-cousty-zfq5r8/secret"` et `data-cal-namespace`. Le module 6 de `main.js` charge le script de Cal.com à l'approche de la section (code d'intégration Cal.com, thème clair, couleur principale encre `#0D1017`). Pour un autre type de rendez-vous, changer `data-cal-link` (page publique : `https://cal.com/hugo-cousty-zfq5r8/secret`). Le token `--booking-height` règle la hauteur réservée pendant le chargement.
 - **Formulaire de contact (Brevo)** : les 3 formulaires (accueil, agences, agences Suisse) envoient vers le même formulaire Brevo (URL dans l'attribut `action`). Les noms de champs (`PRENOM`, `NOM`, `EMAIL`, `SMS` + `SMS__COUNTRY_CODE`, `ENTREPRISE`, `DETAILS`, `OPT_IN`) sont les attributs Brevo : ne pas les renommer. Le module 5 de `main.js` envoie en arrière-plan puis redirige vers `/merci/` ; sans JS, Brevo affiche sa propre page. `email_address_check` est le piège à robots de Brevo. La notification par email se règle dans Brevo (automatisation sur l'ajout d'un contact par ce formulaire). Si le formulaire est recréé dans Brevo, remplacer l'URL `action` dans les 3 pages.
 - **Ajouter une question à la FAQ** : dupliquer un bloc `<details class="faq__item" name="faq">`. Garder `name="faq"` : c'est lui qui ferme la question ouverte quand on en ouvre une autre.
-- **Échelle typographique (inspirée de Notion)** : titre du hero en semi-gras très serré (`--tracking-display`), titres de section en gras 700 jusqu'à 54 px (`--text-title`, `--tracking-title`, `--leading-title`), petits titres en gras, texte courant inchangé. Tout se règle dans `tokens.css`.
+- **Échelle typographique** : titre du hero en semi-gras serré (`--tracking-display`), titres de section en gras 700 jusqu'à 44 px (`--text-title`, `--tracking-title`, `--leading-title`), petits titres en gras. Tout se règle dans `tokens.css`.
 - **Typographie française** : apostrophe typographique ’ (pas '), signe × pour « ×5 », espace insécable `&nbsp;` entre un nombre et son unité (« 30&nbsp;min », « 10&nbsp;ans », « 24&nbsp;h »), `e&#8209;commerce` (trait d'union insécable) pour que le mot ne se coupe pas.
 - **Remplacer les témoignages** : section 7 de `index.html`. Le texte actuel est un placeholder. Garder les guillemets français avec espaces insécables : `«&nbsp;…&nbsp;»`, et `&nbsp;:` avant les deux-points.
 - **Compléter les mentions légales** : les champs à remplir sont dans des `<span class="todo">` (surlignés en jaune). Supprimer le `<span>` une fois le champ rempli. Idem pour les prestataires dans la politique de confidentialité.
@@ -123,7 +123,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 ### Fichiers du design system dans le repo
 
-- **Police Inter** (v4.1, licence OFL, sous-ensemble latin) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
+- **Police Switzer** (Indian Type Foundry, gratuite via Fontshare, licence ITF Free Font License, voir `Switzer-licence.txt`) : `/assets/fonts/`, graisses 400, 500, 600 et 700. Hébergée sur le site, sans service externe. Les graisses 400 et 600 sont préchargées dans le `<head>` de chaque page.
 - **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
@@ -184,7 +184,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 ## À faire (hors wireframe)
 
 - [x] Brancher le design system (`tokens.css`)
-- [x] Ajouter les fichiers de police Inter et la tuile `grain.png`
+- [x] Ajouter les fichiers de police (Switzer) et la tuile `grain.png`
 - [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
