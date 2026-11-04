@@ -65,8 +65,8 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 7 | Méthode | `#methode` |
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 9 | FAQ | `#faq` (menu) |
-| 10 | Contact, bloc gris : « Réservez un appel de 30 min » (calendrier Cal.com) puis « Ou envoyez-moi un message » (formulaire Brevo), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
-| 11 | Footer, bloc encre arrondi | – |
+| 10 | Contact, bloc noir soudé au footer : « Réservez un appel » (calendrier Cal.com en thème sombre) puis « Ou envoyez-moi un message » (formulaire Brevo, champs pleins sans contour), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
+| 11 | Footer : grand nom « Hugo Cousty » au-dessus des liens. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, bloc encre arrondi seul ailleurs | – |
 
 **Fonds de section** : aucune section ne touche les bords de l'écran. Une section à fond (`.section--sunken`) devient un bloc gris clair arrondi, posé avec la même marge que le hero (`--hero-inset`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs, cartes, encart IA. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
 

@@ -994,6 +994,24 @@ ul.expertise-cards {
   content: none;
 }
 
+/* Section Contact en noir (data-theme="inverse"), soudée au footer :
+   un seul bloc encre arrondi en haut, le footer arrondit le bas */
+.section--contact {
+  margin-inline: var(--hero-inset);
+  border-radius: var(--hero-radius) var(--hero-radius) 0 0;
+  background: var(--surface-page);
+}
+
+/* Champs sur fond noir : pleins, sans contour, le contour revient au survol */
+.section--contact .field__input {
+  border-color: transparent;
+  background-color: var(--surface-card);
+}
+
+.section--contact .field__input:hover {
+  border-color: var(--border-mid);
+}
+
 /* Deux blocs centrés l'un sous l'autre : réserver, puis écrire */
 .contact__block + .contact__block {
   margin-top: var(--space-8);

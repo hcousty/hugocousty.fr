@@ -216,7 +216,7 @@
 
   /* 6. Calendrier de réservation (Cal.com)
      Code d'intégration fourni par Cal.com, réglé aux couleurs du site (thème
-     clair, couleur principale encre). Le script de Cal.com n'est chargé qu'à
+     sombre, couleur principale blanche, comme la section Contact). Le script de Cal.com n'est chargé qu'à
      l'approche du calendrier : il ne pèse pas sur le reste de la page.
      Le lien et l'espace de noms viennent des attributs data-cal-* du bloc. */
   const booking = document.querySelector('[data-cal-link]');
@@ -236,16 +236,16 @@
 
       Cal.ns[ns]('inline', {
         elementOrSelector: '#' + booking.id,
-        config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true', theme: 'light' },
+        config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true', theme: 'dark' },
         calLink: booking.dataset.calLink,
       });
 
       Cal.ns[ns]('ui', {
-        theme: 'light',
+        theme: 'dark', // section Contact sur fond noir
         hideEventTypeDetails: true, // pas de colonne de gauche : la carte présente déjà l'appel
         layout: 'month_view',
-        styles: { branding: { brandColor: '#0D1017' } },
-        cssVarsPerTheme: { light: { 'cal-brand': '#0D1017' } },
+        styles: { branding: { brandColor: '#FFFFFF' } },
+        cssVarsPerTheme: { dark: { 'cal-brand': '#FFFFFF' } },
       });
 
       Cal.ns[ns]('on', {
