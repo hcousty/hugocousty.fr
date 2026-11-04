@@ -326,6 +326,12 @@
   --tag-yellow-bg: rgb(253, 236, 200); --tag-yellow-fg: rgb(64, 44, 27);   /* Tracking */
   --tag-radius: 4px;
 
+  /* Pastilles des cartes Expertises : versions vives des mêmes teintes */
+  --icon-blue: #2383E2;
+  --icon-orange: #F28C38;
+  --icon-green: #2EAA5C;
+  --icon-yellow: #F5B800;
+
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);
 
