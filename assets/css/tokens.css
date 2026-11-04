@@ -303,11 +303,11 @@
   --face-size: 40px;
   --face-overlap: 10px;
 
-  /* Section sombre des Expertises : halos gris du fond, et voile des cartes
-     en verre posées dessus */
-
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);
+
+  /* Arrondi des champs de formulaire (même arrondi que les cartes) */
+  --field-radius: var(--radius-lg);
 
   /* Arrondi de tous les boutons (pilule) */
   --button-radius: var(--radius-pill);

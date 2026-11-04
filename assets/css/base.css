@@ -388,7 +388,7 @@ main {
 }
 
 /* --- Formulaire -------------------------------------------------------------
-   Champs à contour, rayon 2 px (contrôles), focus bleu. Les états d'erreur
+   Champs à contour, arrondis comme les cartes (--field-radius). Les états d'erreur
    natifs du navigateur suffisent pour un formulaire de contact.          */
 
 .form {
@@ -418,7 +418,7 @@ main {
   min-height: 48px;
   padding: var(--space-15) var(--space-2);
   border: var(--border-width-hairline) solid var(--border-mid);
-  border-radius: var(--radius-sm);
+  border-radius: var(--field-radius);
   background: var(--surface-page);
   color: var(--text-primary);
   transition: var(--transition-control);
