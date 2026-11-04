@@ -432,8 +432,7 @@ ul.expertise-cards {
   gap: var(--grid-gap);
 }
 
-/* Carte blanche à fin contour (façon Notion) : pastille en haut, puis un
-   grand vide, puis le titre et le texte (titres alignés d'une carte à l'autre) */
+/* Carte blanche à fin contour, comme les cartes projets et formats */
 .expertise-card {
   display: flex;
   flex-direction: column;
@@ -445,27 +444,10 @@ ul.expertise-cards {
   color: var(--text-secondary);
 }
 
-.expertise-card__icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: var(--space-6);
-  border-radius: 50%;
-  background: var(--icon-color, var(--surface-sunken));
-  color: var(--white); /* icône blanche sur la pastille de couleur */
-}
-
 .expertise-card__title {
   font-size: var(--text-h3);
   color: var(--text-primary);
 }
-
-/* Couleur de la pastille : celle de l'expertise, comme les étiquettes */
-.expertise-card--ads  { --icon-color: var(--icon-blue); }
-.expertise-card--web  { --icon-color: var(--icon-orange); }
-.expertise-card--crm  { --icon-color: var(--icon-green); }
-.expertise-card--data { --icon-color: var(--icon-yellow); }
 
 @media (min-width: 48em) {
   ul.expertise-cards {
@@ -479,9 +461,6 @@ ul.expertise-cards {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .expertise-card {
-    min-height: 18rem;
-  }
 }
 
 /* --- Régies pilotées : nom + formats, en grille sous les cartes ------------ */

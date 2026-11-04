@@ -58,7 +58,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 |---|---|---|
 | 1 | Hero (photo dans un bloc arrondi, texte posé dessus) | `#top` |
 | 2 | Logos | – |
-| 3 | Expertises (4 cartes blanches à fin contour, pastille colorée avec icône) | `#expertises` (menu) |
+| 3 | Expertises (4 cartes blanches à fin contour) | `#expertises` (menu) |
 | 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / Au quotidien), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
 | 5 | Témoignages, 1 principal + 2 courts (**placeholders**), bloc gris | `#temoignages` |
 | 6 | À propos | `#a-propos` (menu) |
@@ -207,7 +207,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 |---|---|---|
 | Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
 | Surtitre | `.eyebrow` | ★ |
-| Étiquette | `.tag` + `.tag--social` et `--google` (bleu), `--web` (orange), `--crm` (vert), `--data` (jaune) | couleurs des étiquettes de Notion (tokens `--tag-*`) ; les pastilles des cartes Expertises reprennent ces teintes en version vive (`.expertise-card--ads`, `--web`, `--crm`, `--data`, tokens `--icon-*`) |
+| Étiquette | `.tag` | monochrome : fond gris clair, texte foncé, coins arrondis à 4 px |
 | Carte (blanche à fin contour) | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__block`, sans carte) |
 | Carte expertise | `.expertise-cards` > `.expertise-card` | expertises de l'accueil, gris clair sur fond blanc |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |
