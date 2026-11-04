@@ -242,7 +242,7 @@
 
       Cal.ns[ns]('ui', {
         theme: 'light',
-        hideEventTypeDetails: false,
+        hideEventTypeDetails: true, // pas de colonne de gauche : la carte présente déjà l'appel
         layout: 'month_view',
         styles: { branding: { brandColor: '#0D1017' } },
         cssVarsPerTheme: { light: { 'cal-brand': '#0D1017' } },
