@@ -261,16 +261,17 @@
 }
 
 /* --- A7. Grain (tokens/texture.css) -----------------------------------------
-   Tuile monochrome 256 px (assets/grain.png du design system) superposée
-   en fusion overlay. */
+   Tuile SVG générée (bruit fractal gris, environ 1 Ko), posée en fusion
+   overlay : le grain se voit sur l'encre et sur la photo, sans éclaircir
+   le noir. */
 :root {
-  --grain-image: url("../img/grain.png");
-  --grain-tile: 220px;
+  --grain-image: url("../img/grain.svg");
+  --grain-tile: 240px;
   --grain-blend: overlay;
 
-  --grain-subtle: 0.16;  /* blanc et gris */
-  --grain-medium: 0.34;  /* bleu, photos */
-  --grain-strong: 0.58;  /* encre */
+  --grain-subtle: 0.15;  /* réserve : le gris clair et le blanc restent lisses */
+  --grain-medium: 0.3;   /* photo du hero : discret, le texte passe devant */
+  --grain-strong: 1;     /* encre : contact et footer */
 }
 
 

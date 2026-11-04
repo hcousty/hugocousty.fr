@@ -84,6 +84,7 @@
 .hero__media {
   position: relative;
   overflow: hidden;
+  isolation: isolate;        /* grain et voile restent sous le texte */
   border-radius: var(--hero-radius);
   background: var(--ink-500); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
 }
@@ -95,6 +96,29 @@
   inset: 0;
   pointer-events: none;
   background: linear-gradient(to top, var(--veil-ink) 0%, transparent 65%);
+}
+
+/* Grain sur la photo, sous le voile */
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--grain-image);
+  background-size: var(--grain-tile) var(--grain-tile);
+  mix-blend-mode: var(--grain-blend);
+  opacity: var(--grain-medium);
+}
+
+.hero__media::after {
+  z-index: 2;
+}
+
+@media (prefers-contrast: more) {
+  .hero__media::before {
+    display: none;
+  }
 }
 
 .hero__photo {

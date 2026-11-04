@@ -28,7 +28,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
 │   ├── fonts/                  Police Switzer (woff2 + note de licence)
-│   └── img/                    grain.png, og-image.jpg
+│   └── img/                    grain.svg, og-image.jpg
 └── README.md
 ```
 
@@ -124,7 +124,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 ### Fichiers du design system dans le repo
 
 - **Police Switzer** (Indian Type Foundry, gratuite via Fontshare, licence ITF Free Font License, voir `Switzer-licence.txt`) : `/assets/fonts/`, graisses 400, 500, 600 et 700. Hébergée sur le site, sans service externe. Les graisses 400 et 600 sont préchargées dans le `<head>` de chaque page.
-- **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
+- **Grain** : `/assets/img/grain.svg`, tuile générée (bruit fractal, environ 1 Ko). Appliqué au hero, à la section Contact et au footer. Le gris clair et les cartes blanches restent lisses.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
 ---
@@ -184,7 +184,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 ## À faire (hors wireframe)
 
 - [x] Brancher le design system (`tokens.css`)
-- [x] Ajouter les fichiers de police (Switzer) et la tuile `grain.png`
+- [x] Ajouter les fichiers de police (Switzer) et la tuile `grain.svg`
 - [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
