@@ -59,7 +59,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 1 | Hero (photo dans un bloc arrondi, texte posé dessus) | `#top` |
 | 2 | Logos | – |
 | 3 | Expertises (4 cartes gris clair sur fond blanc) | `#expertises` (menu) |
-| 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / En parallèle), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
+| 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / Au quotidien), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
 | 5 | Témoignages, 1 principal + 3 courts (**placeholders**), bloc gris | `#temoignages` |
 | 6 | À propos + encart IA | `#a-propos` (menu) |
 | 7 | Méthode | `#methode` |
