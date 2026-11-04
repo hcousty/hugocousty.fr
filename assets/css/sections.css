@@ -948,18 +948,36 @@ ul.expertise-cards {
   align-self: flex-start;
 }
 
-/* Calendrier de réservation Brevo intégré : pleine largeur de la carte,
-   hauteur fixe proche de celle du module (évite un saut au chargement) */
+/* Calendrier de réservation Cal.com : pleine largeur de la carte. Cal.com
+   ajuste lui-même la hauteur de son cadre ; pendant le chargement, une
+   hauteur réservée et un message évitent un trou puis un saut. */
 .booking {
   margin-top: var(--space-1);
 }
 
-.booking__frame {
+.booking iframe {
   display: block;
   width: 100%;
-  height: var(--booking-height);
   border: 0;
-  border-radius: var(--radius-sm);
+}
+
+.booking.is-loading {
+  display: grid;
+  place-items: center;
+  min-height: var(--booking-height);
+  border-radius: var(--field-radius);
+  background: var(--surface-sunken);
+}
+
+.booking.is-loading::before {
+  content: "Chargement du calendrier…";
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+/* Le cadre Cal.com est posé : le message laisse la place */
+.booking.is-loading:has(iframe)::before {
+  content: none;
 }
 
 /* Le formulaire remplit sa carte ; son bouton garde la largeur du texte */
@@ -976,10 +994,6 @@ ul.expertise-cards {
 /* Texte d'introduction du calendrier : longueur de ligne lisible */
 .contact__booking > p {
   max-width: var(--measure-prose);
-}
-
-.contact__booking .booking__frame {
-  height: var(--booking-height);
 }
 
 /* …puis le formulaire, replié derrière « Vous préférez écrire ? »

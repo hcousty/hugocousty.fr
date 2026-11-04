@@ -13,6 +13,7 @@
       qu'on défile
    4. Réalisations (mobile) : 3 cartes, les autres derrière un bouton
    5. Formulaire de contact (Brevo) : envoi en arrière-plan, puis /merci/
+   6. Calendrier de réservation (Cal.com) : chargé à l'approche de la section
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -209,6 +210,63 @@
       button.disabled = false;
       setStatus("L’envoi n’a pas abouti. Vérifiez vos informations, le téléphone notamment, ou écrivez-moi à hello@hugocousty.fr.");
     });
+  }
+
+
+
+  /* 6. Calendrier de réservation (Cal.com)
+     Code d'intégration fourni par Cal.com, réglé aux couleurs du site (thème
+     clair, couleur principale encre). Le script de Cal.com n'est chargé qu'à
+     l'approche du calendrier : il ne pèse pas sur le reste de la page.
+     Le lien et l'espace de noms viennent des attributs data-cal-* du bloc. */
+  const booking = document.querySelector('[data-cal-link]');
+
+  if (booking) {
+    const loadCal = () => {
+      const ns = booking.dataset.calNamespace || 'rdv';
+
+      /* eslint-disable */
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      /* eslint-enable */
+
+      const Cal = window.Cal;
+      Cal('init', ns, { origin: 'https://app.cal.com' });
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
+
+      Cal.ns[ns]('inline', {
+        elementOrSelector: '#' + booking.id,
+        config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true', theme: 'light' },
+        calLink: booking.dataset.calLink,
+      });
+
+      Cal.ns[ns]('ui', {
+        theme: 'light',
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+        styles: { branding: { brandColor: '#0D1017' } },
+        cssVarsPerTheme: { light: { 'cal-brand': '#0D1017' } },
+      });
+
+      Cal.ns[ns]('on', {
+        action: 'linkReady',
+        callback: () => booking.classList.remove('is-loading'),
+      });
+    };
+
+    booking.classList.add('is-loading');
+
+    if ('IntersectionObserver' in window) {
+      const calObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          calObserver.disconnect();
+          loadCal();
+        }
+      }, { rootMargin: '800px 0px' });
+      calObserver.observe(booking);
+    } else {
+      loadCal();
+    }
   }
 
 })();

@@ -181,7 +181,7 @@
   --weight-semibold: 600;
   --weight-bold: 700;
 
-  --measure-prose: 34em; /* environ 65 caractères par ligne en Inter 16 px */
+  --measure-prose: 34rem; /* environ 65 caractères par ligne en Inter 16 px (rem : même largeur pour les petites notes) */
   --measure-lead: 46ch;
 }
 
@@ -295,8 +295,8 @@
   --hero-inset: var(--space-1);
   --hero-radius: var(--radius-lg);
 
-  /* Hauteur du calendrier de réservation Brevo intégré (section Contact) */
-  --booking-height: 720px;
+  /* Hauteur réservée au calendrier Cal.com pendant son chargement */
+  --booking-height: 560px;
 
   /* Identité dans l'en-tête : photo ronde + point de disponibilité */
   --avatar-size: 36px;
