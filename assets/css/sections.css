@@ -27,17 +27,16 @@
    sections grises ; gris très léger sur les sections blanches.
    ========================================================================== */
 
+/* Carte : blanche à fin contour, comme les cartes Expertises et projets
+   (formats, expertises des pages agences) */
 .card {
   display: flex;
   flex-direction: column;
   gap: var(--space-15);
   padding: var(--space-3);
-  background: var(--surface-card);
+  border: var(--border-width-hairline) solid var(--border-hairline);
   border-radius: var(--card-radius);
-}
-
-.section:not(.section--sunken) .card {
-  background: var(--surface-sunken);
+  background: var(--surface-card);
 }
 
 .card__title {
