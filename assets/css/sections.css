@@ -158,6 +158,20 @@
   margin-top: var(--space-1);
 }
 
+/* Ligne rassurante sous les boutons : durée, prix, engagement */
+.hero__reassure {
+  margin-top: calc(-1 * var(--space-15));
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  text-align: center; /* mobile : centrée sous les boutons pleine largeur */
+}
+
+@media (min-width: 48em) {
+  .hero__reassure {
+    text-align: left;
+  }
+}
+
 .hero__proofs {
   display: grid;
   gap: var(--space-1);
