@@ -74,13 +74,15 @@
          1. HERO
          Photo plein écran (léger retrait, coins arrondis), texte posé dessus
          sans fond. Un voile encre en bas de la photo assure la lisibilité.
-         Pour mettre la vraie photo : remplacer le <div class="placeholder">
-         par <img class="hero__photo" src="…" alt="" width="…" height="…">
-         (sans loading="lazy").
+         Photo en 3 tailles (900, 1400, 2000 px), sans loading="lazy" :
+         c'est la plus grande image visible au chargement.
          =================================================================== -->
     <section class="hero" id="top" aria-labelledby="hero-title" data-theme="inverse">
       <div class="hero__media">
-        <div class="placeholder hero__photo" role="img" aria-label="Photo Hugo">Photo Hugo</div>
+        <img class="hero__photo" src="/assets/img/hero-hugo-1400.webp"
+             srcset="/assets/img/hero-hugo-900.webp 900w, /assets/img/hero-hugo-1400.webp 1400w, /assets/img/hero-hugo-2000.webp 2000w"
+             sizes="100vw" width="2000" height="1335" fetchpriority="high"
+             alt="Hugo Cousty, debout devant son ordinateur portable">
       </div>
 
       <div class="hero__body">

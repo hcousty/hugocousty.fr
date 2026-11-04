@@ -133,6 +133,31 @@
   padding: var(--space-3) var(--gutter);
 }
 
+/* Vraie photo : remplit le cadre sans l'agrandir, visage gardé dans le cadre */
+img.hero__photo {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  object-position: 50% 20%;
+}
+
+/* Mobile : la photo occupe le haut du cadre, cadrée sur le visage, et se
+   fond dans l'encre. Le texte passe dessous, sans couvrir le visage. */
+@media (max-width: 47.99em) {
+  .hero__media {
+    background: var(--surface-page); /* encre, via data-theme="inverse" */
+  }
+
+  img.hero__photo {
+    inset: 0 auto auto -33%;
+    width: 170%;
+    max-width: none;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
+    mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
+  }
+}
+
 .hero__body {
   position: relative;        /* au-dessus du voile */
   align-self: end;
