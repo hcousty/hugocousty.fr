@@ -388,8 +388,8 @@ main {
   color: var(--text-secondary);
 }
 
-.tag--social { background: var(--tag-blue-bg);   color: var(--tag-blue-fg); }
-.tag--google { background: var(--tag-purple-bg); color: var(--tag-purple-fg); }
+.tag--social,
+.tag--google { background: var(--tag-blue-bg);   color: var(--tag-blue-fg); }
 .tag--web    { background: var(--tag-orange-bg); color: var(--tag-orange-fg); }
 .tag--crm    { background: var(--tag-green-bg);  color: var(--tag-green-fg); }
 .tag--data   { background: var(--tag-yellow-bg); color: var(--tag-yellow-fg); }

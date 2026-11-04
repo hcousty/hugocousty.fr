@@ -359,6 +359,22 @@ ul.expertise-cards {
   color: var(--text-primary);
 }
 
+/* Une couleur par expertise : fond clair, texte foncé de la même teinte,
+   comme les étiquettes des Réalisations */
+.expertise-card--ads  { --card-bg: var(--tag-blue-bg);   --card-fg: var(--tag-blue-fg); }
+.expertise-card--web  { --card-bg: var(--tag-orange-bg); --card-fg: var(--tag-orange-fg); }
+.expertise-card--crm  { --card-bg: var(--tag-green-bg);  --card-fg: var(--tag-green-fg); }
+.expertise-card--data { --card-bg: var(--tag-yellow-bg); --card-fg: var(--tag-yellow-fg); }
+
+.expertise-card[class*="expertise-card--"] {
+  background: var(--card-bg);
+  color: var(--card-fg);
+}
+
+.expertise-card[class*="expertise-card--"] .expertise-card__title {
+  color: var(--card-fg);
+}
+
 @media (min-width: 48em) {
   ul.expertise-cards {
     grid-template-columns: repeat(2, 1fr);

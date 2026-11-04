@@ -320,8 +320,7 @@
   /* Étiquettes colorées des expertises (palette des étiquettes de Notion,
      thème clair) : fond pastel, texte foncé de la même teinte. Une couleur
      par expertise, identique dans Expertises et Réalisations. */
-  --tag-blue-bg: rgb(211, 229, 239);   --tag-blue-fg: rgb(24, 51, 71);     /* Social Ads */
-  --tag-purple-bg: rgb(232, 222, 238); --tag-purple-fg: rgb(65, 36, 84);   /* Google Ads */
+  --tag-blue-bg: rgb(211, 229, 239);   --tag-blue-fg: rgb(24, 51, 71);     /* Social Ads et Google Ads */
   --tag-orange-bg: rgb(250, 222, 201); --tag-orange-fg: rgb(73, 41, 14);   /* Sites web */
   --tag-green-bg: rgb(219, 237, 219);  --tag-green-fg: rgb(28, 56, 41);    /* CRM */
   --tag-yellow-bg: rgb(253, 236, 200); --tag-yellow-fg: rgb(64, 44, 27);   /* Tracking */
