@@ -61,14 +61,15 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 3 | Expertises (4 cartes blanches à fin contour, pastille colorée avec icône) | `#expertises` (menu) |
 | 4 | Réalisations : chiffres clés, Harmony à la une (Contexte / Mon rôle / Au quotidien), grille de 6 projets ; en mobile 3 cartes puis « Voir les autres réalisations » | `#realisations` (menu) |
 | 5 | Témoignages, 1 principal + 2 courts (**placeholders**), bloc gris | `#temoignages` |
-| 6 | À propos + encart IA | `#a-propos` (menu) |
+| 6 | À propos | `#a-propos` (menu) |
+| 6 bis | L’IA au service de vos résultats : section à part, bloc gris large, centrée | `#ia` |
 | 7 | Méthode | `#methode` |
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 9 | FAQ | `#faq` (menu) |
 | 10 | Contact, bloc noir soudé au footer : « Réservez un appel » (calendrier Cal.com en thème sombre) puis « Ou envoyez-moi un message » (formulaire Brevo, champs pleins sans contour), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
 | 11 | Footer (noir un peu plus clair) : copyright et email à gauche, liens à droite. Le grand nom « Hugo Cousty » (`.signature-name`) termine la section Contact. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, bloc encre arrondi seul ailleurs | – |
 
-**Fonds de section** : aucune section ne touche les bords de l'écran. Une section à fond (`.section--sunken`) devient un bloc gris clair arrondi, posé avec la même marge que le hero (`--hero-inset`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs, cartes, encart IA. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
+**Fonds de section** : aucune section ne touche les bords de l'écran. Une section à fond (`.section--sunken`) devient un bloc gris clair arrondi, posé avec la même marge que le hero (`--hero-inset`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs de section (Témoignages, IA, Formats), réservés d’images. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
 
 ### Conventions
 
@@ -223,7 +224,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Réservé d'image | `.placeholder` | à remplacer par les vraies images |
 | En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |
 | Hero | `.hero` ★ | photo plein écran avec retrait et rayon, voile encre, texte posé dessus |
-| Encart IA | `.ai-box` | fond gris clair, centré, titre à la taille des titres de section |
+| Section IA | `.ai-box` (+ `.section--sunken`) | bloc gris large comme Témoignages et Formats, contenu centré, titre de section |
 | Mise en avant finale | `.page-cta` ★ | bloc encre avec titre, texte, boutons (pages secondaires) |
 | Barre CTA mobile | `.sticky-cta` | collée en bas, masquée quand un bouton « Réserver » est visible |
 | Pied de page | `.site-footer` ★ | liste de liens, grain |

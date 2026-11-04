@@ -14,7 +14,7 @@
    5.  Chiffres clés
    6.  Réalisations (projet à la une + grille)
    7.  Témoignages
-   8.  À propos + encart IA
+   8.  À propos, puis section IA (bloc gris large)
    9.  Travailler ensemble (offres)
    10. FAQ
    11. Contact
@@ -890,26 +890,18 @@ ul.expertise-cards {
   }
 }
 
-/* --- Encart IA : fond gris clair, sous « À propos » -------------------------
-   Seul bloc centré de la page : il casse l'alignement à gauche du reste et
-   met le sujet en avant. Titre à la taille des titres de section.         */
+/* --- L'IA : section à part, bloc gris large (section--sunken) -----------
+   Contenu centré, titre de section en grand, texte en colonne étroite.   */
 
-.ai-box {
+.ai-box__inner {
   display: grid;
   justify-items: center;
   gap: var(--space-3);
-  margin-top: var(--space-8);
-  padding: var(--space-7) var(--space-3);
-  background: var(--surface-accent-quiet);
-  border-radius: var(--card-radius);
   text-align: center;
 }
 
 .ai-box__title {
   max-width: 16em;
-  font-size: var(--text-h1);
-  line-height: var(--leading-title);
-  letter-spacing: var(--tracking-title);
 }
 
 .ai-box__body {
@@ -924,12 +916,6 @@ ul.expertise-cards {
   margin-top: var(--space-1);
   font-weight: var(--weight-medium);
   color: var(--text-primary);
-}
-
-@media (min-width: 64em) {
-  .ai-box {
-    padding: var(--space-9) var(--space-8);
-  }
 }
 
 
