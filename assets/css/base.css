@@ -931,9 +931,10 @@ select.field__input {
 
 /* Footer : bloc encre arrondi, en écho au hero */
 .site-footer {
+  overflow: hidden; /* coupe le bas du grand nom */
   margin: var(--hero-inset);
   border-radius: var(--hero-radius);
-  padding-block: var(--space-7);
+  padding-top: var(--space-7);
   background: var(--surface-page); /* encre, via data-theme="inverse" */
   font-size: var(--text-body-sm);
   color: var(--text-muted);
@@ -947,6 +948,21 @@ select.field__input {
 
 .site-footer__list a {
   color: var(--text-primary);
+}
+
+/* Grand nom en signature : toute la largeur, gris à peine plus clair que
+   le fond, coupé sous la ligne de base par le bord du footer */
+.site-footer__name {
+  margin: var(--space-6) 0 -0.14em;
+  font-family: var(--font-display);
+  font-size: 14.5vw; /* le nom occupe environ 90 % de la largeur */
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  text-align: center;
+  white-space: nowrap;
+  color: var(--ink-700);
+  user-select: none;
 }
 
 @media (min-width: 48em) {
