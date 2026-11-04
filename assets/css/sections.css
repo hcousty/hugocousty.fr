@@ -232,19 +232,6 @@
   margin-left: calc(-1 * var(--face-overlap));
 }
 
-/* Réservés en attendant les photos : trois gris différents */
-.faces__item--placeholder {
-  background: var(--grey-200);
-}
-
-.faces__item--placeholder:nth-child(2) {
-  background: var(--grey-300);
-}
-
-.faces__item--placeholder:nth-child(3) {
-  background: var(--ink-300);
-}
-
 @media (min-width: 48em) {
   .logos__head {
     flex-direction: row;
