@@ -930,22 +930,22 @@ select.field__input {
    ========================================================================== */
 
 /* Footer : bloc encre arrondi, en écho au hero */
-/* Footer : noir un peu plus clair que la section Contact, grand nom, puis
-   une barre avec le copyright et l'email à gauche, les liens à droite */
+/* Footer : noir un peu plus clair que la section Contact, une barre avec
+   le copyright et l'email à gauche, les liens à droite */
 .site-footer {
   overflow: hidden;
   margin: var(--hero-inset);
   border-radius: var(--hero-radius);
-  padding-block: var(--space-7) var(--space-5);
+  padding-block: var(--space-4);
   background: var(--surface-card); /* encre plus claire, via data-theme="inverse" */
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
 
-/* Grand nom en signature, au-dessus de la barre : toute la largeur du
-   contenu, gris à peine plus clair que le fond */
-.site-footer__name {
-  margin-bottom: var(--space-6);
+/* Grand nom en signature, en bas de la section Contact (fond noir) :
+   toute la largeur du contenu, gris à peine plus clair que le fond */
+.signature-name {
+  margin-top: var(--space-8);
   font-family: var(--font-display);
   font-size: min(14vw, 12rem); /* tient dans la largeur, du mobile au grand écran */
   font-weight: var(--weight-semibold);
@@ -957,14 +957,12 @@ select.field__input {
   user-select: none;
 }
 
-/* Barre du bas : empilée et centrée sur mobile, sur une ligne dès la tablette */
+/* Barre : empilée et centrée sur mobile, sur une ligne dès la tablette */
 .site-footer__bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
-  padding-top: var(--space-3);
-  border-top: var(--border-width-hairline) solid var(--border-hairline);
   text-align: center;
 }
 

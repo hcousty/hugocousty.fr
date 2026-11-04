@@ -998,6 +998,7 @@ ul.expertise-cards {
    un seul bloc encre arrondi en haut, le footer arrondit le bas */
 .section--contact {
   margin-inline: var(--hero-inset);
+  padding-bottom: var(--space-5); /* le grand nom termine la section */
   border-radius: var(--hero-radius) var(--hero-radius) 0 0;
   background: var(--surface-page);
 }
