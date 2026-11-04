@@ -211,6 +211,7 @@
 
 .logos__title {
   margin-bottom: var(--space-4);
+  line-height: var(--leading-normal); /* petit titre : pas l'interligne serré des h2 */
   font-family: var(--font-mono);
   font-size: var(--text-label);
   font-weight: var(--weight-medium);
@@ -499,7 +500,7 @@ ul.expertise-cards {
 .stat__value {
   font-family: var(--font-display);
   font-size: var(--text-display-2);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-display);
   line-height: var(--leading-tight);
   font-variant-numeric: tabular-nums;
@@ -553,6 +554,8 @@ ul.expertise-cards {
 
 .featured__title {
   font-size: var(--text-h1);
+  letter-spacing: var(--tracking-title);
+  line-height: var(--leading-title);
 }
 
 .featured__body > p:last-child {
@@ -706,8 +709,8 @@ ul.expertise-cards {
   max-width: 24em;
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-heading);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-title);
   line-height: var(--leading-snug);
   color: var(--text-primary);
 }
@@ -799,8 +802,8 @@ ul.expertise-cards {
 .ai-box__title {
   max-width: 16em;
   font-size: var(--text-h1);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
 }
 
 .ai-box__body {

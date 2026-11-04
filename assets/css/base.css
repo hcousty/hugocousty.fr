@@ -107,8 +107,18 @@ h1 {
   letter-spacing: var(--tracking-display);
 }
 
-h2 { font-size: var(--text-h1); }
-h3 { font-size: var(--text-h3); }
+/* Titres façon Notion : gras, serrés, lignes collées (le h1 garde le semi-gras) */
+h2 {
+  font-size: var(--text-title);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-title);
+  line-height: var(--leading-title);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+}
 
 p,
 li,
