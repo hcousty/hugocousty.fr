@@ -107,17 +107,8 @@ h1 {
   letter-spacing: var(--tracking-display);
 }
 
-h2 { font-size: var(--text-title); }
+h2 { font-size: var(--text-h1); }
 h3 { font-size: var(--text-h3); }
-
-/* Grands titres en serif : une seule graisse (400), approche légèrement serrée */
-h1,
-h2 {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-regular);
-  letter-spacing: var(--tracking-serif);
-  line-height: 1.05;
-}
 
 p,
 li,

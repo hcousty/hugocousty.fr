@@ -17,33 +17,36 @@
    A. DESIGN SYSTEM
    ========================================================================== */
 
-/* --- A1. Polices (tokens/fonts.css) ----------------------------------------
-   Instrument Serif pour les grands titres (h1, h2 et moments d'affichage),
-   Instrument Sans pour le texte et les petits titres. Licence OFL, voir
-   /assets/fonts/OFL-Instrument.txt. Hébergées sur le site (pas de Google
-   Fonts), sous-ensemble latin (accents français, €, guillemets compris).
-   Instrument Sans est variable : une seule police pour les graisses 400 à 700.
-   Instrument Serif n'existe qu'en 400 : les titres en serif ne sont jamais gras. */
+/* --- A1. Police (tokens/fonts.css) ------------------------------------------
+   Inter, police unique du système (licence OFL, voir /assets/fonts/OFL.txt).
+   Hébergée sur le site (pas de Google Fonts) : 3 graisses utilisées,
+   sous-ensemble latin + latin étendu. */
 
 @font-face {
-  font-family: "Instrument Sans";
-  src: url("../fonts/InstrumentSans-Variable.woff2") format("woff2");
-  font-weight: 400 700;
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Instrument Serif";
-  src: url("../fonts/InstrumentSerif-Regular.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: var(--font-sans); /* petits titres (h3), libellés forts */
-  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif; /* grands titres */
+  --font-sans: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: var(--font-sans); /* les libellés changent de casse, pas de famille */
 }
 
@@ -144,7 +147,6 @@
   --text-display-1: clamp(44px, 6.4vw, 92px);
   --text-display-2: clamp(34px, 4.4vw, 62px);
   --text-h1: clamp(30px, 3.2vw, 44px);
-  --text-title: clamp(36px, 4vw, 56px); /* titres de section en serif : plus grands, l'Instrument Serif est étroit */
   --text-h2: 28px;
   --text-h3: 20px;
   --text-lead: 20px;
@@ -161,7 +163,6 @@
   --tracking-display: -0.03em;
   --tracking-heading: -0.02em;
   --tracking-normal: -0.005em;
-  --tracking-serif: -0.01em;  /* grands titres en Instrument Serif */
   --tracking-label: 0.12em;
 
   --weight-regular: 400;

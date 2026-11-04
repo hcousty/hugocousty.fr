@@ -27,7 +27,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   ├── base.css            Reset, typo, layout, composants communs, header, footer
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
-│   ├── fonts/                  Polices Instrument Serif et Instrument Sans (woff2 + licence OFL)
+│   ├── fonts/                  Police Inter (woff2 + licence OFL)
 │   └── img/                    grain.png, og-image.jpg
 └── README.md
 ```
@@ -120,7 +120,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 ### Fichiers du design system dans le repo
 
-- **Polices** (licence OFL, sous-ensemble latin) : `/assets/fonts/`. **Instrument Serif** (une seule graisse, 400) pour les grands titres : h1, h2, chiffres clés, titre du projet à la une, encart IA et témoignage principal. **Instrument Sans** (variable, 400 à 700) pour tout le reste. Hébergées sur le site, sans Google Fonts, et préchargées dans le `<head>`. Licence : `OFL-Instrument.txt`. Dans les titres en serif, utiliser l'apostrophe typographique ’ plutôt que '. Les fichiers Inter et `OFL.txt` restent dans le dossier tant que le choix n'est pas validé.
+- **Police Inter** (v4.1, licence OFL, sous-ensemble latin) : `/assets/fonts/` — Regular, Medium, SemiBold, et `OFL.txt`. Hébergée sur le site, sans Google Fonts. La graisse Regular est préchargée dans le `<head>` de chaque page.
 - **Grain** : `/assets/img/grain.png`, copié depuis `assets/grain.png` du design system.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
