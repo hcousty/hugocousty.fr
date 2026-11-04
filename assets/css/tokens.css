@@ -306,8 +306,8 @@
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);
 
-  /* Arrondi des champs de formulaire (même arrondi que les cartes) */
-  --field-radius: var(--radius-lg);
+  /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
+  --field-radius: var(--radius-md);
 
   /* Arrondi de tous les boutons (pilule) */
   --button-radius: var(--radius-pill);

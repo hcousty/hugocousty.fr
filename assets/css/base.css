@@ -388,7 +388,7 @@ main {
 }
 
 /* --- Formulaire -------------------------------------------------------------
-   Champs à contour, arrondis comme les cartes (--field-radius). Les états d'erreur
+   Champs à contour, légèrement arrondis (--field-radius). Les états d'erreur
    natifs du navigateur suffisent pour un formulaire de contact.          */
 
 .form {
