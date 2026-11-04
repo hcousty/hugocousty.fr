@@ -330,7 +330,7 @@
   --icon-blue: #2383E2;
   --icon-orange: #F28C38;
   --icon-green: #2EAA5C;
-  --icon-yellow: #F5B800;
+  --icon-yellow: #E0A100; /* jaune un peu plus soutenu pour que l'icône blanche se lise */
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
   --card-radius: var(--radius-lg);

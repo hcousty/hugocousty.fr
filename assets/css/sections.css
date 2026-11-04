@@ -365,7 +365,7 @@ ul.expertise-cards {
   margin-bottom: var(--space-6);
   border-radius: 50%;
   background: var(--icon-color, var(--surface-sunken));
-  color: var(--ink-900);
+  color: var(--white); /* icône blanche sur la pastille de couleur */
 }
 
 .expertise-card__title {
