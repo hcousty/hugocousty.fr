@@ -242,7 +242,7 @@
 
       Cal.ns[ns]('ui', {
         theme: 'dark', // section Contact sur fond noir
-        hideEventTypeDetails: true, // pas de colonne de gauche : la carte présente déjà l'appel
+        hideEventTypeDetails: true, // pas de colonne de gauche : le titre de la section présente déjà l'appel
         layout: 'month_view',
         styles: { branding: { brandColor: '#FFFFFF' } },
         cssVarsPerTheme: { dark: { 'cal-brand': '#FFFFFF' } },
