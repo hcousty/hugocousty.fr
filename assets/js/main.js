@@ -180,11 +180,18 @@
       button.disabled = true;
       setStatus('Envoi en cours…');
 
+      // Téléphone facultatif : sans numéro, on n'envoie pas non plus l'indicatif
+      const data = new FormData(contactForm);
+      if (!data.get('SMS')) {
+        data.delete('SMS');
+        data.delete('SMS__COUNTRY_CODE');
+      }
+
       let response;
       try {
         response = await fetch(contactForm.action + '?isAjax=1', {
           method: 'POST',
-          body: new FormData(contactForm),
+          body: data,
         });
       } catch (error) {
         contactForm.submit();

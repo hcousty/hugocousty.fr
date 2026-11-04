@@ -343,9 +343,9 @@
                 <input class="field__input" id="contact-email" name="EMAIL" type="email" autocomplete="email" required>
               </div>
               <div class="field">
-                <label class="field__label" for="contact-tel">Téléphone</label>
+                <label class="field__label" for="contact-tel">Téléphone <span class="field__optional">(facultatif)</span></label>
                 <div class="field__phone">
-                  <select class="field__input" name="SMS__COUNTRY_CODE" aria-label="Indicatif du pays" autocomplete="tel-country-code" required>
+                  <select class="field__input" name="SMS__COUNTRY_CODE" aria-label="Indicatif du pays" autocomplete="tel-country-code">
                     <option value="+33" selected>France (+33)</option>
                     <option value="+41">Suisse (+41)</option>
                     <option value="+32">Belgique (+32)</option>
@@ -359,7 +359,7 @@
                     <option value="+31">Pays-Bas (+31)</option>
                     <option value="+351">Portugal (+351)</option>
                   </select>
-                  <input class="field__input" id="contact-tel" name="SMS" type="tel" inputmode="tel" autocomplete="tel-national" pattern="[0-9 .()+\-]{6,22}" placeholder="06 12 34 56 78" required>
+                  <input class="field__input" id="contact-tel" name="SMS" type="tel" inputmode="tel" autocomplete="tel-national" pattern="[0-9 .()+\-]{6,22}" placeholder="06 12 34 56 78">
                 </div>
               </div>
               <div class="field">
