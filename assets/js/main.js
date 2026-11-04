@@ -207,7 +207,7 @@
       }
 
       button.disabled = false;
-      setStatus("L'envoi n'a pas abouti. Vérifiez vos informations, le téléphone notamment, ou écrivez-moi à hello@hugocousty.fr.");
+      setStatus("L’envoi n’a pas abouti. Vérifiez vos informations, le téléphone notamment, ou écrivez-moi à hello@hugocousty.fr.");
     });
   }
 

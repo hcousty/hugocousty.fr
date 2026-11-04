@@ -48,6 +48,11 @@
   color: var(--text-secondary);
 }
 
+/* Les notes (formulaire, calendrier) gardent leur gris dans les cartes */
+.card .field__note {
+  color: var(--text-muted);
+}
+
 .section-cta {
   margin-top: var(--space-6);
 }
@@ -136,8 +141,14 @@
 
 .hero__lead {
   max-width: var(--measure-lead);
-  font-size: var(--text-lead);
+  font-size: 1.125rem; /* mobile : le titre domine nettement le chapô */
   color: var(--text-secondary);
+}
+
+@media (min-width: 48em) {
+  .hero__lead {
+    font-size: var(--text-lead);
+  }
 }
 
 .hero__actions {
@@ -339,7 +350,8 @@ ul.expertise-cards {
   }
 }
 
-@media (min-width: 64em) {
+/* 4 sur une ligne seulement quand chaque carte a assez de largeur */
+@media (min-width: 75em) {
   ul.expertise-cards {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -485,6 +497,7 @@ ul.expertise-cards {
 }
 
 .stats__note {
+  max-width: var(--measure-prose);
   margin-top: var(--space-5);
   font-size: var(--text-caption);
   color: var(--text-muted);
@@ -544,7 +557,8 @@ ul.expertise-cards {
 
 .featured__facts dt {
   font-size: var(--text-caption);
-  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
 }
 
 .featured__facts dd {
@@ -555,7 +569,7 @@ ul.expertise-cards {
 
 @media (min-width: 64em) {
   .featured {
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); /* minmax : le visuel ne peut plus écraser le texte */
     gap: var(--space-7);
   }
 }
@@ -805,7 +819,7 @@ ul.expertise-cards {
 }
 
 .offer__pitch {
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
 }
 
 .card .offer__pitch {
@@ -959,6 +973,11 @@ ul.expertise-cards {
 }
 
 /* Accueil : le calendrier d'abord, en pleine largeur… */
+/* Texte d'introduction du calendrier : longueur de ligne lisible */
+.contact__booking > p {
+  max-width: var(--measure-prose);
+}
+
 .contact__booking .booking__frame {
   height: var(--booking-height);
 }
