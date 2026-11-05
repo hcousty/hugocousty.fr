@@ -1134,7 +1134,7 @@ img.about__photo {
   border-radius: 50%;
   background: conic-gradient(from calc(var(--ia-p) * 360deg),
     var(--orb-green), var(--orb-gold), var(--orb-peach), var(--orb-pink), var(--orb-green));
-  filter: blur(22px) saturate(150%);
+  filter: blur(14px) saturate(150%);
   opacity: 1;
   animation: ai-orb-breathe 6s var(--ease-in-out) infinite;
 }

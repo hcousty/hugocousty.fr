@@ -354,7 +354,7 @@
   --orb-gold: #FCD36A;
   --orb-peach: #FFC2A8;
   --orb-pink: #F6B9FF;
-  --ai-orb-size: 148px;
+  --ai-orb-size: 96px;
 
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
