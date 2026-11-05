@@ -684,7 +684,7 @@ select.field__input {
 .site-id__name {
   max-width: 12em;
   margin-right: var(--space-2);
-  font-size: var(--text-body);
+  font-size: var(--text-header-name);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-heading);
 }
@@ -716,7 +716,7 @@ select.field__input {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-body);
   font-weight: var(--weight-medium);
 }
 
@@ -880,7 +880,7 @@ select.field__input {
 
   .site-nav__link {
     padding: var(--space-05) 0;
-    font-size: var(--text-body-sm);
+    font-size: var(--text-body);
   }
 }
 
