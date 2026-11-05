@@ -355,8 +355,8 @@
   --tag-web: #FCE6A8;   /* doré : Sites web */
   --tag-crm: #FFDCCB;   /* pêche : CRM */
   --tag-data: #F6D6FF;  /* rose : Tracking */
-  /* Pastilles des cartes Expertises : mêmes teintes, un cran plus soutenues
-     pour rester visibles en petit sur fond blanc */
+  /* Contour des cartes Expertises : mêmes teintes, un cran plus soutenues
+     pour rester visibles en filet fin sur fond blanc */
   --dot-ads: #9BDB4C;
   --dot-web: #F5C33B;
   --dot-crm: #FFB08F;

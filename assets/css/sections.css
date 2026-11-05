@@ -541,15 +541,13 @@ ul.expertise-cards {
 
 /* Repère de couleur : une petite pastille avant le titre, de la couleur
    des étiquettes de projets de la même expertise. Volontairement discret. */
-/* Repère de couleur : petite pastille posée au-dessus du titre */
-.expertise-card__title::before {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin-bottom: var(--space-2);
-  border-radius: 50%;
-  background: var(--expertise-dot, transparent);
+/* Repère de couleur : le contour fin de la carte prend la couleur de
+   l'expertise (la même que les étiquettes des projets) */
+.expertise-card--ads,
+.expertise-card--web,
+.expertise-card--crm,
+.expertise-card--data {
+  border-color: var(--expertise-dot);
 }
 
 .expertise-card--ads  { --expertise-dot: var(--dot-ads); }
