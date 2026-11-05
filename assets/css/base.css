@@ -428,16 +428,20 @@ a.btn--secondary:hover::after {
   gap: var(--space-1);
 }
 
-/* Étiquette monochrome (façon étiquette grise de Notion) : fond gris clair,
-   texte foncé, coins légèrement arrondis, sans contour */
+/* Étiquette en contour (inspirée de TwelveLabs) : petites capitales dans
+   un cadre fin, fond transparent, coins légèrement arrondis */
 .tag {
   display: inline-block;
-  padding: 1px var(--space-1);
+  padding: 1px 6px;
+  border: var(--border-width-hairline) solid var(--text-faint);
   border-radius: var(--tag-radius);
-  background: var(--surface-sunken);
-  font-size: var(--text-caption);
+  background: transparent;
+  font-size: var(--text-label);
   font-weight: var(--weight-medium);
-  line-height: 1.5;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  white-space: nowrap;
   color: var(--text-primary);
 }
 

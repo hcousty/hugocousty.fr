@@ -455,34 +455,49 @@
       <div class="container">
         <header class="section-head">
           <h2 id="offres-title">3&nbsp;formats pour travailler ensemble</h2>
-          <p class="section-head__intro">Une mission ponctuelle ou un accompagnement dans la durée, on choisit ensemble. Devis sous 48&nbsp;h après notre premier échange.</p>
+          <p class="section-head__intro">Une mission ponctuelle ou un accompagnement dans la durée, on choisit ensemble.</p>
         </header>
 
+        <!-- Cartes façon grille tarifaire : nom, pour qui, format en grand,
+             bouton, puis le contenu sous un filet. Le format recommandé
+             (offer--featured) a le bouton plein et le dégradé pastel. -->
         <ul class="offers">
-          <li class="card offer">
-            <h3 class="card__title" id="offre-audit">Audit et cadrage</h3>
+          <li class="offer">
+            <h3 class="offer__title" id="offre-audit">Audit et cadrage</h3>
             <p class="offer__pitch">Pour faire le point avant d’investir.</p>
-            <p>Analyse de vos campagnes, de votre site ou de votre suivi des performances, puis recommandations concrètes et priorisées.</p>
-            <p class="offer__format"><strong>Format :</strong> forfait, livré en 1 à 3&nbsp;semaines.</p>
+            <p class="offer__value">Forfait <span>livré en 1 à 3&nbsp;semaines</span></p>
+            <a class="btn btn--secondary btn--block" href="#reserver">Réserver un appel</a>
+            <div class="offer__row">
+              <p class="offer__label">Ce que je fais</p>
+              <p>Analyse de vos campagnes, de votre site ou de votre suivi des performances, puis recommandations concrètes et priorisées.</p>
+            </div>
           </li>
-          <li class="card offer">
-            <h3 class="card__title" id="offre-projet">Mission projet</h3>
+          <li class="offer">
+            <h3 class="offer__title" id="offre-projet">Mission projet</h3>
             <p class="offer__pitch">Pour un besoin précis avec un début et une fin.</p>
-            <p>Lancement de campagnes, refonte de site, mise en place du suivi des performances ou d’un CRM, brief créatif.</p>
-            <p class="offer__format"><strong>Format :</strong> forfait ou nombre de jours défini.</p>
+            <p class="offer__value">Forfait <span>ou nombre de jours défini</span></p>
+            <a class="btn btn--secondary btn--block" href="#reserver">Réserver un appel</a>
+            <div class="offer__row">
+              <p class="offer__label">Ce que je fais</p>
+              <p>Lancement de campagnes, refonte de site, mise en place du suivi des performances ou d’un CRM, brief créatif.</p>
+            </div>
           </li>
-          <li class="card offer">
-            <h3 class="card__title" id="offre-mensuel">Accompagnement mensuel</h3>
+          <li class="offer offer--featured">
+            <div class="offer__top">
+              <h3 class="offer__title" id="offre-mensuel">Accompagnement mensuel</h3>
+              <span class="tag">Recommandé</span>
+            </div>
             <p class="offer__pitch">Pour piloter votre marketing dans la durée.</p>
-            <p>Gestion des campagnes, suivi des performances, optimisations et reporting réguliers.</p>
-            <p class="offer__format"><strong>Format :</strong> forfait mensuel ou nombre de jours par mois, sans engagement long.</p>
+            <p class="offer__value">Mensuel <span>ou jours par mois, sans engagement long</span></p>
+            <a class="btn btn--primary btn--block" href="#reserver">Réserver un appel</a>
+            <div class="offer__row">
+              <p class="offer__label">Ce que je fais</p>
+              <p>Gestion des campagnes, suivi des performances, optimisations et reporting réguliers.</p>
+            </div>
           </li>
         </ul>
 
-        <p class="offers__note">Dans tous les cas, je transmets mes méthodes et forme vos équipes pour qu’elles gagnent en autonomie.</p>
-
-        <!-- Un seul bouton pour les trois formats : l'appel vient avant le devis -->
-        <a class="btn btn--primary offers__cta" href="#reserver">Réserver un appel</a>
+        <p class="offers__note">Dans tous les cas, je transmets mes méthodes et forme vos équipes pour qu’elles gagnent en autonomie. Devis sous 48&nbsp;h après notre premier échange.</p>
       </div>
     </section>
 
@@ -492,55 +507,53 @@
          Accordéon natif <details>/<summary> : aucun JS nécessaire
          =================================================================== -->
     <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container container--narrow">
+      <div class="container">
         <header class="section-head">
           <h2 id="faq-title">Questions fréquentes</h2>
         </header>
 
+        <!-- Deux colonnes sur desktop (3 questions chacune), une seule ouverte à la fois -->
         <div class="faq">
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">Travaillez-vous en B2B ou en B2C&#8239;?</summary>
-            <div class="faq__answer">
-              <p>Les deux. Côté B2C, surtout de l’e&#8209;commerce et de la génération de prospects pour des services aux particuliers. Côté B2B, de la génération de prospects qualifiés, souvent sur LinkedIn et Google, avec des cycles de vente plus longs à suivre dans le CRM. Les outils sont proches, les messages et les indicateurs ne le sont pas, et c’est là que l’expérience des deux compte.</p>
-            </div>
-          </details>
-
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">Combien coûte une mission&#8239;? Faut-il un budget pub minimum&#8239;?</summary>
-            <div class="faq__answer">
-              <p>Après un premier échange, je vous envoie une proposition claire : au forfait pour un audit ou une mission ponctuelle, au forfait mensuel ou en jours par mois pour un accompagnement. Pas de budget publicitaire minimum imposé, mais je vous dis franchement si le vôtre permet d’atteindre vos objectifs.</p>
-            </div>
-          </details>
-
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">En combien de temps voit-on des résultats&#8239;?</summary>
-            <div class="faq__answer">
-              <p>Pour un site, cela dépend de son ampleur : quelques semaines pour une landing page, plusieurs mois pour une refonte complète. Pour les campagnes, les premiers signaux arrivent en 2 à 4&nbsp;semaines et les résultats solides se mesurent sur 2 à 3&nbsp;mois.</p>
-            </div>
-          </details>
-
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">En combien de temps pouvez-vous démarrer&#8239;?</summary>
-            <div class="faq__answer">
-              <p>En général sous 1 à 2&nbsp;semaines, selon mon planning et l’urgence du projet.</p>
-            </div>
-          </details>
-
-
-
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">Travaillez-vous avec nos équipes ou nos prestataires&#8239;?</summary>
-            <div class="faq__answer">
-              <p>Oui. Je m’intègre à votre équipe marketing, votre agence créative ou votre développeur, et je coordonne quand c’est utile.</p>
-            </div>
-          </details>
-
-          <details class="faq__item" name="faq">
-            <summary class="faq__question">Qui est propriétaire des comptes et des outils&#8239;?</summary>
-            <div class="faq__answer">
-              <p>Vous, toujours. Les comptes sont créés à votre nom et vous me donnez un accès. Si on arrête de travailler ensemble, vous gardez tout.</p>
-            </div>
-          </details>
+          <div class="faq__col">
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">Travaillez-vous en B2B ou en B2C&#8239;?</summary>
+              <div class="faq__answer">
+                <p>Les deux. Côté B2C, surtout de l’e&#8209;commerce et de la génération de prospects pour des services aux particuliers. Côté B2B, de la génération de prospects qualifiés, souvent sur LinkedIn et Google, avec des cycles de vente plus longs à suivre dans le CRM. Les outils sont proches, les messages et les indicateurs ne le sont pas, et c’est là que l’expérience des deux compte.</p>
+              </div>
+            </details>
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">Combien coûte une mission&#8239;? Faut-il un budget pub minimum&#8239;?</summary>
+              <div class="faq__answer">
+                <p>Après un premier échange, je vous envoie une proposition claire&nbsp;: au forfait pour un audit ou une mission ponctuelle, au forfait mensuel ou en jours par mois pour un accompagnement. Pas de budget publicitaire minimum imposé, mais je vous dis franchement si le vôtre permet d’atteindre vos objectifs.</p>
+              </div>
+            </details>
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">En combien de temps voit-on des résultats&#8239;?</summary>
+              <div class="faq__answer">
+                <p>Pour un site, cela dépend de son ampleur&nbsp;: quelques semaines pour une landing page, plusieurs mois pour une refonte complète. Pour les campagnes, les premiers signaux arrivent en 2 à 4&nbsp;semaines et les résultats solides se mesurent sur 2 à 3&nbsp;mois.</p>
+              </div>
+            </details>
+          </div>
+          <div class="faq__col">
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">En combien de temps pouvez-vous démarrer&#8239;?</summary>
+              <div class="faq__answer">
+                <p>En général sous 1 à 2&nbsp;semaines, selon mon planning et l’urgence du projet.</p>
+              </div>
+            </details>
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">Travaillez-vous avec nos équipes ou nos prestataires&#8239;?</summary>
+              <div class="faq__answer">
+                <p>Oui. Je m’intègre à votre équipe marketing, votre agence créative ou votre développeur, et je coordonne quand c’est utile.</p>
+              </div>
+            </details>
+            <details class="faq__item" name="faq">
+              <summary class="faq__question">Qui est propriétaire des comptes et des outils&#8239;?</summary>
+              <div class="faq__answer">
+                <p>Vous, toujours. Les comptes sont créés à votre nom et vous me donnez un accès. Si on arrête de travailler ensemble, vous gardez tout.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>

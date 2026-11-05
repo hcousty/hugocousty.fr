@@ -207,7 +207,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 |---|---|---|
 | Bouton | `.btn` | primary ★ (avec flèche ↗), secondary ★, small (en-tête), block (barre mobile) · survol, actif, focus |
 | Surtitre | `.eyebrow` | ★ |
-| Étiquette | `.tag` | monochrome : fond gris clair, texte foncé, coins arrondis à 4 px |
+| Étiquette | `.tag` | en contour : petites capitales dans un cadre fin, fond transparent, coins arrondis à 4 px |
 | Carte (blanche à fin contour) | `.card` | expertise (pages agences), offre (`.offer`), contact (`.contact__block`, sans carte) |
 | Carte expertise | `.expertise-cards` > `.expertise-card` | expertises de l'accueil, gris clair sur fond blanc |
 | Carte projet | `.project-card` | avec ou sans ligne « En agence (…) » |

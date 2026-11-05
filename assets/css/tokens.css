@@ -335,6 +335,10 @@
   --pastel-yellow: #FBF0A8;
   --pastel-pink: #F6CDE6;
 
+  /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
+  --offer-radius: 28px;
+  --offer-fade: rgba(246, 205, 230, .35); /* rose pastel très léger */
+
   /* Taille de la flèche ↗ des boutons */
   --icon-size-button: 16px;
 
