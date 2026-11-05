@@ -1112,6 +1112,102 @@ img.about__photo {
   max-width: 16em;
 }
 
+/* --- Orbe IA ---------------------------------------------------------------
+   Étincelle à quatre branches (SVG), deux plus petites qui scintillent, sur
+   un halo flou aux couleurs du dégradé. --ia-p (0 à 1) est posé par
+   main.js selon la position de la section dans l'écran : le halo tourne,
+   l'étincelle pivote, grossit un peu et monte légèrement. */
+.ai-orb {
+  --ia-p: .5;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--ai-orb-size);
+  height: var(--ai-orb-size);
+  margin-bottom: var(--space-2);
+  transform: translateY(calc((.5 - var(--ia-p)) * 40px));
+}
+
+.ai-orb__halo {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: conic-gradient(from calc(var(--ia-p) * 360deg),
+    var(--orb-green), var(--orb-gold), var(--orb-peach), var(--orb-pink), var(--orb-green));
+  filter: blur(22px) saturate(150%);
+  opacity: 1;
+  animation: ai-orb-breathe 6s var(--ease-in-out) infinite;
+}
+
+.ai-orb__spark {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  fill: var(--text-primary);
+  transform: rotate(calc(var(--ia-p) * 90deg)) scale(calc(.85 + var(--ia-p) * .3));
+  filter: drop-shadow(0 6px 14px rgba(13, 16, 23, .18));
+}
+
+.ai-orb__spark--small,
+.ai-orb__spark--tiny {
+  position: absolute;
+  filter: none;
+  animation: ai-orb-twinkle 3.2s var(--ease-in-out) infinite;
+}
+
+.ai-orb__spark--small {
+  top: 6%;
+  right: 4%;
+  width: 18%;
+  height: 18%;
+  transform: rotate(calc(var(--ia-p) * -120deg));
+}
+
+.ai-orb__spark--tiny {
+  bottom: 12%;
+  left: 6%;
+  width: 11%;
+  height: 11%;
+  transform: rotate(calc(var(--ia-p) * 160deg));
+  animation-delay: 1.6s;
+}
+
+@keyframes ai-orb-breathe {
+  0%, 100% { transform: scale(.92); }
+  50% { transform: scale(1.06); }
+}
+
+@keyframes ai-orb-twinkle {
+  0%, 100% { opacity: .25; }
+  50% { opacity: 1; }
+}
+
+/* Lecture au fil du scroll : les mots s'allument l'un après l'autre,
+   comme un texte en train d'être écrit (mots créés par main.js) */
+.ai-word {
+  opacity: .2;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.ai-word.is-lit {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-orb,
+  .ai-orb__spark,
+  .ai-orb__spark--small,
+  .ai-orb__spark--tiny,
+  .ai-orb__halo {
+    animation: none;
+    transform: none;
+  }
+
+  .ai-word {
+    opacity: 1;
+  }
+}
+
 .ai-box__body {
   display: grid;
   gap: var(--space-2);

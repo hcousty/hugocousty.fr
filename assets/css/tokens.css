@@ -349,6 +349,13 @@
   --band-gold: rgba(250, 185, 32, .5);
   --band-green: rgba(132, 219, 26, .5);
 
+  /* Orbe animée de la section IA : mêmes teintes, pleines */
+  --orb-green: #B6EC6A;
+  --orb-gold: #FCD36A;
+  --orb-peach: #FFC2A8;
+  --orb-pink: #F6B9FF;
+  --ai-orb-size: 148px;
+
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
   --offer-fade: rgba(246, 205, 230, .35); /* rose pastel très léger */

@@ -290,4 +290,83 @@
     marquee.classList.add('is-marquee');
   }
 
+
+
+  /* 8. Section IA : orbe et lecture au fil du scroll
+     --ia-p (0 → 1) suit la traversée de la section dans l'écran : l'orbe
+     tourne et grossit. Les mots du texte s'allument un à un pendant la
+     lecture. Rien ne bouge si l'utilisateur réduit les animations ; sans
+     JS, tout reste visible et immobile. */
+  const ai = document.querySelector('[data-ai]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (ai && !reduceMotion.matches) {
+    const orb = ai.querySelector('.ai-orb');
+    const read = ai.querySelector('[data-ai-read]');
+    const words = [];
+
+    // Découpe les nœuds texte en mots (espaces insécables conservés)
+    const split = (node) => {
+      [...node.childNodes].forEach((child) => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const parts = child.textContent.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part) && !/\u00a0/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'ai-word';
+              span.textContent = part;
+              words.push(span);
+              frag.appendChild(span);
+            }
+          });
+          child.replaceWith(frag);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          split(child);
+        }
+      });
+    };
+    if (read) split(read);
+
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    let ticking = false;
+
+    const update = () => {
+      const vh = window.innerHeight;
+      const r = ai.getBoundingClientRect();
+      if (orb) orb.style.setProperty('--ia-p', clamp((vh - r.top) / (vh + r.height)).toFixed(3));
+      if (read && words.length) {
+        const b = read.getBoundingClientRect();
+        const p = clamp((vh * .85 - b.top) / (b.height + vh * .25));
+        const lit = Math.round(p * words.length);
+        words.forEach((w, i) => w.classList.toggle('is-lit', i < lit));
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    };
+
+    // N'écoute le scroll que lorsque la section est proche de l'écran
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', onScroll, { passive: true });
+          update();
+        } else {
+          window.removeEventListener('scroll', onScroll);
+        }
+      });
+    }, { rootMargin: '200px 0px' }).observe(ai);
+
+    update();
+  }
+
 })();
