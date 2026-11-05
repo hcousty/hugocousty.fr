@@ -70,7 +70,6 @@
 
   /* Blanc et gris froids : le fond dominant est le blanc pur */
   --white: #FFFFFF;
-  --grey-050: #F6F7F9;
   --grey-100: #F0F5FE; /* gris bleuté très clair : blocs de section (témoignages, formats), réservés */
   --grey-200: #E1E4EA;
   --grey-300: #CDD2DA;
@@ -91,7 +90,6 @@
   --text-secondary: var(--ink-700);
   --text-muted: var(--ink-500);
   --text-faint: var(--ink-400);
-  --text-inverse: var(--white);
   --text-accent: var(--ink-900);
   --text-positive: var(--forest-600);
   --text-warning: var(--amber-600);
@@ -101,9 +99,6 @@
   --surface-card: var(--white);
   --surface-sunken: var(--grey-100); /* un seul gris clair : blocs de section, cartes, encart IA */
   --surface-quiet: var(--grey-100);
-  --surface-inverse: var(--ink-900);
-  --surface-accent: var(--ink-900);
-  --surface-accent-quiet: var(--grey-100);
 
   --border-hairline: var(--grey-200);
   --border-mid: var(--grey-300);
@@ -119,7 +114,6 @@
   /* Verre : surfaces translucides floutées (boutons secondaires, menus,
      barres flottantes). Teinte encre sur fond clair, blanche sur fond sombre. */
   --glass-bg: rgba(13, 16, 23, .06);
-  --glass-bg-hover: rgba(13, 16, 23, .11);
   --glass-panel: var(--white); /* menu mobile : opaque, le texte de la page ne doit pas transparaître */
   --glass-blur: saturate(160%) blur(16px);
 }
@@ -136,7 +130,6 @@
   --surface-card: var(--ink-800);
   --surface-sunken: #101318;
   --surface-quiet: var(--ink-800);
-  --surface-inverse: var(--ink-900);
   --border-hairline: #262C38;
   --border-mid: #3B4353;
   --border-strong: var(--white);
@@ -146,7 +139,6 @@
   --action-bg-active: var(--grey-300);
   --focus-ring: var(--white);
   --glass-bg: rgba(255, 255, 255, .14);
-  --glass-bg-hover: rgba(255, 255, 255, .22);
   --glass-panel: var(--ink-900);
 }
 
@@ -189,7 +181,6 @@
 
 /* --- A4. Espacements et grille (tokens/spacing.css) ------------------------- */
 :root {
-  --space-0: 0px;
   --space-025: 2px;
   --space-05: 4px;
   --space-1: 8px;
@@ -208,15 +199,13 @@
   --gutter: clamp(20px, 5vw, 64px);
   --container-max: 1240px;
   --container-prose: 720px;
-  --section-y: clamp(64px, 9vw, 136px);
-  --grid-columns: 12;
+  --section-y: clamp(64px, 7.5vw, 112px);
   --grid-gap: 24px;
 }
 
 /* --- A5. Rayons, filets, ombre, voiles (tokens/surfaces.css) ---------------- */
 :root {
   /* Rayons quasi nuls : la marque est angulaire */
-  --radius-0: 0px;
   --radius-sm: 2px;    /* contrôles */
   --radius-md: 6px;    /* cartes */
   --radius-lg: 10px;   /* maximum */
@@ -226,12 +215,9 @@
   --border-width-strong: 1.5px;
 
   /* Une seule ombre, réservée aux calques flottants (en-tête, modale) */
-  --shadow-none: none;
   --shadow-pop: 0 1px 2px rgba(14, 14, 15, .05), 0 14px 36px -10px rgba(14, 14, 15, .20);
-  --shadow-inset-hairline: inset 0 -1px 0 var(--border-hairline);
 
   --blur-veil: saturate(140%) blur(12px);
-  --veil-paper: rgba(255, 255, 255, .78);
   --veil-ink: rgba(14, 14, 15, .66);
 }
 
@@ -245,7 +231,6 @@
   --ease-out: cubic-bezier(.16, .84, .32, 1);
   --ease-morph: cubic-bezier(.65, 0, .25, 1); /* départ et arrivée en douceur */
   --ease-in-out: cubic-bezier(.5, 0, .5, 1);
-  --ease-standard: cubic-bezier(.2, .7, .2, 1);
   --transition-control:
     color var(--duration-fast) var(--ease-out),
     background-color var(--duration-fast) var(--ease-out),
@@ -285,20 +270,14 @@
      toujours visible, posée sur le hero. Teinte légère + flou ; le texte
      passe en blanc sur les blocs sombres, en encre sur les blocs clairs. */
   --header-height-top: 72px;
-  --header-height: 56px;
-  --header-top: var(--space-25);
   --header-offset: var(--header-height-top); /* marge des ancres sous la barre */
   --header-bar: rgba(255, 255, 255, .72);      /* sur fond clair */
   --header-bar-blur: saturate(160%) blur(12px);
   --header-glass: rgba(13, 16, 23, .82);
-  --header-width-compact: 880px; /* largeur max de la pilule sur desktop */
-  --header-morph: var(--duration-morph) var(--ease-morph); /* passage barre → pilule */
   --header-edge: inset 0 1px 0 rgba(255, 255, 255, .14); /* arête blanche intérieure */
   --header-link: var(--text-secondary);
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
-  --hero-inset: var(--space-1);
-  --hero-radius: 40px;
   --contact-radius: clamp(40px, 6vw, 88px); /* haut de la section Contact, pleine largeur */
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
@@ -331,7 +310,7 @@
   --card-radius: 40px; /* cartes et photos : très arrondies, comme les cartes des formats */
 
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
-  --field-radius: var(--radius-md);
+  --field-radius: var(--button-radius-small); /* 14 px, comme les petits boutons */
 
   /* Arrondi de tous les boutons (rectangle arrondi) */
   --button-radius: 18px;        /* rectangle aux coins bien arrondis (comme TwelveLabs) */
@@ -340,9 +319,6 @@
   --button-height-small: 44px;
 
   /* Dégradé pastel (seule couleur du site, encart IA) : vert, jaune, rose */
-  --pastel-green: #D6F5B4;
-  --pastel-yellow: #FBF0A8;
-  --pastel-pink: #F6CDE6;
 
   /* Bande de couleurs du fond IA + Méthode (à 30 %, plus léger que TwelveLabs) */
   --band-pink: rgba(246, 175, 255, .3);
@@ -350,13 +326,6 @@
   --band-gold: rgba(250, 185, 32, .3);
   --band-green: rgba(132, 219, 26, .3);
 
-
-  /* Étiquettes des projets : les 4 couleurs du dégradé IA, éclaircies
-     pour garder un texte foncé lisible (contraste > 12:1) */
-  --tag-ads: #D7F2B5;   /* vert : Social Ads, Google Ads */
-  --tag-web: #FCE6A8;   /* doré : Sites web */
-  --tag-crm: #FFDCCB;   /* pêche : CRM */
-  --tag-data: #F6D6FF;  /* rose : Tracking */
 
   /* Orbe animée de la section IA : mêmes teintes, pleines */
   --orb-green: #B6EC6A;

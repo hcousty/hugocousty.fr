@@ -116,7 +116,7 @@ h2 {
 
 h3 {
   font-size: var(--text-h3);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
 }
 
 p,
@@ -282,13 +282,6 @@ main:has(> .hero:first-child) {
   margin-inline: auto;
 }
 
-/* Paragraphe de prose longue */
-.prose {
-  max-width: var(--measure-prose);
-  line-height: var(--leading-loose);
-  color: var(--text-secondary);
-}
-
 
 /* 5. Composants
    ========================================================================== */
@@ -436,23 +429,6 @@ a.btn--secondary:hover::after {
   white-space: nowrap;
   color: var(--text-primary);
 }
-
-/* Étiquettes d'expertise (projets) : fond teinté d'une des 4 couleurs du
-   dégradé IA, texte foncé, sans contour. Une couleur par expertise :
-   vert = Social et Google Ads, doré = Sites web, pêche = CRM,
-   rose = Tracking. */
-.tag--ads,
-.tag--web,
-.tag--crm,
-.tag--data {
-  border-color: transparent;
-  color: var(--ink-900);
-}
-
-.tag--ads  { background: var(--tag-ads); }
-.tag--web  { background: var(--tag-web); }
-.tag--crm  { background: var(--tag-crm); }
-.tag--data { background: var(--tag-data); }
 
 /* --- Placeholder d'image ----------------------------------------------------
    Réservé qui nomme l'image attendue (MediaFrame du design system).
@@ -770,16 +746,6 @@ select.field__input {
   object-fit: cover;
 }
 
-/* Réservé en attendant la photo : initiales sur fond gris */
-.avatar--placeholder {
-  display: grid;
-  place-items: center;
-  background: var(--surface-quiet);
-  color: var(--text-muted);
-  font-size: var(--text-label);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-label);
-}
 
 .status {
   display: inline-flex;
