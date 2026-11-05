@@ -992,12 +992,29 @@ img.about__photo {
 
 /* Encart IA : seule touche de couleur, un dégradé pastel doux (inspiré de
    TwelveLabs) avec le grain par-dessus (classes ds-grain dans le HTML) */
+/* Pleine largeur et pleine hauteur d'écran, sans cadre : le dégradé
+   pastel naît du blanc en haut et y retourne en bas, pour que la section
+   se fonde dans celles du dessus et du dessous. Le grain suit le même
+   fondu (masque), pour ne pas marquer de limite. */
 .ai-box {
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
   background:
-    radial-gradient(60% 90% at 12% 20%, var(--pastel-green) 0%, transparent 70%),
-    radial-gradient(55% 85% at 88% 15%, var(--pastel-pink) 0%, transparent 70%),
-    radial-gradient(70% 90% at 55% 105%, var(--pastel-yellow) 0%, transparent 70%),
-    var(--surface-sunken);
+    linear-gradient(to bottom,
+      var(--surface-page) 0%,
+      transparent 28%,
+      transparent 72%,
+      var(--surface-page) 100%),
+    radial-gradient(55% 60% at 18% 45%, var(--pastel-green) 0%, transparent 72%),
+    radial-gradient(50% 55% at 84% 40%, var(--pastel-pink) 0%, transparent 72%),
+    radial-gradient(60% 50% at 50% 70%, var(--pastel-yellow) 0%, transparent 72%),
+    var(--surface-page);
+}
+
+.ai-box.ds-grain::after {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
 }
 
 .ai-box__inner {
