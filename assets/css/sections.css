@@ -541,24 +541,15 @@ ul.expertise-cards {
 
 /* Repère de couleur : une petite pastille avant le titre, de la couleur
    des étiquettes de projets de la même expertise. Volontairement discret. */
-.expertise-card--ads .expertise-card__title,
-.expertise-card--web .expertise-card__title,
-.expertise-card--crm .expertise-card__title,
-.expertise-card--data .expertise-card__title {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1);
-}
-
-/* Pastille calée sur la première ligne ; la 2e ligne s'aligne sur le texte */
+/* Repère de couleur : petite pastille posée au-dessus du titre */
 .expertise-card__title::before {
   content: "";
-  flex: none;
+  display: block;
   width: 10px;
   height: 10px;
+  margin-bottom: var(--space-2);
   border-radius: 50%;
   background: var(--expertise-dot, transparent);
-  transform: translateY(-0.05em);
 }
 
 .expertise-card--ads  { --expertise-dot: var(--dot-ads); }
@@ -572,12 +563,15 @@ ul.expertise-cards {
   }
 }
 
-/* 4 sur une ligne seulement quand chaque carte a assez de largeur */
+/* Desktop : 2 × 2, des cartes assez larges pour des lignes naturelles */
 @media (min-width: 75em) {
-  ul.expertise-cards {
-    grid-template-columns: repeat(4, 1fr);
+  .expertise-card {
+    padding: var(--space-5);
   }
 
+  .expertise-card p {
+    max-width: 34rem;
+  }
 }
 
 /* --- Régies pilotées : nom + formats, en grille sous les cartes ------------ */
