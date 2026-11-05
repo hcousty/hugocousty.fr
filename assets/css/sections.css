@@ -459,6 +459,12 @@ img.hero__photo {
 }
 
 /* Dix logos (page agences) : 2 colonnes sur mobile, 5 dès la tablette */
+/* Pages agences : logos posés sur le bloc gris bleuté, un cran plus
+   foncés pour garder le même contraste qu'en fond blanc */
+.section--sunken .client-logo {
+  background-color: var(--text-muted);
+}
+
 .logos__list--ten {
   --logo-scale: 1;
   grid-template-columns: repeat(2, 1fr);
