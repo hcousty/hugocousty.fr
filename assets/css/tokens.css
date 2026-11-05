@@ -327,7 +327,7 @@
 
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
-  --card-radius: 20px; /* cartes et photos : bien arrondies, un cran sous les blocs */
+  --card-radius: 28px; /* cartes et photos : très arrondies, comme les cartes des formats */
 
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
   --field-radius: var(--radius-md);
