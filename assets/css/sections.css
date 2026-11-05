@@ -389,6 +389,14 @@ img.hero__photo {
   }
 }
 
+/* Logos en plus (13 au total) : seulement dans le bandeau mobile ; la
+   tablette et le desktop gardent la sélection de 8 */
+@media (min-width: 48em) {
+  .logos__extra {
+    display: none !important;
+  }
+}
+
 /* Bandeau défilant (mobile) : la liste est doublée par main.js, puis glisse
    de la moitié de sa largeur en boucle. Bords fondus. */
 .logos__marquee {
@@ -409,7 +417,7 @@ img.hero__photo {
   .logos__list.is-marquee {
     display: flex;
     width: max-content;
-    animation: logos-defile 32s linear infinite;
+    animation: logos-defile 52s linear infinite; /* 13 logos : même vitesse qu'avant */
   }
 
   .logos__list.is-marquee li {
