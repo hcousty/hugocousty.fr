@@ -70,10 +70,10 @@
    sans fond, en bas à gauche.
    ========================================================================== */
 
+/* Hero pleine largeur, passe sous la barre d'en-tête en verre */
 .hero {
   display: grid;
-  min-height: calc(100svh - var(--header-height-top));
-  padding: 0 var(--hero-inset) var(--hero-inset);
+  min-height: 100svh;
 }
 
 /* Photo et texte dans la même cellule de grille */
@@ -85,7 +85,6 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;        /* grain et voile restent sous le texte */
-  border-radius: var(--hero-radius);
   background: var(--ink-500); /* gris moyen : montre l'emplacement de la photo, même en thème inverse */
 }
 
@@ -149,7 +148,7 @@ img.hero__photo {
   }
 
   img.hero__photo {
-    inset: 0 auto auto -33%;
+    inset: var(--header-height-top) auto auto -33%; /* sous la barre d'en-tête */
     width: 170%;
     max-width: none;
     height: auto;
@@ -936,6 +935,16 @@ img.about__photo {
 
 /* --- L'IA : section à part, bloc gris large (section--sunken) -----------
    Contenu centré, titre de section en grand, texte en colonne étroite.   */
+
+/* Encart IA : seule touche de couleur, un dégradé pastel doux (inspiré de
+   TwelveLabs) avec le grain par-dessus (classes ds-grain dans le HTML) */
+.ai-box {
+  background:
+    radial-gradient(60% 90% at 12% 20%, var(--pastel-green) 0%, transparent 70%),
+    radial-gradient(55% 85% at 88% 15%, var(--pastel-pink) 0%, transparent 70%),
+    radial-gradient(70% 90% at 55% 105%, var(--pastel-yellow) 0%, transparent 70%),
+    var(--surface-sunken);
+}
 
 .ai-box__inner {
   display: grid;

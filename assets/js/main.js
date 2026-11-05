@@ -100,38 +100,39 @@
   }
 
 
-  /* 3. En-tête au défilement
-     En haut de page : barre blanche (thème clair). Dès qu'on défile : classe
-     is-scrolled + thème inverse, la barre devient une pilule de verre sombre.
-     Sans JS, la barre blanche reste en place.
+  /* 3. En-tête : couleur du texte selon le bloc sous la barre
+     La barre de verre reste toujours visible. Quand elle passe sur un bloc
+     sombre (data-theme="inverse" : hero, Contact, footer), elle prend le
+     thème inverse (texte blanc) ; sur un bloc clair, texte encre.
+     Sans JS, la barre reste en thème clair.
      ======================================================================== */
 
   const header = document.querySelector('[data-header]');
 
   if (header) {
-    // Desktop : on attend que le hero soit passé entièrement sous la barre
-    // blanche (défilement = hauteur de la barre). Mobile : dès les premiers px.
-    const barHeight = () => parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue('--header-height-top')
-    ) || 72;
-    const threshold = () => (desktop.matches ? barHeight() : 8);
+    const darkZones = Array.from(document.querySelectorAll('main [data-theme="inverse"], footer[data-theme="inverse"]'));
     let ticking = false;
 
     const update = () => {
-      const scrolled = window.scrollY >= threshold();
-      header.classList.toggle('is-scrolled', scrolled);
-      if (scrolled) header.setAttribute('data-theme', 'inverse');
+      const probe = header.offsetHeight / 2;
+      const onDark = darkZones.some((zone) => {
+        const r = zone.getBoundingClientRect();
+        return r.top <= probe && r.bottom >= probe;
+      });
+      if (onDark) header.setAttribute('data-theme', 'inverse');
       else header.removeAttribute('data-theme');
       ticking = false;
     };
 
-    window.addEventListener('scroll', () => {
+    const request = () => {
       if (!ticking) {
         ticking = true;
         window.requestAnimationFrame(update);
       }
-    }, { passive: true });
+    };
 
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
     update(); // page rechargée en milieu de page ou ouverte sur une ancre
   }
 
