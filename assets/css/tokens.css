@@ -328,8 +328,8 @@
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
   --field-radius: var(--radius-md);
 
-  /* Arrondi de tous les boutons (pilule) */
-  --button-radius: var(--radius-pill);
+  /* Arrondi de tous les boutons (rectangle arrondi) */
+  --button-radius: var(--radius-lg); /* rectangle aux coins arrondis (10 px), pas de pilule */
 
   /* Dégradé pastel (seule couleur du site, encart IA) : vert, jaune, rose */
   --pastel-green: #D6F5B4;
