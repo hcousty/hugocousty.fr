@@ -541,19 +541,11 @@ ul.expertise-cards {
 
 /* Repère de couleur : une petite pastille avant le titre, de la couleur
    des étiquettes de projets de la même expertise. Volontairement discret. */
-/* Repère de couleur : le contour fin de la carte prend la couleur de
-   l'expertise (la même que les étiquettes des projets) */
-.expertise-card--ads,
-.expertise-card--web,
-.expertise-card--crm,
-.expertise-card--data {
-  border-color: var(--expertise-dot);
+/* Étiquette colorée au-dessus du titre, la même que sur les projets :
+   le visiteur relie chaque expertise à ses réalisations */
+.expertise-card .tags {
+  margin-bottom: var(--space-05);
 }
-
-.expertise-card--ads  { --expertise-dot: var(--dot-ads); }
-.expertise-card--web  { --expertise-dot: var(--dot-web); }
-.expertise-card--crm  { --expertise-dot: var(--dot-crm); }
-.expertise-card--data { --expertise-dot: var(--dot-data); }
 
 @media (min-width: 48em) {
   ul.expertise-cards {
@@ -561,14 +553,15 @@ ul.expertise-cards {
   }
 }
 
-/* Desktop : 2 × 2, des cartes assez larges pour des lignes naturelles */
-@media (min-width: 75em) {
-  .expertise-card {
-    padding: var(--space-5);
+/* Grand écran (1 344 px et plus) : 4 sur une ligne, marges un peu
+   réduites ; en dessous, 2 × 2 pour garder des lignes de texte lisibles */
+@media (min-width: 84em) {
+  ul.expertise-cards {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .expertise-card p {
-    max-width: 34rem;
+  .expertise-card {
+    padding: var(--space-4) var(--space-3);
   }
 }
 
