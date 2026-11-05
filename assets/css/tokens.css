@@ -298,7 +298,7 @@
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
   --hero-inset: var(--space-1);
-  --hero-radius: 28px; /* blocs de section (gris, IA, Contact, footer) : très arrondis */
+  --hero-radius: 40px; /* blocs de section (gris, IA, Contact, footer) : très arrondis */
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
   --booking-height: 560px;
@@ -327,7 +327,7 @@
 
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
-  --card-radius: 28px; /* cartes et photos : très arrondies, comme les cartes des formats */
+  --card-radius: 40px; /* cartes et photos : très arrondies, comme les cartes des formats */
 
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
   --field-radius: var(--radius-md);
@@ -344,7 +344,7 @@
   --pastel-pink: #F6CDE6;
 
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
-  --offer-radius: 28px;
+  --offer-radius: 40px;
   --offer-fade: rgba(246, 205, 230, .35); /* rose pastel très léger */
 
   /* Taille de la flèche ↗ des boutons */
