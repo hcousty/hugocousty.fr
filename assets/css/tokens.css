@@ -350,6 +350,13 @@
   --band-green: rgba(132, 219, 26, .3);
 
 
+  /* Étiquettes des projets : les 4 couleurs du dégradé IA, éclaircies
+     pour garder un texte foncé lisible (contraste > 12:1) */
+  --tag-ads: #D7F2B5;   /* vert : Social Ads, Google Ads */
+  --tag-web: #FCE6A8;   /* doré : Sites web */
+  --tag-crm: #FFDCCB;   /* pêche : CRM */
+  --tag-data: #F6D6FF;  /* rose : Tracking */
+
   /* Orbe animée de la section IA : mêmes teintes, pleines */
   --orb-green: #B6EC6A;
   --orb-gold: #FCD36A;
