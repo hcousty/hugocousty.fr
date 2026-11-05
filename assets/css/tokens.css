@@ -358,7 +358,11 @@
 
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
-  --offer-fade: rgba(246, 205, 230, .35); /* rose pastel très léger */
+  --offer-fade: rgba(246, 205, 230, .2); /* rose pastel très léger */
+  /* Dégradé de la carte recommandée : mêmes teintes que l'IA, à 30 % */
+  --offer-pink: rgba(246, 175, 255, .3);
+  --offer-yellow: rgba(250, 185, 32, .3);
+  --offer-green: rgba(132, 219, 26, .3);
 
   /* Taille de la flèche ↗ des boutons */
   --icon-size-button: 16px;

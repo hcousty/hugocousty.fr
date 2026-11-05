@@ -1248,9 +1248,10 @@ img.about__photo {
   background:
     linear-gradient(to bottom,
       var(--surface-card) 35%,
-      var(--pastel-pink) 62%,
-      var(--pastel-yellow) 82%,
-      var(--pastel-green) 100%);
+      var(--offer-pink) 62%,
+      var(--offer-yellow) 82%,
+      var(--offer-green) 100%),
+    var(--surface-card); /* blanc dessous : couleurs propres sur le bloc gris */
 }
 
 .offer__top {
