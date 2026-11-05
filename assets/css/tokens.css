@@ -154,7 +154,7 @@
 :root {
   --text-display-1: clamp(48px, 6vw, 84px);
   --text-display-2: clamp(32px, 3.8vw, 52px);
-  --text-hero-center: clamp(40px, 5vw, 72px); /* titre centré du hero d'accueil */
+  --text-hero-center: clamp(34px, 5vw, 72px); /* titre centré du hero */
   --text-h1: clamp(30px, 3.2vw, 44px);
   --text-title: clamp(30px, 3.2vw, 44px); /* titres de section (h2) */
   --text-h2: 28px;

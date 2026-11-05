@@ -140,20 +140,15 @@ img.hero__photo {
   object-position: 50% 20%;
 }
 
-/* Mobile : la photo occupe le haut du cadre, cadrée sur le visage, et se
-   fond dans l'encre. Le texte passe dessous, sans couvrir le visage. */
+/* Mobile : la photo remplit tout l'écran, cadrée sur le visage ; le texte
+   se pose en bas, sur un voile plus haut et plus sombre */
 @media (max-width: 47.99em) {
-  .hero__media {
-    background: var(--surface-page); /* encre, via data-theme="inverse" */
+  img.hero__photo {
+    object-position: 52% 30%;
   }
 
-  img.hero__photo {
-    inset: var(--header-height-top) auto auto -33%; /* sous la barre d'en-tête */
-    width: 170%;
-    max-width: none;
-    height: auto;
-    -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
-    mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
+  .hero__media::after {
+    background: linear-gradient(to top, rgba(14, 14, 15, .88) 0%, var(--veil-ink) 38%, transparent 70%);
   }
 }
 
@@ -271,6 +266,17 @@ img.hero__photo {
 
 .hero--center .hero__lead {
   max-width: 34rem;
+}
+
+/* Petite ligne au-dessus du titre (pages agences) : lisible sur la photo */
+.hero--center .eyebrow {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 47.99em) {
+  .hero--center .hero__lead {
+    font-size: var(--text-body);
+  }
 }
 
 .hero--center .hero__actions {
