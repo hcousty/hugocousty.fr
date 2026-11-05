@@ -941,6 +941,35 @@ img.featured__visual {
   }
 }
 
+/* Desktop : principal à gauche, les deux courts empilés à droite,
+   séparés par un filet vertical */
+@media (min-width: 64em) {
+  .testimonials {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto;
+    column-gap: 0;
+    row-gap: var(--space-5);
+  }
+
+  .testimonial--main {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-content: center;
+    padding: 0 var(--space-6) 0 0;
+  }
+
+  .testimonial:not(.testimonial--main) {
+    grid-column: 2;
+    padding-left: var(--space-6);
+    border-left: var(--border-width-hairline) solid var(--border-mid);
+  }
+
+  .testimonial:not(.testimonial--main) + .testimonial:not(.testimonial--main) {
+    padding-top: var(--space-5);
+    margin-top: calc(-1 * var(--space-5));
+  }
+}
+
 
 /* 8. À PROPOS + ENCART IA
    ========================================================================== */
