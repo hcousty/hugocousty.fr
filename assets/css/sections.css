@@ -1239,7 +1239,7 @@ img.about__photo {
   display: grid;
   place-items: center;
   min-height: var(--booking-height);
-  border-radius: var(--field-radius);
+  border-radius: var(--card-radius);
   background: var(--surface-card); /* blanc : se détache du bloc gris */
 }
 

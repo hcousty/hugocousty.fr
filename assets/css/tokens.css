@@ -297,7 +297,7 @@
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
   --hero-inset: var(--space-1);
-  --hero-radius: var(--radius-lg);
+  --hero-radius: 28px; /* blocs de section (gris, IA, Contact, footer) : très arrondis */
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
   --booking-height: 560px;
@@ -323,7 +323,7 @@
 
 
   /* Arrondi des cartes et des images (style minimaliste, sans filet) */
-  --card-radius: var(--radius-lg);
+  --card-radius: 20px; /* cartes et photos : bien arrondies, un cran sous les blocs */
 
   /* Arrondi des champs de formulaire (un cran sous celui des cartes) */
   --field-radius: var(--radius-md);
