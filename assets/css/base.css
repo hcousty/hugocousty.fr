@@ -10,7 +10,7 @@
    2. Éléments de base
    3. Accessibilité
    4. Mise en page (container, section, section-head)
-   5. Composants : bouton, surtitre, tag, placeholder, formulaire, grain
+   5. Composants : bouton, surtitre, tag, placeholder, formulaire
    6. En-tête (pilule de verre) et navigation
    7. Barre CTA mobile (bas d'écran)
    8. Footer
@@ -579,39 +579,6 @@ select.field__input {
   color: var(--text-muted);
 }
 
-/* --- Grain (tokens/texture.css du design system) ----------------------------
-   Seule texture du système. Réservé aux surfaces isolées : footer, bloc
-   encre, photos. Jamais sous du texte de moins de 16 px.                    */
-
-.ds-grain {
-  position: relative;
-  isolation: isolate;
-}
-
-.ds-grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  border-radius: inherit;
-  background-image: var(--grain-image);
-  background-size: var(--grain-tile) var(--grain-tile);
-  background-repeat: repeat;
-  mix-blend-mode: var(--grain-blend);
-  opacity: var(--grain-subtle);
-}
-
-.ds-grain--medium::after { opacity: var(--grain-medium); }
-.ds-grain--strong::after { opacity: var(--grain-strong); }
-
-@media (prefers-contrast: more) {
-  .ds-grain::after {
-    display: none;
-  }
-}
-
-
 /* 6. En-tête : barre de verre (inspirée de TwelveLabs)
    --------------------------------------------------------------------------
    Barre pleine largeur, toujours visible, posée sur le hero : teinte légère
@@ -974,7 +941,7 @@ select.field__input {
 }
 
 
-/* 8. Footer — le seul grand aplat encre de la page, avec grain fort
+/* 8. Footer
    ========================================================================== */
 
 /* Footer : noir un peu plus clair que la section Contact, pleine largeur,

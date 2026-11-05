@@ -28,7 +28,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 │   │   └── sections.css        Styles propres à chaque section, et aux pages secondaires (section 12)
 │   ├── js/main.js              Burger, barre CTA mobile
 │   ├── fonts/                  Police Switzer (woff2 + note de licence)
-│   └── img/                    grain.svg, og-image.jpg
+│   └── img/                    og-image.jpg
 └── README.md
 ```
 
@@ -101,7 +101,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 ### Organisation de `tokens.css`
 
-- **Partie A — Design system** : copie des fichiers `tokens/*.css` du projet (police, couleurs, typographie, espacements, surfaces, mouvement, grain). **Mêmes noms, mêmes valeurs.** `base.css` et `sections.css` utilisent directement ces noms (`--text-primary`, `--surface-page`, `--space-3`, `--radius-md`…).
+- **Partie A — Design system** : copie des fichiers `tokens/*.css` du projet (police, couleurs, typographie, espacements, surfaces, mouvement). **Mêmes noms, mêmes valeurs.** `base.css` et `sections.css` utilisent directement ces noms (`--text-primary`, `--surface-page`, `--space-3`, `--radius-md`…).
 - **Partie B — Site** : quelques tokens propres au site (hauteur de la pilule d'en-tête, barre CTA mobile, focus, profondeur), toujours dérivés de la partie A.
 
 ### Mettre à jour après une modification dans Claude Design
@@ -124,7 +124,6 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 ### Fichiers du design system dans le repo
 
 - **Police Switzer** (Indian Type Foundry, gratuite via Fontshare, licence ITF Free Font License, voir `Switzer-licence.txt`) : `/assets/fonts/`, graisses 400, 500, 600 et 700. Hébergée sur le site, sans service externe. Les graisses 400 et 600 sont préchargées dans le `<head>` de chaque page.
-- **Grain** : `/assets/img/grain.svg`, tuile générée (bruit fractal, environ 1 Ko). Appliqué au hero, à la section Contact et au footer. Le gris clair et les cartes blanches restent lisses.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
 ---
@@ -184,7 +183,7 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 ## À faire (hors wireframe)
 
 - [x] Brancher le design system (`tokens.css`)
-- [x] Ajouter les fichiers de police (Switzer) et la tuile `grain.svg`
+- [x] Ajouter les fichiers de police (Switzer)
 - [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
@@ -227,7 +226,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Section IA | `.ai-box` (+ `.section--sunken`) | bloc gris large comme Témoignages et Formats, contenu centré, titre de section |
 | Mise en avant finale | `.page-cta` ★ | bloc encre avec titre, texte, boutons (pages secondaires) |
 | Barre CTA mobile | `.sticky-cta` | collée en bas, masquée quand un bouton « Réserver » est visible |
-| Pied de page | `.site-footer` ★ | liste de liens, grain |
+| Pied de page | `.site-footer` ★ | liste de liens |
 | Calendrier intégré | `.booking` | cadre Cal.com chargé par `main.js` ; état `.is-loading` (hauteur `--booking-height`, message « Chargement du calendrier… ») |
 
 Les valeurs (couleurs, typo, espacements, rayons) sont toutes dans `tokens.css`. Si Figma utilise des variables avec les mêmes noms, l'intégration des maquettes se fait en une passe.

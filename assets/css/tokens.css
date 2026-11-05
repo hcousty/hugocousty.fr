@@ -247,21 +247,6 @@
   }
 }
 
-/* --- A7. Grain (tokens/texture.css) -----------------------------------------
-   Tuile SVG générée (bruit fractal gris, environ 1 Ko), posée en fusion
-   overlay : le grain se voit sur l'encre et sur la photo, sans éclaircir
-   le noir. */
-:root {
-  --grain-image: url("../img/grain.svg");
-  --grain-tile: 240px;
-  --grain-blend: overlay;
-
-  --grain-subtle: 0.15;  /* réserve : le gris clair et le blanc restent lisses */
-  --grain-medium: 0.3;   /* photo du hero : discret, le texte passe devant */
-  --grain-strong: 1;     /* encre : contact et footer */
-}
-
-
 /* ==========================================================================
    B. SITE — tokens propres au site, dérivés du design system
    ========================================================================== */
