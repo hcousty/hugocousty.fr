@@ -369,4 +369,83 @@
     update();
   }
 
+
+
+  /* 9. Chiffres clés : défilement de 0 à la valeur à l'arrivée à l'écran
+     Le texte final reste dans le HTML (lu par les moteurs et sans JS) ;
+     on n'anime que le nombre, en gardant préfixe et suffixe (+, ×, M€, %). */
+  const stats = document.querySelectorAll('.stat__value');
+
+  if (stats.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
+    const parse = (el) => {
+      const text = el.textContent;
+      const m = text.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/s);
+      if (!m) return null;
+      return { prefix: m[1], value: parseFloat(m[2].replace(',', '.')), suffix: m[3], decimals: (m[2].split(/[.,]/)[1] || '').length, final: text };
+    };
+
+    const run = (el, d) => {
+      const duration = 1100;
+      const start = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+      const small = d.value < 10 && d.decimals === 0; // 2, 5 : une décimale pendant le défilement
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const v = d.value * ease(t);
+        const shown = t < 1
+          ? (small ? v.toFixed(1).replace('.', ',') : Math.round(v).toString())
+          : null;
+        el.textContent = shown === null ? d.final : d.prefix + shown + d.suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const data = new Map();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        run(entry.target, data.get(entry.target));
+      });
+    }, { threshold: 0.6 });
+
+    stats.forEach((el) => {
+      const d = parse(el);
+      if (!d) return;
+      // Seulement les chiffres pas encore à l'écran : on part de 0 sans saut
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      data.set(el, d);
+      el.style.minWidth = el.getBoundingClientRect().width + 'px'; // pas de saut de mise en page
+      el.setAttribute('data-count', '');
+      el.textContent = d.prefix + (d.value < 10 && d.decimals === 0 ? '0,0' : '0') + d.suffix;
+      io.observe(el);
+    });
+  }
+
+
+  /* 10. Photo du hero : léger effet de profondeur au défilement
+     La photo descend à 25 % de la vitesse de la page tant que le hero est
+     visible (le cadre masque le débord). Rien si animations réduites. */
+  const heroPhoto = document.querySelector('img.hero__photo');
+
+  if (heroPhoto && !reduceMotion.matches) {
+    const hero = heroPhoto.closest('.hero');
+    let ticking = false;
+    const update = () => {
+      const h = hero.offsetHeight;
+      const y = Math.min(window.scrollY, h);
+      heroPhoto.style.setProperty('--hero-shift', (y * 0.25).toFixed(1) + 'px');
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking && window.scrollY < hero.offsetHeight + 100) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
+
 })();

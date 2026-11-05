@@ -233,6 +233,45 @@ img.hero__photo {
 }
 
 
+/* Survol des cartes (souris uniquement) : la carte monte de 2 px avec une
+   ombre très douce. Désactivé si les animations sont réduites. */
+.expertise-card,
+.project-card,
+.offer {
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .expertise-card:hover,
+  .project-card:hover,
+  .offer:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertise-card:hover,
+  .project-card:hover,
+  .offer:hover {
+    transform: none;
+  }
+}
+
+/* Chiffres clés : largeur figée pendant le défilement des nombres (main.js) */
+.stat__value[data-count] {
+  display: inline-block;
+}
+
+/* Photo du hero : glisse plus lentement que la page (main.js, --hero-shift) */
+img.hero__photo {
+  transform: translate3d(0, var(--hero-shift, 0px), 0);
+  will-change: transform;
+}
+
+
 /* 2. LOGOS
    ========================================================================== */
 
