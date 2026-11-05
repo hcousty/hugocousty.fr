@@ -866,11 +866,6 @@ img.featured__visual {
   .projects {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  /* Variante à 2 colonnes (page agences : 4 exemples) */
-  .projects--pair {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* Sous-titre entre les logos et les cartes (page agences) */
