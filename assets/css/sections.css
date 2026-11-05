@@ -992,22 +992,26 @@ img.about__photo {
 
 /* Encart IA : seule touche de couleur, un dégradé pastel doux (inspiré de
    TwelveLabs) avec le grain par-dessus (classes ds-grain dans le HTML) */
-/* Fond pastel commun aux sections IA et Méthode : le dégradé passe
-   derrière les deux, part du blanc en haut et y revient en bas. Les
-   taches de couleur sont larges et très douces ; le grain suit le même
-   fondu (masque) pour ne marquer aucune limite. */
+/* Fond pastel commun aux sections IA et Méthode (recette TwelveLabs) :
+   une bande de couleurs horizontale (vert à gauche, doré, pêche, rose à
+   droite) à 50 %, recouverte d'un voile de la couleur du fond, légèrement
+   incliné, qui ne laisse voir la couleur qu'au milieu. Palier coloré élargi
+   (40 à 60 %), inclinaison réduite : notre bande est moins haute que la leur. Le grain suit le
+   même fondu (masque) pour ne marquer aucune limite. */
 .pastel-band {
   background:
-    linear-gradient(to bottom,
+    linear-gradient(182deg,
       var(--surface-page) 0%,
-      transparent 18%,
-      transparent 80%,
+      var(--surface-page) 8%,
+      transparent 40%,
+      transparent 60%,
+      var(--surface-page) 92%,
       var(--surface-page) 100%),
-    radial-gradient(45% 30% at 12% 30%, var(--pastel-green) 0%, transparent 75%),
-    radial-gradient(40% 28% at 88% 26%, var(--pastel-pink) 0%, transparent 75%),
-    radial-gradient(55% 32% at 50% 52%, var(--pastel-yellow) 0%, transparent 75%),
-    radial-gradient(40% 25% at 85% 72%, var(--pastel-green) 0%, transparent 75%),
-    radial-gradient(35% 22% at 15% 78%, var(--pastel-pink) 0%, transparent 75%),
+    linear-gradient(270deg,
+      var(--band-pink) 0.8%,
+      var(--band-peach) 12%,
+      var(--band-gold) 24.5%,
+      var(--band-green) 100%),
     var(--surface-page);
 }
 

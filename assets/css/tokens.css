@@ -343,6 +343,12 @@
   --pastel-yellow: #FBF0A8;
   --pastel-pink: #F6CDE6;
 
+  /* Bande de couleurs du fond IA + Méthode (à 50 %, comme TwelveLabs) */
+  --band-pink: rgba(246, 175, 255, .5);
+  --band-peach: rgba(255, 181, 146, .5);
+  --band-gold: rgba(250, 185, 32, .5);
+  --band-green: rgba(132, 219, 26, .5);
+
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
   --offer-fade: rgba(246, 205, 230, .35); /* rose pastel très léger */
