@@ -75,17 +75,8 @@
   --grey-200: #E1E4EA;
   --grey-300: #CDD2DA;
 
-  /* Couleurs de marque, réservées à la fin de page : section Contact en
-     bordeaux (titres orange) et footer orange (texte bordeaux). Le reste du
-     site reste monochrome, sur un fond crème. Contraste 7:1 entre les deux. */
-  --orange-500: #FF9D33;
-  --orange-400: #FFB25E;
-  --orange-600: #F08A1C;
-  --maroon-950: #3E080C;
-  --maroon-900: #550C11;
-  --maroon-800: #681820;
-  --maroon-700: #7E2A30;
-  --cream-50: #FFFDF9;
+  /* Pas de couleur de marque : le système est monochrome. La couleur vient
+     des photos (une teinte d'accent pourra être ajoutée plus tard ici). */
 
   /* États de formulaire : jamais décoratifs */
   --forest-600: #2C6A4C;
@@ -106,7 +97,7 @@
   --text-warning: var(--amber-600);
   --text-negative: var(--crimson-600);
 
-  --surface-page: var(--cream-50); /* crème très léger */
+  --surface-page: var(--white);
   --surface-card: var(--white);
   --surface-sunken: var(--grey-100); /* un seul gris clair : blocs de section, cartes, encart IA */
   --surface-quiet: var(--grey-100);
@@ -157,55 +148,6 @@
   --glass-bg: rgba(255, 255, 255, .14);
   --glass-bg-hover: rgba(255, 255, 255, .22);
   --glass-panel: var(--ink-900);
-}
-
-/* Thème bordeaux (data-theme="maroon") : titres orange, texte crème.
-   Section Contact. */
-[data-theme="maroon"] {
-  --text-primary: var(--orange-500);
-  --text-secondary: #F6E3D3;
-  --text-muted: #D9A98A;
-  --text-faint: #B98370;
-  --text-accent: var(--orange-500);
-  --surface-page: var(--maroon-900);
-  --surface-card: var(--maroon-800);
-  --surface-sunken: var(--maroon-950);
-  --surface-quiet: var(--maroon-800);
-  --border-hairline: #74262A;
-  --border-mid: #8E3A3A;
-  --border-strong: var(--orange-500);
-  --action-fg: var(--maroon-900);
-  --action-bg: var(--orange-500);
-  --action-bg-hover: var(--orange-400);
-  --action-bg-active: var(--orange-600);
-  --focus-ring: var(--orange-500);
-  --glass-bg: rgba(255, 157, 51, .14);
-  --glass-bg-hover: rgba(255, 157, 51, .22);
-  --glass-panel: var(--maroon-900);
-}
-
-/* Thème orange (data-theme="orange") : texte bordeaux. Footer. */
-[data-theme="orange"] {
-  --text-primary: var(--maroon-900);
-  --text-secondary: var(--maroon-900);
-  --text-muted: #6E2216;
-  --text-faint: #7E3A22;
-  --text-accent: var(--maroon-900);
-  --surface-page: var(--orange-500);
-  --surface-card: var(--orange-400);
-  --surface-sunken: var(--orange-600);
-  --surface-quiet: var(--orange-400);
-  --border-hairline: #D4792A;
-  --border-mid: #B5622A;
-  --border-strong: var(--maroon-900);
-  --action-fg: var(--orange-500);
-  --action-bg: var(--maroon-900);
-  --action-bg-hover: var(--maroon-800);
-  --action-bg-active: var(--maroon-950);
-  --focus-ring: var(--maroon-900);
-  --glass-bg: rgba(85, 12, 17, .08);
-  --glass-bg-hover: rgba(85, 12, 17, .14);
-  --glass-panel: var(--orange-500);
 }
 
 /* --- A3. Typographie (tokens/typography.css) -------------------------------- */
@@ -328,8 +270,8 @@
   --grain-blend: overlay;
 
   --grain-subtle: 0.15;  /* réserve : le gris clair et le blanc restent lisses */
-  --grain-medium: 0.3;   /* photo du hero et footer orange */
-  --grain-strong: 0.4;   /* bordeaux : section Contact (plus fort, il rougit le fond) */
+  --grain-medium: 0.3;   /* photo du hero : discret, le texte passe devant */
+  --grain-strong: 1;     /* encre : contact et footer */
 }
 
 

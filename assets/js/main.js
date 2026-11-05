@@ -242,16 +242,11 @@
       });
 
       Cal.ns[ns]('ui', {
-        theme: 'dark', // section Contact sur fond bordeaux
+        theme: 'dark', // section Contact sur fond noir
         hideEventTypeDetails: true, // pas de colonne de gauche : le titre de la section présente déjà l'appel
         layout: 'month_view',
-        styles: { branding: { brandColor: '#FF9D33' } },
-        cssVarsPerTheme: { dark: {
-          'cal-brand': '#FF9D33', 'cal-brand-emphasis': '#FFB25E', 'cal-brand-text': '#550C11',
-          'cal-bg': '#550C11', 'cal-bg-muted': '#681820', 'cal-bg-subtle': '#681820', 'cal-bg-emphasis': '#7E2A30',
-          'cal-border': '#8E3A3A', 'cal-border-subtle': '#74262A', 'cal-border-booker': '#74262A',
-          'cal-text': '#F6E3D3', 'cal-text-emphasis': '#FFFDF9', 'cal-text-subtle': '#D9A98A', 'cal-text-muted': '#D9A98A'
-        } },
+        styles: { branding: { brandColor: '#FFFFFF' } },
+        cssVarsPerTheme: { dark: { 'cal-brand': '#FFFFFF' } },
       });
 
       Cal.ns[ns]('on', {

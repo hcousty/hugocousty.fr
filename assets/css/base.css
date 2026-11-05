@@ -81,8 +81,8 @@ body {
      elle se masque d'elle-même sur la section Contact et le footer. */
 }
 
-/* Un bloc à thème (inverse, bordeaux, orange) reprend les couleurs de texte du thème */
-[data-theme] {
+/* Un bloc en thème inverse reprend les couleurs de texte du thème */
+[data-theme="inverse"] {
   color: var(--text-primary);
 }
 
@@ -949,13 +949,13 @@ select.field__input {
   margin: var(--hero-inset);
   border-radius: var(--hero-radius);
   padding-block: var(--space-4);
-  background: var(--surface-page); /* orange, via data-theme="orange" */
+  background: var(--surface-card); /* encre plus claire, via data-theme="inverse" */
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
 
-/* Grand nom en signature, en bas de la section Contact (fond bordeaux) :
-   toute la largeur du contenu, en orange */
+/* Grand nom en signature, en bas de la section Contact (fond noir) :
+   toute la largeur du contenu, gris à peine plus clair que le fond */
 .signature-name {
   margin-top: var(--space-8);
   font-family: var(--font-display);
@@ -965,7 +965,7 @@ select.field__input {
   letter-spacing: var(--tracking-display);
   text-align: center;
   white-space: nowrap;
-  color: var(--text-primary);
+  color: var(--ink-700);
   user-select: none;
 }
 

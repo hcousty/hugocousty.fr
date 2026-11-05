@@ -1133,8 +1133,8 @@ img.about__photo {
   content: none;
 }
 
-/* Section Contact en bordeaux (data-theme="maroon"), suivie du footer
-   orange : arrondie en haut, le footer arrondit le bas */
+/* Section Contact en noir (data-theme="inverse"), soudée au footer :
+   un seul bloc encre arrondi en haut, le footer arrondit le bas */
 .section--contact {
   margin-inline: var(--hero-inset);
   padding-bottom: var(--space-5); /* le grand nom termine la section */
@@ -1142,7 +1142,7 @@ img.about__photo {
   background: var(--surface-page);
 }
 
-/* Champs sur fond bordeaux : pleins, sans contour, le contour revient au survol */
+/* Champs sur fond noir : pleins, sans contour, le contour revient au survol */
 .section--contact .field__input {
   border-color: transparent;
   background-color: var(--surface-card);
