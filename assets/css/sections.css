@@ -573,6 +573,7 @@ ul.expertise-cards {
 
 .network {
   display: grid;
+  align-content: start;
   gap: var(--space-05);
 }
 
@@ -581,9 +582,20 @@ ul.expertise-cards {
   color: var(--text-primary);
 }
 
-.network span {
+.network span:not(.network__logo) {
   font-size: var(--text-body-sm);
   color: var(--text-muted);
+}
+
+/* Logo de la régie : pictogramme officiel (Simple Icons, CC0), en masque
+   pour prendre la couleur du texte, comme les logos clients */
+.network__logo {
+  width: var(--network-logo-size);
+  height: var(--network-logo-size);
+  margin-bottom: var(--space-1);
+  background: var(--text-primary);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
 }
 
 .networks__note {

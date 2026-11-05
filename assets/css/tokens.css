@@ -315,6 +315,9 @@
   --focus-width: 2px;
   --focus-offset: 2px;
 
+  /* Pictos des régies (pages agences) */
+  --network-logo-size: 28px;
+
   /* Visages clients au-dessus des logos : taille et chevauchement */
   --face-size: 40px;
   --face-overlap: 10px;
