@@ -987,25 +987,50 @@ img.about__photo {
   }
 }
 
-/* --- L'IA : section à part, sur fond pastel (recette TwelveLabs) --------
+/* --- L'IA : fond pastel (recette TwelveLabs) ------------------------------
    Une bande de couleurs horizontale (vert à gauche, doré, pêche, rose à
-   droite) à 50 %, recouverte d'un voile de la couleur du fond, à peine
-   incliné, qui ne laisse voir la couleur qu'au milieu de la section et
-   la fond dans le blanc en haut et en bas. Le grain suit le même fondu. */
+   droite) à 50 %, recouverte d'un voile blanc qui ne laisse voir la
+   couleur que peu à peu. Le dégradé démarre à mi-hauteur de l'À propos
+   (à peine visible), culmine au milieu de l'IA, puis revient au blanc
+   avant la Méthode. Le voile vaut --ai-veil-join à la jonction des deux
+   sections, pour une continuité parfaite. */
+.ai-lead-in,
+.ai-box {
+  --ai-band: linear-gradient(270deg,
+    var(--band-pink) 0.8%,
+    var(--band-peach) 12%,
+    var(--band-gold) 24.5%,
+    var(--band-green) 100%);
+  --ai-veil-join: rgba(255, 255, 255, .6);
+}
+
+/* Moitié basse de l'À propos : la couleur apparaît très doucement */
+.ai-lead-in {
+  position: relative;
+  isolation: isolate;
+}
+
+.ai-lead-in::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--surface-page) 0%, var(--ai-veil-join) 100%),
+    var(--ai-band),
+    var(--surface-page);
+}
+
 .ai-box {
   background:
-    linear-gradient(182deg,
-      var(--surface-page) 0%,
-      var(--surface-page) 8%,
+    linear-gradient(to bottom,
+      var(--ai-veil-join) 0%,
       transparent 40%,
-      transparent 60%,
+      transparent 58%,
       var(--surface-page) 92%,
       var(--surface-page) 100%),
-    linear-gradient(270deg,
-      var(--band-pink) 0.8%,
-      var(--band-peach) 12%,
-      var(--band-gold) 24.5%,
-      var(--band-green) 100%),
+    var(--ai-band),
     var(--surface-page);
 }
 
