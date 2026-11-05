@@ -987,18 +987,12 @@ img.about__photo {
   }
 }
 
-/* --- L'IA : section à part, bloc gris large (section--sunken) -----------
-   Contenu centré, titre de section en grand, texte en colonne étroite.   */
-
-/* Encart IA : seule touche de couleur, un dégradé pastel doux (inspiré de
-   TwelveLabs) avec le grain par-dessus (classes ds-grain dans le HTML) */
-/* Fond pastel commun aux sections IA et Méthode (recette TwelveLabs) :
-   une bande de couleurs horizontale (vert à gauche, doré, pêche, rose à
-   droite) à 50 %, recouverte d'un voile de la couleur du fond, légèrement
-   incliné, qui ne laisse voir la couleur qu'au milieu. Palier coloré élargi
-   (40 à 60 %), inclinaison réduite : notre bande est moins haute que la leur. Le grain suit le
-   même fondu (masque) pour ne marquer aucune limite. */
-.pastel-band {
+/* --- L'IA : section à part, sur fond pastel (recette TwelveLabs) --------
+   Une bande de couleurs horizontale (vert à gauche, doré, pêche, rose à
+   droite) à 50 %, recouverte d'un voile de la couleur du fond, à peine
+   incliné, qui ne laisse voir la couleur qu'au milieu de la section et
+   la fond dans le blanc en haut et en bas. Le grain suit le même fondu. */
+.ai-box {
   background:
     linear-gradient(182deg,
       var(--surface-page) 0%,
@@ -1015,12 +1009,7 @@ img.about__photo {
     var(--surface-page);
 }
 
-/* Dans le fond commun, les deux sections se suivent sans double marge */
-.pastel-band > .section + .section {
-  padding-top: 0;
-}
-
-.pastel-band.ds-grain::after {
+.ai-box.ds-grain::after {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
 }
