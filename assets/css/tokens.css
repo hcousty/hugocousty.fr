@@ -71,7 +71,7 @@
   /* Blanc et gris froids : le fond dominant est le blanc pur */
   --white: #FFFFFF;
   --grey-050: #F6F7F9;
-  --grey-100: #F6F5F4; /* gris chaud (comme Notion) : blocs, cartes, encart IA */
+  --grey-100: #F0F5FE; /* gris bleuté très clair : blocs de section (témoignages, formats), réservés */
   --grey-200: #E1E4EA;
   --grey-300: #CDD2DA;
 
