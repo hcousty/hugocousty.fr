@@ -620,15 +620,20 @@ ul.expertise-cards {
 /* 4. MÉTHODE
    ========================================================================== */
 
+/* Les 4 étapes l'une sous l'autre, séparées par des filets fins.
+   Desktop : une ligne par étape (numéro, titre, texte), alignée sur les
+   deux colonnes de l'en-tête de section. */
 .steps {
   display: grid;
-  gap: var(--space-5);
+  border-top: var(--border-width-hairline) solid var(--border-mid);
 }
 
 .step {
   display: grid;
   align-content: start;
   gap: var(--space-15);
+  padding-block: var(--space-4);
+  border-bottom: var(--border-width-hairline) solid var(--border-mid);
 }
 
 /* Numéro d'étape : l'ordre compte, il se lit au premier coup d'œil */
@@ -642,6 +647,7 @@ ul.expertise-cards {
 }
 
 .step p {
+  max-width: var(--measure-lead);
   color: var(--text-secondary);
 }
 
@@ -650,16 +656,20 @@ ul.expertise-cards {
   color: var(--text-primary);
 }
 
-@media (min-width: 48em) {
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--grid-gap);
-  }
-}
-
 @media (min-width: 64em) {
-  .steps {
-    grid-template-columns: repeat(4, 1fr);
+  .step {
+    grid-template-columns: 6rem calc(50% - 6rem) minmax(0, 1fr); /* texte calé sur le chapô de l'en-tête */
+    align-items: baseline;
+    column-gap: 0;
+    padding-block: var(--space-5);
+  }
+
+  .step__title {
+    font-size: var(--text-h2);
+  }
+
+  .step p {
+    padding-left: var(--space-5);
   }
 }
 
@@ -991,8 +1001,8 @@ img.about__photo {
    Une bande de couleurs horizontale (vert à gauche, doré, pêche, rose à
    droite) à 50 %, recouverte d'un voile blanc qui ne laisse voir la
    couleur que peu à peu. Le dégradé démarre à mi-hauteur de l'À propos
-   (à peine visible), culmine au milieu de l'IA, puis revient au blanc
-   avant la Méthode. Le voile vaut --ai-veil-join à la jonction des deux
+   (à peine visible), culmine au milieu de l'IA, puis s'efface dans la
+   moitié haute de la Méthode. Le voile vaut --ai-veil-join à la jonction des deux
    sections, pour une continuité parfaite. */
 .ai-lead-in,
 .ai-box {
@@ -1004,7 +1014,31 @@ img.about__photo {
   --ai-veil-join: rgba(255, 255, 255, .6);
 }
 
-/* Moitié basse de l'À propos : la couleur apparaît très doucement */
+/* Moitié basse de l'À propos : la couleur apparaît très doucement ;
+   haut de la Méthode : elle s'efface de la même façon */
+.ai-lead-out {
+  --ai-band: linear-gradient(270deg,
+    var(--band-pink) 0.8%,
+    var(--band-peach) 12%,
+    var(--band-gold) 24.5%,
+    var(--band-green) 100%);
+  --ai-veil-join: rgba(255, 255, 255, .6);
+  position: relative;
+  isolation: isolate;
+}
+
+.ai-lead-out::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 45%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--ai-veil-join) 0%, var(--surface-page) 100%),
+    var(--ai-band),
+    var(--surface-page);
+}
+
 .ai-lead-in {
   position: relative;
   isolation: isolate;
@@ -1027,9 +1061,8 @@ img.about__photo {
     linear-gradient(to bottom,
       var(--ai-veil-join) 0%,
       transparent 40%,
-      transparent 58%,
-      var(--surface-page) 92%,
-      var(--surface-page) 100%),
+      transparent 60%,
+      var(--ai-veil-join) 100%),
     var(--ai-band),
     var(--surface-page);
 }
