@@ -137,14 +137,14 @@ img.hero__photo {
   position: absolute;
   inset: 0;
   padding: 0;
-  object-position: 50% 20%;
+  object-position: 50% 0%;
 }
 
 /* Mobile : la photo remplit tout l'écran, cadrée sur le visage ; le texte
    se pose en bas, sur un voile plus haut et plus sombre */
 @media (max-width: 47.99em) {
   img.hero__photo {
-    object-position: 52% 30%;
+    object-position: 47% 30%;
   }
 
   .hero__media::after {
