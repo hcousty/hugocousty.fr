@@ -304,7 +304,7 @@
   --booking-height: 560px;
 
   /* Identité dans l'en-tête : photo ronde + point de disponibilité */
-  --avatar-size: 36px;
+  --avatar-size: 40px;
   --status-dot-size: 8px;
   --status-available: var(--forest-600);
 

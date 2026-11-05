@@ -679,8 +679,19 @@ select.field__input {
   text-decoration: none;
 }
 
-/* Identité : le nom, suivi du statut. La photo ronde (.avatar) reste
-   disponible pour plus tard mais n'est pas affichée dans la barre. */
+/* Identité : sur le hero et les blocs sombres, le nom ; dès que la barre
+   passe sur fond clair (après le hero), la photo ronde le remplace, en
+   fondu. L'élément masqué passe à largeur 0 : pas de vide à côté du statut. */
+.site-id__name,
+.site-id .avatar {
+  overflow: hidden;
+  transition:
+    max-width var(--duration-base) var(--ease-out),
+    width var(--duration-base) var(--ease-out),
+    margin var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
 .site-id__name {
   max-width: 12em;
   margin-right: var(--space-2);
@@ -690,7 +701,21 @@ select.field__input {
 }
 
 .site-id .avatar {
-  display: none;
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+}
+
+.site-header:not([data-theme="inverse"]) .site-id__name {
+  max-width: 0;
+  margin-right: 0;
+  opacity: 0;
+}
+
+.site-header:not([data-theme="inverse"]) .site-id .avatar {
+  width: var(--avatar-size);
+  margin-right: var(--space-15);
+  opacity: 1;
 }
 
 .avatar {
