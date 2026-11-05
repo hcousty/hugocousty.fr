@@ -444,23 +444,6 @@ a.btn--secondary:hover::after {
   color: var(--text-primary);
 }
 
-/* Étiquettes d'expertise : fond teinté d'une des 4 couleurs du dégradé,
-   texte foncé, sans contour. Une couleur par expertise :
-   vert = Social et Google Ads, doré = Sites web, pêche = CRM,
-   rose = Tracking et data. */
-.tag--ads,
-.tag--web,
-.tag--crm,
-.tag--data {
-  border-color: transparent;
-  color: var(--ink-900);
-}
-
-.tag--ads  { background: var(--tag-ads); }
-.tag--web  { background: var(--tag-web); }
-.tag--crm  { background: var(--tag-crm); }
-.tag--data { background: var(--tag-data); }
-
 /* --- Placeholder d'image ----------------------------------------------------
    Réservé qui nomme l'image attendue (MediaFrame du design system).
    À remplacer par <img> ou <picture>. Ratio réglable avec --ratio.         */

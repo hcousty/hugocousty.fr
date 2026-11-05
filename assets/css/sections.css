@@ -541,19 +541,6 @@ ul.expertise-cards {
 
 /* Repère de couleur : une petite pastille avant le titre, de la couleur
    des étiquettes de projets de la même expertise. Volontairement discret. */
-/* Repère de couleur : léger dégradé en bas de la carte, de la couleur de
-   l'expertise (la même que les étiquettes des projets), comme les cartes
-   des formats. Le titre reste un titre simple : pas de répétition. */
-.expertise-card--ads  { --expertise-tint: var(--tag-ads); }
-.expertise-card--web  { --expertise-tint: var(--tag-web); }
-.expertise-card--crm  { --expertise-tint: var(--tag-crm); }
-.expertise-card--data { --expertise-tint: var(--tag-data); }
-
-.expertise-card[class*="--"] {
-  background:
-    linear-gradient(to bottom, var(--surface-card) 45%, var(--expertise-tint) 100%);
-}
-
 .expertise-card p {
   font-size: var(--text-body-sm);
   line-height: var(--leading-normal);
