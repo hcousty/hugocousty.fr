@@ -329,7 +329,10 @@
   --field-radius: var(--radius-md);
 
   /* Arrondi de tous les boutons (rectangle arrondi) */
-  --button-radius: var(--radius-lg); /* rectangle aux coins arrondis (10 px), pas de pilule */
+  --button-radius: 18px;        /* rectangle aux coins bien arrondis (comme TwelveLabs) */
+  --button-radius-small: 14px;  /* petits boutons (en-tête) */
+  --button-height: 60px;
+  --button-height-small: 44px;
 
   /* Dégradé pastel (seule couleur du site, encart IA) : vert, jaune, rose */
   --pastel-green: #D6F5B4;

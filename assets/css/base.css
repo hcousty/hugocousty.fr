@@ -311,14 +311,14 @@ main:has(> .hero:first-child) {
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  min-height: 48px;
-  padding: var(--space-15) var(--space-25);
-  border: var(--border-width-strong) solid var(--border-strong);
+  min-height: var(--button-height);
+  padding: 18px var(--space-3);
+  border: var(--border-width-hairline) solid var(--border-strong);
   border-radius: var(--button-radius); /* même arrondi pour tous les boutons */
   background: transparent;
   color: var(--text-primary);
   font-size: var(--text-body);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
@@ -371,7 +371,6 @@ main:has(> .hero:first-child) {
 
 /* Secondaire : contour fin, fond transparent, la flèche ↗ sur les liens */
 .btn--secondary {
-  border-width: var(--border-width-hairline);
   border-color: var(--text-primary);
   background: transparent;
 }
@@ -397,9 +396,9 @@ a.btn--secondary:hover::after {
 }
 
 .btn--small {
-  min-height: 40px;
+  min-height: var(--button-height-small);
   padding: var(--space-1) var(--space-2);
-  font-size: var(--text-body-sm);
+  border-radius: var(--button-radius-small);
 }
 
 .btn--block {
@@ -908,6 +907,8 @@ select.field__input {
 }
 
 .sticky-cta .btn {
+  min-height: var(--button-height-small);
+  border-radius: var(--button-radius-small);
   pointer-events: auto;
   border-color: transparent;
   background: var(--header-glass);
