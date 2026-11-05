@@ -252,6 +252,42 @@ img.hero__photo {
   }
 }
 
+/* Accueil : titre, chapô et boutons centrés en bas de la photo, titre sur
+   une ligne (deux sur mobile), voile plus marqué pour la lisibilité */
+.hero--center .hero__panel {
+  justify-items: center;
+  max-width: 64rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero--center .hero__title {
+  font-size: var(--text-hero-center);
+}
+
+.hero--center .hero__title span {
+  display: inline;
+}
+
+.hero--center .hero__lead {
+  max-width: 34rem;
+}
+
+.hero--center .hero__actions {
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .hero--center .hero__actions {
+    width: auto;
+  }
+
+  .hero--center .hero__media::after {
+    background: linear-gradient(to top, rgba(14, 14, 15, .78) 0%, var(--veil-ink) 22%, transparent 62%);
+  }
+}
+
 
 /* 2. LOGOS
    ========================================================================== */
