@@ -215,16 +215,9 @@ main:has(> .hero:first-child) {
   padding-block: var(--section-y);
 }
 
-/* Section à fond : bloc gris clair arrondi, posé avec la même marge que le
-   hero. Aucune section ne touche les bords de l'écran. */
+/* Section à fond : bande gris clair pleine largeur, sans arrondi */
 .section--sunken {
-  margin-inline: var(--hero-inset);
   background: var(--surface-sunken);
-  border-radius: var(--hero-radius);
-}
-
-.section--sunken + .section--sunken {
-  margin-top: var(--hero-inset);
 }
 
 /* En-tête de section : surtitre numéroté + titre + chapô */
@@ -1018,13 +1011,12 @@ select.field__input {
 /* 8. Footer — le seul grand aplat encre de la page, avec grain fort
    ========================================================================== */
 
-/* Footer : bloc encre arrondi, en écho au hero */
-/* Footer : noir un peu plus clair que la section Contact, une barre avec
-   le copyright et l'email à gauche, les liens à droite */
+/* Footer : noir un peu plus clair que la section Contact, pleine largeur,
+   une barre avec le copyright et l'email à gauche, les liens à droite.
+   Seul (pages légales), il garde un arrondi en haut. */
 .site-footer {
   overflow: hidden;
-  margin: var(--hero-inset);
-  border-radius: var(--hero-radius);
+  border-radius: var(--contact-radius) var(--contact-radius) 0 0;
   padding-block: var(--space-4);
   background: var(--surface-card); /* encre plus claire, via data-theme="inverse" */
   font-size: var(--text-body-sm);
@@ -1085,6 +1077,5 @@ select.field__input {
 
 /* Pages avec section Contact : le footer prolonge le bloc noir du Contact */
 .site-footer--joined {
-  margin-top: 0;
-  border-radius: 0 0 var(--hero-radius) var(--hero-radius);
+  border-radius: 0;
 }

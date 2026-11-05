@@ -298,7 +298,8 @@
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
   --hero-inset: var(--space-1);
-  --hero-radius: 40px; /* blocs de section (gris, IA, Contact, footer) : très arrondis */
+  --hero-radius: 40px;
+  --contact-radius: clamp(40px, 6vw, 88px); /* haut de la section Contact, pleine largeur */
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
   --booking-height: 560px;

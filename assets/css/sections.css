@@ -1475,12 +1475,11 @@ img.about__photo {
   content: none;
 }
 
-/* Section Contact en noir (data-theme="inverse"), soudée au footer :
-   un seul bloc encre arrondi en haut, le footer arrondit le bas */
+/* Section Contact en noir (data-theme="inverse"), pleine largeur, soudée
+   au footer : grand arrondi en haut à gauche et à droite seulement */
 .section--contact {
-  margin-inline: var(--hero-inset);
   padding-bottom: var(--space-5); /* le grand nom termine la section */
-  border-radius: var(--hero-radius) var(--hero-radius) 0 0;
+  border-radius: var(--contact-radius) var(--contact-radius) 0 0;
   background: var(--surface-page);
 }
 
