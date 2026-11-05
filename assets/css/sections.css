@@ -539,6 +539,33 @@ ul.expertise-cards {
   color: var(--text-primary);
 }
 
+/* Repère de couleur : une petite pastille avant le titre, de la couleur
+   des étiquettes de projets de la même expertise. Volontairement discret. */
+.expertise-card--ads .expertise-card__title,
+.expertise-card--web .expertise-card__title,
+.expertise-card--crm .expertise-card__title,
+.expertise-card--data .expertise-card__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+/* Pastille calée sur la première ligne ; la 2e ligne s'aligne sur le texte */
+.expertise-card__title::before {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--expertise-dot, transparent);
+  transform: translateY(-0.05em);
+}
+
+.expertise-card--ads  { --expertise-dot: var(--dot-ads); }
+.expertise-card--web  { --expertise-dot: var(--dot-web); }
+.expertise-card--crm  { --expertise-dot: var(--dot-crm); }
+.expertise-card--data { --expertise-dot: var(--dot-data); }
+
 @media (min-width: 48em) {
   ul.expertise-cards {
     grid-template-columns: repeat(2, 1fr);

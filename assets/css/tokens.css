@@ -355,6 +355,12 @@
   --tag-web: #FCE6A8;   /* doré : Sites web */
   --tag-crm: #FFDCCB;   /* pêche : CRM */
   --tag-data: #F6D6FF;  /* rose : Tracking */
+  /* Pastilles des cartes Expertises : mêmes teintes, un cran plus soutenues
+     pour rester visibles en petit sur fond blanc */
+  --dot-ads: #9BDB4C;
+  --dot-web: #F5C33B;
+  --dot-crm: #FFB08F;
+  --dot-data: #E6A3F7;
 
   /* Orbe animée de la section IA : mêmes teintes, pleines */
   --orb-green: #B6EC6A;
