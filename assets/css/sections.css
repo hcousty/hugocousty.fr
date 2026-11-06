@@ -712,6 +712,11 @@ ul.expertise-cards {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* Le dégradé ne couvre que la boîte du texte : avec l'interlettrage
+       serré, le dernier signe (%, €) en dépasse. On élargit la boîte sans
+       décaler la mise en page. */
+    padding: 0 0.12em 0.06em 0;
+    margin: 0 -0.12em -0.06em 0;
   }
 }
 
