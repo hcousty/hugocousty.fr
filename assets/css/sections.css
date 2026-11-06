@@ -961,6 +961,12 @@ img.featured__visual {
     border-left: var(--border-width-hairline) solid var(--border-mid);
   }
 
+  /* Un seul avis court (pages agences) : sur toute la hauteur, centré */
+  .testimonial--solo {
+    grid-row: 1 / span 2;
+    align-content: center;
+  }
+
   .testimonial:not(.testimonial--main) + .testimonial:not(.testimonial--main) {
     padding-top: var(--space-5);
     margin-top: calc(-1 * var(--space-5));
