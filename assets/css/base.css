@@ -760,7 +760,14 @@ select.field__input {
 }
 
 .page-simple {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh; /* pages courtes : le footer reste collé en bas */
   padding-bottom: 0;
+}
+
+.page-simple main {
+  flex: 1;
 }
 
 /* --- Burger ---------------------------------------------------------------- */
@@ -956,21 +963,6 @@ select.field__input {
   color: var(--text-muted);
 }
 
-/* Grand nom en signature, en bas de la section Contact (fond noir) :
-   toute la largeur du contenu, gris à peine plus clair que le fond */
-.signature-name {
-  margin-top: var(--space-8);
-  font-family: var(--font-display);
-  font-size: min(14vw, 12rem); /* tient dans la largeur, du mobile au grand écran */
-  font-weight: var(--weight-medium);
-  line-height: 1.1; /* laisse la place aux jambages du g et du y */
-  letter-spacing: var(--tracking-display);
-  text-align: center;
-  white-space: nowrap;
-  color: var(--ink-700);
-  user-select: none;
-}
-
 /* Barre : empilée et centrée sur mobile, sur une ligne dès la tablette */
 .site-footer__bar {
   display: flex;
@@ -980,8 +972,29 @@ select.field__input {
   text-align: center;
 }
 
-.site-footer__meta a {
-  margin-left: var(--space-2);
+.site-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1) var(--space-3);
+}
+
+/* LinkedIn : pictogramme seul (Simple Icons, CC0), couleur du texte */
+.site-footer__social {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -6px; /* zone de clic plus large sans décaler la ligne */
+}
+
+.site-footer__icon {
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  -webkit-mask: url("/assets/img/regies/linkedin.svg") center / contain no-repeat;
+  mask: url("/assets/img/regies/linkedin.svg") center / contain no-repeat;
 }
 
 .site-footer__list {
@@ -1005,6 +1018,10 @@ select.field__input {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+  }
+
+  .site-footer__meta {
+    justify-content: flex-start;
   }
 }
 

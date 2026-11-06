@@ -67,7 +67,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 9 | FAQ | `#faq` (menu) |
 | 10 | Contact, bloc noir soudé au footer : « Réservez un appel » (calendrier Cal.com en thème sombre) puis « Ou envoyez-moi un message » (formulaire Brevo, champs pleins sans contour), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
-| 11 | Footer (noir un peu plus clair) : copyright et email à gauche, liens à droite. Le grand nom « Hugo Cousty » (`.signature-name`) termine la section Contact. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, bloc encre arrondi seul ailleurs | – |
+| 11 | Footer (noir un peu plus clair) : à gauche copyright, email, lien vers le CV (`/cv/`, page provisoire) et pictogramme LinkedIn ; liens à droite. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, arrondi en haut ailleurs | – |
 
 **Fonds de section** : une section à fond (`.section--sunken`) est une bande gris clair pleine largeur, sans arrondi. La section Contact est pleine largeur avec un grand arrondi en haut (`--contact-radius`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs de section (Témoignages, IA, Formats), réservés d’images. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
 
