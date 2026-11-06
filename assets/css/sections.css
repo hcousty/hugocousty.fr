@@ -910,7 +910,7 @@ img.featured__visual {
 .testimonial--main .testimonial__quote {
   max-width: 24em;
   font-family: var(--font-display);
-  font-size: var(--text-h1);
+  font-size: var(--text-quote); /* plus petit qu'un titre : les vrais avis font 30 à 40 mots */
   font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-title);
   line-height: var(--leading-snug);

@@ -150,6 +150,7 @@
   --text-h1: clamp(30px, 3.2vw, 44px);
   --text-title: clamp(30px, 3.2vw, 44px); /* titres de section (h2) */
   --text-h2: 28px;
+  --text-quote: clamp(24px, 2.4vw, 32px); /* témoignage principal */
   --text-h3: 20px;
   --text-lead: 20px;
   --text-body: 16px;
