@@ -703,10 +703,11 @@ ul.expertise-cards {
   font-variant-numeric: tabular-nums;
 }
 
-/* Chiffres en dégradé « Aurore » : du bleu glacier au violet rosé (teintes
-   de l'orbe IA, soutenues pour rester lisibles sur blanc) */
+/* Chiffres en dégradé « Aurore » (chiffres clés et numéros d'étapes de la
+   Méthode) : bleu acier, bleu roi, violet (teintes de l'orbe IA, foncées) */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .stat__value {
+  .stat__value,
+  .step__number {
     width: fit-content;
     background: linear-gradient(90deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
     -webkit-background-clip: text;
