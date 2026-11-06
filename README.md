@@ -124,6 +124,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 ### Fichiers du design system dans le repo
 
 - **Police Switzer** (Indian Type Foundry, gratuite via Fontshare, licence ITF Free Font License, voir `Switzer-licence.txt`) : `/assets/fonts/`, graisses 400, 500, 600 et 700. Hébergée sur le site, sans service externe. Les graisses 400 et 600 sont préchargées dans le `<head>` de chaque page.
+- **Dégradé « Aurore »** (seule couleur du site) : bleu glacier, bleu ciel, lavande, rose poudré à 30 % (`--band-1` à `--band-4`), sur la section IA, l'orbe et la carte recommandée des formats. Un grain fin (`/assets/img/grain.svg`, environ 1 Ko) est posé uniquement sur ces dégradés, sous le voile blanc.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
 ---

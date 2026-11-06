@@ -304,29 +304,31 @@
   --button-height: 60px;
   --button-height-small: 44px;
 
-  /* Dégradé pastel (seule couleur du site, encart IA) : vert, jaune, rose */
-
-  /* Bande de couleurs du fond IA + Méthode (à 30 %, plus léger que TwelveLabs) */
-  --band-pink: rgba(246, 175, 255, .3);
-  --band-peach: rgba(255, 181, 146, .3);
-  --band-gold: rgba(250, 185, 32, .3);
-  --band-green: rgba(132, 219, 26, .3);
-
+  /* Palette « Aurore » : seule couleur du site. Dégradé de la section IA
+     (bleu glacier à gauche, bleu ciel, lavande, rose poudré à droite), à 30 % */
+  --band-1: rgba(255, 170, 200, .3);  /* rose poudré (à droite) */
+  --band-2: rgba(196, 168, 255, .3);  /* lavande */
+  --band-3: rgba(150, 190, 255, .3);  /* bleu ciel */
+  --band-4: rgba(120, 215, 240, .3);  /* bleu glacier (à gauche) */
 
   /* Orbe animée de la section IA : mêmes teintes, pleines */
-  --orb-green: #B6EC6A;
-  --orb-gold: #FCD36A;
-  --orb-peach: #FFC2A8;
-  --orb-pink: #F6B9FF;
+  --orb-1: #8FD8F0;
+  --orb-2: #9DBBFF;
+  --orb-3: #C4A8FF;
+  --orb-4: #FFB3CF;
   --ai-orb-size: 96px;
+
+  /* Grain fin, posé seulement sur les dégradés (sous le voile blanc) */
+  --grain: url("../img/grain.svg");
+  --grain-size: 200px;
 
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
-  --offer-fade: rgba(246, 205, 230, .2); /* rose pastel très léger */
+  --offer-fade: rgba(196, 168, 255, .16); /* lavande très légère */
   /* Dégradé de la carte recommandée : mêmes teintes que l'IA, à 30 % */
-  --offer-pink: rgba(246, 175, 255, .3);
-  --offer-yellow: rgba(250, 185, 32, .3);
-  --offer-green: rgba(132, 219, 26, .3);
+  --offer-1: rgba(255, 170, 200, .3);
+  --offer-2: rgba(196, 168, 255, .3);
+  --offer-3: rgba(150, 190, 255, .3);
 
   /* Taille de la flèche ↗ des boutons */
   --icon-size-button: 16px;

@@ -1033,10 +1033,10 @@ img.about__photo {
 .ai-lead-in,
 .ai-box {
   --ai-band: linear-gradient(270deg,
-    var(--band-pink) 0.8%,
-    var(--band-peach) 12%,
-    var(--band-gold) 24.5%,
-    var(--band-green) 100%);
+    var(--band-1) 0.8%,
+    var(--band-2) 12%,
+    var(--band-3) 24.5%,
+    var(--band-4) 100%);
   --ai-veil-join: rgba(255, 255, 255, .6);
 }
 
@@ -1044,10 +1044,10 @@ img.about__photo {
    haut de la Méthode : elle s'efface de la même façon */
 .ai-lead-out {
   --ai-band: linear-gradient(270deg,
-    var(--band-pink) 0.8%,
-    var(--band-peach) 12%,
-    var(--band-gold) 24.5%,
-    var(--band-green) 100%);
+    var(--band-1) 0.8%,
+    var(--band-2) 12%,
+    var(--band-3) 24.5%,
+    var(--band-4) 100%);
   --ai-veil-join: rgba(255, 255, 255, .6);
   position: relative;
   isolation: isolate;
@@ -1061,6 +1061,7 @@ img.about__photo {
   pointer-events: none;
   background:
     linear-gradient(to bottom, var(--ai-veil-join) 0%, var(--surface-page) 100%),
+    var(--grain) 0 0 / var(--grain-size),
     var(--ai-band),
     var(--surface-page);
 }
@@ -1078,6 +1079,7 @@ img.about__photo {
   pointer-events: none;
   background:
     linear-gradient(to bottom, var(--surface-page) 0%, var(--ai-veil-join) 100%),
+    var(--grain) 0 0 / var(--grain-size),
     var(--ai-band),
     var(--surface-page);
 }
@@ -1089,6 +1091,7 @@ img.about__photo {
       transparent 40%,
       transparent 60%,
       var(--ai-veil-join) 100%),
+    var(--grain) 0 0 / var(--grain-size),
     var(--ai-band),
     var(--surface-page);
 }
@@ -1125,7 +1128,7 @@ img.about__photo {
   inset: 8%;
   border-radius: 50%;
   background: conic-gradient(from calc(var(--ia-p) * 360deg),
-    var(--orb-green), var(--orb-gold), var(--orb-peach), var(--orb-pink), var(--orb-green));
+    var(--orb-1), var(--orb-2), var(--orb-3), var(--orb-4), var(--orb-1));
   filter: blur(14px) saturate(150%);
   opacity: 1;
   animation: ai-orb-breathe 6s var(--ease-in-out) infinite;
@@ -1238,11 +1241,12 @@ img.about__photo {
 
 .offer--featured {
   background:
+    linear-gradient(to bottom, var(--surface-card) 35%, transparent 60%),
+    var(--grain) 0 0 / var(--grain-size),
     linear-gradient(to bottom,
-      var(--surface-card) 35%,
-      var(--offer-pink) 62%,
-      var(--offer-yellow) 82%,
-      var(--offer-green) 100%),
+      var(--offer-1) 40%,
+      var(--offer-2) 70%,
+      var(--offer-3) 100%),
     var(--surface-card); /* blanc dessous : couleurs propres sur le bloc gris */
 }
 
