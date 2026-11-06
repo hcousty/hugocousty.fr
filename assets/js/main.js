@@ -371,6 +371,25 @@
 
 
 
+  /* 9. Chiffres clés : apparition douce, l'un après l'autre, à l'arrivée
+     à l'écran. Seulement si le bloc n'est pas déjà visible au chargement ;
+     rien si les animations sont réduites (le CSS fait le reste). */
+  const statsList = document.querySelector('.stats');
+
+  if (statsList && !reduceMotion.matches && 'IntersectionObserver' in window
+      && statsList.getBoundingClientRect().top > window.innerHeight) {
+    statsList.querySelectorAll('.stat').forEach((el, i) => el.style.setProperty('--i', i));
+    statsList.classList.add('is-pending');
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      statsList.classList.add('is-in');
+      statsList.classList.remove('is-pending');
+    }, { threshold: 0.4 });
+    io.observe(statsList);
+  }
+
+
   /* 10. Photo du hero : léger effet de profondeur au défilement
      La photo descend à 25 % de la vitesse de la page tant que le hero est
      visible (le cadre masque le débord). Rien si animations réduites. */
