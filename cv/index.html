@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CV · Hugo Cousty</title>
-  <meta name="description" content="CV de Hugo Cousty, consultant marketing : parcours, expériences et compétences.">
-  <!-- Page provisoire tant que le CV n'est pas rédigé : pas d'indexation -->
+  <title>CV · Hugo Cousty, consultant marketing</title>
+  <meta name="description" content="CV de Hugo Cousty, consultant marketing : plus de 10 ans entre annonceur, agence et freelance. Social Ads, Google Ads, sites web, CRM et data.">
+  <!-- Pas d'indexation tant que les champs « À compléter » ne sont pas remplis -->
   <meta name="robots" content="noindex">
 
   <link rel="preload" href="/assets/fonts/Switzer-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,7 +20,6 @@
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <!-- HEADER (version page secondaire : retour au one page + CTA) -->
-  <!-- CV : page provisoire, à remplacer par le CV en HTML -->
   <header class="site-header" data-header>
     <div class="site-header__inner">
       <a class="site-id" href="/" aria-label="Hugo Cousty, retour à l’accueil">
@@ -34,18 +33,173 @@
     </div>
   </header>
 
+  <!-- =====================================================================
+       CV
+       Les éléments marqués <span class="cv-todo">…</span> sont à compléter
+       (dates, intitulés de poste, formation, langues). Bouton « Télécharger
+       en PDF » : impression du navigateur, mise en page dédiée (@media print).
+       ===================================================================== -->
   <main id="contenu">
-    <section class="section" aria-labelledby="page-title">
-      <div class="container container--narrow">
-        <header class="page-head">
-          <h1 id="page-title">Mon CV arrive bientôt</h1>
-          <p class="page-head__intro">En attendant, retrouvez mon parcours détaillé sur LinkedIn.</p>
+    <article class="section cv" aria-labelledby="cv-title">
+      <div class="container">
+
+        <!-- En-tête -->
+        <header class="cv-head">
+          <div class="cv-head__main">
+            <h1 id="cv-title">Hugo Cousty</h1>
+            <p class="cv-head__role">Consultant marketing&nbsp;: Social Ads, Google Ads, sites web, CRM et data</p>
+            <p class="cv-head__intro">Plus de 10&nbsp;ans dans le web et le marketing, côté annonceur, en agence puis en freelance, en France comme en Suisse.</p>
+          </div>
+          <div class="cv-head__actions">
+            <button class="btn btn--secondary" type="button" data-print>Télécharger en PDF</button>
+            <a class="btn btn--primary" href="/#reserver">Réserver un appel</a>
+          </div>
         </header>
-        <div class="page-cta__actions">
-          <a class="btn btn--secondary" href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">Me rejoindre sur LinkedIn<span class="visually-hidden"> (nouvel onglet)</span></a>
+
+        <!-- Chiffres clés (mêmes valeurs que l'accueil) -->
+        <ul class="cv-stats" aria-label="Chiffres clés">
+          <li><strong>+2&nbsp;M€</strong><span>de budget publicitaire piloté pour un seul client, sur une année</span></li>
+          <li><strong>+20</strong><span>marques accompagnées, en direct ou en agence</span></li>
+          <li><strong>×5</strong><span>de retour sur dépense publicitaire sur une campagne e&#8209;commerce</span></li>
+          <li><strong>−40&nbsp;%</strong><span>de coût d’acquisition sur un compte repris</span></li>
+        </ul>
+
+        <div class="cv-layout">
+
+          <!-- Colonne principale : profil et expériences -->
+          <div class="cv-main">
+
+            <section class="cv-block" aria-labelledby="cv-profil">
+              <h2 class="cv-block__title" id="cv-profil">Profil</h2>
+              <p>J’accompagne les entreprises et les agences sur leur marketing en ligne, de la stratégie à la mise en place&nbsp;: campagnes publicitaires, sites web, CRM et suivi des performances. Mon parcours chez l’annonceur, en agence puis en freelance me permet de comprendre vite les enjeux d’un business et d’y répondre avec des méthodes claires.</p>
+              <p>Selon les projets, je m’entoure de développeurs et de créatifs de confiance, que je coordonne. Et je forme les équipes au fil de l’eau, pour qu’elles gagnent en autonomie.</p>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-exp">
+              <h2 class="cv-block__title" id="cv-exp">Expériences</h2>
+
+              <ol class="cv-timeline">
+
+                <li class="cv-job">
+                  <div class="cv-job__head">
+                    <h3 class="cv-job__title">Consultant marketing indépendant</h3>
+                    <p class="cv-job__meta">Freelance · France et Suisse · <span class="cv-todo">Depuis 20XX</span></p>
+                  </div>
+                  <ul class="cv-job__list">
+                    <li><strong>Harmony</strong> (clubs de sport, Suisse romande)&nbsp;: audit webmarketing, puis chef de projet de la transformation digitale. Refonte des 5&nbsp;sites du groupe, interfacés avec un nouveau CRM spécialisé dans le sport, migration des outils emailing. Au quotidien&nbsp;: sites vitrines et e&#8209;commerce, suivi des conversions, campagnes Meta et Google Ads.</li>
+                    <li><strong>CréActifs</strong> (formation)&nbsp;: audit puis stratégie Social Ads pour générer des prospects qualifiés, visuels et vidéos publicitaires, catalogue de formations sur Meta, suivi de l’attribution et reportings mensuels. Création d’un kit du formateur pour rendre les équipes autonomes.</li>
+                    <li><strong>Factory</strong> (aménagement d’espaces de travail)&nbsp;: dispositif Social Ads B2B sur Meta et LinkedIn, vidéos publicitaires, landing pages, gestion des leads dans HubSpot et suivi des conversions.</li>
+                    <li><strong>Les Jours</strong> (presse en ligne)&nbsp;: acquisition d’abonnés avec des messages publicitaires conformes à la ligne éditoriale et aux règles de diffusion de Meta.</li>
+                  </ul>
+                </li>
+
+                <li class="cv-job">
+                  <div class="cv-job__head">
+                    <h3 class="cv-job__title"><span class="cv-todo">Intitulé du poste</span></h3>
+                    <p class="cv-job__meta">Ad’s up Consulting · Agence Social Ads · <span class="cv-todo">20XX à 20XX</span></p>
+                  </div>
+                  <ul class="cv-job__list">
+                    <li><strong>Aroma-Zone</strong>&nbsp;: pilotage des campagnes e&#8209;commerce sur 4&nbsp;régies (Meta, Snapchat, TikTok, Pinterest), accompagnement sur les vidéos publicitaires&nbsp;: scripts, creative reviews et rapports dédiés.</li>
+                    <li><strong>Carrefour Banque</strong>&nbsp;: lancement de campagnes de génération de prospects dans un cadre réglementaire strict, avec les équipes créatives internes.</li>
+                    <li><strong>Yelloh! Village</strong>&nbsp;: campagnes pour booster les réservations d’un réseau de campings, suivi par établissement et par pays.</li>
+                    <li><strong>Glisshop</strong>&nbsp;: campagnes e&#8209;commerce, optimisation des catalogues produits et coordination avec les créatifs.</li>
+                    <li>Également&nbsp;: Groupe Barrière, IKKS, Le Pantalon, KeepCool, Rexel, Bonhams.</li>
+                  </ul>
+                </li>
+
+                <li class="cv-job">
+                  <div class="cv-job__head">
+                    <h3 class="cv-job__title"><span class="cv-todo">Intitulé du poste</span></h3>
+                    <p class="cv-job__meta">Enigma · Agence · <span class="cv-todo">20XX à 20XX</span></p>
+                  </div>
+                  <p class="cv-job__text"><span class="cv-todo">Missions principales et clients</span></p>
+                </li>
+
+                <li class="cv-job">
+                  <div class="cv-job__head">
+                    <h3 class="cv-job__title"><span class="cv-todo">Intitulé du poste</span></h3>
+                    <p class="cv-job__meta"><span class="cv-todo">Entreprise</span> · Côté annonceur · <span class="cv-todo">20XX à 20XX</span></p>
+                  </div>
+                  <p class="cv-job__text"><span class="cv-todo">Missions principales</span></p>
+                </li>
+
+              </ol>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-avis">
+              <h2 class="cv-block__title" id="cv-avis">Ils en parlent</h2>
+              <figure class="cv-quote">
+                <blockquote>
+                  <p>«&nbsp;Cela a été un réel plaisir de travailler avec Hugo&nbsp;! […] Il embarque les projets qui lui sont confiés avec rigueur, créativité, minutie et la volonté de répondre à des objectifs précis pour fil conducteur.&nbsp;»</p>
+                </blockquote>
+                <figcaption><a href="https://fr.linkedin.com/in/houda-khalil-mimouni" target="_blank" rel="noopener">Houda Khalil Mimouni</a>, ancienne collègue</figcaption>
+              </figure>
+            </section>
+
+          </div>
+
+          <!-- Colonne latérale : contact, compétences, outils -->
+          <aside class="cv-side" aria-label="Informations complémentaires">
+
+            <section class="cv-block" aria-labelledby="cv-contact">
+              <h2 class="cv-block__title" id="cv-contact">Contact</h2>
+              <ul class="cv-facts">
+                <li><a href="mailto:hello@hugocousty.fr">hello@hugocousty.fr</a></li>
+                <li><a href="https://www.linkedin.com/in/hugo-cousty/" target="_blank" rel="noopener">linkedin.com/in/hugo-cousty</a></li>
+                <li><a href="https://hugocousty.fr">hugocousty.fr</a></li>
+                <li>Basé à Bordeaux, missions à distance, à Paris et à Genève</li>
+              </ul>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-skills">
+              <h2 class="cv-block__title" id="cv-skills">Compétences</h2>
+              <dl class="cv-skills">
+                <div><dt>Google et Social Ads</dt><dd>Stratégie, structure de comptes, audiences, tests créatifs, pilotage des budgets</dd></div>
+                <div><dt>Sites web</dt><dd>Conception, refonte, landing pages pensées pour convertir</dd></div>
+                <div><dt>CRM et automatisation</dt><dd>Données clients, emailings, parcours de relance</dd></div>
+                <div><dt>Suivi et data</dt><dd>Plan de taggage, attribution, tableaux de bord</dd></div>
+                <div><dt>Créa publicitaire</dt><dd>Scripts vidéo, briefs, creative reviews</dd></div>
+                <div><dt>Gestion de projet</dt><dd>Coordination des prestataires, formation des équipes</dd></div>
+              </dl>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-tools">
+              <h2 class="cv-block__title" id="cv-tools">Régies et outils</h2>
+              <ul class="tags">
+                <li class="tag">Meta</li>
+                <li class="tag">Google Ads</li>
+                <li class="tag">LinkedIn</li>
+                <li class="tag">TikTok</li>
+                <li class="tag">Snapchat</li>
+                <li class="tag">Pinterest</li>
+                <li class="tag">GA4</li>
+                <li class="tag">GTM</li>
+                <li class="tag">HubSpot</li>
+                <li class="tag">WordPress</li>
+                <li class="tag">WooCommerce</li>
+                <li class="tag">Webflow</li>
+              </ul>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-certif">
+              <h2 class="cv-block__title" id="cv-certif">Certification</h2>
+              <p>Meta Certified Media Buying Professional</p>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-formation">
+              <h2 class="cv-block__title" id="cv-formation">Formation</h2>
+              <p><span class="cv-todo">Diplôme, école, année</span></p>
+            </section>
+
+            <section class="cv-block" aria-labelledby="cv-langues">
+              <h2 class="cv-block__title" id="cv-langues">Langues</h2>
+              <p>Français, langue maternelle<br><span class="cv-todo">Anglais, niveau</span></p>
+            </section>
+
+          </aside>
         </div>
       </div>
-    </section>
+    </article>
   </main>
 
   <!-- FOOTER -->

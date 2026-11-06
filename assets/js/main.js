@@ -448,4 +448,11 @@
     update();
   }
 
+
+  /* 11. CV : bouton « Télécharger en PDF » (impression du navigateur, mise
+     en page dédiée dans sections.css, @media print) */
+  document.querySelectorAll('[data-print]').forEach((btn) => {
+    btn.addEventListener('click', () => window.print());
+  });
+
 })();

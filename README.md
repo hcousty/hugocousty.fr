@@ -67,7 +67,7 @@ Chaque section est encadrée par un commentaire `<!-- ===== N. NOM ===== -->` da
 | 8 | 3 formats pour travailler ensemble, bloc gris | `#travailler-ensemble` (menu, libellé « Formats ») |
 | 9 | FAQ | `#faq` (menu) |
 | 10 | Contact, bloc noir soudé au footer : « Réservez un appel » (calendrier Cal.com en thème sombre) puis « Ou envoyez-moi un message » (formulaire Brevo, champs pleins sans contour), deux blocs centrés et visibles | `#contact` ; le calendrier porte `#reserver`, cible de tous les boutons « Réserver un appel » |
-| 11 | Footer (noir un peu plus clair) : à gauche copyright, email, lien vers le CV (`/cv/`, page provisoire) et pictogramme LinkedIn ; liens à droite. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, arrondi en haut ailleurs | – |
+| 11 | Footer (noir un peu plus clair) : à gauche copyright, email, lien vers le CV (`/cv/`) et pictogramme LinkedIn ; liens à droite. Prolonge le bloc Contact (`.site-footer--joined`) sur l'accueil et les pages agences, arrondi en haut ailleurs | – |
 
 **Fonds de section** : une section à fond (`.section--sunken`) est une bande gris clair pleine largeur, sans arrondi. La section Contact est pleine largeur avec un grand arrondi en haut (`--contact-radius`). Un seul gris clair sur tout le site (`--surface-sunken`) : blocs de section (Témoignages, IA, Formats), réservés d’images. Le noir est réservé au hero, à l'en-tête réduit, à la barre mobile et au footer.
 
@@ -125,6 +125,7 @@ Source : projet Claude Design **« Hugo Cousty Design System »** (readme + doss
 
 - **Police Switzer** (Indian Type Foundry, gratuite via Fontshare, licence ITF Free Font License, voir `Switzer-licence.txt`) : `/assets/fonts/`, graisses 400, 500, 600 et 700. Hébergée sur le site, sans service externe. Les graisses 400 et 600 sont préchargées dans le `<head>` de chaque page.
 - **Dégradé « Aurore »** (seule couleur du site) : bleu glacier, bleu ciel, lavande, rose poudré à 30 % (`--band-1` à `--band-4`), sur la section IA, l'orbe et la carte recommandée des formats. Un grain fin (`/assets/img/grain.svg`, environ 1 Ko) est posé uniquement sur ces dégradés, sous le voile blanc.
+- **CV** : `/cv/index.html`, mêmes composants que le site (section 13 de `sections.css`). Bouton « Télécharger en PDF » = impression du navigateur, avec une mise en page A4 dédiée (`@media print`, 2 pages). Les éléments `<span class="cv-todo">` (dates, postes, formation, langues) sont à compléter ; la page reste en `noindex` d'ici là.
 - **Contrastes** à revérifier si la palette change : au moins 4,5:1 pour le texte ; vérifier en particulier le texte posé sur les surfaces en verre et sur les photos.
 
 ---
