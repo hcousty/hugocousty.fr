@@ -260,11 +260,6 @@ img.hero__photo {
   }
 }
 
-/* Chiffres clés : largeur figée pendant le défilement des nombres (main.js) */
-.stat__value[data-count] {
-  display: inline-block;
-}
-
 /* Photo du hero : glisse plus lentement que la page (main.js, --hero-shift) */
 img.hero__photo {
   transform: translate3d(0, var(--hero-shift, 0px), 0);
