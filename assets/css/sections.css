@@ -703,8 +703,8 @@ ul.expertise-cards {
   font-variant-numeric: tabular-nums;
 }
 
-/* Chiffres en dégradé « Aurore » (mêmes teintes que l'orbe IA, en version
-   soutenue pour rester lisibles sur blanc : contraste 3,6 à 4,4:1) */
+/* Chiffres en dégradé « Aurore » : du bleu glacier au violet rosé (teintes
+   de l'orbe IA, soutenues pour rester lisibles sur blanc) */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .stat__value {
     width: fit-content;

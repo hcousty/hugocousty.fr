@@ -372,14 +372,14 @@
 
 
   /* 9. Chiffres clés : le nombre monte vite au début puis ralentit en
-     douceur jusqu'à sa valeur (2,8 s). Seul le nombre bouge : préfixe,
+     douceur jusqu'à sa valeur (2 s). Seul le nombre bouge : préfixe,
      unité et légende restent fixes. Le texte final reste dans le HTML (lu
      sans JS et par les moteurs). Rien si les animations sont réduites. */
   const statValues = [...document.querySelectorAll('.stat__value')];
 
   if (statValues.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
     const easeOut = (t) => 1 - Math.pow(1 - t, 4); // rapide au début, puis très progressif
-    const duration = 2800;
+    const duration = 2000;
 
     const items = statValues.map((el) => {
       const m = el.textContent.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/s);

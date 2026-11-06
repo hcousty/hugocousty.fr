@@ -322,8 +322,8 @@
   /* Chiffres clés en dégradé : teintes de l'orbe, assombries pour le texte */
   --stat-1: #2A8FBF;  /* bleu glacier */
   --stat-2: #4F6EE8;  /* bleu ciel */
-  --stat-3: #8A5CE6;  /* lavande */
-  --stat-4: #D9548F;  /* rose */
+  --stat-3: #7B5FE6;  /* lavande */
+  --stat-4: #A653D6;  /* violet rosé (pas de rose pur) */
 
   /* Grain fin, posé seulement sur les dégradés (sous le voile blanc) */
   --grain: url("../img/grain.svg");
