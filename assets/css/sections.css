@@ -736,6 +736,18 @@ ul.expertise-cards {
   font-variant-numeric: tabular-nums;
 }
 
+/* Chiffres en dégradé « Aurore » (mêmes teintes que l'orbe IA, en version
+   soutenue pour rester lisibles sur blanc : contraste 3,6 à 4,4:1) */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .stat__value {
+    width: fit-content;
+    background: linear-gradient(90deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 .stat__label {
   font-size: var(--text-body-sm);
   color: var(--text-muted);
