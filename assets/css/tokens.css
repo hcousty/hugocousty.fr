@@ -319,11 +319,12 @@
   --orb-4: #FFB3CF;
   --ai-orb-size: 96px;
 
-  /* Chiffres clés en dégradé : teintes de l'orbe, assombries pour le texte */
-  --stat-1: #2A8FBF;  /* bleu glacier */
-  --stat-2: #4F6EE8;  /* bleu ciel */
-  --stat-3: #7B5FE6;  /* lavande */
-  --stat-4: #A653D6;  /* violet rosé (pas de rose pur) */
+  /* Chiffres clés en dégradé : teintes de l'orbe, foncées (bleu acier,
+     bleu roi, violet) pour un rendu sobre */
+  --stat-1: #1F6B95;  /* bleu glacier */
+  --stat-2: #3A55C2;  /* bleu ciel */
+  --stat-3: #5A45BF;  /* lavande */
+  --stat-4: #7A3DAE;  /* violet rosé (pas de rose pur) */
 
   /* Grain fin, posé seulement sur les dégradés (sous le voile blanc) */
   --grain: url("../img/grain.svg");
