@@ -693,39 +693,6 @@ ul.expertise-cards {
   gap: var(--space-1);
 }
 
-/* Apparition des chiffres clés (main.js pose .is-pending puis .is-in) :
-   chaque chiffre se dévoile de bas en haut avec un léger flou qui se
-   dissipe, puis sa légende apparaît ; les 4 se suivent, lentement.
-   Sans JS ou avec animations réduites, tout est visible d'emblée. */
-.stats.is-pending .stat__value {
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(14px);
-  clip-path: inset(0 0 100% 0);
-}
-
-.stats.is-pending .stat__label {
-  opacity: 0;
-}
-
-.stats.is-in .stat__value {
-  opacity: 1;
-  filter: blur(0);
-  transform: none;
-  clip-path: inset(0 0 0 0);
-  transition:
-    opacity var(--stat-reveal) var(--ease-out),
-    filter var(--stat-reveal) var(--ease-out),
-    transform var(--stat-reveal) var(--ease-out),
-    clip-path var(--stat-reveal) var(--ease-out);
-  transition-delay: calc(var(--i, 0) * var(--stat-stagger));
-}
-
-.stats.is-in .stat__label {
-  opacity: 1;
-  transition: opacity var(--stat-reveal) var(--ease-out);
-  transition-delay: calc(var(--i, 0) * var(--stat-stagger) + 500ms);
-}
 
 .stat__value {
   font-family: var(--font-display);

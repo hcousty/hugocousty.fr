@@ -371,22 +371,58 @@
 
 
 
-  /* 9. Chiffres clés : apparition douce, l'un après l'autre, à l'arrivée
-     à l'écran. Seulement si le bloc n'est pas déjà visible au chargement ;
-     rien si les animations sont réduites (le CSS fait le reste). */
-  const statsList = document.querySelector('.stats');
+  /* 9. Chiffres clés : le nombre monte vite au début puis ralentit en
+     douceur jusqu'à sa valeur (2,8 s). Seul le nombre bouge : préfixe,
+     unité et légende restent fixes. Le texte final reste dans le HTML (lu
+     sans JS et par les moteurs). Rien si les animations sont réduites. */
+  const statValues = [...document.querySelectorAll('.stat__value')];
 
-  if (statsList && !reduceMotion.matches && 'IntersectionObserver' in window
-      && statsList.getBoundingClientRect().top > window.innerHeight) {
-    statsList.querySelectorAll('.stat').forEach((el, i) => el.style.setProperty('--i', i));
-    statsList.classList.add('is-pending');
+  if (statValues.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
+    const easeOut = (t) => 1 - Math.pow(1 - t, 4); // rapide au début, puis très progressif
+    const duration = 2800;
+
+    const items = statValues.map((el) => {
+      const m = el.textContent.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/s);
+      if (!m) return null;
+      const value = parseFloat(m[2].replace(',', '.'));
+      return { el, final: el.textContent, prefix: m[1], suffix: m[3], value, decimals: value < 10 ? 1 : 0 };
+    }).filter(Boolean);
+
+    const show = (d, v) => {
+      const n = d.decimals ? v.toFixed(1).replace('.', ',') : Math.round(v).toString();
+      d.el.textContent = d.prefix + n + d.suffix;
+    };
+
+    const run = (d) => {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        if (t < 1) {
+          show(d, d.value * easeOut(t));
+          requestAnimationFrame(step);
+        } else {
+          d.el.textContent = d.final;
+        }
+      };
+      requestAnimationFrame(step);
+    };
+
     const io = new IntersectionObserver((entries) => {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      statsList.classList.add('is-in');
-      statsList.classList.remove('is-pending');
-    }, { threshold: 0.4 });
-    io.observe(statsList);
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        const d = items.find((x) => x.el === entry.target);
+        if (d) run(d);
+      });
+    }, { threshold: 0.6 });
+
+    items.forEach((d) => {
+      // Chiffres déjà visibles au chargement : on n'anime pas
+      if (d.el.getBoundingClientRect().top < window.innerHeight) return;
+      d.el.style.minWidth = d.el.getBoundingClientRect().width + 'px'; // pas de saut de mise en page
+      show(d, 0);
+      io.observe(d.el);
+    });
   }
 
 
