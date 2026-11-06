@@ -385,11 +385,14 @@
       const m = el.textContent.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/s);
       if (!m) return null;
       const value = parseFloat(m[2].replace(',', '.'));
-      return { el, final: el.textContent, prefix: m[1], suffix: m[3], value, decimals: value < 10 ? 1 : 0 };
+      // Décimales seulement pour un montant (« M€ ») : « +1,4 M€ » se lit
+      // naturellement, « ×4,6 » non. Les autres nombres montent en entiers.
+      return { el, final: el.textContent, prefix: m[1], suffix: m[3], value, decimals: /M/.test(m[3]) ? 1 : 0 };
     }).filter(Boolean);
 
     const show = (d, v) => {
-      const n = d.decimals ? v.toFixed(1).replace('.', ',') : Math.round(v).toString();
+      // Pas de « 2,0 » : une décimale nulle est retirée (« 1,9 » puis « 2 »)
+      const n = d.decimals ? v.toFixed(1).replace(/\.0$/, '').replace('.', ',') : Math.round(v).toString();
       d.el.textContent = d.prefix + n + d.suffix;
     };
 
