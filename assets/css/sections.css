@@ -1932,7 +1932,8 @@ img.about__photo {
 
   .cv-block p + p,
   .cv-skills > div + div,
-  .cv-job__list li + li {
+  .cv-job__list li + li,
+  .cv-job__text + .cv-job__list {
     margin-top: 1.5mm;
   }
 
