@@ -407,33 +407,27 @@
   }
 
 
-  /* 9 bis. Méthode étape par étape : la section reste fixe à l'écran et
-     les 4 étapes se remplacent au fil du défilement. Rien si animations
-     réduites (la liste verticale reste affichée). */
-  const methode = document.querySelector('#methode');
-  const stepItems = methode ? [...methode.querySelectorAll('.step')] : [];
+  /* 9 bis. Méthode en cartes empilées : chaque étape se fige sous
+     l'en-tête et la suivante la recouvre. --cover (0 → 1) mesure à quel
+     point une carte est recouverte, pour la faire légèrement reculer.
+     Rien si animations réduites (la liste verticale reste affichée). */
+  const stepsList = document.querySelector('#methode .steps');
+  const stepItems = stepsList ? [...stepsList.querySelectorAll('.step')] : [];
 
-  if (methode && stepItems.length > 1 && !reduceMotion.matches) {
-    methode.classList.add('is-sequenced');
-    const bar = document.createElement('div');
-    bar.className = 'steps-progress';
-    bar.setAttribute('aria-hidden', 'true');
-    stepItems.forEach(() => bar.appendChild(document.createElement('span')));
-    methode.querySelector('.steps').after(bar);
-    const segments = [...bar.children];
+  if (stepsList && stepItems.length > 1 && !reduceMotion.matches) {
+    stepsList.classList.add('is-stacked');
+    stepItems.forEach((el, i) => el.style.setProperty('--i', i));
 
-    let current = -1;
     let ticking = false;
     const update = () => {
-      const r = methode.getBoundingClientRect();
-      const run = methode.offsetHeight - window.innerHeight;
-      const p = run > 0 ? Math.min(.9999, Math.max(0, -r.top / run)) : 0;
-      const i = Math.floor(p * stepItems.length);
-      if (i !== current) {
-        current = i;
-        stepItems.forEach((el, k) => el.classList.toggle('is-active', k === i));
-        segments.forEach((el, k) => el.classList.toggle('is-done', k <= i));
-      }
+      stepItems.forEach((el, i) => {
+        const next = stepItems[i + 1];
+        if (!next) return;
+        const a = el.getBoundingClientRect();
+        const b = next.getBoundingClientRect();
+        const t = Math.min(1, Math.max(0, 1 - (b.top - a.top) / a.height));
+        el.style.setProperty('--cover', t.toFixed(3));
+      });
       ticking = false;
     };
     window.addEventListener('scroll', () => {
@@ -442,7 +436,6 @@
         requestAnimationFrame(update);
       }
     }, { passive: true });
-    window.addEventListener('resize', update);
     update();
   }
 

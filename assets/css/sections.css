@@ -671,69 +671,39 @@ ul.expertise-cards {
 }
 
 
-/* Méthode « étape par étape » (main.js pose .is-sequenced) : la section
-   devient plus haute et son contenu reste fixe à l'écran pendant le
-   défilement ; les 4 étapes se remplacent l'une l'autre (fondu + léger
-   glissement), une barre de progression en 4 segments indique l'étape.
+/* Méthode en cartes empilées (main.js pose .is-stacked) : chaque étape
+   devient une carte qui se fige sous l'en-tête ; la suivante remonte et
+   la recouvre, en laissant dépasser le haut des précédentes. La carte
+   recouverte recule légèrement (--cover, 0 → 1, posé par main.js).
    Sans JS ou avec animations réduites : la liste verticale ci-dessus. */
-#methode.is-sequenced {
-  height: calc(100svh + var(--steps-scroll) * 3);
-  padding-block: 0;
+#methode .steps.is-stacked {
+  display: grid;
+  gap: var(--space-3);
+  border-top: 0;
 }
 
-#methode.is-sequenced > .container {
+#methode .steps.is-stacked .step {
   position: sticky;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100svh;
-  padding-top: var(--header-height-top);
+  top: calc(var(--header-height-top) + var(--space-3) + var(--i, 0) * var(--stack-offset));
+  padding: var(--space-5) var(--space-4);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: var(--card-radius);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-stack);
+  transform-origin: 50% 0;
+  transform: scale(calc(1 - var(--cover, 0) * .04));
+  filter: brightness(calc(1 - var(--cover, 0) * .04));
 }
 
-#methode.is-sequenced .steps {
-  display: grid;
-  border-top: var(--border-width-hairline) solid var(--border-mid);
-}
+@media (min-width: 64em) {
+  #methode .steps.is-stacked .step {
+    padding: var(--space-6) var(--space-5);
+  }
 
-#methode.is-sequenced .step {
-  grid-area: 1 / 1;
-  border-bottom: 0;
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-out);
-  pointer-events: none;
-}
-
-#methode.is-sequenced .step.is-active {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
-
-/* Barre de progression : 4 segments, celui de l'étape en cours en dégradé */
-.steps-progress {
-  display: none;
-}
-
-#methode.is-sequenced .steps-progress {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-1);
-  margin-top: var(--space-4);
-}
-
-.steps-progress span {
-  height: 3px;
-  border-radius: var(--radius-pill);
-  background: var(--border-mid);
-  transition: background var(--duration-slow) var(--ease-out);
-}
-
-.steps-progress span.is-done {
-  background: linear-gradient(90deg, var(--stat-1), var(--stat-2), var(--stat-3), var(--stat-4));
+  /* Dans une carte, le texte reprend la largeur disponible */
+  #methode .steps.is-stacked .step {
+    grid-template-columns: 6rem minmax(0, 1fr) minmax(0, 1fr);
+  }
 }
 
 
