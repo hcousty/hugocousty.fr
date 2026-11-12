@@ -306,11 +306,11 @@
   --button-height-small: 44px;
 
   /* Palette « Aurore » : seule couleur du site. Dégradé de la section IA
-     (bleu glacier à gauche, bleu ciel, lavande, rose poudré à droite), à 45 % */
-  --band-1: rgba(255, 170, 200, .45);  /* rose poudré (à droite) */
-  --band-2: rgba(196, 168, 255, .45);  /* lavande */
-  --band-3: rgba(150, 190, 255, .45);  /* bleu ciel */
-  --band-4: rgba(120, 215, 240, .45);  /* bleu glacier (à gauche) */
+     (bleu glacier à gauche, bleu ciel, lavande, rose poudré à droite), à 40 % */
+  --band-1: rgba(255, 170, 200, .4);  /* rose poudré (à droite) */
+  --band-2: rgba(196, 168, 255, .4);  /* lavande */
+  --band-3: rgba(150, 190, 255, .4);  /* bleu ciel */
+  --band-4: rgba(120, 215, 240, .4);  /* bleu glacier (à gauche) */
 
   /* Orbe animée de la section IA : mêmes teintes, pleines */
   --orb-1: #8FD8F0;
@@ -333,10 +333,10 @@
   /* Cartes des formats (grille tarifaire) : très arrondies, voile en bas */
   --offer-radius: 40px;
   --offer-fade: rgba(196, 168, 255, .16); /* lavande très légère */
-  /* Dégradé de la carte recommandée : mêmes teintes que l'IA, à 45 % */
-  --offer-1: rgba(255, 170, 200, .45);
-  --offer-2: rgba(196, 168, 255, .45);
-  --offer-3: rgba(150, 190, 255, .45);
+  /* Dégradé de la carte recommandée : mêmes teintes que l'IA, à 40 % */
+  --offer-1: rgba(255, 170, 200, .4);
+  --offer-2: rgba(196, 168, 255, .4);
+  --offer-3: rgba(150, 190, 255, .4);
 
   /* Taille de la flèche ↗ des boutons */
   --icon-size-button: 16px;
