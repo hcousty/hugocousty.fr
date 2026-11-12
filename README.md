@@ -220,7 +220,7 @@ Tout le site se construit avec ces composants. Chacun existe en version claire e
 | Liste de points | `.points__item` | titre à gauche, texte à droite sur desktop |
 | Question FAQ | `.faq__item` | fermée, ouverte (fond gris clair), signe + qui pivote |
 | Champ de formulaire | `.field` | texte, email, zone de texte · repos, survol, focus, erreur native, note |
-| Faits | `.about__facts` | liste « Libellé : valeur » ★ |
+| Faits | `.about__facts` | fiche pratique `<dl>` : libellé à gauche, info à droite, filets fins ★ |
 | Logo client | `.client-logo` | SVG dans `assets/img/logos/`, affiché en gris uni par un masque CSS ; `--logo-ratio` (largeur / hauteur du viewBox) et `--logo-h` (hauteur réglée à l'œil) en style inline. accueil : 8 logos, une ligne en desktop, 4 par ligne en tablette, bandeau défilant en mobile (`data-marquee`, module 7 de main.js, arrêté si « mouvement réduit ») ; agences : 5 par ligne |
 | Réservé d'image | `.placeholder` | à remplacer par les vraies images |
 | En-tête | `.site-header` ★ | pilule de verre, identité (photo ronde + statut « Disponible » / `.status--off`), liens, bouton, burger · menu mobile ouvert |

@@ -1022,17 +1022,39 @@ img.featured__visual {
 }
 
 /* Trois faits pratiques (lieu, déplacements, facturation) */
+/* Fiche pratique : libellé court à gauche, information à droite, lignes
+   séparées par des filets (comme les étapes et les usages de l'IA).
+   Mobile : le libellé passe au-dessus. */
 .about__facts {
   display: grid;
-  gap: var(--space-1);
+  width: min(100%, 34rem);
+  border-top: var(--border-width-hairline) solid var(--border-mid);
+}
+
+.about__facts > div {
+  display: grid;
+  gap: var(--space-025);
+  padding-block: var(--space-15);
+  border-bottom: var(--border-width-hairline) solid var(--border-mid);
+}
+
+.about__facts dt {
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
 
-.about__facts strong {
-  font-weight: var(--weight-medium);
+.about__facts dd {
   color: var(--text-primary);
 }
+
+@media (min-width: 48em) {
+  .about__facts > div {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+}
+
 
 /* Portrait en 4:5 */
 .about__photo {
