@@ -732,6 +732,26 @@ select.field__input {
 }
 
 /* Indisponible : point gris */
+/* « Disponible » : la pastille pulse doucement (léger halo qui s'élargit
+   puis s'efface, toutes les 2,4 s). Pas d'animation si indisponible ou
+   si les animations sont réduites. */
+.status:not(.status--off) .status__dot {
+  animation: status-pulse 2.4s var(--ease-out) infinite;
+}
+
+@keyframes status-pulse {
+  0%   { box-shadow: 0 0 0 0 var(--status-pulse); opacity: 1; }
+  50%  { opacity: .55; }
+  70%  { box-shadow: 0 0 0 6px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status__dot {
+    animation: none !important;
+  }
+}
+
 .status--off .status__dot {
   background: var(--text-faint);
 }

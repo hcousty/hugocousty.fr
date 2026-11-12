@@ -274,6 +274,7 @@
   --avatar-size: 40px;
   --status-dot-size: 8px;
   --status-available: var(--forest-600);
+  --status-pulse: rgba(44, 106, 76, .35); /* halo de la pastille « Disponible » */
 
   /* Barre "Réserver un appel" collée en bas d'écran (mobile) */
   --sticky-cta-height: 72px;
@@ -369,5 +370,6 @@
 [data-theme="inverse"] {
   --header-bar: rgba(13, 16, 23, .14);         /* sur le hero et les blocs sombres */
   --status-available: #4CC98A;
+  --status-pulse: rgba(76, 201, 138, .45);
   --header-link: rgba(255, 255, 255, .72);
 }
