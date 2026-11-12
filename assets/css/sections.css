@@ -210,9 +210,9 @@ img.hero__photo {
   display: block;
   width: fit-content;
   margin: 0 auto var(--space-3);
-  padding: 3px var(--space-15);
+  padding: 4px var(--space-2);
   border: var(--border-width-hairline) solid currentColor;
-  border-radius: var(--tag-radius);
+  border-radius: var(--button-radius-small); /* 14 px, comme les petits boutons */
   font-family: var(--font-sans);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
