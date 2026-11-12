@@ -340,7 +340,9 @@
       if (orb) orb.style.setProperty('--ia-p', clamp((vh - r.top) / (vh + r.height)).toFixed(3));
       if (read && words.length) {
         const b = read.getBoundingClientRect();
-        const p = clamp((vh * .85 - b.top) / (b.height + vh * .25));
+        // Début : haut du texte à 95 % de l'écran ; fin : centre du texte
+        // à 65 % de l'écran (tout est lisible avant d'arriver au milieu)
+        const p = clamp((vh * .95 - b.top) / (vh * .3 + b.height / 2));
         const lit = Math.round(p * words.length);
         words.forEach((w, i) => w.classList.toggle('is-lit', i < lit));
       }

@@ -410,14 +410,31 @@
              (module 8 de main.js) ; immobile si les animations sont réduites. -->
         <div class="ai-orb" aria-hidden="true">
           <span class="ai-orb__halo"></span>
-          <svg class="ai-orb__spark" viewBox="0 0 24 24"><path d="M12 0C12.55 6.75 17.25 11.45 24 12 17.25 12.55 12.55 17.25 12 24 11.45 17.25 6.75 12.55 0 12 6.75 11.45 11.45 6.75 12 0Z"/></svg>
-          <svg class="ai-orb__spark ai-orb__spark--small" viewBox="0 0 24 24"><path d="M12 0C12.55 6.75 17.25 11.45 24 12 17.25 12.55 12.55 17.25 12 24 11.45 17.25 6.75 12.55 0 12 6.75 11.45 11.45 6.75 12 0Z"/></svg>
-          <svg class="ai-orb__spark ai-orb__spark--tiny" viewBox="0 0 24 24"><path d="M12 0C12.55 6.75 17.25 11.45 24 12 17.25 12.55 12.55 17.25 12 24 11.45 17.25 6.75 12.55 0 12 6.75 11.45 11.45 6.75 12 0Z"/></svg>
+          <svg class="ai-orb__spark" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="ai-spark-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" style="stop-color: var(--stat-1)"/>
+                <stop offset=".4" style="stop-color: var(--stat-2)"/>
+                <stop offset=".7" style="stop-color: var(--stat-3)"/>
+                <stop offset="1" style="stop-color: var(--stat-4)"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 0C12.8 9.2 14.8 11.2 24 12C14.8 12.8 12.8 14.8 12 24C11.2 14.8 9.2 12.8 0 12C9.2 11.2 11.2 9.2 12 0Z"/>
+          </svg>
+          <svg class="ai-orb__spark ai-orb__spark--small" viewBox="0 0 24 24"><path d="M12 0C12.8 9.2 14.8 11.2 24 12C14.8 12.8 12.8 14.8 12 24C11.2 14.8 9.2 12.8 0 12C9.2 11.2 11.2 9.2 12 0Z"/></svg>
+          <svg class="ai-orb__spark ai-orb__spark--tiny" viewBox="0 0 24 24"><path d="M12 0C12.8 9.2 14.8 11.2 24 12C14.8 12.8 12.8 14.8 12 24C11.2 14.8 9.2 12.8 0 12C9.2 11.2 11.2 9.2 12 0Z"/></svg>
         </div>
-        <h2 class="ai-box__title" id="ai-title">L’IA au service de vos résultats</h2>
-        <div class="ai-box__body" data-ai-read>
-          <p>J’utilise l’IA au quotidien pour aller plus vite et plus loin : analyser vos données de campagnes, connecter et automatiser vos outils, décliner plus de visuels publicitaires à tester, et développer de petits outils sur mesure.</p>
-          <p>Moins de temps sur les tâches répétitives, plus de temps sur ce qui fait avancer votre business.</p>
+        <h2 class="ai-box__title" id="ai-title">L’IA comme accélérateur, pas comme pilote</h2>
+        <div class="ai-box__body">
+          <div data-ai-read>
+            <p class="ai-box__lead">Je l’utilise au quotidien pour aller plus vite et plus loin, là où elle fait vraiment gagner du temps&nbsp;:</p>
+            <ul class="ai-uses">
+              <li>Analyser vos données de campagnes</li>
+              <li>Connecter et automatiser vos outils</li>
+              <li>Décliner plus de visuels publicitaires à tester</li>
+              <li>Développer de petits outils sur mesure</li>
+            </ul>
+          </div>
           <p class="ai-box__note">L’IA m’assiste, les décisions restent les miennes. Et vos données restent confidentielles.</p>
         </div>
       </div>

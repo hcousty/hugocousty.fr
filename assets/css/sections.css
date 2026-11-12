@@ -1179,13 +1179,14 @@ img.about__photo {
   animation: ai-orb-breathe 6s var(--ease-in-out) infinite;
 }
 
+/* Étincelle fine, remplie du même dégradé que les chiffres clés */
 .ai-orb__spark {
   position: relative;
-  width: 50%;
-  height: 50%;
-  fill: var(--text-primary);
+  width: 56%;
+  height: 56%;
+  fill: url(#ai-spark-grad);
   transform: rotate(calc(var(--ia-p) * 90deg)) scale(calc(.85 + var(--ia-p) * .3));
-  filter: drop-shadow(0 6px 14px rgba(13, 16, 23, .18));
+  filter: drop-shadow(0 4px 10px rgba(58, 85, 194, .22));
 }
 
 .ai-orb__spark--small,
@@ -1222,10 +1223,11 @@ img.about__photo {
   50% { opacity: 1; }
 }
 
-/* Lecture au fil du scroll : les mots s'allument l'un après l'autre,
-   comme un texte en train d'être écrit (mots créés par main.js) */
+/* Lecture au fil du scroll : les mots s'allument l'un après l'autre
+   (mots créés par main.js). Tout est allumé quand le texte arrive au
+   centre de l'écran ; la phrase de réassurance n'est jamais atténuée. */
 .ai-word {
-  opacity: .2;
+  opacity: .25;
   transition: opacity var(--duration-base) var(--ease-out);
 }
 
@@ -1250,15 +1252,43 @@ img.about__photo {
 
 .ai-box__body {
   display: grid;
-  gap: var(--space-2);
-  max-width: 36rem;
-  line-height: var(--leading-loose);
+  justify-items: center;
+  gap: var(--space-4);
+  max-width: 40rem;
+  line-height: var(--leading-normal);
   color: var(--text-secondary);
 }
 
+.ai-box__lead {
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+/* Les 4 usages : une ligne chacun, séparés par des filets (comme les
+   étapes de la Méthode) */
+.ai-uses {
+  display: grid;
+  width: min(100%, 30rem);
+  margin: var(--space-3) auto 0;
+  border-top: var(--border-width-hairline) solid var(--border-mid);
+  list-style: none;
+}
+
+.ai-uses li {
+  padding-block: var(--space-15);
+  border-bottom: var(--border-width-hairline) solid var(--border-mid);
+  font-size: var(--text-lead);
+  color: var(--text-primary);
+}
+
+/* Réassurance : la phrase clé, mise en avant */
 .ai-box__note {
-  margin-top: var(--space-1);
+  max-width: 28rem;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
   font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
   color: var(--text-primary);
 }
 
