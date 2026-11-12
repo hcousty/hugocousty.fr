@@ -684,7 +684,7 @@ ul.expertise-cards {
 
 #methode .steps.is-stacked .step {
   position: sticky;
-  top: calc(var(--header-height-top) + var(--space-3) + var(--i, 0) * var(--stack-offset));
+  top: calc(var(--header-height-top) + var(--stack-top) + var(--i, 0) * var(--stack-offset)); /* se fige plus bas : l'empilement commence plus tôt */
   padding: var(--space-5) var(--space-4);
   border: var(--border-width-hairline) solid var(--border-hairline);
   border-radius: var(--card-radius);
