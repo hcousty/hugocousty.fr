@@ -977,36 +977,74 @@ select.field__input {
 .site-footer {
   overflow: hidden;
   border-radius: var(--contact-radius) var(--contact-radius) 0 0;
-  padding-block: var(--space-4);
+  padding-block: var(--space-4) var(--space-3);
   background: var(--surface-card); /* encre plus claire, via data-theme="inverse" */
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
 
-/* Barre : empilée et centrée sur mobile, sur une ligne dès la tablette */
-.site-footer__bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  text-align: center;
+/* Haut du footer : identité à gauche, puis 3 colonnes de liens.
+   Mobile : identité, puis colonnes de liens sur deux colonnes. */
+.site-footer__top {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-3);
+  padding-block: var(--space-4) var(--space-5);
 }
 
-.site-footer__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-1) var(--space-3);
+.site-footer__brand {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-15);
+}
+
+.site-footer__name {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+}
+
+.site-footer__tagline {
+  max-width: 22rem;
+  line-height: var(--leading-normal);
+}
+
+.site-footer__col {
+  display: grid;
+  align-content: start;
+  gap: var(--space-15);
+}
+
+.site-footer__heading {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.site-footer__col ul,
+.site-footer__legal {
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__col ul {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
 }
 
 /* LinkedIn : pictogramme seul (Simple Icons, CC0), couleur du texte */
 .site-footer__social {
   display: inline-grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  margin: -6px; /* zone de clic plus large sans décaler la ligne */
+  width: 40px;
+  height: 40px;
+  margin-left: -11px; /* aligne l'icône sur le texte, zone de clic large */
 }
 
 .site-footer__icon {
@@ -1017,31 +1055,43 @@ select.field__input {
   mask: url("/assets/img/regies/linkedin.svg") center / contain no-repeat;
 }
 
-.site-footer__list {
+/* Bas du footer : copyright et liens légaux, sous un filet */
+.site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--space-1) var(--space-3);
+  padding-top: var(--space-3);
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  font-size: var(--text-caption);
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  list-style: none;
 }
 
 .site-footer a {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .site-footer a:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
-@media (min-width: 48em) {
-  .site-footer__bar {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+@media (min-width: 64em) {
+  .site-footer__top {
+    grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    padding-block: var(--space-5) var(--space-6);
   }
 
-  .site-footer__meta {
-    justify-content: flex-start;
+  .site-footer__brand {
+    grid-column: auto;
   }
 }
 
