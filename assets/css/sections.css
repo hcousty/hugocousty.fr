@@ -202,9 +202,33 @@ img.hero__photo {
   display: inline;
 }
 
-/* Titre en deux parties : retour à la ligne après la virgule */
-.hero--center .hero__title--split span {
+/* Petit libellé au-dessus du titre du hero (comme TwelveLabs) : petites
+   capitales dans un cadre fin, même style que les étiquettes. Sur
+   l'accueil, il fait partie du H1 (« Consultant marketing, de la
+   stratégie aux résultats » pour les moteurs). */
+.hero__label {
   display: block;
+  width: fit-content;
+  margin: 0 auto var(--space-3);
+  padding: 3px var(--space-15);
+  border: var(--border-width-hairline) solid currentColor;
+  border-radius: var(--tag-radius);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: .06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hero__title .hero__label,
+.hero--center .hero__title .hero__label {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-body-sm);
+  letter-spacing: .06em;
+  line-height: 1.5;
 }
 
 .hero--center .hero__lead {
@@ -212,10 +236,6 @@ img.hero__photo {
 }
 
 /* Petite ligne au-dessus du titre (pages agences) : lisible sur la photo */
-.hero--center .eyebrow {
-  color: var(--text-secondary);
-}
-
 @media (max-width: 47.99em) {
   .hero--center .hero__lead {
     font-size: var(--text-body);
