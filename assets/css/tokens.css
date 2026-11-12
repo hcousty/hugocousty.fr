@@ -318,6 +318,7 @@
   --orb-3: #C4A8FF;
   --orb-4: #FFB3CF;
   --ai-orb-size: 96px;
+  --steps-scroll: 70svh; /* défilement nécessaire pour passer d'une étape à la suivante */
 
   /* Chiffres clés en dégradé : teintes de l'orbe, foncées (bleu acier,
      bleu roi, violet) pour un rendu sobre */

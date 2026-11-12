@@ -407,6 +407,46 @@
   }
 
 
+  /* 9 bis. Méthode étape par étape : la section reste fixe à l'écran et
+     les 4 étapes se remplacent au fil du défilement. Rien si animations
+     réduites (la liste verticale reste affichée). */
+  const methode = document.querySelector('#methode');
+  const stepItems = methode ? [...methode.querySelectorAll('.step')] : [];
+
+  if (methode && stepItems.length > 1 && !reduceMotion.matches) {
+    methode.classList.add('is-sequenced');
+    const bar = document.createElement('div');
+    bar.className = 'steps-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    stepItems.forEach(() => bar.appendChild(document.createElement('span')));
+    methode.querySelector('.steps').after(bar);
+    const segments = [...bar.children];
+
+    let current = -1;
+    let ticking = false;
+    const update = () => {
+      const r = methode.getBoundingClientRect();
+      const run = methode.offsetHeight - window.innerHeight;
+      const p = run > 0 ? Math.min(.9999, Math.max(0, -r.top / run)) : 0;
+      const i = Math.floor(p * stepItems.length);
+      if (i !== current) {
+        current = i;
+        stepItems.forEach((el, k) => el.classList.toggle('is-active', k === i));
+        segments.forEach((el, k) => el.classList.toggle('is-done', k <= i));
+      }
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+
   /* 10. Photo du hero : léger effet de profondeur au défilement
      La photo descend à 25 % de la vitesse de la page tant que le hero est
      visible (le cadre masque le débord). Rien si animations réduites. */
