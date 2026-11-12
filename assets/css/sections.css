@@ -676,6 +676,16 @@ ul.expertise-cards {
    la recouvre, en laissant dépasser le haut des précédentes. La carte
    recouverte recule légèrement (--cover, 0 → 1, posé par main.js).
    Sans JS ou avec animations réduites : la liste verticale ci-dessus. */
+/* Le titre de la section reste visible pendant l'empilement : il se fige
+   sous l'en-tête, et les cartes se figent juste en dessous (--stack-top
+   = hauteur du titre, mesurée par main.js) */
+#methode.has-stack .section-head {
+  position: sticky;
+  top: var(--header-height-top);
+  z-index: 1;
+  padding-top: var(--space-2);
+}
+
 #methode .steps.is-stacked {
   display: grid;
   gap: var(--space-3);

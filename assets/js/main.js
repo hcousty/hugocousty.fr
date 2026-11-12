@@ -418,6 +418,19 @@
     stepsList.classList.add('is-stacked');
     stepItems.forEach((el, i) => el.style.setProperty('--i', i));
 
+    // Titre de la section figé au-dessus de la pile : les cartes se figent
+    // juste sous lui (sa hauteur + un petit écart)
+    const methodeSection = document.querySelector('#methode');
+    const methodeHead = methodeSection.querySelector('.section-head');
+    if (methodeHead) {
+      methodeSection.classList.add('has-stack');
+      const setTop = () => {
+        methodeSection.style.setProperty('--stack-top', (methodeHead.offsetHeight + 24) + 'px');
+      };
+      setTop();
+      window.addEventListener('resize', setTop);
+    }
+
     let ticking = false;
     const update = () => {
       stepItems.forEach((el, i) => {
@@ -428,6 +441,14 @@
         const t = Math.min(1, Math.max(0, 1 - (b.top - a.top) / a.height));
         el.style.setProperty('--cover', t.toFixed(3));
       });
+      // Quand la dernière carte repart vers le haut, le titre part avec elle
+      // (sinon il resterait figé par-dessus la pile qui s'en va)
+      if (methodeHead) {
+        const last = stepItems[stepItems.length - 1];
+        const stuckAt = parseFloat(getComputedStyle(last).top) || 0;
+        const shift = Math.min(0, last.getBoundingClientRect().top - stuckAt);
+        methodeHead.style.transform = shift ? `translateY(${shift.toFixed(1)}px)` : '';
+      }
       ticking = false;
     };
     window.addEventListener('scroll', () => {

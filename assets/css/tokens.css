@@ -318,7 +318,7 @@
   --orb-3: #C4A8FF;
   --orb-4: #FFB3CF;
   --ai-orb-size: 96px;
-  --stack-top: 12svh;   /* Méthode : hauteur où les cartes se figent, sous l'en-tête */
+  --stack-top: 12svh;   /* Méthode : où les cartes se figent sous l'en-tête (remplacé par main.js : sous le titre de la section) */
   --stack-offset: 14px;  /* Méthode : décalage entre deux cartes empilées */
   --shadow-stack: 0 -6px 18px -16px rgba(14, 14, 15, .10); /* ombre très légère vers le haut */
 
