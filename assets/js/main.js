@@ -371,61 +371,37 @@
 
 
 
-  /* 9. Chiffres clés : le nombre monte vite au début puis ralentit en
-     douceur jusqu'à sa valeur (2 s). Seul le nombre bouge : préfixe,
-     unité et légende restent fixes. Le texte final reste dans le HTML (lu
-     sans JS et par les moteurs). Rien si les animations sont réduites. */
-  const statValues = [...document.querySelectorAll('.stat__value')];
+  /* 9. Chiffres clés : reflet qui glisse sur les chiffres au rythme du
+     défilement. --shine (0 → 1) suit la traversée du bloc dans l'écran ;
+     le CSS déplace la bande claire en conséquence. Les chiffres eux-mêmes
+     ne bougent pas. Rien si les animations sont réduites. */
+  const statsBlock = document.querySelector('.stats');
 
-  if (statValues.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
-    const easeOut = (t) => 1 - Math.pow(1 - t, 4); // rapide au début, puis très progressif
-    const duration = 2000;
-
-    const items = statValues.map((el) => {
-      const m = el.textContent.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/s);
-      if (!m) return null;
-      const value = parseFloat(m[2].replace(',', '.'));
-      // Décimales seulement pour un montant (« M€ ») : « +1,4 M€ » se lit
-      // naturellement, « ×4,6 » non. Les autres nombres montent en entiers.
-      return { el, final: el.textContent, prefix: m[1], suffix: m[3], value, decimals: /M/.test(m[3]) ? 1 : 0 };
-    }).filter(Boolean);
-
-    const show = (d, v) => {
-      // Pas de « 2,0 » : une décimale nulle est retirée (« 1,9 » puis « 2 »)
-      const n = d.decimals ? v.toFixed(1).replace(/\.0$/, '').replace('.', ',') : Math.round(v).toString();
-      d.el.textContent = d.prefix + n + d.suffix;
+  if (statsBlock && !reduceMotion.matches) {
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      const r = statsBlock.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      statsBlock.style.setProperty('--shine', p.toFixed(3));
+      ticking = false;
     };
-
-    const run = (d) => {
-      const start = performance.now();
-      const step = (now) => {
-        const t = Math.min(1, (now - start) / duration);
-        if (t < 1) {
-          show(d, d.value * easeOut(t));
-          requestAnimationFrame(step);
-        } else {
-          d.el.textContent = d.final;
-        }
-      };
-      requestAnimationFrame(step);
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
     };
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        io.unobserve(entry.target);
-        const d = items.find((x) => x.el === entry.target);
-        if (d) run(d);
-      });
-    }, { threshold: 0.6 });
-
-    items.forEach((d) => {
-      // Chiffres déjà visibles au chargement : on n'anime pas
-      if (d.el.getBoundingClientRect().top < window.innerHeight) return;
-      d.el.style.minWidth = d.el.getBoundingClientRect().width + 'px'; // pas de saut de mise en page
-      show(d, 0);
-      io.observe(d.el);
-    });
+    new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        window.addEventListener('scroll', onScroll, { passive: true });
+        update();
+      } else {
+        window.removeEventListener('scroll', onScroll);
+      }
+    }, { rootMargin: '100px 0px' }).observe(statsBlock);
+    statsBlock.classList.add('has-shine');
+    update();
   }
 
 

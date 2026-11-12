@@ -325,6 +325,10 @@
   --stat-2: #3A55C2;  /* bleu ciel */
   --stat-3: #5A45BF;  /* lavande */
   --stat-4: #7A3DAE;  /* violet rosé (pas de rose pur) */
+  --shine-color: rgba(255, 255, 255, .75);      /* reflet principal */
+  --shine-color-soft: rgba(255, 255, 255, .45); /* second reflet, plus fin */
+  --shine-tile: 6em;     /* largeur du motif de reflets (un reflet tous les 6 em) */
+  --shine-travel: 24em;  /* distance parcourue pendant la traversée de l'écran */
 
   /* Grain fin, posé seulement sur les dégradés (sous le voile blanc) */
   --grain: url("../img/grain.svg");

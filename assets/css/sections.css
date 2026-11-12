@@ -721,6 +721,31 @@ ul.expertise-cards {
   }
 }
 
+/* Reflet sur les chiffres clés : un motif régulier de bandes claires
+   (une franche, une plus fine), répété, posé sur le dégradé et découpé
+   dans le texte. Il glisse au rythme du défilement (--shine posé par
+   main.js) : un reflet passe sur chaque chiffre à intervalles réguliers,
+   avec un léger décalage d'un chiffre à l'autre (--shine-offset). */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .stats.has-shine .stat__value {
+    background:
+      linear-gradient(105deg,
+        transparent 0%, transparent 30%,
+        var(--shine-color) 40%, transparent 50%,
+        transparent 62%,
+        var(--shine-color-soft) 67%, transparent 72%,
+        transparent 100%)
+        calc(var(--shine, 0) * var(--shine-travel) + var(--shine-offset, 0em)) 0 / var(--shine-tile) 100% repeat-x,
+      linear-gradient(90deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .stats.has-shine .stat:nth-child(2) .stat__value { --shine-offset: -1.5em; }
+  .stats.has-shine .stat:nth-child(3) .stat__value { --shine-offset: -3em; }
+  .stats.has-shine .stat:nth-child(4) .stat__value { --shine-offset: -4.5em; }
+}
+
 .stat__label {
   font-size: var(--text-body-sm);
   color: var(--text-muted);
