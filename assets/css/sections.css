@@ -212,7 +212,7 @@ img.hero__photo {
   margin: 0 auto var(--space-3);
   padding: 4px var(--space-2);
   border: var(--border-width-hairline) solid currentColor;
-  border-radius: var(--button-radius-small); /* 14 px, comme les petits boutons */
+  border-radius: 8px; /* entre les étiquettes (4 px) et les petits boutons (14 px) */
   font-family: var(--font-sans);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
