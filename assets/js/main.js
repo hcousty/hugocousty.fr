@@ -292,16 +292,14 @@
 
 
 
-  /* 8. Section IA : orbe et lecture au fil du scroll
-     --ia-p (0 → 1) suit la traversée de la section dans l'écran : l'orbe
-     tourne et grossit. Les mots du texte s'allument un à un pendant la
-     lecture. Rien ne bouge si l'utilisateur réduit les animations ; sans
+  /* 8. Section IA : lecture au fil du scroll
+     Les mots du texte s'allument un à un pendant la lecture (l'orbe, elle,
+     reste fixe). Rien ne bouge si l'utilisateur réduit les animations ; sans
      JS, tout reste visible et immobile. */
   const ai = document.querySelector('[data-ai]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   if (ai && !reduceMotion.matches) {
-    const orb = ai.querySelector('.ai-orb');
     const read = ai.querySelector('[data-ai-read]');
     const words = [];
 
@@ -337,7 +335,6 @@
     const update = () => {
       const vh = window.innerHeight;
       const r = ai.getBoundingClientRect();
-      if (orb) orb.style.setProperty('--ia-p', clamp((vh - r.top) / (vh + r.height)).toFixed(3));
       if (read && words.length) {
         const b = read.getBoundingClientRect();
         // Début : haut du texte à 95 % de l'écran ; fin : centre du texte
@@ -490,5 +487,53 @@
   document.querySelectorAll('[data-print]').forEach((btn) => {
     btn.addEventListener('click', () => window.print());
   });
+
+
+  /* 12. FAQ : ouverture et fermeture en douceur
+     La réponse se déplie (hauteur animée, 0,35 s) au lieu d'apparaître
+     d'un coup. Une seule question ouverte à la fois : celle qui était
+     ouverte se replie pendant que l'autre s'ouvre. Sans JS ou avec
+     animations réduites : comportement natif des <details>. */
+  const faqItems = [...document.querySelectorAll('.faq__item')];
+
+  if (faqItems.length && !reduceMotion.matches && 'animate' in Element.prototype) {
+    const opts = { duration: 350, easing: 'cubic-bezier(.16, .84, .32, 1)' };
+
+    const collapse = (item) => {
+      const answer = item.querySelector('.faq__answer');
+      const h = answer.offsetHeight;
+      const anim = answer.animate([{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], opts);
+      answer.style.overflow = 'hidden';
+      anim.onfinish = () => {
+        item.open = false;
+        answer.style.overflow = '';
+      };
+    };
+
+    const expand = (item) => {
+      // name="faq" fermerait les autres d'un coup : on le retire le temps
+      // de l'animation, et on replie nous-mêmes celle qui était ouverte
+      const name = item.getAttribute('name');
+      if (name) item.removeAttribute('name');
+      faqItems.forEach((other) => { if (other !== item && other.open) collapse(other); });
+      item.open = true;
+      const answer = item.querySelector('.faq__answer');
+      const h = answer.offsetHeight;
+      answer.style.overflow = 'hidden';
+      const anim = answer.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }], opts);
+      anim.onfinish = () => {
+        answer.style.overflow = '';
+        if (name) item.setAttribute('name', name);
+      };
+    };
+
+    faqItems.forEach((item) => {
+      item.querySelector('.faq__question').addEventListener('click', (e) => {
+        e.preventDefault();
+        if (item.open) collapse(item);
+        else expand(item);
+      });
+    });
+  }
 
 })();
