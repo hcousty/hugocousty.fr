@@ -285,10 +285,19 @@ img.hero__photo {
   }
 }
 
-/* Photo du hero : glisse plus lentement que la page (main.js, --hero-shift) */
+/* Photo du hero au défilement (main.js pose --hero-p, de 0 à 1 pendant
+   qu'on quitte le hero) : elle zoome doucement, devient floue et
+   s'assombrit, comme une mise au point qui se perd. Le texte, lui, monte
+   et s'efface un peu plus vite. */
 img.hero__photo {
-  transform: translate3d(0, var(--hero-shift, 0px), 0);
-  will-change: transform;
+  transform: scale(calc(1 + var(--hero-p, 0) * .12));
+  filter: blur(calc(var(--hero-p, 0) * 14px)) brightness(calc(1 - var(--hero-p, 0) * .35));
+  will-change: transform, filter;
+}
+
+.hero__body {
+  opacity: calc(1 - var(--hero-p, 0) * 1.3);
+  transform: translateY(calc(var(--hero-p, 0) * -40px));
 }
 
 

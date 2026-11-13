@@ -458,18 +458,17 @@
   }
 
 
-  /* 10. Photo du hero : léger effet de profondeur au défilement
-     La photo descend à 25 % de la vitesse de la page tant que le hero est
-     visible (le cadre masque le débord). Rien si animations réduites. */
+  /* 10. Photo du hero au défilement : zoom, flou et assombrissement
+     progressifs pendant qu'on quitte le hero (--hero-p de 0 à 1, posé
+     sur le hero). Rien si animations réduites. */
   const heroPhoto = document.querySelector('img.hero__photo');
 
   if (heroPhoto && !reduceMotion.matches) {
     const hero = heroPhoto.closest('.hero');
     let ticking = false;
     const update = () => {
-      const h = hero.offsetHeight;
-      const y = Math.min(window.scrollY, h);
-      heroPhoto.style.setProperty('--hero-shift', (y * 0.25).toFixed(1) + 'px');
+      const p = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight * .85)));
+      hero.style.setProperty('--hero-p', p.toFixed(3));
       ticking = false;
     };
     window.addEventListener('scroll', () => {
