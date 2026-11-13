@@ -952,23 +952,28 @@ select.field__input {
     visibility var(--duration-base);
 }
 
+/* Même bouton que « Réserver un appel » de l'en-tête : noir plein, texte
+   blanc, avec une ombre douce pour le détacher du contenu qui défile. */
 .sticky-cta .btn {
   min-height: var(--button-height-small);
   border-radius: var(--button-radius-small);
   pointer-events: auto;
-  border-color: transparent;
-  background: var(--header-glass);
-  -webkit-backdrop-filter: var(--blur-veil);
-  backdrop-filter: var(--blur-veil);
-  box-shadow: var(--header-edge), var(--shadow-pop);
-  color: var(--text-primary); /* blanc (thème inverse) */
+  border-color: var(--ink-900);
+  background: var(--ink-900);
+  box-shadow: var(--shadow-pop);
+  color: var(--white);
 }
 
-.sticky-cta .btn:hover,
+.sticky-cta .btn:hover {
+  border-color: var(--ink-700);
+  background: var(--ink-700);
+  color: var(--white);
+}
+
 .sticky-cta .btn:active {
-  background: var(--ink-900);
-  border-color: transparent;
-  color: var(--text-primary);
+  border-color: var(--ink-800);
+  background: var(--ink-800);
+  color: var(--white);
 }
 
 /* Masquée par main.js quand la section Contact ou le footer sont à l'écran */
