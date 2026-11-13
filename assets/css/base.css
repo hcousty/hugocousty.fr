@@ -625,8 +625,6 @@ select.field__input {
 
 /* Identité : photo ronde + statut de disponibilité (point vert) */
 .site-id {
-  display: inline-flex;
-  align-items: center;
   color: var(--text-primary);
   text-decoration: none;
   white-space: nowrap;
@@ -637,34 +635,42 @@ select.field__input {
   text-decoration: none;
 }
 
-/* Identité : sur le hero et les blocs sombres, le nom ; dès que la barre
-   passe sur fond clair (après le hero), la photo ronde le remplace.
-   Transition en deux temps : l'élément qui part s'efface (flou + léger
-   glissement) pendant que la place se resserre en douceur ; celui qui
-   arrive apparaît juste après (zoom léger + mise au point), sans saut du
-   statut. Désactivée si l'utilisateur réduit les animations (tokens). */
+/* Identité, deux états :
+   - sur le hero et les blocs sombres : « Hugo Cousty · Disponible » sur
+     une ligne ;
+   - sur fond clair (après le hero) : la photo ronde à gauche, et à sa
+     droite le nom au-dessus de « Disponible », en plus petit.
+   La photo apparaît en fondu (zoom léger + mise au point) ; le nom et le
+   statut changent de taille en douceur. Désactivé si animations réduites. */
+.site-id {
+  display: grid;
+  grid-template-areas: "avatar name status";
+  grid-template-columns: auto auto auto;
+  align-items: center;
+}
+
+.site-id .avatar { grid-area: avatar; }
+.site-id__name   { grid-area: name; }
+.site-id .status { grid-area: status; }
+
 .site-id__name,
+.site-id .status,
 .site-id .avatar {
-  --id-move: var(--duration-morph) var(--ease-morph);
-  --id-fade: calc(var(--duration-morph) * .55) var(--ease-out);
-  --id-delay: calc(var(--duration-morph) * .35);
-  overflow: hidden;
-  /* Sortie : s'efface tout de suite, la largeur suit */
   transition:
-    max-width var(--id-move),
-    width var(--id-move),
-    margin var(--id-move),
-    opacity var(--id-fade),
-    filter var(--id-fade),
-    transform var(--id-fade);
+    font-size var(--duration-morph) var(--ease-morph),
+    width var(--duration-morph) var(--ease-morph),
+    margin var(--duration-morph) var(--ease-morph),
+    opacity calc(var(--duration-morph) * .55) var(--ease-out),
+    filter calc(var(--duration-morph) * .55) var(--ease-out),
+    transform var(--duration-morph) var(--ease-out);
 }
 
 .site-id__name {
-  max-width: 6.2em; /* largeur réelle de « Hugo Cousty » : la place se resserre sans à-coup */
   margin-right: var(--space-2);
   font-size: var(--text-header-name);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-heading);
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -676,13 +682,23 @@ select.field__input {
   transform: scale(.7);
 }
 
-/* Fond clair : le nom s'en va, la photo arrive */
+/* Fond clair : photo à gauche, nom et statut empilés à droite */
+.site-header:not([data-theme="inverse"]) .site-id {
+  grid-template-areas:
+    "avatar name"
+    "avatar status";
+  grid-template-columns: auto auto;
+  row-gap: 1px;
+}
+
 .site-header:not([data-theme="inverse"]) .site-id__name {
-  max-width: 0;
   margin-right: 0;
-  opacity: 0;
-  filter: blur(6px);
-  transform: translateY(-4px);
+  font-size: var(--text-header-name-small);
+}
+
+.site-header:not([data-theme="inverse"]) .site-id .status {
+  font-size: var(--text-caption);
+  line-height: 1.2;
 }
 
 .site-header:not([data-theme="inverse"]) .site-id .avatar {
@@ -691,18 +707,6 @@ select.field__input {
   opacity: 1;
   filter: blur(0);
   transform: scale(1);
-}
-
-/* Entrée : la place s'ouvre, puis l'élément apparaît avec un léger retard */
-.site-header:not([data-theme="inverse"]) .site-id .avatar,
-.site-header[data-theme="inverse"] .site-id__name {
-  transition:
-    max-width var(--id-move),
-    width var(--id-move),
-    margin var(--id-move),
-    opacity var(--id-fade) var(--id-delay),
-    filter var(--id-fade) var(--id-delay),
-    transform var(--duration-morph) var(--ease-out) var(--id-delay);
 }
 
 .avatar {

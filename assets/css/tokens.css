@@ -155,6 +155,7 @@
   --text-lead: 20px;
   --text-body: 16px;
   --text-header-name: 18px; /* nom dans l'en-tête */
+  --text-header-name-small: 15px; /* nom à côté de la photo (en-tête clair) */
   --text-body-sm: 14px;
   --text-caption: 13px;
   --text-label: 11px;
