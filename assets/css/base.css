@@ -701,6 +701,11 @@ select.field__input {
   line-height: 1.2;
 }
 
+/* La pastille passe après « Disponible » */
+.site-header:not([data-theme="inverse"]) .site-id .status__dot {
+  order: 1;
+}
+
 .site-header:not([data-theme="inverse"]) .site-id .avatar {
   width: var(--avatar-size);
   margin-right: var(--space-15);
