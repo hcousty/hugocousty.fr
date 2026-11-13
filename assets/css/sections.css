@@ -679,30 +679,117 @@ ul.expertise-cards {
   color: var(--text-muted);
 }
 
-.step p {
-  max-width: var(--measure-lead);
-  color: var(--text-secondary);
+/* Contenu d'une étape : titre, rythme (« Semaine 1 »), phrase d'intro,
+   3 actions concrètes, puis le livrable sous un filet. Mobile : tout
+   l'un sous l'autre. */
+.step {
+  grid-template-areas:
+    "num"
+    "title"
+    "when"
+    "desc"
+    "list"
+    "deliv";
 }
 
-.step p strong {
-  font-weight: var(--weight-medium);
+.step__number      { grid-area: num; }
+.step__title       { grid-area: title; }
+.step__when        { grid-area: when; }
+.step__desc        { grid-area: desc; }
+.step__list        { grid-area: list; }
+.step__deliverable { grid-area: deliv; }
+
+.step__when {
+  margin-top: calc(var(--space-1) * -1);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.step__desc {
+  max-width: var(--measure-lead);
   color: var(--text-primary);
 }
 
+.step__list {
+  display: grid;
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  list-style: none;
+}
+
+.step__list li {
+  padding-block: var(--space-1);
+  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+}
+
+.step__deliverable {
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+}
+
+.step__deliverable strong {
+  display: block;
+  margin-bottom: var(--space-05);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Desktop : à gauche le numéro, le titre et le rythme ; à droite l'intro
+   et les actions ; le livrable en bas, sur toute la largeur du texte. */
 @media (min-width: 64em) {
   .step {
     grid-template-columns: 6rem calc(50% - 6rem) minmax(0, 1fr); /* texte calé sur le chapô de l'en-tête */
-    align-items: baseline;
+    grid-template-areas:
+      "num  title desc"
+      ".    when  desc"
+      ".    deliv list";
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
     column-gap: 0;
+    row-gap: var(--space-1);
     padding-block: var(--space-5);
+  }
+
+  .step__number {
+    line-height: 1.15; /* même ligne de base visuelle que le titre */
   }
 
   .step__title {
     font-size: var(--text-h2);
   }
 
-  .step p {
+  .step__when {
+    margin-top: 0;
+  }
+
+  .step__desc {
     padding-left: var(--space-5);
+  }
+
+  .step__list {
+    border-top: 0;
+    margin-left: var(--space-5);
+  }
+
+  .step__list li:first-child {
+    border-top: var(--border-width-hairline) solid var(--border-hairline);
+  }
+
+  /* Le livrable remplit le bas de la colonne de gauche */
+  .step__deliverable {
+    align-self: end;
+    max-width: 22rem;
+    margin-top: var(--space-4);
+    padding-top: var(--space-2);
+    border-top: var(--border-width-hairline) solid var(--border-hairline);
+  }
+
+  .step__list {
+    margin-top: var(--space-1);
   }
 }
 
