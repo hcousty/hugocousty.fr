@@ -296,8 +296,9 @@ img.hero__photo {
 }
 
 .hero__body {
-  /* le texte ne commence à s'effacer qu'à mi-parcours */
-  opacity: clamp(0, calc(1.6 - var(--hero-p, 0) * 1.6), 1);
+  /* le texte reste net jusqu'aux deux tiers du parcours, puis s'atténue
+     légèrement (jamais sous 30 %) */
+  opacity: clamp(.3, calc(1 - (var(--hero-p, 0) - .65) * 2), 1);
   transform: translateY(calc(var(--hero-p, 0) * -24px));
 }
 
