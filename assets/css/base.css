@@ -640,8 +640,7 @@ select.field__input {
      une ligne ;
    - sur fond clair (après le hero) : la photo ronde à gauche, et à sa
      droite le nom au-dessus de « Disponible », en plus petit.
-   La photo apparaît en fondu (zoom léger + mise au point) ; le nom et le
-   statut changent de taille en douceur. Désactivé si animations réduites. */
+   Désactivé si animations réduites. */
 .site-id {
   display: grid;
   grid-template-areas: "avatar name status";
@@ -653,15 +652,14 @@ select.field__input {
 .site-id__name   { grid-area: name; }
 .site-id .status { grid-area: status; }
 
-.site-id__name,
-.site-id .status,
+/* Le passage d'une version à l'autre est animé en JS (module 3 de
+   main.js) : le nom et « Disponible » glissent de leur ancienne place à
+   la nouvelle en changeant de taille, la pastille réapparaît en fondu.
+   Ici, seule la photo a sa transition (fondu, zoom, mise au point). */
 .site-id .avatar {
   transition:
-    font-size var(--duration-morph) var(--ease-morph),
-    width var(--duration-morph) var(--ease-morph),
-    margin var(--duration-morph) var(--ease-morph),
-    opacity calc(var(--duration-morph) * .55) var(--ease-out),
-    filter calc(var(--duration-morph) * .55) var(--ease-out),
+    opacity var(--duration-morph) var(--ease-out),
+    filter var(--duration-morph) var(--ease-out),
     transform var(--duration-morph) var(--ease-out);
 }
 
@@ -674,12 +672,21 @@ select.field__input {
   white-space: nowrap;
 }
 
+/* Sur fond sombre, la photo sort du flux (posée à gauche, invisible) :
+   elle peut s'effacer sur place pendant que le nom glisse vers la gauche. */
+.site-id {
+  position: relative;
+}
+
 .site-id .avatar {
-  width: 0;
-  margin-right: 0;
+  position: absolute;
+  top: calc(50% - var(--avatar-size) / 2);
+  left: 0;
+  max-width: none; /* sinon limitée à la colonne vide (largeur 0) */
   opacity: 0;
   filter: blur(6px);
   transform: scale(.7);
+  pointer-events: none;
 }
 
 /* Fond clair : photo à gauche, nom et statut empilés à droite */
@@ -707,7 +714,7 @@ select.field__input {
 }
 
 .site-header:not([data-theme="inverse"]) .site-id .avatar {
-  width: var(--avatar-size);
+  position: static;
   margin-right: var(--space-15);
   opacity: 1;
   filter: blur(0);

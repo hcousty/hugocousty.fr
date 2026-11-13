@@ -112,6 +112,51 @@
   if (header) {
     const darkZones = Array.from(document.querySelectorAll('main [data-theme="inverse"], footer[data-theme="inverse"]'));
     let ticking = false;
+    let ready = false; // pas d'animation au premier calcul (chargement)
+
+    /* Changement de version de l'identité (nom + statut sur une ligne, ou
+       photo + nom et statut empilés), animé en FLIP : on note la place de
+       chaque élément, on change le thème, puis chaque élément part de son
+       ancienne place et taille pour glisser jusqu'à la nouvelle. La pastille,
+       qui change de côté, réapparaît simplement en fondu. */
+    const reduceIdMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const glide = Array.from(header.querySelectorAll('.site-id__name, .status__label'));
+    const dot = header.querySelector('.site-id .status__dot');
+    const easing = 'cubic-bezier(.65, 0, .25, 1)';
+    let running = [];
+
+    const setTheme = (dark) => {
+      if (dark === (header.getAttribute('data-theme') === 'inverse')) return;
+      const animate = ready && !reduceIdMotion.matches && glide.length > 0;
+      // Place visible actuelle (une animation en cours est prise en compte)
+      const before = animate ? glide.map((el) => el.getBoundingClientRect()) : [];
+      running.forEach((a) => a.cancel());
+      running = [];
+
+      if (dark) header.setAttribute('data-theme', 'inverse');
+      else header.removeAttribute('data-theme');
+      if (!animate) return;
+
+      glide.forEach((el, i) => {
+        const a = before[i];
+        const b = el.getBoundingClientRect();
+        if (!b.width) return;
+        const s = a.width / b.width;
+        const dx = (a.left + a.width / 2) - (b.left + b.width / 2);
+        const dy = (a.top + a.height / 2) - (b.top + b.height / 2);
+        running.push(el.animate(
+          [{ transform: `translate(${dx}px, ${dy}px) scale(${s})` }, { transform: 'none' }],
+          { duration: 480, easing }
+        ));
+      });
+
+      if (dot) {
+        running.push(dot.animate(
+          [{ opacity: 0, transform: 'scale(.4)' }, { opacity: 0, transform: 'scale(.4)', offset: .45 }, { opacity: 1, transform: 'none' }],
+          { duration: 480, easing: 'ease-out' }
+        ));
+      }
+    };
 
     const update = () => {
       const probe = header.offsetHeight / 2;
@@ -119,8 +164,7 @@
         const r = zone.getBoundingClientRect();
         return r.top <= probe && r.bottom >= probe;
       });
-      if (onDark) header.setAttribute('data-theme', 'inverse');
-      else header.removeAttribute('data-theme');
+      setTheme(onDark);
       ticking = false;
     };
 
@@ -134,6 +178,7 @@
     window.addEventListener('scroll', request, { passive: true });
     window.addEventListener('resize', request);
     update(); // page rechargée en milieu de page ou ouverte sur une ancre
+    ready = true;
   }
 
 
