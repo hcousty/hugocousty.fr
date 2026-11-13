@@ -963,10 +963,19 @@ ul.expertise-cards {
 
 /* --- 6a. Projet à la une (Harmony) ---------------------------------------- */
 
+/* Écart avant les autres projets : serré sur mobile (le cas à la une n'est
+   pas une carte, un grand vide le détacherait de la liste), large sur
+   desktop */
 .featured {
   display: grid;
   gap: var(--space-4);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
+}
+
+@media (min-width: 64em) {
+  .featured {
+    margin-bottom: var(--space-8);
+  }
 }
 
 .featured__visual {
