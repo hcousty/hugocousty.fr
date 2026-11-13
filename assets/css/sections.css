@@ -290,7 +290,7 @@ img.hero__photo {
    s'assombrit, comme une mise au point qui se perd. Le texte, lui, monte
    et s'efface un peu plus vite. */
 img.hero__photo {
-  transform: scale(calc(1 + var(--hero-p, 0) * .12));
+  transform: scale(calc(1 + var(--hero-p, 0) * .25));
   filter: blur(calc(var(--hero-p, 0) * 14px)) brightness(calc(1 - var(--hero-p, 0) * .35));
   will-change: transform, filter;
 }
