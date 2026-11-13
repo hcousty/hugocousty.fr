@@ -15,7 +15,6 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 /
 ├── index.html                  One page (toutes les sections)
 ├── agences/index.html          Landing page agences : hero photo, expertises, formats, témoignages, réalisations, contact
-├── agences-suisse/index.html   Même landing page, angle Suisse romande, Harmony à la une
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
 ├── merci/index.html            Confirmation après envoi du formulaire (noindex, lien LinkedIn)
@@ -173,7 +172,7 @@ Le workflow n'envoie que les fichiers plus récents que ceux du serveur et ne su
 
 ### Variante : FTP à la main
 
-Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `assets/`, `agences/`, `agences-suisse/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
+Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `www/` : `index.html`, `.htaccess`, `assets/`, `agences/`, `mentions-legales/`, `confidentialite/`. **Ne pas envoyer** `.git/`, `.github/` ni `README.md`.
 
 ### Cache
 
@@ -189,13 +188,14 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Remplacer les placeholders d'images (photo Hugo, visuel Harmony)
 - [ ] Remplacer les témoignages placeholders par les vrais textes
 - [ ] Compléter les champs surlignés des mentions légales et de la politique de confidentialité
-- [ ] Relire les pages `agences` et `agences-suisse` (premier jet à valider)
+- [ ] Relire la page `agences` (premier jet à valider)
+- [ ] Si l'ancien dossier `agences-suisse/` a été envoyé sur OVH, le supprimer à la main (le `.htaccess` redirige déjà vers `/agences/`)
 - [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
 - [ ] Tester un vrai envoi du formulaire Brevo en preprod, et régler la notification par email dans Brevo
 - [ ] Bandeau de consentement cookies si GA4 est ajouté (le calendrier Cal.com peut déposer ses propres cookies dans son cadre)
 - [x] Image de partage `og:image` (1200 × 627 px)
 - [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
-- [x] Contenu des pages `agences`, `agences-suisse`, `mentions-legales` et `confidentialite`
+- [x] Contenu des pages `agences`, `mentions-legales` et `confidentialite`
 - [x] Déploiement OVH (workflow SFTP + `.htaccess`)
 
 ---

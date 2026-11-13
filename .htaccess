@@ -10,6 +10,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.hugocousty\.fr$ [NC]
 RewriteRule ^(.*)$ https://hugocousty.fr/$1 [R=301,L]
 
+# 2 bis. Ancienne page « agences en Suisse romande », fusionnée avec /agences/
+RewriteRule ^agences-suisse/?(.*)$ https://hugocousty.fr/agences/ [R=301,L]
+
 # 3. Types MIME (au cas où le serveur ne les connaît pas)
 AddType font/woff2 .woff2
 AddType image/svg+xml .svg

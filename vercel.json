@@ -5,5 +5,17 @@
       "main": true,
       "*": false
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/agences-suisse",
+      "destination": "/agences/",
+      "permanent": true
+    },
+    {
+      "source": "/agences-suisse/:path*",
+      "destination": "/agences/",
+      "permanent": true
+    }
+  ]
 }
