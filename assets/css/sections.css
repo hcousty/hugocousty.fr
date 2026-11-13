@@ -233,6 +233,24 @@ img.hero__photo {
 
 .hero--center .hero__lead {
   max-width: 34rem;
+  text-wrap: balance; /* lignes de longueur égale, pas de mot seul */
+}
+
+/* Accueil : le titre passe sur deux lignes sur grand écran (« De la
+   stratégie / aux résultats »), et le chapô se resserre pour rester à peu
+   près de la largeur du titre. Sur mobile, le titre se coupe tout seul. */
+.hero__break {
+  display: none;
+}
+
+@media (min-width: 80em) {
+  .hero__break {
+    display: inline;
+  }
+
+  .hero--center .hero__title:has(.hero__break) ~ .hero__lead {
+    max-width: 31rem;
+  }
 }
 
 /* Petite ligne au-dessus du titre (pages agences) : lisible sur la photo */
