@@ -820,11 +820,16 @@ ul.expertise-cards {
 /* Le titre de la section reste visible pendant l'empilement : il se fige
    sous l'en-tête, et les cartes se figent juste en dessous (--stack-top
    = hauteur du titre, mesurée par main.js) */
-#methode.has-stack .section-head {
-  position: sticky;
-  top: var(--header-height-top);
-  z-index: 1;
-  padding-top: var(--space-2);
+/* Mobile : pas de titre figé (il prendrait un tiers de l'écran et les
+   cartes ne seraient jamais visibles en entier) ; les cartes se figent
+   juste sous la barre d'en-tête. */
+@media (min-width: 48em) {
+  #methode.has-stack .section-head {
+    position: sticky;
+    top: var(--header-height-top);
+    z-index: 1;
+    padding-top: var(--space-2);
+  }
 }
 
 #methode .steps.is-stacked {
@@ -836,7 +841,7 @@ ul.expertise-cards {
 #methode .steps.is-stacked .step {
   position: sticky;
   top: calc(var(--header-height-top) + var(--stack-top) + var(--i, 0) * var(--stack-offset)); /* se fige plus bas : l'empilement commence plus tôt */
-  padding: var(--space-5) var(--space-4);
+  padding: var(--space-4) var(--space-3);
   border: var(--border-width-hairline) solid var(--border-hairline);
   border-radius: var(--card-radius);
   background: var(--surface-card);

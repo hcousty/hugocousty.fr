@@ -464,10 +464,14 @@
     // juste sous lui (sa hauteur + un petit écart)
     const methodeSection = document.querySelector('#methode');
     const methodeHead = methodeSection.querySelector('.section-head');
+    // Mobile : le titre n'est pas figé (voir sections.css), les cartes se
+    // figent juste sous la barre d'en-tête
+    const headSticks = window.matchMedia('(min-width: 48em)');
     if (methodeHead) {
       methodeSection.classList.add('has-stack');
       const setTop = () => {
-        methodeSection.style.setProperty('--stack-top', (methodeHead.offsetHeight + 24) + 'px');
+        const top = headSticks.matches ? methodeHead.offsetHeight + 24 : 16;
+        methodeSection.style.setProperty('--stack-top', top + 'px');
       };
       setTop();
       window.addEventListener('resize', setTop);
@@ -485,7 +489,7 @@
       });
       // Quand la dernière carte repart vers le haut, le titre part avec elle
       // (sinon il resterait figé par-dessus la pile qui s'en va)
-      if (methodeHead) {
+      if (methodeHead && headSticks.matches) {
         const last = stepItems[stepItems.length - 1];
         const stuckAt = parseFloat(getComputedStyle(last).top) || 0;
         const shift = Math.min(0, last.getBoundingClientRect().top - stuckAt);
