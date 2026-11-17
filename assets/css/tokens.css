@@ -266,7 +266,7 @@
   --header-link: var(--text-secondary);
 
   /* Hero : retrait de la photo par rapport aux bords de l'écran, et son rayon */
-  --contact-radius: clamp(40px, 6vw, 88px); /* haut de la section Contact, pleine largeur */
+  --contact-radius: clamp(40px, 4vw, 56px); /* haut de la section Contact, pleine largeur : un cran au-dessus des cartes (40 px) */
 
   /* Hauteur réservée au calendrier Cal.com pendant son chargement */
   --booking-height: 560px;
