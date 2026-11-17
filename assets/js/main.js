@@ -125,8 +125,22 @@
     const easing = 'cubic-bezier(.65, 0, .25, 1)';
     let running = [];
 
+    // Couleur de la barre du navigateur mobile (zone de l'heure, barre
+    // d'adresse) : sombre sur le hero et les blocs sombres, blanche ailleurs
+    let themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (!themeMeta) {
+      themeMeta = document.createElement('meta');
+      themeMeta.name = 'theme-color';
+      document.head.append(themeMeta);
+    }
+    const setBrowserBar = (dark) => {
+      themeMeta.content = dark ? '#0D1017' : '#FFFFFF';
+    };
+    setBrowserBar(header.getAttribute('data-theme') === 'inverse');
+
     const setTheme = (dark) => {
       if (dark === (header.getAttribute('data-theme') === 'inverse')) return;
+      setBrowserBar(dark);
       const animate = ready && !reduceIdMotion.matches && glide.length > 0;
       // Place visible actuelle (une animation en cours est prise en compte)
       const before = animate ? glide.map((el) => el.getBoundingClientRect()) : [];
