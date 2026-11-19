@@ -929,7 +929,8 @@ ul.expertise-cards {
    Méthode) : bleu acier, bleu roi, violet (teintes de l'orbe IA, foncées) */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .stat__value,
-  .step__number {
+  .step__number,
+  .gains__figure {
     width: fit-content;
     background: linear-gradient(90deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
     -webkit-background-clip: text;
@@ -1876,32 +1877,117 @@ img.about__photo {
   font-weight: var(--weight-medium);
 }
 
-/* Liste de points (pages agences) : séparés par l'espace, sans filet */
-.points {
+/* Ce que l'agence y gagne : grille « bento » de cartes blanches.
+   Mobile : une colonne. Tablette : 2 colonnes, la 1re carte sur toute la
+   largeur. Desktop : 2 grandes cartes, puis 3 petites. */
+.gains {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--grid-gap);
 }
 
-.points__item {
-  display: grid;
-  gap: var(--space-1);
-}
-
-.points__item h3 {
-  font-size: var(--text-h3);
-}
-
-.points__item p {
-  max-width: var(--measure-prose);
+.gains__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-15);
+  padding: var(--space-4);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: var(--card-radius);
+  background: var(--surface-card);
   color: var(--text-secondary);
 }
 
+.gains__card h3 {
+  font-size: var(--text-h3);
+  color: var(--text-primary);
+}
+
+.gains__card p {
+  font-size: var(--text-body-sm);
+}
+
+/* Icône dans une pastille ronde grise : repère discret, monochrome */
+.gains__icon {
+  box-sizing: content-box;
+  width: 22px;
+  height: 22px;
+  margin-bottom: var(--space-2);
+  padding: 13px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-sunken);
+  color: var(--text-primary);
+}
+
+/* Grande carte 1 : le délai en chiffre, en dégradé « Aurore » comme les
+   chiffres clés */
+.gains__card .gains__figure {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-display-2);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Grande carte 2 : le circuit « brief, objectif, budget → arbitrages » en
+   petites étiquettes ; la dernière en noir (ce que je vous rends) */
+.gains__flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+  list-style: none;
+}
+
+.gains__flow li {
+  padding: 6px var(--space-15);
+  border: var(--border-width-hairline) solid var(--border-mid);
+  border-radius: 8px;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.gains__flow .gains__flow-out {
+  border-color: var(--ink-900);
+  background: var(--ink-900);
+  color: var(--white);
+}
+
+/* Flèche avant la dernière étiquette */
+.gains__flow-out::before {
+  content: "→";
+  margin-right: var(--space-1);
+  opacity: .7;
+}
+
 @media (min-width: 48em) {
-  .points__item {
-    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-    gap: var(--space-4);
+  .gains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gains__card:first-child {
+    grid-column: 1 / -1;
   }
 }
+
+@media (min-width: 64em) {
+  .gains {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .gains__card {
+    grid-column: span 2;
+    padding: var(--space-5);
+  }
+
+  .gains__card--wide,
+  .gains__card:first-child {
+    grid-column: span 3;
+  }
+}
+
 
 /* Mise en avant finale : bloc encre, même registre que le panneau du hero */
 .page-cta {
