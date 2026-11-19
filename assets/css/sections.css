@@ -1157,8 +1157,11 @@ img.featured__visual {
   color: var(--text-primary);
 }
 
-.testimonial--main .testimonial__author {
+/* Nom puis fonction(s), une par ligne (le nom doit garder sa largeur pour
+   le soulignement du lien) */
+.testimonial__author:has(.testimonial__name) {
   display: grid;
+  justify-items: start;
 }
 
 .testimonial__name {
