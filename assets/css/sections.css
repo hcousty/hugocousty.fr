@@ -668,16 +668,38 @@ ul.expertise-cards {
   color: var(--text-muted);
 }
 
-/* Logo de la régie : pictogramme officiel (Simple Icons, CC0), en masque
-   pour prendre la couleur du texte, comme les logos clients */
+/* Logo de la régie : pictogramme officiel (Simple Icons, CC0), en masque,
+   rempli du dégradé « Aurore » des chiffres clés. Avec JS : un reflet
+   clair glisse dessus au rythme du défilement (même principe que les
+   chiffres clés, --shine posé par main.js), décalé d'un logo à l'autre. */
 .network__logo {
   width: var(--network-logo-size);
   height: var(--network-logo-size);
   margin-bottom: var(--space-1);
-  background: var(--text-primary);
+  background: linear-gradient(135deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
   -webkit-mask: var(--logo) center / contain no-repeat;
   mask: var(--logo) center / contain no-repeat;
 }
+
+.networks__list.has-shine .network__logo {
+  --shine-tile: 3.5em;
+  --shine-travel: 9em;
+  background:
+    linear-gradient(105deg,
+      transparent 0%, transparent 30%,
+      rgba(255, 255, 255, .55) 40%, transparent 50%,
+      transparent 62%,
+      rgba(255, 255, 255, .3) 67%, transparent 72%,
+      transparent 100%)
+      calc(var(--shine, 0) * var(--shine-travel) + var(--shine-offset, 0em)) 0 / var(--shine-tile) 100% repeat-x,
+    linear-gradient(135deg, var(--stat-1), var(--stat-2) 38%, var(--stat-3) 68%, var(--stat-4));
+}
+
+.networks__list.has-shine .network:nth-child(2) .network__logo { --shine-offset: -.6em; }
+.networks__list.has-shine .network:nth-child(3) .network__logo { --shine-offset: -1.2em; }
+.networks__list.has-shine .network:nth-child(4) .network__logo { --shine-offset: -1.8em; }
+.networks__list.has-shine .network:nth-child(5) .network__logo { --shine-offset: -2.4em; }
+.networks__list.has-shine .network:nth-child(6) .network__logo { --shine-offset: -3em; }
 
 .networks__note {
   max-width: var(--measure-prose);

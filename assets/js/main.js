@@ -428,37 +428,37 @@
 
 
 
-  /* 9. Chiffres clés : reflet qui glisse sur les chiffres au rythme du
-     défilement. --shine (0 → 1) suit la traversée du bloc dans l'écran ;
-     le CSS déplace la bande claire en conséquence. Les chiffres eux-mêmes
-     ne bougent pas. Rien si les animations sont réduites. */
-  const statsBlock = document.querySelector('.stats');
-
-  if (statsBlock && !reduceMotion.matches) {
-    let ticking = false;
-    const update = () => {
-      const vh = window.innerHeight;
-      const r = statsBlock.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-      statsBlock.style.setProperty('--shine', p.toFixed(3));
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    };
-    new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        window.addEventListener('scroll', onScroll, { passive: true });
-        update();
-      } else {
-        window.removeEventListener('scroll', onScroll);
-      }
-    }, { rootMargin: '100px 0px' }).observe(statsBlock);
-    statsBlock.classList.add('has-shine');
-    update();
+  /* 9. Reflet au rythme du défilement : chiffres clés (accueil) et logos
+     des régies (page agences). --shine (0 → 1) suit la traversée du bloc
+     dans l'écran ; le CSS déplace la bande claire en conséquence. Les
+     éléments eux-mêmes ne bougent pas. Rien si les animations sont réduites. */
+  if (!reduceMotion.matches) {
+    document.querySelectorAll('.stats, .networks__list').forEach((block) => {
+      let ticking = false;
+      const update = () => {
+        const vh = window.innerHeight;
+        const r = block.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+        block.style.setProperty('--shine', p.toFixed(3));
+        ticking = false;
+      };
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+      new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          window.addEventListener('scroll', onScroll, { passive: true });
+          update();
+        } else {
+          window.removeEventListener('scroll', onScroll);
+        }
+      }, { rootMargin: '100px 0px' }).observe(block);
+      block.classList.add('has-shine');
+      update();
+    });
   }
 
 
