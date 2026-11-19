@@ -118,11 +118,11 @@
              un masque CSS (la couleur d'origine du fichier ne compte pas).
              --logo-ratio = largeur / hauteur du viewBox ; --logo-h règle le poids
              visuel (un logo très large est moins haut qu'un logo carré). -->
-        <!-- Mobile : les logos défilent en continu (main.js, module 7, duplique la
-             liste pour une boucle sans à-coup). Dès la tablette : en grille. -->
+        <!-- Les logos défilent en continu (main.js, module 7, duplique la liste
+             pour une boucle sans à-coup). Sans JS : en grille. -->
         <div class="logos__marquee">
         <ul class="logos__list logos__list--home" data-marquee>
-          <!-- Les logos « logos__extra » n'apparaissent que dans le bandeau mobile ;
+          <!-- Les logos « logos__extra » n'apparaissent que dans le bandeau défilant ;
                ils sont intercalés pour arriver dès le début du défilement -->
           <li><span class="client-logo" role="img" aria-label="Aroma-Zone" style="--logo: url(/assets/img/logos/aroma-zone.svg); --logo-ratio: 268 / 26; --logo-h: 15px"></span></li>
           <li class="logos__extra"><span class="client-logo" role="img" aria-label="Le Pantalon" style="--logo: url(/assets/img/logos/le-pantalon.svg); --logo-ratio: 705.31 / 279.55; --logo-h: 38px"></span></li>

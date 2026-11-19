@@ -438,16 +438,18 @@ img.hero__photo {
   }
 }
 
-/* Logos en plus (13 au total) : seulement dans le bandeau mobile ; la
-   tablette et le desktop gardent la sélection de 8 */
+/* Logos en plus (13 au total) : visibles dans le bandeau défilant. Sans
+   défilement (sans JS ou animations réduites), la tablette et le desktop
+   gardent la sélection de 8 sur une ligne. */
 @media (min-width: 48em) {
-  .logos__extra {
-    display: none !important;
+  .logos__list:not(.is-marquee) .logos__extra {
+    display: none;
   }
 }
 
-/* Bandeau défilant (mobile) : la liste est doublée par main.js, puis glisse
-   de la moitié de sa largeur en boucle. Bords fondus. */
+/* Bandeau défilant (accueil, mobile et desktop) : la liste est doublée par
+   main.js, puis glisse de la moitié de sa largeur en boucle. Bords fondus,
+   pause au survol de la souris. */
 .logos__marquee {
   overflow: hidden;
 }
@@ -456,31 +458,52 @@ img.hero__photo {
   display: none;
 }
 
+.logos__marquee:has(.is-marquee) {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logos__list.is-marquee {
+  display: flex;
+  width: max-content;
+  animation: logos-defile 52s linear infinite; /* 13 logos */
+}
+
+.logos__list.is-marquee li {
+  flex: none;
+  margin-right: var(--space-6);
+}
+
+/* Largeur fixe du logo : dans le bandeau, la case n'a pas de largeur propre */
+.logos__list.is-marquee .client-logo {
+  width: calc(var(--logo-h) * var(--logo-scale, 1) * var(--logo-ratio));
+}
+
+.logos__list.is-marquee li[data-clone] {
+  display: grid;
+}
+
 @media (max-width: 47.99em) {
   .logos__marquee {
-    margin-inline: calc(-1 * var(--gutter));
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    margin-inline: calc(-1 * var(--gutter)); /* bord à bord sur mobile */
   }
+}
 
+/* Desktop : logos plus espacés, défilement plus lent (même vitesse perçue
+   sur un écran plus large) */
+@media (min-width: 48em) {
   .logos__list.is-marquee {
-    display: flex;
-    width: max-content;
-    animation: logos-defile 52s linear infinite; /* 13 logos : même vitesse qu'avant */
+    animation-duration: 80s;
   }
 
   .logos__list.is-marquee li {
-    flex: none;
-    margin-right: var(--space-6);
+    margin-right: var(--space-8);
   }
+}
 
-  /* Largeur fixe du logo : dans le bandeau, la case n'a pas de largeur propre */
-  .logos__list.is-marquee .client-logo {
-    width: calc(var(--logo-h) * var(--logo-scale, 1) * var(--logo-ratio));
-  }
-
-  .logos__list.is-marquee li[data-clone] {
-    display: grid;
+@media (hover: hover) {
+  .logos__marquee:hover .logos__list.is-marquee {
+    animation-play-state: paused;
   }
 }
 
@@ -508,10 +531,17 @@ img.hero__photo {
     width: min(100%, calc(var(--logo-h) * var(--logo-scale, 1) * var(--logo-ratio)));
   }
 
-  .logos__marquee {
+  .logos__marquee,
+  .logos__marquee:has(.is-marquee) {
     margin-inline: 0;
     -webkit-mask-image: none;
     mask-image: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 48em) {
+  .logos__list.is-marquee .logos__extra {
+    display: none;
   }
 }
 

@@ -14,7 +14,7 @@
    4. Réalisations (mobile) : 3 cartes, les autres derrière un bouton
    5. Formulaire de contact (Brevo) : envoi en arrière-plan, puis /merci/
    6. Calendrier de réservation (Cal.com) : chargé à l'approche de la section
-   7. Logos clients (mobile) : bandeau qui défile en continu
+   7. Logos clients (accueil) : bandeau qui défile en continu
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -332,10 +332,9 @@
 
 
 
-  /* 7. Logos clients : bandeau défilant en mobile
+  /* 7. Logos clients : bandeau défilant (accueil, mobile et desktop)
      La liste est doublée (copies masquées aux lecteurs d'écran) pour que le
-     défilement boucle sans à-coup. Le CSS ne fait défiler qu'en mobile et
-     respecte la préférence « mouvement réduit ». */
+     défilement boucle sans à-coup. Le CSS respecte la préférence « mouvement réduit ». */
   const marquee = document.querySelector('[data-marquee]');
 
   if (marquee) {
