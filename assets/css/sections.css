@@ -1327,6 +1327,31 @@ img.about__photo {
   border-radius: var(--card-radius);
 }
 
+/* Monogramme « HC » à la place de la photo : même format que la photo
+   (4/5, très arrondi), carte encre, initiales blanches en très grand */
+.about__mono {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--card-radius);
+  background: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(96px, 12vw, 168px);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+/* Mobile : moins haut, pour ne pas occuper tout l'écran */
+@media (max-width: 47.99em) {
+  .about__mono {
+    aspect-ratio: 16 / 9;
+    max-width: none;
+  }
+}
+
 .about__body {
   display: grid;
   align-content: center;
