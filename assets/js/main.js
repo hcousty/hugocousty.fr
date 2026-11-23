@@ -641,11 +641,14 @@
   };
 
   let consentBanner = null;
+  let consentLayer = null;
 
   const closeConsent = () => {
-    if (consentBanner) {
-      consentBanner.remove();
+    if (consentLayer) {
+      consentLayer.remove();
+      consentLayer = null;
       consentBanner = null;
+      document.documentElement.classList.remove('has-consent-open');
     }
   };
 
@@ -653,11 +656,17 @@
     closeConsent();
     const current = readConsent() || { analytics: false, ads: false };
 
+    // Desktop : fenêtre au centre, la page derrière est voilée et ne défile
+    // plus tant qu'un choix n'est pas fait (Accepter, Refuser ou Enregistrer).
+    // Mobile : carte en bas de l'écran, la page reste utilisable.
+    consentLayer = document.createElement('div');
+    consentLayer.className = 'consent-layer';
     consentBanner = document.createElement('section');
     consentBanner.className = 'consent';
-    consentBanner.setAttribute('aria-label', 'Cookies');
+    consentBanner.setAttribute('role', 'dialog');
+    consentBanner.setAttribute('aria-labelledby', 'consent-title');
     consentBanner.innerHTML =
-      '<p class="consent__title">Cookies</p>' +
+      '<p class="consent__title" id="consent-title">Vos préférences de cookies</p>' +
       '<p class="consent__text">Avec votre accord, j’utilise des cookies pour mesurer l’audience du site et l’efficacité de mes publicités. Vous pouvez changer d’avis à tout moment. <a href="/confidentialite/#cookies">En savoir plus</a></p>' +
       '<div class="consent__options" hidden>' +
         '<label class="consent__option">' +
@@ -704,7 +713,11 @@
       closeConsent();
     });
 
-    document.body.append(consentBanner);
+    consentLayer.append(consentBanner);
+    document.body.append(consentLayer);
+    document.documentElement.classList.add('has-consent-open');
+    consentBanner.setAttribute('tabindex', '-1');
+    consentBanner.focus({ preventScroll: true });
   };
 
   if (!readConsent()) openConsent(false);

@@ -1175,6 +1175,10 @@ select.field__input {
   font-weight: var(--weight-semibold);
 }
 
+.consent:focus {
+  outline: none; /* le focus est posé sur la fenêtre à l'ouverture, pour les lecteurs d'écran */
+}
+
 .consent__text {
   color: var(--text-secondary);
 }
@@ -1269,6 +1273,76 @@ select.field__input {
 
 .consent__actions .btn {
   padding-inline: var(--space-1);
+}
+
+/* Desktop : grande fenêtre au centre de l'écran, page voilée et floutée
+   derrière, défilement bloqué jusqu'au choix. « Refuser » reste au premier
+   niveau : on bloque jusqu'à un choix, pas jusqu'à l'accord. */
+@media (min-width: 64em) {
+  .consent-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000; /* au-dessus de l'en-tête : toute la page est voilée */
+    display: grid;
+    place-items: center;
+    padding: var(--space-4);
+    background: rgba(13, 16, 23, .38);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    animation: consent-in var(--duration-base) var(--ease-out);
+  }
+
+  .consent {
+    position: relative;
+    inset: auto;
+    gap: var(--space-25);
+    width: min(100%, 44rem);
+    max-width: none;
+    padding: var(--space-6);
+    border-radius: var(--card-radius);
+    font-size: var(--text-lead);
+    background: rgba(255, 255, 255, .82);
+  }
+
+  [data-theme="inverse"] .consent {
+    background: rgba(13, 16, 23, .78);
+  }
+
+  .consent__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-title);
+    line-height: var(--leading-snug);
+  }
+
+  .consent__option > span > span {
+    font-size: var(--text-body);
+  }
+
+  .consent__actions {
+    margin-top: var(--space-1);
+    gap: var(--space-15);
+  }
+
+  .consent__actions .btn {
+    min-height: var(--button-height);
+    font-size: var(--text-body);
+  }
+
+  .has-consent-open {
+    overflow: hidden;
+  }
+}
+
+@keyframes consent-in {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent-layer {
+    animation: none;
+  }
 }
 
 /* Pas de flèche ↗ dans le bandeau : ce ne sont pas des liens */
