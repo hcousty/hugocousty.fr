@@ -41,7 +41,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Envoi vers www/
+    name: Envoi vers site/
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le dépôt
@@ -97,6 +97,6 @@ jobs:
             set net:max-retries 3
             set sftp:auto-confirm yes
             set ftp:ssl-allow no
-            mirror -R --verbose --only-newer _site/ www/
+            mirror -R --verbose --only-newer _site/ site/
             bye
           LFTP
