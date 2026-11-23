@@ -118,7 +118,7 @@ img.hero__photo {
    se pose en bas, sur un voile plus haut et plus sombre */
 @media (max-width: 47.99em) {
   img.hero__photo {
-    object-position: 47% 30%;
+    object-position: 56% 30%; /* visage du photographe, reflété dans l'écran */
   }
 
   .hero__media::after {
