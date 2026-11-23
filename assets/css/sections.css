@@ -2404,3 +2404,132 @@ img.about__photo {
     text-decoration: none;
   }
 }
+
+
+/* PAGE PROVISOIRE (/provisoire/, publiée comme accueil le temps de finir
+   le site) : fond encre, une barre avec l'identité, le titre centré sur
+   tout l'écran, puis le calendrier de réservation.
+   ========================================================================== */
+
+.soon-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--surface-page); /* encre, via data-theme="inverse" */
+}
+
+.soon__bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: var(--header-height-top);
+}
+
+.soon__id {
+  display: flex;
+  align-items: center;
+  gap: var(--space-15);
+}
+
+/* Monogramme : en blanc sur l'encre (l'inverse de l'en-tête clair) */
+.soon__mono {
+  background: var(--white);
+  color: var(--ink-900);
+}
+
+.soon__id-text {
+  display: grid;
+  gap: 1px;
+}
+
+.soon__name {
+  font-size: var(--text-header-name-small);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.soon__id .status {
+  font-size: var(--text-caption);
+  line-height: 1.2;
+}
+
+.soon__id .status__dot {
+  order: 1;
+}
+
+/* Titre : centré, plein écran (moins la barre), comme le hero du site */
+.soon__hero {
+  display: grid;
+  min-height: calc(100svh - var(--header-height-top));
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.soon__hero-inner {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.soon__title {
+  font-size: var(--text-hero-center);
+}
+
+.soon__title .hero__label {
+  margin-inline: auto;
+}
+
+.soon__lead {
+  max-width: 34rem;
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+  text-wrap: balance;
+}
+
+.soon__note {
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.soon__booking {
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.soon__footer {
+  margin-top: auto;
+  padding-block: var(--space-4);
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+.soon__footer-inner,
+.soon__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.soon__legal {
+  list-style: none;
+}
+
+.soon__footer a {
+  color: var(--text-muted);
+}
+
+.soon__footer a:hover {
+  color: var(--text-primary);
+}
+
+@media (min-width: 80em) {
+  .soon-page .hero__break {
+    display: inline;
+  }
+}

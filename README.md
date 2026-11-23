@@ -14,6 +14,7 @@ HTML, CSS et JavaScript natifs : aucun framework, aucune dépendance, aucune ét
 ```
 /
 ├── index.html                  One page (toutes les sections)
+├── provisoire/index.html       Page d'attente publiée en accueil le temps de finir le site
 ├── agences/index.html          Landing page agences : hero photo, expertises, formats, témoignages, réalisations, contact
 ├── mentions-legales/index.html Mentions légales (champs à compléter surlignés)
 ├── confidentialite/index.html  Politique de confidentialité (état actuel : aucun traceur)
@@ -157,6 +158,10 @@ Le dépôt GitHub est connecté à Vercel. Chaque push sur `main` redéploie la 
 ### Mise en ligne : OVH, depuis GitHub
 
 Le workflow `.github/workflows/deploy.yml` envoie le site en SFTP chez OVH. Il se déclenche **à la main** uniquement (onglet **Actions → Déployer sur OVH → Run workflow**), pour que rien ne parte chez OVH tant que le site vit sur Vercel. Le jour de la mise en ligne, on peut l'automatiser à chaque push sur `main` (voir le commentaire en tête du fichier).
+
+Au lancement, le champ **contenu** choisit ce qui part en ligne :
+- **provisoire** (par défaut) : la page d'attente `provisoire/index.html` (fond noir, titre, calendrier Cal.com) devient l'accueil, avec `assets/`, les pages légales et le `.htaccess`. En préprod, elle se voit sur `/provisoire/`.
+- **site complet** : tout le site (le dossier `provisoire/` ne part pas). `index.html` remplace alors la page d'attente.
 
 Dans GitHub : **Settings → Secrets and variables → Actions**, créer trois secrets :
 

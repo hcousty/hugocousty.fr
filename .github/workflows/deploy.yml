@@ -1,7 +1,10 @@
 # Déploiement sur l'hébergement mutualisé OVH, en SFTP.
 #
 # Déclenchement MANUEL uniquement (onglet Actions → Déployer sur OVH → Run workflow).
-# Tant que le site est en préprod sur Vercel, rien ne part chez OVH.
+# Au lancement, choisir le contenu :
+#   - « provisoire » : la page d'attente (provisoire/index.html) devient l'accueil,
+#     avec les assets et les pages légales ;
+#   - « site complet » : tout le site.
 # Pour automatiser à chaque push sur main le jour de la mise en ligne, ajouter :
 #   on:
 #     push:
@@ -23,6 +26,14 @@ name: Déployer sur OVH
 
 on:
   workflow_dispatch:
+    inputs:
+      contenu:
+        description: "Ce qui part en ligne"
+        type: choice
+        options:
+          - provisoire     # page d'attente (provisoire/index.html) en accueil + pages légales
+          - site complet   # tout le site
+        default: provisoire
 
 concurrency:
   group: deploy-ovh
@@ -38,6 +49,26 @@ jobs:
 
       - name: Installer lftp
         run: sudo apt-get update -q && sudo apt-get install -y -q lftp
+
+      - name: Préparer les fichiers à envoyer
+        env:
+          CONTENU: ${{ inputs.contenu }}
+        run: |
+          set -eu
+          mkdir _site
+          if [ "$CONTENU" = "provisoire" ]; then
+            # Page d'attente en accueil, avec ce dont elle a besoin
+            cp provisoire/index.html _site/index.html
+            cp -r assets mentions-legales confidentialite .htaccess _site/
+          else
+            # Tout le site, sauf ce qui ne doit jamais partir
+            tar -cf - \
+              --exclude=./.git --exclude=./.github --exclude=./.gitignore \
+              --exclude="*.md" --exclude=./provisoire --exclude=./vercel.json \
+              --exclude=./_site . | tar -xf - -C _site
+          fi
+          echo "Contenu envoyé : $CONTENU"
+          find _site -maxdepth 1 | sort
 
       - name: Envoyer les fichiers
         env:
@@ -57,21 +88,15 @@ jobs:
             *) echo "DEPLOY_PROTOCOL doit valoir sftp ou ftp." >&2; exit 1 ;;
           esac
 
-          # mirror -R : envoie le dossier local vers le serveur (miroir inverse).
+          # mirror -R : envoie le dossier préparé (_site) vers le serveur.
           # Pas de --delete : un fichier retiré du dépôt reste sur le serveur
-          # (à supprimer à la main). Ce qui ne doit jamais partir est exclu ci-dessous.
+          # (à supprimer à la main). Passer de « provisoire » à « site complet »
+          # remplace simplement index.html et ajoute le reste.
           lftp -u "$USERNAME","$PASSWORD" -p "$PORT" "$PROTOCOL://$SERVER" <<'LFTP'
             set net:timeout 30
             set net:max-retries 3
             set sftp:auto-confirm yes
             set ftp:ssl-allow no
-            mirror -R --verbose --only-newer \
-              --exclude-glob .git \
-              --exclude-glob .git/ \
-              --exclude-glob .github/ \
-              --exclude-glob .gitignore \
-              --exclude-glob README.md \
-              --exclude-glob "*.md" \
-              ./ www/
+            mirror -R --verbose --only-newer _site/ www/
             bye
           LFTP
