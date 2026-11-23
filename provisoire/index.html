@@ -8,15 +8,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0D1017">
-  <!-- Google Tag Manager (GTM-K3JS5PPT). Le bandeau cookies est Axeptio,
-       configuré dans GTM : c'est lui qui gère le consentement (mode
-       consentement de Google) avant GA4. -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
+  <!-- Google Tag Manager (GTM-K3JS5PPT), avec le mode consentement de
+       Google : mesure d'audience (GA4) et publicité (Meta) refusées par
+       défaut, accordées seulement selon le choix fait dans le bandeau
+       cookies (main.js, module 13). Le choix est gardé 6 mois.
+       À chaque page (et à chaque choix), l'événement « consent_update »
+       donne à GTM consent_analytics et consent_ads (true / false). -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    (function () {
+      try {
+        var c = JSON.parse(localStorage.getItem('hc-consent') || 'null');
+        if (!c || Date.now() - c.t > 1.58e10) return;
+        var ads = c.ads ? 'granted' : 'denied';
+        gtag('consent', 'update', {
+          analytics_storage: c.analytics ? 'granted' : 'denied',
+          ad_storage: ads, ad_user_data: ads, ad_personalization: ads
+        });
+        dataLayer.push({ event: 'consent_update', consent_analytics: !!c.analytics, consent_ads: !!c.ads });
+      } catch (e) {}
+    })();
     gtag('js', new Date());
   </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <title>Hugo Cousty · Consultant marketing</title>
   <meta name="description" content="Consultant marketing freelance, de la stratégie aux résultats : publicité, sites web, CRM et données, en direct ou en renfort de vos équipes, en France et en Suisse. Réservez un appel de 30 min.">
 

@@ -16,7 +16,7 @@
    6. Calendrier de réservation (Cal.com) : chargé à l'approche de la section
    7. Logos clients (accueil) : bandeau qui défile en continu
    …
-   13. Cookies : lien « Gérer les cookies » qui rouvre le bandeau Axeptio (GTM)
+   13. Bandeau cookies : mesure d'audience et publicité, avec accord (GTM)
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -600,12 +600,116 @@
   }
 
 
-  /* 13. Cookies : le bandeau est Axeptio, chargé par Google Tag Manager.
-     Le lien « Gérer les cookies » du pied de page le rouvre. */
-  document.querySelectorAll('[data-consent-open]').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (typeof window.openAxeptioCookies === 'function') window.openAxeptioCookies();
+  /* 13. Bandeau cookies
+     Deux usages, chacun soumis à l'accord du visiteur :
+     - mesure d'audience (Google Analytics 4) → analytics_storage ;
+     - publicité (pixel Meta) → ad_storage, ad_user_data, ad_personalization.
+     « Refuser », « Personnaliser » et « Accepter » ont le même poids. Le choix
+     est gardé 6 mois dans le navigateur (clé « hc-consent »), puis
+     redemandé. À chaque choix : mise à jour du mode consentement de Google
+     et événement « consent_update » pour GTM (consent_analytics,
+     consent_ads). Le lien « Gérer les cookies » du pied de page rouvre le
+     bandeau, sur le détail des choix.
+     ======================================================================== */
+
+  const CONSENT_KEY = 'hc-consent';
+  const CONSENT_MAX_AGE = 1.58e10; // environ 6 mois, en millisecondes
+
+  const readConsent = () => {
+    try {
+      const c = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
+      return c && Date.now() - c.t < CONSENT_MAX_AGE ? c : null;
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const saveConsent = (analytics, ads) => {
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics, ads, t: Date.now() }));
+    } catch (e) { /* navigation privée : le choix vaut pour cette page */ }
+    const adState = ads ? 'granted' : 'denied';
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: adState, ad_user_data: adState, ad_personalization: adState,
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'consent_update', consent_analytics: analytics, consent_ads: ads });
+  };
+
+  let consentBanner = null;
+
+  const closeConsent = () => {
+    if (consentBanner) {
+      consentBanner.remove();
+      consentBanner = null;
+    }
+  };
+
+  const openConsent = (detailed) => {
+    closeConsent();
+    const current = readConsent() || { analytics: false, ads: false };
+
+    consentBanner = document.createElement('section');
+    consentBanner.className = 'consent';
+    consentBanner.setAttribute('aria-label', 'Cookies');
+    consentBanner.innerHTML =
+      '<p class="consent__title">Cookies</p>' +
+      '<p class="consent__text">Avec votre accord, j’utilise des cookies pour mesurer l’audience du site et l’efficacité de mes publicités. Vous pouvez changer d’avis à tout moment. <a href="/confidentialite/#cookies">En savoir plus</a></p>' +
+      '<div class="consent__options" hidden>' +
+        '<label class="consent__option">' +
+          '<span><strong>Mesure d’audience</strong><span>Google Analytics&nbsp;: pages vues, provenance des visites.</span></span>' +
+          '<input class="consent__switch" type="checkbox" role="switch" data-consent-analytics>' +
+        '</label>' +
+        '<label class="consent__option">' +
+          '<span><strong>Publicité</strong><span>Meta&nbsp;: mesurer les visites venues de mes publicités.</span></span>' +
+          '<input class="consent__switch" type="checkbox" role="switch" data-consent-ads>' +
+        '</label>' +
+      '</div>' +
+      '<div class="consent__actions">' +
+        '<button class="btn btn--secondary btn--small" type="button" data-consent-action="refuse">Refuser</button>' +
+        '<button class="btn btn--secondary btn--small" type="button" data-consent-action="customize">Personnaliser</button>' +
+        '<button class="btn btn--secondary btn--small" type="button" data-consent-action="accept">Accepter</button>' +
+      '</div>';
+
+    const options = consentBanner.querySelector('.consent__options');
+    const analyticsInput = consentBanner.querySelector('[data-consent-analytics]');
+    const adsInput = consentBanner.querySelector('[data-consent-ads]');
+    const customizeButton = consentBanner.querySelector('[data-consent-action="customize"]');
+    analyticsInput.checked = !!current.analytics;
+    adsInput.checked = !!current.ads;
+
+    const showOptions = () => {
+      options.hidden = false;
+      customizeButton.textContent = 'Enregistrer';
+      customizeButton.dataset.consentAction = 'save';
+    };
+    if (detailed) showOptions();
+
+    consentBanner.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-consent-action]');
+      if (!button) return;
+      const action = button.dataset.consentAction;
+      if (action === 'customize') {
+        showOptions();
+        analyticsInput.focus();
+        return;
+      }
+      if (action === 'accept') saveConsent(true, true);
+      else if (action === 'refuse') saveConsent(false, false);
+      else saveConsent(analyticsInput.checked, adsInput.checked);
+      closeConsent();
     });
+
+    document.body.append(consentBanner);
+  };
+
+  if (!readConsent()) openConsent(false);
+
+  document.querySelectorAll('[data-consent-open]').forEach((link) => {
+    link.addEventListener('click', () => openConsent(true));
   });
 
 })();

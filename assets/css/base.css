@@ -1136,6 +1136,129 @@ select.field__input {
 }
 
 
+/* Bandeau cookies (main.js, module 13) : petite carte en bas à gauche,
+   au-dessus de la barre CTA mobile. Les trois boutons ont le même style :
+   aucun choix n'est mis en avant. */
+.consent {
+  position: fixed;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: var(--space-2);
+  z-index: calc(var(--z-sticky-cta) + 1);
+  display: grid;
+  gap: var(--space-15);
+  max-width: 28rem;
+  max-height: calc(100svh - var(--space-4));
+  overflow-y: auto;
+  padding: var(--space-3);
+  border: var(--border-width-hairline) solid var(--border-hairline);
+  border-radius: 24px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-pop);
+  color: var(--text-primary);
+  font-size: var(--text-body-sm);
+}
+
+.consent__title {
+  font-weight: var(--weight-semibold);
+}
+
+.consent__text {
+  color: var(--text-secondary);
+}
+
+.consent__text a {
+  color: var(--text-primary);
+}
+
+/* Détail des choix : un interrupteur par usage */
+.consent__options {
+  display: grid;
+  border-top: var(--border-width-hairline) solid var(--border-hairline);
+}
+
+.consent__options[hidden] {
+  display: none;
+}
+
+.consent__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-15);
+  border-bottom: var(--border-width-hairline) solid var(--border-hairline);
+  cursor: pointer;
+}
+
+.consent__option > span {
+  display: grid;
+  gap: 2px;
+}
+
+.consent__option strong {
+  font-weight: var(--weight-medium);
+}
+
+.consent__option > span > span {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+/* Interrupteur : case à cocher redessinée (rail + pastille) */
+.consent__switch {
+  flex: none;
+  position: relative;
+  width: 40px;
+  height: 24px;
+  margin: 0;
+  border-radius: var(--radius-pill);
+  background: var(--border-mid);
+  appearance: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.consent__switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 2px rgba(14, 14, 15, .2);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.consent__switch:checked {
+  background: var(--ink-900);
+}
+
+.consent__switch:checked::after {
+  transform: translateX(16px);
+}
+
+[data-theme="inverse"] .consent__switch:checked {
+  background: var(--status-available);
+}
+
+.consent__switch:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.consent__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1);
+}
+
+.consent__actions .btn {
+  padding-inline: var(--space-1);
+}
+
 /* Lien « Gérer les cookies » du pied de page : un bouton qui a l'air d'un lien */
 .consent-open {
   padding: 0;

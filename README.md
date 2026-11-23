@@ -197,8 +197,8 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Si l'ancien dossier `agences-suisse/` a été envoyé sur OVH, le supprimer à la main (le `.htaccess` redirige déjà vers `/agences/`)
 - [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
 - [ ] Tester un vrai envoi du formulaire Brevo en preprod, et régler la notification par email dans Brevo
-- [x] Google Tag Manager (GTM-K3JS5PPT) dans le <head> de toutes les pages ; bandeau cookies Axeptio et GA4 (G-ML9EK911M3) configurés dans GTM ; lien « Gérer les cookies » en pied de page (main.js, module 13)
-- [ ] Dans GTM : vérifier que GA4 attend bien le consentement Axeptio (mode consentement)
+- [x] Google Tag Manager (GTM-K3JS5PPT) dans le <head> de toutes les pages, avec le mode consentement de Google (tout refusé par défaut) et un bandeau cookies maison (main.js, module 13) : mesure d'audience (GA4) et publicité (Meta), événement `consent_update` (consent_analytics, consent_ads) pour GTM
+- [ ] Dans GTM : supprimer Axeptio, déclencher le pixel Meta sur `consent_update` quand consent_ads = true
 - [x] Image de partage `og:image` (1200 × 627 px)
 - [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
 - [x] Contenu des pages `agences`, `mentions-legales` et `confidentialite`
