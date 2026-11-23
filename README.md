@@ -197,7 +197,8 @@ Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du
 - [ ] Si l'ancien dossier `agences-suisse/` a été envoyé sur OVH, le supprimer à la main (le `.htaccess` redirige déjà vers `/agences/`)
 - [ ] Jour de la mise en ligne : renseigner les secrets FTP dans GitHub, activer SFTP chez OVH, lancer le workflow
 - [ ] Tester un vrai envoi du formulaire Brevo en preprod, et régler la notification par email dans Brevo
-- [ ] Bandeau de consentement cookies si GA4 est ajouté (le calendrier Cal.com peut déposer ses propres cookies dans son cadre)
+- [x] Google Tag Manager (GTM-K3JS5PPT) avec mode consentement (tout refusé par défaut) et bandeau cookies (main.js, module 13)
+- [ ] Dans GTM : déclencher les balises de mesure seulement avec le consentement (paramètres de consentement intégrés ou événement `consent_update`), puis lister les outils dans /confidentialite/
 - [x] Image de partage `og:image` (1200 × 627 px)
 - [ ] Favicon (retiré pour l'instant, à refaire avec la nouvelle identité)
 - [x] Contenu des pages `agences`, `mentions-legales` et `confidentialite`

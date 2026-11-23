@@ -3,6 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager, avec le mode consentement de Google : tout est
+       refusé par défaut, et accordé seulement si le visiteur accepte dans le
+       bandeau (main.js, module 13). Le choix est gardé 6 mois. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    try {
+      var hcConsent = JSON.parse(localStorage.getItem('hc-consent') || 'null');
+      if (hcConsent && hcConsent.v === 'granted' && Date.now() - hcConsent.t < 1.58e10) {
+        gtag('consent', 'update', {
+          ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <title>Message envoyé · Hugo Cousty</title>
   <meta name="description" content="Votre message a bien été envoyé. Je vous réponds sous 24 h ouvrées.">
   <!-- Page de confirmation du formulaire : pas d'indexation -->
@@ -93,6 +115,7 @@
         <ul class="site-footer__legal">
           <li><a href="/mentions-legales/">Mentions légales</a></li>
           <li><a href="/confidentialite/">Confidentialité</a></li>
+          <li><button class="consent-open" type="button" data-consent-open>Gérer les cookies</button></li>
         </ul>
       </div>
     </div>

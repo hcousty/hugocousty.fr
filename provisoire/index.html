@@ -8,6 +8,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0D1017">
+  <!-- Google Tag Manager, avec le mode consentement de Google : tout est
+       refusé par défaut, et accordé seulement si le visiteur accepte dans le
+       bandeau (main.js, module 13). Le choix est gardé 6 mois. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    try {
+      var hcConsent = JSON.parse(localStorage.getItem('hc-consent') || 'null');
+      if (hcConsent && hcConsent.v === 'granted' && Date.now() - hcConsent.t < 1.58e10) {
+        gtag('consent', 'update', {
+          ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <title>Hugo Cousty · Consultant marketing</title>
   <meta name="description" content="Consultant marketing freelance, de la stratégie aux résultats : publicité, sites web, CRM et données, en direct ou en renfort de vos équipes, en France et en Suisse. Réservez un appel de 30 min.">
 
@@ -76,6 +98,7 @@
       <ul class="soon__legal">
         <li><a href="/mentions-legales/">Mentions légales</a></li>
         <li><a href="/confidentialite/">Confidentialité</a></li>
+          <li><button class="consent-open" type="button" data-consent-open>Gérer les cookies</button></li>
       </ul>
     </div>
   </footer>

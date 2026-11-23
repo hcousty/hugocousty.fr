@@ -3,6 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager, avec le mode consentement de Google : tout est
+       refusé par défaut, et accordé seulement si le visiteur accepte dans le
+       bandeau (main.js, module 13). Le choix est gardé 6 mois. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    try {
+      var hcConsent = JSON.parse(localStorage.getItem('hc-consent') || 'null');
+      if (hcConsent && hcConsent.v === 'granted' && Date.now() - hcConsent.t < 1.58e10) {
+        gtag('consent', 'update', {
+          ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <title>Politique de confidentialité · Hugo Cousty</title>
   <meta name="description" content="Politique de confidentialité du site hugocousty.fr : données collectées, cookies, droits des visiteurs.">
   <!-- Page légale : pas d'intérêt à l'indexer -->
@@ -58,7 +80,7 @@
         <header class="page-head">
           <p class="eyebrow">Informations légales</p>
           <h1 id="page-title">Politique de confidentialité</h1>
-          <p class="page-head__intro">Ce site est sobre par choix : aucun traceur publicitaire, aucune mesure d’audience, un formulaire de contact et un calendrier de réservation. Voici ce qui est collecté, pourquoi, et quels sont vos droits.</p>
+          <p class="page-head__intro">Ce site est sobre par choix : aucun traceur sans votre accord, un formulaire de contact et un calendrier de réservation. Voici ce qui est collecté, pourquoi, et quels sont vos droits.</p>
           <p class="page-head__meta">Dernière mise à jour : octobre 2026</p>
         </header>
 
@@ -76,7 +98,7 @@
           <section aria-labelledby="collecte">
             <h2 id="collecte">Quelles données sont collectées</h2>
             <h3>Quand vous consultez le site</h3>
-            <p>Le site lui-même ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience. Seul le calendrier de réservation intégré dans la section Contact, fourni par Cal.com, peut en déposer (voir la section Cookies). Comme tout site web, le serveur de l’hébergeur (OVH) enregistre des journaux techniques : adresse IP, date et heure, page consultée, navigateur. Ces journaux servent uniquement à la sécurité et au bon fonctionnement du service. Ils sont conservés par OVH pendant une durée limitée, conformément à ses obligations légales.</p>
+            <p>Sans votre accord, le site ne dépose aucun cookie de mesure d’audience ni publicitaire. Si vous l’acceptez dans le bandeau, des outils de mesure d’audience sont activés (voir la section Cookies). Le calendrier de réservation intégré dans la section Contact, fourni par Cal.com, peut aussi déposer ses propres cookies. Comme tout site web, le serveur de l’hébergeur (OVH) enregistre des journaux techniques : adresse IP, date et heure, page consultée, navigateur. Ces journaux servent uniquement à la sécurité et au bon fonctionnement du service. Ils sont conservés par OVH pendant une durée limitée, conformément à ses obligations légales.</p>
             <h3>Quand vous m’écrivez</h3>
             <p>Si vous me contactez par le formulaire du site, par email ou via LinkedIn, je conserve vos prénom, nom, adresse email, numéro de téléphone, entreprise si vous l’indiquez, et le contenu de nos échanges, pour vous répondre et assurer le suivi de notre relation professionnelle. Base légale : votre consentement, donné en cochant la case du formulaire, puis l’exécution de mesures précontractuelles ou contractuelles. Le formulaire ne dépose aucun cookie : il enregistre votre demande dans mon outil de gestion des contacts, Brevo (voir plus bas).</p>
             <h3>Quand nous travaillons ensemble</h3>
@@ -98,6 +120,7 @@
             <ul>
               <li><strong>OVH</strong> (France) pour l’hébergement du site.</li>
               <li><strong>Cal.com</strong> (Cal.com, Inc., États-Unis) pour le calendrier de réservation : nom, email, créneau choisi et informations que vous ajoutez à la réservation.</li>
+              <li><strong>Google</strong> (Google Ireland Ltd) pour la mesure d’audience, seulement si vous l’acceptez : pages vues, appareil, provenance des visites.</li>
               <li><strong>Brevo</strong> (Sendinblue SAS, France) pour le formulaire de contact : nom, email, téléphone, entreprise et contenu de votre message.</li>
               <li><strong>Mon fournisseur de messagerie</strong> <span class="todo">[nom du fournisseur, ex. Google Workspace ou OVH]</span> pour les emails.</li>
               <li><strong>Mon outil de facturation</strong> <span class="todo">[nom de l’outil]</span> pour les devis et factures.</li>
@@ -107,13 +130,10 @@
 
           <section aria-labelledby="cookies">
             <h2 id="cookies">Cookies</h2>
-            <p>Le site lui-même ne dépose aucun cookie, ni de mesure d’audience, ni publicitaire.</p>
+            <p>Le site utilise Google Tag Manager (Google Ireland Ltd) pour gérer ses outils de mesure d’audience&nbsp;: <span class="todo">[outils activés, ex. Google Analytics 4]</span>. Ces outils ne déposent de cookies qu’après votre accord, donné dans le bandeau affiché à votre première visite. Sans accord, aucun cookie de mesure n’est déposé. Les données servent uniquement à comprendre comment le site est utilisé.</p>
+            <p>Votre choix est conservé 6&nbsp;mois, puis le bandeau vous est de nouveau proposé. Vous pouvez changer d’avis à tout moment avec le lien « Gérer les cookies » en bas de chaque page.</p>
             <p>Le calendrier de réservation intégré dans la section Contact est fourni par Cal.com (Cal.com, Inc., États-Unis). Il s’affiche dans un cadre indépendant du site, chargé seulement quand vous arrivez près de la section Contact : Cal.com peut y déposer ses propres cookies et traite les informations que vous saisissez pour réserver (nom, email, créneau choisi) selon sa <a href="https://cal.com/privacy" target="_blank" rel="noopener">politique de confidentialité<span class="visually-hidden"> (nouvel onglet)</span></a>. Si vous préférez ne pas l’utiliser, le formulaire et l’email sont là pour ça.</p>
-            <p>Si une mesure d’audience devait être ajoutée, un bandeau vous demanderait votre accord avant tout dépôt, et cette page serait mise à jour.</p>
 
-            <!-- À ACTIVER avec GA4 (remplacer ou compléter) :
-            <p>La mesure d'audience est assurée par Google Analytics 4 (Google Ireland Ltd). Elle n'est activée qu'après votre accord, via le bandeau de consentement, et les adresses IP sont anonymisées. Les données servent uniquement à comprendre comment le site est utilisé. Vous pouvez retirer votre accord à tout moment depuis le lien « Gérer les cookies » en pied de page.</p>
-            -->
           </section>
 
           <section aria-labelledby="droits">
@@ -185,6 +205,7 @@
         <ul class="site-footer__legal">
           <li><a href="/mentions-legales/">Mentions légales</a></li>
           <li><a href="/confidentialite/">Confidentialité</a></li>
+          <li><button class="consent-open" type="button" data-consent-open>Gérer les cookies</button></li>
         </ul>
       </div>
     </div>
