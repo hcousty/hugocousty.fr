@@ -604,7 +604,8 @@
      Deux usages, chacun soumis à l'accord du visiteur :
      - mesure d'audience (Google Analytics 4) → analytics_storage ;
      - publicité (pixel Meta) → ad_storage, ad_user_data, ad_personalization.
-     « Refuser », « Personnaliser » et « Accepter » ont le même poids. Le choix
+     « Accepter » est le bouton principal ; « Refuser » et « Personnaliser »
+     restent au même niveau, même taille, dès le premier écran. Le choix
      est gardé 6 mois dans le navigateur (clé « hc-consent »), puis
      redemandé. À chaque choix : mise à jour du mode consentement de Google
      et événement « consent_update » pour GTM (consent_analytics,
@@ -671,7 +672,7 @@
       '<div class="consent__actions">' +
         '<button class="btn btn--secondary btn--small" type="button" data-consent-action="refuse">Refuser</button>' +
         '<button class="btn btn--secondary btn--small" type="button" data-consent-action="customize">Personnaliser</button>' +
-        '<button class="btn btn--secondary btn--small" type="button" data-consent-action="accept">Accepter</button>' +
+        '<button class="btn btn--primary btn--small consent__accept" type="button" data-consent-action="accept">Accepter</button>' +
       '</div>';
 
     const options = consentBanner.querySelector('.consent__options');
