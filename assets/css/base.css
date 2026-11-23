@@ -729,6 +729,20 @@ select.field__input {
   object-fit: cover;
 }
 
+/* Monogramme « HC » à la place de la photo (en-tête clair) : pastille
+   encre, initiales blanches */
+.avatar--mono {
+  display: grid;
+  place-items: center;
+  background: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
 
 .status {
   display: inline-flex;
