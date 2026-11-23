@@ -3,28 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Tag Manager, avec le mode consentement de Google : tout est
-       refusé par défaut, et accordé seulement si le visiteur accepte dans le
-       bandeau (main.js, module 13). Le choix est gardé 6 mois. -->
+  <!-- Google Tag Manager (GTM-K3JS5PPT). Le bandeau cookies est Axeptio,
+       configuré dans GTM : c'est lui qui gère le consentement (mode
+       consentement de Google) avant GA4. -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-      analytics_storage: 'denied', wait_for_update: 500
-    });
-    try {
-      var hcConsent = JSON.parse(localStorage.getItem('hc-consent') || 'null');
-      if (hcConsent && hcConsent.v === 'granted' && Date.now() - hcConsent.t < 1.58e10) {
-        gtag('consent', 'update', {
-          ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
-          analytics_storage: 'granted'
-        });
-      }
-    } catch (e) {}
     gtag('js', new Date());
   </script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K3JS5PPT"></script>
   <title>Politique de confidentialité · Hugo Cousty</title>
   <meta name="description" content="Politique de confidentialité du site hugocousty.fr : données collectées, cookies, droits des visiteurs.">
   <!-- Page légale : pas d'intérêt à l'indexer -->
@@ -130,8 +117,8 @@
 
           <section aria-labelledby="cookies">
             <h2 id="cookies">Cookies</h2>
-            <p>Le site utilise Google Tag Manager (Google Ireland Ltd) pour gérer ses outils de mesure d’audience&nbsp;: <span class="todo">[outils activés, ex. Google Analytics 4]</span>. Ces outils ne déposent de cookies qu’après votre accord, donné dans le bandeau affiché à votre première visite. Sans accord, aucun cookie de mesure n’est déposé. Les données servent uniquement à comprendre comment le site est utilisé.</p>
-            <p>Votre choix est conservé 6&nbsp;mois, puis le bandeau vous est de nouveau proposé. Vous pouvez changer d’avis à tout moment avec le lien « Gérer les cookies » en bas de chaque page.</p>
+            <p>Le site utilise Google Tag Manager et Google Analytics 4 (Google Ireland Ltd) pour la mesure d’audience. Ces outils ne déposent de cookies qu’après votre accord, donné dans le bandeau de consentement (Axeptio, Agence Inbox SAS, France) affiché à votre première visite. Sans accord, aucun cookie de mesure n’est déposé. Les données servent uniquement à comprendre comment le site est utilisé.</p>
+            <p>Votre choix est conservé au maximum 6&nbsp;mois, puis le bandeau vous est de nouveau proposé. Vous pouvez changer d’avis à tout moment avec le lien « Gérer les cookies » en bas de chaque page.</p>
             <p>Le calendrier de réservation intégré dans la section Contact est fourni par Cal.com (Cal.com, Inc., États-Unis). Il s’affiche dans un cadre indépendant du site, chargé seulement quand vous arrivez près de la section Contact : Cal.com peut y déposer ses propres cookies et traite les informations que vous saisissez pour réserver (nom, email, créneau choisi) selon sa <a href="https://cal.com/privacy" target="_blank" rel="noopener">politique de confidentialité<span class="visually-hidden"> (nouvel onglet)</span></a>. Si vous préférez ne pas l’utiliser, le formulaire et l’email sont là pour ça.</p>
 
           </section>

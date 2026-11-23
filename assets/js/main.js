@@ -16,7 +16,7 @@
    6. Calendrier de réservation (Cal.com) : chargé à l'approche de la section
    7. Logos clients (accueil) : bandeau qui défile en continu
    …
-   13. Bandeau cookies : accord avant toute mesure d'audience (Tag Manager)
+   13. Cookies : lien « Gérer les cookies » qui rouvre le bandeau Axeptio (GTM)
 
    Pas d'animation d'apparition au scroll : le design system l'exclut
    (« jamais d'animation d'entrée au défilement »).
@@ -600,74 +600,12 @@
   }
 
 
-  /* 13. Bandeau cookies (mode consentement de Google)
-     Google Tag Manager est chargé dans le <head> avec tout refusé par
-     défaut. Ce bandeau demande l'accord à la première visite ; « Accepter »
-     et « Refuser » ont le même poids. Le choix est gardé 6 mois dans le
-     navigateur (localStorage, clé « hc-consent »), puis redemandé. Le lien
-     « Gérer les cookies » du pied de page rouvre le bandeau.
-     ======================================================================== */
-
-  const CONSENT_KEY = 'hc-consent';
-  const CONSENT_MAX_AGE = 1.58e10; // environ 6 mois, en millisecondes
-
-  const readConsent = () => {
-    try {
-      const c = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
-      return c && Date.now() - c.t < CONSENT_MAX_AGE ? c.v : null;
-    } catch (e) {
-      return null;
-    }
-  };
-
-  const saveConsent = (value) => {
-    try {
-      localStorage.setItem(CONSENT_KEY, JSON.stringify({ v: value, t: Date.now() }));
-    } catch (e) { /* navigation privée : le choix vaut pour cette page */ }
-    if (typeof window.gtag === 'function') {
-      const state = value === 'granted' ? 'granted' : 'denied';
-      window.gtag('consent', 'update', {
-        ad_storage: state, ad_user_data: state, ad_personalization: state,
-        analytics_storage: state,
-      });
-    }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'consent_update', consent: value });
-  };
-
-  let consentBanner = null;
-
-  const closeConsent = () => {
-    if (consentBanner) {
-      consentBanner.remove();
-      consentBanner = null;
-    }
-  };
-
-  const openConsent = () => {
-    if (consentBanner) return;
-    consentBanner = document.createElement('section');
-    consentBanner.className = 'consent';
-    consentBanner.setAttribute('aria-label', 'Cookies');
-    consentBanner.innerHTML =
-      '<p class="consent__text">J’utilise des cookies de mesure d’audience pour comprendre comment le site est utilisé, seulement avec votre accord. <a href="/confidentialite/#cookies">En savoir plus</a></p>' +
-      '<div class="consent__actions">' +
-      '<button class="btn btn--secondary btn--small" type="button" data-consent="denied">Refuser</button>' +
-      '<button class="btn btn--secondary btn--small" type="button" data-consent="granted">Accepter</button>' +
-      '</div>';
-    consentBanner.addEventListener('click', (event) => {
-      const button = event.target.closest('[data-consent]');
-      if (!button) return;
-      saveConsent(button.dataset.consent);
-      closeConsent();
-    });
-    document.body.append(consentBanner);
-  };
-
-  if (!readConsent()) openConsent();
-
+  /* 13. Cookies : le bandeau est Axeptio, chargé par Google Tag Manager.
+     Le lien « Gérer les cookies » du pied de page le rouvre. */
   document.querySelectorAll('[data-consent-open]').forEach((link) => {
-    link.addEventListener('click', openConsent);
+    link.addEventListener('click', () => {
+      if (typeof window.openAxeptioCookies === 'function') window.openAxeptioCookies();
+    });
   });
 
 })();

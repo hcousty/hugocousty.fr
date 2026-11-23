@@ -1136,37 +1136,6 @@ select.field__input {
 }
 
 
-/* Bandeau cookies (main.js, module 13) : petite carte en bas à gauche,
-   au-dessus de la barre CTA mobile. « Refuser » et « Accepter » ont le même
-   style : aucun choix n'est mis en avant. */
-.consent {
-  position: fixed;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: var(--space-2);
-  z-index: calc(var(--z-sticky-cta) + 1);
-  display: grid;
-  gap: var(--space-2);
-  max-width: 26rem;
-  padding: var(--space-3);
-  border: var(--border-width-hairline) solid var(--border-hairline);
-  border-radius: 24px;
-  background: var(--surface-card);
-  box-shadow: var(--shadow-pop);
-  color: var(--text-primary);
-  font-size: var(--text-body-sm);
-}
-
-.consent__text a {
-  color: inherit;
-}
-
-.consent__actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-1);
-}
-
 /* Lien « Gérer les cookies » du pied de page : un bouton qui a l'air d'un lien */
 .consent-open {
   padding: 0;
