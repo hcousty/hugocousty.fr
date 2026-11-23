@@ -2418,6 +2418,22 @@ img.about__photo {
   background: var(--surface-page); /* encre, via data-theme="inverse" */
 }
 
+/* Pas de marge réservée à l'en-tête fixe du site : ici, la barre est posée
+   sur le hero */
+.soon-page main {
+  padding-top: 0;
+}
+
+/* La barre se pose par-dessus le haut du hero : le titre se centre sur
+   toute la hauteur de l'écran */
+.soon__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 .soon__bar-inner {
   display: flex;
   align-items: center;
@@ -2460,11 +2476,11 @@ img.about__photo {
   order: 1;
 }
 
-/* Titre : centré, plein écran (moins la barre), comme le hero du site */
+/* Titre : centré verticalement sur tout l'écran, comme le hero du site */
 .soon__hero {
   display: grid;
-  min-height: calc(100svh - var(--header-height-top));
-  padding-block: var(--space-6) var(--space-8);
+  min-height: 100svh;
+  padding-block: var(--header-height-top); /* même marge en haut et en bas : centrage exact */
 }
 
 .soon__hero-inner {
