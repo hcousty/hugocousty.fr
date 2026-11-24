@@ -181,7 +181,7 @@ Se connecter avec FileZilla, Cyberduck ou Transmit (en SFTP), et copier dans `ww
 
 ### Cache
 
-Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du temps à s'afficher chez les visiteurs réguliers. Pour forcer la mise à jour, versionner les fichiers dans le HTML :
+Avec un cache d'un mois sur le CSS et le JS, les modifications peuvent mettre du temps à s'afficher chez les visiteurs réguliers. Les fichiers sont donc versionnés dans le HTML (`?v=AAAAMMJJ`) : changer ce numéro dans toutes les pages à chaque mise en ligne qui touche au CSS ou au JS, par exemple :
 `/assets/css/base.css?v=2`.
 
 ---
