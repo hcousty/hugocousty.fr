@@ -662,11 +662,11 @@
     consentBanner.setAttribute('aria-labelledby', 'consent-title');
     consentBanner.innerHTML =
       '<div class="consent__intro">' +
-        // Le Chat Potté qui fait les yeux doux (GIF servi par Giphy, décoratif ;
+        // Chaton qui fait les yeux doux (GIF servi par Giphy, décoratif ;
         // image fixe si les animations sont réduites)
         '<picture class="consent__pet" aria-hidden="true">' +
-          '<source srcset="https://media.giphy.com/media/qUIm5wu6LAAog/200w_s.gif" media="(prefers-reduced-motion: reduce)">' +
-          '<img src="https://media.giphy.com/media/qUIm5wu6LAAog/200w.webp" alt="" width="64" height="64" referrerpolicy="no-referrer">' +
+          '<source srcset="https://media.giphy.com/media/YZOsKxJfmvzG0/200w_s.gif" media="(prefers-reduced-motion: reduce)">' +
+          '<img src="https://media.giphy.com/media/YZOsKxJfmvzG0/200w.webp" alt="" width="64" height="64" referrerpolicy="no-referrer">' +
         '</picture>' +
         '<p class="consent__title" id="consent-title">Cookies</p>' +
         '<p class="consent__text">Avec votre accord, j’utilise des cookies pour mesurer l’audience du site et l’efficacité de mes publicités. Vous pouvez changer d’avis à tout moment. <a href="/confidentialite/#cookies">En savoir plus</a></p>' +

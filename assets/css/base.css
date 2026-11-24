@@ -1172,7 +1172,7 @@ select.field__input {
   background: rgba(13, 16, 23, .62);
 }
 
-/* Titre et texte, avec le GIF du Chat Potté en haut à droite : le texte
+/* Titre et texte, avec le GIF du chaton en haut à droite : le texte
    s'enroule autour */
 .consent__intro {
   display: flow-root;
@@ -1180,17 +1180,22 @@ select.field__input {
 
 .consent__pet {
   float: right;
-  margin: 0 0 var(--space-1) var(--space-15);
-}
-
-.consent__pet img {
-  display: block;
+  overflow: hidden;
   width: 64px;
   height: 64px;
+  margin: 0 0 var(--space-1) var(--space-15);
   border-radius: 50%;
-  object-fit: cover;
-  object-position: 48% 40%; /* les grands yeux au centre */
   background: var(--surface-sunken);
+}
+
+/* Zoom sur le haut du chaton : ses grands yeux dans la pastille */
+.consent__pet img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.35); /* zoom léger : la tête bouge, elle doit rester dans le cadre */
+  transform-origin: 42% 18%;
 }
 
 .consent__title {
