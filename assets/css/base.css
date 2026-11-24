@@ -1172,7 +1172,29 @@ select.field__input {
   background: rgba(13, 16, 23, .62);
 }
 
+/* Titre et texte, avec le GIF du Chat Potté en haut à droite : le texte
+   s'enroule autour */
+.consent__intro {
+  display: flow-root;
+}
+
+.consent__pet {
+  float: right;
+  margin: 0 0 var(--space-1) var(--space-15);
+}
+
+.consent__pet img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 48% 40%; /* les grands yeux au centre */
+  background: var(--surface-sunken);
+}
+
 .consent__title {
+  margin-bottom: var(--space-05);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-semibold);
 }
