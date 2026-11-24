@@ -1147,11 +1147,11 @@ select.field__input {
   bottom: var(--space-2);
   z-index: calc(var(--z-sticky-cta) + 1);
   display: grid;
-  gap: var(--space-15);
+  gap: var(--space-1);
   max-width: 28rem;
   max-height: calc(100svh - var(--space-4));
   overflow-y: auto;
-  padding: var(--space-3);
+  padding: var(--space-25);
   border: var(--border-width-hairline) solid var(--border-hairline);
   border-radius: 24px;
   /* Verre dépoli : la page reste devinée derrière, floutée */
@@ -1161,7 +1161,8 @@ select.field__input {
   backdrop-filter: saturate(160%) blur(18px);
   box-shadow: var(--shadow-pop);
   color: var(--text-primary);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-caption);
+  line-height: 1.5;
 }
 
 /* Sur fond sombre (page provisoire, Contact, footer) : verre encre */
@@ -1172,6 +1173,7 @@ select.field__input {
 }
 
 .consent__title {
+  font-size: var(--text-body-sm);
   font-weight: var(--weight-semibold);
 }
 
@@ -1213,6 +1215,7 @@ select.field__input {
 }
 
 .consent__option strong {
+  font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
 }
 
@@ -1269,79 +1272,45 @@ select.field__input {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-1);
+  margin-top: var(--space-1);
 }
 
 .consent__actions .btn {
-  padding-inline: var(--space-1);
+  min-height: 38px;
+  padding: 0 var(--space-1);
+  border-radius: 12px;
+  font-size: var(--text-caption);
 }
 
-/* Desktop : grande fenêtre au centre de l'écran, page voilée et floutée
-   derrière, défilement bloqué jusqu'au choix. « Refuser » reste au premier
-   niveau : on bloque jusqu'à un choix, pas jusqu'à l'accord. */
-@media (min-width: 64em) {
-  .consent-layer {
-    position: fixed;
-    inset: 0;
-    z-index: 1000; /* au-dessus de l'en-tête : toute la page est voilée */
-    display: grid;
-    place-items: center;
-    padding: var(--space-4);
-    background: rgba(13, 16, 23, .38);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    animation: consent-in var(--duration-base) var(--ease-out);
-  }
-
-  .consent {
-    position: relative;
-    inset: auto;
-    gap: var(--space-25);
-    width: min(100%, 44rem);
-    max-width: none;
-    padding: var(--space-6);
-    border-radius: var(--card-radius);
-    font-size: var(--text-lead);
-    background: rgba(255, 255, 255, .82);
-  }
-
-  [data-theme="inverse"] .consent {
-    background: rgba(13, 16, 23, .78);
-  }
-
-  .consent__title {
-    font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-title);
-    line-height: var(--leading-snug);
-  }
-
-  .consent__option > span > span {
-    font-size: var(--text-body);
-  }
-
-  .consent__actions {
-    margin-top: var(--space-1);
-    gap: var(--space-15);
-  }
-
-  .consent__actions .btn {
-    min-height: var(--button-height);
-    font-size: var(--text-body);
-  }
-
-  .has-consent-open {
-    overflow: hidden;
-  }
+/* Apparition : fondu et montée de 12 px, une seule fois */
+.consent {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 
-@keyframes consent-in {
-  from { opacity: 0; }
+.consent.is-in {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .consent-layer {
-    animation: none;
+  .consent {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Desktop : la carte reste compacte, en bas à gauche */
+@media (min-width: 48em) {
+  .consent {
+    right: auto;
+    bottom: var(--space-3);
+    left: var(--space-3);
+    width: 24rem;
+    max-width: calc(100vw - 2 * var(--space-3));
   }
 }
 

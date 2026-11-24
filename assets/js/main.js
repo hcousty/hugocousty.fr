@@ -610,7 +610,8 @@
      redemandé. À chaque choix : mise à jour du mode consentement de Google
      et événement « consent_update » pour GTM (consent_analytics,
      consent_ads). Le lien « Gérer les cookies » du pied de page rouvre le
-     bandeau, sur le détail des choix.
+     bandeau, sur le détail des choix. Carte en bas à gauche, qui apparaît
+     3,5 s après l'arrivée sur la page (premier passage seulement).
      ======================================================================== */
 
   const CONSENT_KEY = 'hc-consent';
@@ -641,32 +642,26 @@
   };
 
   let consentBanner = null;
-  let consentLayer = null;
 
   const closeConsent = () => {
-    if (consentLayer) {
-      consentLayer.remove();
-      consentLayer = null;
+    if (consentBanner) {
+      consentBanner.remove();
       consentBanner = null;
-      document.documentElement.classList.remove('has-consent-open');
     }
   };
 
+  // Carte en bas à gauche, sans voile : la page reste lisible et utilisable.
+  // Ouverte automatiquement après un court délai (premier passage), ou tout
+  // de suite depuis le lien « Gérer les cookies ».
   const openConsent = (detailed) => {
     closeConsent();
     const current = readConsent() || { analytics: false, ads: false };
 
-    // Desktop : fenêtre au centre, la page derrière est voilée et ne défile
-    // plus tant qu'un choix n'est pas fait (Accepter, Refuser ou Enregistrer).
-    // Mobile : carte en bas de l'écran, la page reste utilisable.
-    consentLayer = document.createElement('div');
-    consentLayer.className = 'consent-layer';
     consentBanner = document.createElement('section');
     consentBanner.className = 'consent';
-    consentBanner.setAttribute('role', 'dialog');
     consentBanner.setAttribute('aria-labelledby', 'consent-title');
     consentBanner.innerHTML =
-      '<p class="consent__title" id="consent-title">Vos préférences de cookies</p>' +
+      '<p class="consent__title" id="consent-title">Cookies</p>' +
       '<p class="consent__text">Avec votre accord, j’utilise des cookies pour mesurer l’audience du site et l’efficacité de mes publicités. Vous pouvez changer d’avis à tout moment. <a href="/confidentialite/#cookies">En savoir plus</a></p>' +
       '<div class="consent__options" hidden>' +
         '<label class="consent__option">' +
@@ -713,14 +708,21 @@
       closeConsent();
     });
 
-    consentLayer.append(consentBanner);
-    document.body.append(consentLayer);
-    document.documentElement.classList.add('has-consent-open');
-    consentBanner.setAttribute('tabindex', '-1');
-    consentBanner.focus({ preventScroll: true });
+    document.body.append(consentBanner);
+    // Apparition : léger fondu et montée (voir .consent.is-in dans base.css)
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (consentBanner) consentBanner.classList.add('is-in');
+    }));
+    if (detailed) {
+      consentBanner.setAttribute('tabindex', '-1');
+      consentBanner.focus({ preventScroll: true });
+    }
   };
 
-  if (!readConsent()) openConsent(false);
+  // Premier passage : le bandeau attend quelques secondes, le temps de
+  // découvrir la page
+  const CONSENT_DELAY = 3500;
+  if (!readConsent()) window.setTimeout(() => openConsent(false), CONSENT_DELAY);
 
   document.querySelectorAll('[data-consent-open]').forEach((link) => {
     link.addEventListener('click', () => openConsent(true));
